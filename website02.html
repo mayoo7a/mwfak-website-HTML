@@ -702,6 +702,42 @@ img { display: block; max-width: 100%; }
   height: 22px;
 }
 
+/* Work section title */
+.work-title {
+  text-align: center;
+  margin: 0 0 40px;
+  line-height: 1;
+}
+.work-title-main {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  font-size: clamp(44px, 7vw, 110px);
+  color: var(--ink);
+}
+.work-title-main::after {
+  content: "";
+  display: inline-block;
+  width: 0.45em;
+  height: 0.08em;
+  margin-left: 0.12em;
+  background: var(--pop);
+  animation: workBlink 1s steps(2) infinite;
+}
+.work-title-sub {
+  display: block;
+  margin-top: 14px;
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 26px);
+  color: var(--ink);
+  opacity: .75;
+}
+@keyframes workBlink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .work-title-main::after { animation: none; } }
+
 /* Work hero — responsive Nintendo Switch with a slideshow inside the screen */
 .work-hero {
   width: 100%;
@@ -1652,6 +1688,11 @@ img { display: block; max-width: 100%; }
      SELECTED WORK SECTION
      ============================================================ -->
 <section class="work" id="work">
+
+  <h2 class="work-title">
+    <span class="work-title-main">Press start</span>
+    <span class="work-title-sub">Pick a project and play.</span>
+  </h2>
 
   <div class="work-hero">
     <div class="switch-frame">

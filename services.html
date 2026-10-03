@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Work · Marah Touqan</title>
+<title>Services · Marah Touqan</title>
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:   #FAF3F0;
@@ -759,6 +759,30 @@ img { max-width: 100%; }
 
 /* Touch devices: no hover, so keep labels readable */
 
+
+/* Services page */
+.service { background: var(--svc); color: var(--svc-text); scroll-margin-top: 90px; padding: 90px 5vw; }
+.service-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.service-text { min-width: 0; }
+.service h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(48px, 6vw, 96px); line-height: .95; letter-spacing: -0.01em; margin-bottom: 20px; }
+.service-tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; margin-bottom: 20px; }
+.service p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; max-width: 56ch; margin-bottom: 14px; }
+.service-label { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 11px !important; letter-spacing: .26em; text-transform: uppercase; opacity: .75; margin-top: 26px; }
+.service ul { list-style: none; display: grid; gap: 8px; margin: 10px 0 30px; padding: 0; }
+.service li { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 17px; padding-left: 26px; position: relative; }
+.service li::before { content: ""; position: absolute; left: 0; top: .45em; width: 10px; height: 10px; background: currentColor; }
+.service-cta { display: inline-block; padding: 14px 26px; background: var(--bg); color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background .25s ease, color .25s ease, transform .25s ease; }
+.service-cta:hover { background: var(--ink); color: var(--bg); transform: translateY(-3px); }
+.service-media { display: grid; gap: 22px; min-width: 0; }
+.service-media img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 22px 50px -14px rgba(0,0,0,.5); }
+.service-media img:nth-child(1) { transform: rotate(-1.5deg); }
+.service-media img:nth-child(2) { transform: rotate(1.5deg); }
+.service:nth-of-type(even) .service-media { order: -1; }
+@media (max-width: 900px) {
+  .service { padding: 60px 5vw; }
+  .service-inner { grid-template-columns: 1fr; gap: 36px; }
+  .service:nth-of-type(even) .service-media { order: 0; }
+}
 </style>
 </head>
 <body>
@@ -773,162 +797,64 @@ img { max-width: 100%; }
 
 <section class="intro">
   <div class="intro-left">
-    <h1><span>My work,</span> <span>my archive</span></h1>
+    <h1><span>What I do,</span> <span>how I do it</span></h1>
   </div>
 </section>
 
-<section class="gallery">
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Baseera%20logo%20portfolio%20option%202.jpg" data-name="Baseera">
-      <img src="assets/portfolio/baseera.webp" alt="Baseera" width="1400" height="745" loading="lazy" decoding="async" />
+<section class="service" id="brand-identity" style="--svc:#FFA732;--svc-text:var(--ink)">
+  <div class="service-inner">
+    <div class="service-text">
+      <h2>Brand<br>Identity</h2>
+      <p class="service-tag">A full visual system your customers recognise everywhere.</p>
+      <p>I dig into your audience, your voice and the problem you actually solve, then build the visual system around it. Logo, colour, type and the rules that keep them working together.</p>
+      <p class="service-label">What's included</p>
+      <ul><li>Audience and positioning research</li><li>Logo and secondary marks</li><li>Colour palette and typography</li><li>Brand guidelines document</li><li>Social and stationery templates</li></ul>
+      <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Baseera</span>
-    </div>
+    <div class="service-media"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
   </div>
+</section>
 
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Zinger%20Lab%20logo%20portfolio.jpg" data-name="Zinger Lab">
-      <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab" width="1400" height="745" loading="lazy" decoding="async" />
+<section class="service" id="logo-design" style="--svc:#C21292;--svc-text:var(--bg)">
+  <div class="service-inner">
+    <div class="service-text">
+      <h2>Logo<br>Design</h2>
+      <p class="service-tag">One mark to carry your whole brand.</p>
+      <p>I draw, redraw, then redraw again until it works tiny on a phone, huge on a building, and bilingually if you need it, with Arabic and Latin balanced.</p>
+      <p class="service-label">What's included</p>
+      <ul><li>Concept sketches and exploration</li><li>Arabic, Latin or bilingual marks</li><li>Colour, black, white and icon versions</li><li>Clear-space and misuse guidance</li><li>Files ready for print and screen</li></ul>
+      <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Zinger Lab</span>
-    </div>
+    <div class="service-media"><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
   </div>
+</section>
 
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/33%20Butchery%20portfolio.jpg" data-name="33 Butchery">
-      <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery" width="1400" height="745" loading="lazy" decoding="async" />
+<section class="service" id="ui-ux-design" style="--svc:#1C7CD8;--svc-text:var(--bg)">
+  <div class="service-inner">
+    <div class="service-text">
+      <h2>UI/UX<br>Design</h2>
+      <p class="service-tag">Flows people finish instead of abandoning.</p>
+      <p>If users get lost in your app or site, it is not their fault. I map how real people tap, scroll and bail, then redesign the flow so they finish the task.</p>
+      <p class="service-label">What's included</p>
+      <ul><li>User flows and wireframes</li><li>High-fidelity screens for web and mobile</li><li>Arabic and English (RTL) layouts</li><li>Responsive from a 320px phone to a 4K monitor</li><li>Design files ready for hand-off</li></ul>
+      <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">33 Butchery</span>
-    </div>
+    <div class="service-media"><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
   </div>
+</section>
 
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Canary%20Calls%20portfolio.jpg" data-name="Canary Calls">
-      <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls" width="1400" height="745" loading="lazy" decoding="async" />
+<section class="service" id="packaging-print" style="--svc:#EF4040;--svc-text:var(--bg)">
+  <div class="service-inner">
+    <div class="service-text">
+      <h2>Packaging<br>&amp; Print</h2>
+      <p class="service-tag">A product that wins in its first two seconds.</p>
+      <p>I design packaging, labels and editorial layouts that pull people in, survive the trip home and look good in an unboxing post.</p>
+      <p class="service-label">What's included</p>
+      <ul><li>Packaging and label design</li><li>Editorial and print layouts</li><li>Print-ready files</li><li>Realistic mockups for presentation</li></ul>
+      <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Canary Calls</span>
-    </div>
+    <div class="service-media"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
   </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Compera%20Jewelry%20portfolio.jpg" data-name="Compera Jewelry">
-      <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Compera Jewelry</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Heavyweight%20Hoodies%20portfolio.jpg" data-name="Heavyweight Hoodies">
-      <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Heavyweight Hoodies</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/HBCS%20portfolio.jpg" data-name="HBCS">
-      <img src="assets/portfolio/hbcs.webp" alt="HBCS" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">HBCS</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/%D9%85%D8%AA%D9%85%D9%85%20portfolio.jpg" data-name="Motammem">
-      <img src="assets/portfolio/motammem.webp" alt="Motammem" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Motammem</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Sol%20Root%20portfolio.jpg" data-name="Sol Root">
-      <img src="assets/portfolio/sol-root.webp" alt="Sol Root" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & packaging</span>
-      <span class="project-name">Sol Root</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Ummati%20portfolio.jpg" data-name="Ummati">
-      <img src="assets/portfolio/ummati.webp" alt="Ummati" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Brand & app</span>
-      <span class="project-name">Ummati</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Battikhi%20Stays%20portfolio%204-three-columns.jpg" data-name="Battikhi Stays">
-      <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Brand & web</span>
-      <span class="project-name">Battikhi Stays</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Ticketat%20website%20portfolio.jpg" data-name="Ticketat">
-      <img src="assets/portfolio/ticketat.webp" alt="Ticketat" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Website</span>
-      <span class="project-name">Ticketat</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Mwafq%20website%20portfolio.jpg" data-name="Mwafq">
-      <img src="assets/portfolio/mwafq.webp" alt="Mwafq" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Website</span>
-      <span class="project-name">Mwafq</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/The%20Welcome%20Table%20portfolio.jpg" data-name="The Welcome Table">
-      <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Community brand</span>
-      <span class="project-name">The Welcome Table</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="my work/Portofolio/Qanadeel%20slides%20portfolio.jpg" data-name="Qanadeel">
-      <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Presentation & brand</span>
-      <span class="project-name">Qanadeel</span>
-    </div>
-  </div>
-
 </section>
 
 <section class="contact" id="contact">
@@ -1019,40 +945,6 @@ img { max-width: 100%; }
 
   </div>
 </footer>
-
-<!-- Lightbox for full-size project view -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox-close" aria-label="Close">×</button>
-  <img src="" alt="" id="lightbox-img" />
-</div>
-
-<script>
-(function(){
-  const projects = document.querySelectorAll('.project');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = lightbox.querySelector('.lightbox-close');
-
-  projects.forEach(p => {
-    p.addEventListener('click', () => {
-      lightboxImg.src = p.dataset.src;
-      lightboxImg.alt = p.dataset.name;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  const close = () => {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-  lightbox.addEventListener('click', () => close());
-  ['click','pointerup','touchend'].forEach(ev =>
-    closeBtn.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); close(); })
-  );
-  addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-})();
-</script>
 
 </body>
 </html>

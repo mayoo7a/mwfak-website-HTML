@@ -761,20 +761,20 @@ img { max-width: 100%; }
 
 
 /* Services page */
-.service { background: var(--svc); color: var(--svc-text); scroll-margin-top: 90px; padding: 90px 5vw; }
+.service { background: var(--bg); color: var(--ink); scroll-margin-top: 90px; padding: 80px 5vw; border-top: 10px solid var(--svc); }
 .service-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .service-text { min-width: 0; }
-.service h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(48px, 6vw, 96px); line-height: .95; letter-spacing: -0.01em; margin-bottom: 20px; }
+.service h2 { color: var(--ink); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(48px, 6vw, 96px); line-height: .95; letter-spacing: -0.01em; margin-bottom: 20px; }
 .service-tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; margin-bottom: 20px; }
 .service p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; max-width: 56ch; margin-bottom: 14px; }
 .service-label { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 11px !important; letter-spacing: .26em; text-transform: uppercase; opacity: .75; margin-top: 26px; }
 .service ul { list-style: none; display: grid; gap: 8px; margin: 10px 0 30px; padding: 0; }
 .service li { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 17px; padding-left: 26px; position: relative; }
-.service li::before { content: ""; position: absolute; left: 0; top: .45em; width: 10px; height: 10px; background: currentColor; }
-.service-cta { display: inline-block; padding: 14px 26px; background: var(--bg); color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background .25s ease, color .25s ease, transform .25s ease; }
+.service li::before { content: ""; position: absolute; left: 0; top: .45em; width: 10px; height: 10px; background: var(--svc); }
+.service-cta { display: inline-block; padding: 14px 26px; background: var(--svc); color: var(--svc-text); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background .25s ease, color .25s ease, transform .25s ease; }
 .service-cta:hover { background: var(--ink); color: var(--bg); transform: translateY(-3px); }
-.service-media { display: grid; gap: 22px; min-width: 0; }
-.service-media img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 22px 50px -14px rgba(0,0,0,.5); }
+.service-media { display: grid; gap: 28px; padding-right: 10px; min-width: 0; }
+.service-media img { width: 100%; height: auto; border-radius: 10px; box-shadow: 10px 10px 0 var(--svc); }
 .service-media img:nth-child(1) { transform: rotate(-1.5deg); }
 .service-media img:nth-child(2) { transform: rotate(1.5deg); }
 .service:nth-of-type(even) .service-media { order: -1; }
@@ -806,9 +806,9 @@ img { max-width: 100%; }
     <div class="service-text">
       <h2>Brand<br>Identity</h2>
       <p class="service-tag">A full visual system your customers recognise everywhere.</p>
-      <p>I dig into your audience, your voice and the problem you actually solve, then build the visual system around it. Logo, colour, type and the rules that keep them working together.</p>
+      <p>Positioning, logo, colour, type and the rules that tie them together.</p>
       <p class="service-label">What's included</p>
-      <ul><li>Audience and positioning research</li><li>Logo and secondary marks</li><li>Colour palette and typography</li><li>Brand guidelines document</li><li>Social and stationery templates</li></ul>
+      <ul><li>Audience and positioning research</li><li>Logo, colour palette and typography</li><li>Brand guidelines document</li></ul>
       <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
     <div class="service-media"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
@@ -820,9 +820,9 @@ img { max-width: 100%; }
     <div class="service-text">
       <h2>Logo<br>Design</h2>
       <p class="service-tag">One mark to carry your whole brand.</p>
-      <p>I draw, redraw, then redraw again until it works tiny on a phone, huge on a building, and bilingually if you need it, with Arabic and Latin balanced.</p>
+      <p>Drawn until it works tiny on a phone and huge on a building, in Arabic, Latin or both.</p>
       <p class="service-label">What's included</p>
-      <ul><li>Concept sketches and exploration</li><li>Arabic, Latin or bilingual marks</li><li>Colour, black, white and icon versions</li><li>Clear-space and misuse guidance</li><li>Files ready for print and screen</li></ul>
+      <ul><li>Concept sketches and exploration</li><li>Colour, black, white and icon versions</li><li>Files ready for print and screen</li></ul>
       <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
     <div class="service-media"><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
@@ -834,9 +834,9 @@ img { max-width: 100%; }
     <div class="service-text">
       <h2>UI/UX<br>Design</h2>
       <p class="service-tag">Flows people finish instead of abandoning.</p>
-      <p>If users get lost in your app or site, it is not their fault. I map how real people tap, scroll and bail, then redesign the flow so they finish the task.</p>
+      <p>I map how real people tap and scroll, then redesign the flow so they finish the task.</p>
       <p class="service-label">What's included</p>
-      <ul><li>User flows and wireframes</li><li>High-fidelity screens for web and mobile</li><li>Arabic and English (RTL) layouts</li><li>Responsive from a 320px phone to a 4K monitor</li><li>Design files ready for hand-off</li></ul>
+      <ul><li>User flows and wireframes</li><li>High-fidelity web and mobile screens</li><li>Arabic and English (RTL) layouts</li></ul>
       <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
     <div class="service-media"><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
@@ -848,9 +848,9 @@ img { max-width: 100%; }
     <div class="service-text">
       <h2>Packaging<br>&amp; Print</h2>
       <p class="service-tag">A product that wins in its first two seconds.</p>
-      <p>I design packaging, labels and editorial layouts that pull people in, survive the trip home and look good in an unboxing post.</p>
+      <p>Packaging, labels and print layouts that pull people in and look good unboxed.</p>
       <p class="service-label">What's included</p>
-      <ul><li>Packaging and label design</li><li>Editorial and print layouts</li><li>Print-ready files</li><li>Realistic mockups for presentation</li></ul>
+      <ul><li>Packaging and label design</li><li>Print-ready files</li><li>Realistic mockups</li></ul>
       <a class="service-cta" href="my-work.html">See my work →</a>
     </div>
     <div class="service-media"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /></div>

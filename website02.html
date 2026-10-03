@@ -759,22 +759,6 @@ img { display: block; max-width: 100%; }
   height: auto;
   margin: 0 auto;
 }
-/* Hands holding the console */
-.work-hero { padding: 0 9vw 8%; box-sizing: border-box; }
-.switch-frame .work-hero-img { position: relative; z-index: 1; }
-.hands {
-  position: absolute;
-  left: -12.77%;
-  top: 0;
-  width: 125.53%;
-  height: auto;
-  pointer-events: none;
-}
-.hands-back { z-index: 0; }
-.hands-front { z-index: 2; }
-.switch-screen, .joy-btn { z-index: 3; }
-
-
 /* Position the screen exactly over the SVG screen rect (x=103, y=29, w=263, h=140 in a 470x197 canvas) */
 .switch-screen {
   position: absolute;
@@ -1712,23 +1696,7 @@ img { display: block; max-width: 100%; }
 
   <div class="work-hero">
     <div class="switch-frame">
-<svg class="hands hands-back" viewBox="-60 0 590 280" shape-rendering="crispEdges" aria-hidden="true">
-  <defs>
-    <linearGradient id="armFade" x1="0" y1="0" x2="0" y2="1"><stop offset=".68" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
-    <mask id="armMask" maskUnits="userSpaceOnUse" x="-60" y="0" width="590" height="280"><rect x="-60" y="0" width="590" height="280" fill="url(#armFade)"/></mask>
-    <g id="pxHand"><path fill="#0a0a0a" d="M-44 96h56v4h-56zM-48 100h4v4h-4zM12 100h4v4h-4zM-52 104h4v4h-4zM12 104h4v4h-4zM-52 108h4v4h-4zM12 108h4v4h-4zM-48 112h4v4h-4zM12 112h4v4h-4zM-48 116h60v4h-60zM-52 120h4v4h-4zM12 120h4v4h-4zM12 124h4v4h-4zM12 128h4v4h-4zM-52 132h4v4h-4zM12 132h4v4h-4zM-48 136h60v4h-60zM-52 140h4v4h-4zM12 140h4v4h-4zM12 144h4v4h-4zM12 148h4v4h-4zM-52 152h4v4h-4zM12 152h4v4h-4zM-48 156h60v4h-60zM-48 160h4v4h-4zM12 160h4v4h-4zM-52 164h4v4h-4zM12 164h4v4h-4zM-52 168h4v4h-4zM12 168h4v4h-4zM-48 172h4v4h-4zM12 172h4v4h-4zM-44 176h4v4h-4zM12 176h4v4h-4zM-44 180h4v4h-4zM12 180h4v4h-4zM-40 184h4v4h-4zM12 184h12v4h-12zM-40 188h4v4h-4zM24 188h12v4h-12zM-40 192h4v4h-4zM36 192h12v4h-12zM-40 196h4v4h-4zM48 196h12v4h-12zM-40 200h4v4h-4zM60 200h4v4h-4zM-36 204h4v4h-4zM60 204h4v4h-4zM-36 208h4v4h-4zM60 208h4v4h-4zM-36 212h4v4h-4zM60 212h4v4h-4zM-32 216h4v4h-4zM60 216h4v4h-4zM-32 220h4v4h-4zM60 220h4v4h-4zM-32 224h4v4h-4zM60 224h4v4h-4zM-32 228h4v4h-4zM60 228h4v4h-4zM-32 232h4v4h-4zM60 232h4v4h-4zM-32 236h4v4h-4zM60 236h4v4h-4zM-32 240h4v4h-4zM60 240h4v4h-4zM-32 244h4v4h-4zM60 244h4v4h-4zM-32 248h4v4h-4zM60 248h4v4h-4zM-32 252h4v4h-4zM60 252h4v4h-4zM-32 256h4v4h-4zM60 256h4v4h-4zM-32 260h4v4h-4zM60 260h4v4h-4zM-32 264h4v4h-4zM60 264h4v4h-4zM-32 268h4v4h-4zM60 268h4v4h-4zM-32 272h4v4h-4zM60 272h4v4h-4zM-32 276h4v4h-4zM60 276h4v4h-4zM-32 280h4v4h-4zM60 280h4v4h-4zM-32 284h4v4h-4zM60 284h4v4h-4zM-32 288h4v4h-4zM60 288h4v4h-4z"/><path fill="#F4B88F" d="M-44 100h56v4h-56zM-48 104h8v4h-8zM-20 104h32v4h-32zM-48 108h60v4h-60zM-48 120h60v4h-60zM-52 124h8v4h-8zM-20 124h32v4h-32zM-52 128h64v4h-64zM-48 140h60v4h-60zM-52 144h8v4h-8zM-20 144h32v4h-32zM-52 148h64v4h-64zM-44 160h56v4h-56zM-48 164h8v4h-8zM-20 164h32v4h-32zM-48 168h60v4h-60zM-40 176h48v4h-48zM-40 180h48v4h-48zM-36 184h44v4h-44zM-36 188h56v4h-56zM-36 192h68v4h-68zM-36 196h80v4h-80zM-36 200h88v4h-88zM-32 204h84v4h-84zM-32 208h84v4h-84zM-32 212h84v4h-84zM-28 216h80v4h-80zM-28 220h80v4h-80zM-28 224h80v4h-80zM-28 228h80v4h-80zM-28 232h80v4h-80zM-28 236h80v4h-80zM-28 240h80v4h-80zM-28 244h80v4h-80zM-28 248h80v4h-80zM-28 252h80v4h-80zM-28 256h80v4h-80zM-28 260h80v4h-80zM-28 264h80v4h-80zM-28 268h80v4h-80zM-28 272h80v4h-80zM-28 276h80v4h-80zM-28 280h80v4h-80zM-28 284h80v4h-80zM-28 288h80v4h-80z"/><path fill="#D98E64" d="M-44 112h56v4h-56zM-48 132h60v4h-60zM-48 152h60v4h-60zM-44 172h56v4h-56zM8 176h4v4h-4zM8 180h4v4h-4zM8 184h4v4h-4zM20 188h4v4h-4zM32 192h4v4h-4zM44 196h4v4h-4zM52 200h8v4h-8zM52 204h8v4h-8zM52 208h8v4h-8zM52 212h8v4h-8zM52 216h8v4h-8zM52 220h8v4h-8zM52 224h8v4h-8zM52 228h8v4h-8zM52 232h8v4h-8zM52 236h8v4h-8zM52 240h8v4h-8zM52 244h8v4h-8zM52 248h8v4h-8zM52 252h8v4h-8zM52 256h8v4h-8zM52 260h8v4h-8zM52 264h8v4h-8zM52 268h8v4h-8zM52 272h8v4h-8zM52 276h8v4h-8zM52 280h8v4h-8zM52 284h8v4h-8zM52 288h8v4h-8z"/><path fill="#FFD9BD" d="M-40 104h20v4h-20zM-44 124h24v4h-24zM-44 144h24v4h-24zM-40 164h20v4h-20z"/></g>
-    <g id="pxThumb"><path fill="#0a0a0a" d="M30 44h4v4h-4zM22 48h8v4h-8zM34 48h4v4h-4zM14 52h8v4h-8zM34 52h4v4h-4zM6 56h8v4h-8zM34 56h4v4h-4zM-2 60h8v4h-8zM34 60h4v4h-4zM-10 64h8v4h-8zM30 64h4v4h-4zM-14 68h4v4h-4zM22 68h8v4h-8zM14 72h8v4h-8zM6 76h8v4h-8zM-2 80h8v4h-8zM-10 84h8v4h-8zM-14 88h4v4h-4z"/><path fill="#F4B88F" d="M30 48h4v4h-4zM22 52h8v4h-8zM14 56h8v4h-8zM6 60h12v4h-12zM-2 64h20v4h-20zM-10 68h24v4h-24zM-14 72h20v4h-20zM-14 76h12v4h-12zM-14 80h4v4h-4z"/><path fill="#D98E64" d="M30 60h4v4h-4zM22 64h8v4h-8zM14 68h8v4h-8zM6 72h8v4h-8zM-2 76h8v4h-8zM-10 80h8v4h-8zM-14 84h4v4h-4z"/><path fill="#FFD9BD" d="M30 52h4v4h-4zM22 56h12v4h-12zM18 60h12v4h-12zM18 64h4v4h-4z"/></g>
-  </defs>
-  <g mask="url(#armMask)">
-    <use href="#pxHand"/>
-    <use href="#pxHand" transform="translate(470,0) scale(-1,1)"/>
-  </g>
-</svg>
       <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
-<svg class="hands hands-front" viewBox="-60 0 590 280" shape-rendering="crispEdges" aria-hidden="true">
-  <use href="#pxThumb"/>
-  <use href="#pxThumb" transform="translate(470,54) scale(-1,1)"/>
-</svg>
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
         <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
         <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />

@@ -916,49 +916,54 @@ img { display: block; max-width: 100%; }
 }
 .gx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .testimonials-inner { position: relative; z-index: 1; }
-.gx { position: relative; max-width: 1100px; margin: 0 auto; }
-.gx-sky { position: relative; height: clamp(300px, 36vw, 400px); }
-.gx-ufo {
-  position: absolute; left: var(--x); top: var(--y);
-  width: var(--sz, 88px); height: var(--sz, 88px);
-  margin: calc(var(--sz, 88px) / -2) 0 0 calc(var(--sz, 88px) / -2);
-  padding: 0; border: 0; background: none; cursor: pointer;
-  opacity: .62; scale: .85; z-index: 2;
-  transition: opacity .35s ease, scale .35s ease, filter .35s ease;
-  animation: gxFloat var(--dur, 6s) ease-in-out var(--del, 0s) infinite alternate;
+.pl { position: relative; max-width: 1100px; margin: 0 auto; }
+.pl-sys { position: relative; width: 100%; height: clamp(250px, 38vw, 400px); }
+.pl-orbits { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.pl-orbits ellipse { fill: none; stroke: rgba(250,243,240,.13); stroke-width: 1; stroke-dasharray: 3 7; transition: stroke .35s ease, stroke-width .35s ease; }
+.pl-orbits ellipse.on { stroke: var(--pc); stroke-width: 1.6; stroke-dasharray: none; opacity: .75; }
+.pl-sun {
+  position: absolute; left: 50%; top: 50%; width: var(--sun, 84px); height: var(--sun, 84px);
+  margin: calc(var(--sun, 84px) / -2) 0 0 calc(var(--sun, 84px) / -2); border-radius: 50%; z-index: 1;
+  background: radial-gradient(circle at 38% 36%, #fff7cf 0%, #ffd56b 38%, #ff9f2e 70%, #ff5b3a 100%);
+  box-shadow: 0 0 30px 8px rgba(255,170,60,.55), 0 0 90px 30px rgba(255,120,50,.28), 0 0 180px 70px rgba(194,18,146,.18);
+  animation: plPulse 4s ease-in-out infinite;
 }
-.gx-ufo svg { width: 100%; height: 100%; display: block; }
-.gx-ufo:hover { opacity: .9; scale: 1; }
-.gx-ufo.active { opacity: 1; scale: 1.3; z-index: 3; filter: drop-shadow(0 0 16px var(--glow, #fff)) drop-shadow(0 0 40px var(--glow, #fff)); }
-.gx-ufo:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; border-radius: 12px; }
-@keyframes gxFloat {
-  from { translate: 0 -10px; rotate: -3deg; }
-  to   { translate: 8px 12px; rotate: 3deg; }
+@keyframes plPulse { 50% { box-shadow: 0 0 40px 12px rgba(255,170,60,.65), 0 0 110px 40px rgba(255,120,50,.32), 0 0 200px 80px rgba(194,18,146,.2); } }
+.pl-planet {
+  position: absolute; left: 0; top: 0; width: var(--ps); height: var(--ps);
+  margin: calc(var(--ps) / -2) 0 0 calc(var(--ps) / -2); padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  background: radial-gradient(circle at 32% 30%, var(--pl) 0%, var(--pc) 55%, var(--pd) 100%);
+  box-shadow: inset -5px -6px 12px rgba(0,0,0,.4), 0 0 14px color-mix(in srgb, var(--pc) 45%, transparent);
+  transition: box-shadow .3s ease; will-change: transform;
 }
-.gx-beam {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,.04));
-  opacity: 0; transition: opacity .4s ease;
+.pl-planet.ring::before {
+  content: ""; position: absolute; left: -48%; right: -48%; top: 38%; bottom: 38%; border-radius: 50%;
+  border: 3px solid rgba(250,243,240,.55); transform: rotate(-18deg); pointer-events: none;
 }
-.gx-beam.on { opacity: 1; }
-.gx-box {
-  position: relative; z-index: 2;
-  width: min(780px, 100%); min-height: 210px; margin: 0 auto;
-  padding: 30px clamp(20px, 4vw, 48px);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  text-align: center; background: var(--bg); color: var(--ink);
-  clip-path: polygon(10px 0, calc(100% - 10px) 0, calc(100% - 10px) 5px, calc(100% - 5px) 5px, calc(100% - 5px) 10px, 100% 10px, 100% calc(100% - 10px), calc(100% - 5px) calc(100% - 10px), calc(100% - 5px) calc(100% - 5px), calc(100% - 10px) calc(100% - 5px), calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 5px), 5px calc(100% - 5px), 5px calc(100% - 10px), 0 calc(100% - 10px), 0 10px, 5px 10px, 5px 5px, 10px 5px);
+.pl-planet:hover { box-shadow: inset -5px -6px 12px rgba(0,0,0,.4), 0 0 24px var(--pc); }
+.pl-planet.active { box-shadow: inset -5px -6px 12px rgba(0,0,0,.4), 0 0 0 3px rgba(250,243,240,.95), 0 0 34px 6px var(--pc); }
+.pl-planet:focus-visible { outline: 3px solid var(--bg); outline-offset: 5px; }
+.pl-tag {
+  position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); white-space: nowrap;
+  background: var(--bg); color: var(--ink); padding: 5px 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;
+  font-size: 11px; letter-spacing: .16em; text-transform: uppercase; opacity: 0; pointer-events: none; transition: opacity .2s ease;
 }
-.gx-rating { color: #FFA732; letter-spacing: .25em; font-size: 18px; }
-.gx-quote { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(21px, 2.5vw, 32px); line-height: 1.25; min-height: 2.5em; }
-.gx-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; }
-.gx-role { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .08em; opacity: .6; margin-top: -8px; }
-@media (max-width: 700px) {
-  .gx-sky { height: 250px; }
-  .gx-ufo { left: var(--mx); top: var(--my); --sz: 58px !important; }
-  .gx-box { min-height: 230px; padding: 24px 18px; }
+.pl-planet:hover .pl-tag, .pl-planet.active .pl-tag { opacity: 1; }
+.pl-card {
+  position: relative; z-index: 2; width: min(760px, 100%); margin: 24px auto 0; padding: 28px clamp(20px, 4vw, 44px);
+  text-align: center; color: var(--bg); border: 1.5px solid color-mix(in srgb, var(--pc, #fff) 70%, transparent);
+  background: rgba(250,243,240,.07); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 20px;
+  min-height: 210px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  animation: plIn .5s ease;
 }
-@media (prefers-reduced-motion: reduce) { .gx-ufo { animation: none; } }
+@keyframes plIn { from { opacity: 0; transform: translateY(8px); } }
+.pl-name { display: inline-flex; align-items: center; gap: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; }
+.pl-name::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--pc); box-shadow: 0 0 10px var(--pc); }
+.pl-rating { color: #FFA732; letter-spacing: .25em; font-size: 16px; }
+.pl-quote { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.6vw, 34px); line-height: 1.25; }
+.pl-role { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .08em; opacity: .65; }
+@media (max-width: 700px) { .pl-sys { height: 310px; } .pl-card { min-height: 230px; padding: 24px 18px; } .pl-tag { font-size: 9px; padding: 4px 8px; } }
+@media (prefers-reduced-motion: reduce) { .pl-sun, .pl-card { animation: none; } }
 
 @media (max-width: 900px) {
   .testimonials-row {
@@ -1699,14 +1704,16 @@ img { display: block; max-width: 100%; }
       </span>
     </h2>
 
-    <div class="gx" id="gx">
-      <div class="gx-sky" id="gxSky"></div>
-      <div class="gx-beam" id="gxBeam"></div>
-      <div class="gx-box" id="gxBox" aria-live="polite">
-        <div class="gx-rating" aria-hidden="true">★★★★★</div>
-        <p class="gx-quote" id="gxQuote"></p>
-        <p class="gx-name" id="gxName"></p>
-        <p class="gx-role" id="gxRole"></p>
+    <div class="pl" id="pl">
+      <div class="pl-sys" id="plSys">
+        <svg class="pl-orbits" id="plOrbits" aria-hidden="true"></svg>
+        <div class="pl-sun" aria-hidden="true"></div>
+      </div>
+      <div class="pl-card" id="plCard" aria-live="polite">
+        <span class="pl-name" id="plName"></span>
+        <div class="pl-rating" aria-hidden="true">★★★★★</div>
+        <p class="pl-quote" id="plQuote"></p>
+        <p class="pl-role" id="plRole"></p>
       </div>
     </div>
 
@@ -2017,14 +2024,14 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
 })();
 
 /* ============================================================
-   REVIEWS GALAXY: starfield canvas, floating UFOs, beam + typed quote
+   REVIEWS: planets orbiting a sun, starfield canvas
    ============================================================ */
-(function galaxy(){
-  const sky = document.getElementById('gxSky');
+(function solarReviews(){
+  const sys = document.getElementById('plSys');
   const sec = document.getElementById('testimonials');
-  if (!sky || !sec) return;
-  const beam = document.getElementById('gxBeam'), box = document.getElementById('gxBox'), gx = document.getElementById('gx');
-  const qEl = document.getElementById('gxQuote'), nEl = document.getElementById('gxName'), rEl = document.getElementById('gxRole');
+  if (!sys || !sec) return;
+  const svg = document.getElementById('plOrbits'), card = document.getElementById('plCard');
+  const nEl = document.getElementById('plName'), qEl = document.getElementById('plQuote'), rEl = document.getElementById('plRole');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const profiles = [
@@ -2040,95 +2047,75 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     { name: 'Tara N.',   role: 'Editorial · Freelancer.com',           stars: 5, img: '', review: 'Great communication and great work.' },
   ];
 
-  const ICON =
-    '<svg class="tc-alien" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
-      // Shadow under the ship
-      '<ellipse cx="50" cy="93" rx="22" ry="2.5" fill="#000" opacity="0.18"/>' +
-      // Antenna line + ball
-      '<line x1="50" y1="20" x2="50" y2="28" stroke="#0e1838" stroke-width="1.5" stroke-linecap="round"/>' +
-      '<circle cx="50" cy="18" r="2.2" fill="#fdfcf9" stroke="#0e1838" stroke-width="1.2"/>' +
-      // Bottom of saucer
-      '<ellipse cx="50" cy="78" rx="32" ry="13" fill="#8e7eb2" stroke="#0e1838" stroke-width="1.8"/>' +
-      // Saucer rim / plate
-      '<ellipse cx="50" cy="68" rx="44" ry="10" fill="#fdfcf9" stroke="#0e1838" stroke-width="1.8"/>' +
-      // Glass dome
-      '<path d="M 25 68 Q 25 30 50 28 Q 75 30 75 68 Z" fill="#a8d8f0" opacity="0.85" stroke="#0e1838" stroke-width="1.8"/>' +
-      // Dome shine highlights
-      '<path d="M 32 58 Q 32 42 42 38" stroke="#fdfcf9" stroke-width="2" fill="none" opacity="0.85" stroke-linecap="round"/>' +
-      '<circle cx="40" cy="52" r="1.5" fill="#fdfcf9" opacity="0.8"/>' +
-      // Alien head
-      '<ellipse cx="50" cy="56" rx="13" ry="17" fill="#7dc94b" stroke="#0e1838" stroke-width="1.5"/>' +
-      // Big eyes
-      '<ellipse cx="44" cy="55" rx="3.2" ry="5" fill="#0e1838"/>' +
-      '<ellipse cx="56" cy="55" rx="3.2" ry="5" fill="#0e1838"/>' +
-      // Eye sparkles
-      '<ellipse cx="43" cy="52" rx="1.3" ry="1.8" fill="#fdfcf9"/>' +
-      '<ellipse cx="55" cy="52" rx="1.3" ry="1.8" fill="#fdfcf9"/>' +
-      '<circle cx="45" cy="58" r="0.7" fill="#fdfcf9" opacity="0.8"/>' +
-      '<circle cx="57" cy="58" r="0.7" fill="#fdfcf9" opacity="0.8"/>' +
-      // Tiny smile
-      '<path d="M 47 64 Q 50 66.5 53 64" stroke="#0e1838" stroke-width="1.1" fill="none" stroke-linecap="round"/>' +
-      // Orange collar
-      '<rect x="44" y="68" width="12" height="3" fill="#f5a623" stroke="#0e1838" stroke-width="1"/>' +
-      // Arms / mitten hands
-      '<circle cx="40" cy="70" r="3" fill="#7dc94b" stroke="#0e1838" stroke-width="1.4"/>' +
-      '<circle cx="60" cy="70" r="3" fill="#7dc94b" stroke="#0e1838" stroke-width="1.4"/>' +
-      '<circle cx="39" cy="70" r="1.2" fill="#fdfcf9" stroke="#0e1838" stroke-width="0.7"/>' +
-      '<circle cx="61" cy="70" r="1.2" fill="#fdfcf9" stroke="#0e1838" stroke-width="0.7"/>' +
-      // Portholes on the rim
-      '<circle cx="20" cy="68" r="1.6" fill="#c4baD8" stroke="#0e1838" stroke-width="0.9"/>' +
-      '<circle cx="80" cy="68" r="1.6" fill="#c4baD8" stroke="#0e1838" stroke-width="0.9"/>' +
-      // Center button on the bottom
-      '<ellipse cx="50" cy="82" rx="2.5" ry="1.5" fill="#b09acf" stroke="#0e1838" stroke-width="0.9"/>' +
-      // Landing legs
-      '<rect x="36" y="86" width="2.5" height="4" fill="#fdfcf9" stroke="#0e1838" stroke-width="1"/>' +
-      '<rect x="61.5" y="86" width="2.5" height="4" fill="#fdfcf9" stroke="#0e1838" stroke-width="1"/>' +
-    '</svg>';
 
-  const glow = ['#F4B6C2','#B7E4C7','#FFCBA4','#C8B6E2','#FCE38A','#B8DCE6','#DCC8E2','#FBC4AB'];
-  const dx = [8,21,34,46,58,70,82,93], dy = [38,70,26,64,30,68,28,62];
-  const mx = [16,40,64,88,16,40,64,88], my = [28,28,28,28,72,72,72,72];
-  const ufos = [];
-  let cur = 0, timer = null, typer = null;
+  // [light, base, dark]
+  const colors = [
+    ['#ffd2a1','#FFA732','#b8650f'], ['#f6a2dd','#C21292','#6b0a52'], ['#a9d3ff','#1C7CD8','#0c4380'], ['#ff9c9c','#EF4040','#8f1717'],
+    ['#d9b0ff','#9b3fe0','#4a1476'], ['#9ff0e0','#1fb6a0','#0b6155'], ['#fff2a0','#f2cf2e','#9a7f06'], ['#ffc4d6','#f27aa1','#9a3555']
+  ];
+  const N = profiles.length;
+  const planets = [], orbits = [];
+  let cur = 0, timer = null, PW = 0, PH = 0, scale = 1, speed = 1, target = 1, lastT = 0;
 
   profiles.forEach((p, i) => {
+    const [l, c, d] = colors[i % colors.length];
     const b = document.createElement('button');
     b.type = 'button';
-    b.className = 'gx-ufo';
+    b.className = 'pl-planet' + (i === 2 ? ' ring' : '');
+    b.style.setProperty('--pl', l); b.style.setProperty('--pc', c); b.style.setProperty('--pd', d);
     b.setAttribute('aria-label', 'Show review from ' + p.name);
-    b.style.setProperty('--x', dx[i] + '%'); b.style.setProperty('--y', dy[i] + '%');
-    b.style.setProperty('--mx', mx[i] + '%'); b.style.setProperty('--my', my[i] + '%');
-    b.style.setProperty('--glow', glow[i % glow.length]);
-    b.style.setProperty('--dur', (5 + (i % 4)) + 's'); b.style.setProperty('--del', (-i * 0.9) + 's');
-    b.innerHTML = ICON;
+    b.innerHTML = '<span class="pl-tag">' + p.name + '</span>';
     b.addEventListener('click', () => { show(i); restart(); });
-    sky.appendChild(b); ufos.push(b);
+    b.addEventListener('pointerenter', () => { target = 0.08; });
+    b.addEventListener('pointerleave', () => { target = 1; });
+    sys.appendChild(b);
+    planets.push({ el: b, a: 0, bb: 0, ang: (i / N) * Math.PI * 2 + 0.6, w: 0.34 / (1 + i * 0.32), size: 0, base: [30, 38, 44, 34, 40, 32, 36, 30][i % 8] });
   });
 
+  function layout(){
+    const r = sys.getBoundingClientRect(); PW = r.width; PH = r.height;
+    scale = Math.max(PW / 1000, 0.34);
+    sys.style.setProperty('--sun', Math.round(Math.max(84 * scale, 50)) + 'px');
+    svg.setAttribute('viewBox', '0 0 ' + PW + ' ' + PH);
+    svg.innerHTML = '';
+    planets.forEach((pl, i) => {
+      pl.a = (150 + i * 45) * scale;
+      pl.bb = pl.a * (PW < 700 ? 0.5 : 0.3);
+      pl.size = Math.round(Math.max(pl.base * Math.max(scale, 0.6), 20));
+      pl.el.style.setProperty('--ps', pl.size + 'px');
+      const e = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+      e.setAttribute('cx', PW / 2); e.setAttribute('cy', PH / 2); e.setAttribute('rx', pl.a); e.setAttribute('ry', pl.bb);
+      e.style.setProperty('--pc', colors[i % colors.length][1]);
+      svg.appendChild(e); orbits[i] = e;
+    });
+    orbits.forEach((e, i) => e.classList.toggle('on', i === cur));
+    place();
+  }
+  function place(){
+    planets.forEach(pl => {
+      const x = PW / 2 + Math.cos(pl.ang) * pl.a, y = PH / 2 + Math.sin(pl.ang) * pl.bb;
+      const depth = 0.82 + 0.28 * (Math.sin(pl.ang) + 1) / 2;
+      pl.el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) scale(' + depth.toFixed(3) + ')';
+      pl.el.style.zIndex = Math.sin(pl.ang) > 0 ? 3 : 0;
+    });
+  }
+  function orbit(t){
+    const dt = Math.min((t - lastT) / 1000, 0.05); lastT = t;
+    speed += (target - speed) * 0.08;
+    planets.forEach(pl => { pl.ang += pl.w * dt * speed; });
+    place();
+  }
   function show(i){
     cur = i;
-    const p = profiles[i];
-    ufos.forEach((u, j) => u.classList.toggle('active', j === i));
-    nEl.textContent = p.name; rEl.textContent = p.role;
-    clearInterval(typer);
-    const text = '\u201C' + p.review + '\u201D';
-    if (reduce) { qEl.textContent = text; }
-    else {
-      qEl.textContent = ''; let n = 0;
-      typer = setInterval(() => { n++; qEl.textContent = text.slice(0, n); if (n >= text.length) clearInterval(typer); }, 22);
-    }
-    beam.classList.add('on');
-    placeBeam();
+    const p = profiles[i], c = colors[i % colors.length][1];
+    planets.forEach((pl, j) => pl.el.classList.toggle('active', j === i));
+    orbits.forEach((e, j) => e.classList.toggle('on', j === i));
+    card.style.setProperty('--pc', c);
+    nEl.style.setProperty('--pc', c);
+    nEl.textContent = p.name; qEl.textContent = '\u201C' + p.review + '\u201D'; rEl.textContent = p.role;
+    card.style.animation = 'none'; void card.offsetWidth; card.style.animation = '';
   }
-  function placeBeam(){
-    const u = ufos[cur]; if (!u) return;
-    const g = gx.getBoundingClientRect(), ur = u.getBoundingClientRect(), br = box.getBoundingClientRect();
-    const ux = ur.left + ur.width / 2 - g.left, uy = ur.top + ur.height * 0.62 - g.top;
-    const by = br.top - g.top + 2, bl = br.left - g.left, bw = br.width;
-    const x1 = Math.max(bl + 16, Math.min(bl + bw - 16, ux - 120)), x2 = Math.max(bl + 16, Math.min(bl + bw - 16, ux + 120));
-    beam.style.clipPath = 'polygon(' + (ux - 8) + 'px ' + uy + 'px,' + (ux + 8) + 'px ' + uy + 'px,' + x2 + 'px ' + by + 'px,' + x1 + 'px ' + by + 'px)';
-  }
-  function restart(){ clearInterval(timer); timer = setInterval(() => show((cur + 1) % profiles.length), 6500); }
+  function restart(){ clearInterval(timer); timer = setInterval(() => show((cur + 1) % N), 6500); }
 
   /* starfield */
   const cv = document.getElementById('gxCanvas'), ctx = cv.getContext('2d');
@@ -2162,16 +2149,17 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     }
     ctx.globalAlpha = 1; last = t;
   }
-  function loop(t){ draw(t); placeBeam(); raf = requestAnimationFrame(loop); }
+  function loop(t){ draw(t); orbit(t); raf = requestAnimationFrame(loop); }
 
-  resize();
-  addEventListener('resize', () => { resize(); placeBeam(); });
+
+  layout(); resize();
+  addEventListener('resize', () => { layout(); resize(); });
   show(0);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(es => {
       visible = es[0].isIntersecting;
       cancelAnimationFrame(raf);
-      if (visible) { restart(); if (!reduce) raf = requestAnimationFrame(loop); else placeBeam(); } else clearInterval(timer);
+      if (visible) { restart(); lastT = performance.now(); if (!reduce) raf = requestAnimationFrame(loop); } else clearInterval(timer);
     }, { threshold: .1 }).observe(sec);
   } else { restart(); }
 })();

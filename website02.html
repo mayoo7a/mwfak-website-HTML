@@ -633,8 +633,24 @@ img { display: block; max-width: 100%; }
     margin-right: 0;
     transform: rotate(-2deg);
   }
+  .mag-card { padding: 26px 14px 76px; }
+  .mag-card h3 { font-size: clamp(13px, 1.7vw, 17px); }
+  .mag-card-ribbon { padding: 10px 14px 11px; font-size: 10px; letter-spacing: .1em; max-width: calc(100% - 16px); }
   .mag-card[data-card="02"] { transform: rotate(2deg); }
   .mag-card[data-card="04"] { transform: rotate(2deg); }
+}
+@media (max-width: 900px) {
+  .mag-cards { flex-wrap: wrap; gap: 18px; }
+  .mag-card,
+  .mag-card[data-card="01"],
+  .mag-card[data-card="02"],
+  .mag-card[data-card="03"],
+  .mag-card[data-card="04"] {
+    flex: 0 1 calc(50% - 9px);
+    min-height: 150px;
+    transform: rotate(0deg);
+  }
+  .mag-card h3 { font-size: clamp(16px, 3vw, 22px); }
 }
 @media (max-width: 600px) {
   .mag-cards { flex-wrap: wrap; gap: 16px; }

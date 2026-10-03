@@ -1,8 +1,8 @@
-# Mwfak — Medical Exams, Made Simple
+# Marah — Medical Exams, Made Simple
 
-موافق — منصة الفحوصات الطبية الرقمية للسوق السعودي.
+مرح — منصة الفحوصات الطبية الرقمية للسوق السعودي.
 
-A homepage prototype for Mwfak, a Saudi healthtech platform for booking and managing official medical exams (driving license, residency, municipality, occupational health). Built as a static single-page site, no build step required.
+A homepage prototype for Marah, a Saudi healthtech platform for booking and managing official medical exams (driving license, residency, municipality, occupational health). Built as a static single-page site, no build step required.
 
 ## Live preview
 
@@ -34,7 +34,7 @@ Open the live URL on desktop and on a phone. Things that are useful to flag:
 
 - **Copy** — anything that reads off in either language.
 - **Layout** — anything that looks misaligned, especially when comparing the EN and AR versions side by side. They should be pixel-for-pixel mirrored.
-- **Animations** — the typewriter words in the hero, the "لماذا موافق" / "Why Mwafq" sticky scroll cards, and the services hover. Note anything that feels jittery or wrong-direction.
+- **Animations** — the typewriter words in the hero, the "لماذا مرح" / "Why Marah" sticky scroll cards, and the services hover. Note anything that feels jittery or wrong-direction.
 - **Mobile** — the layout collapses to single-column under 880px. Flag anything that breaks at common phone widths.
 
 Thanks for taking a look.

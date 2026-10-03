@@ -746,6 +746,23 @@ img { display: block; max-width: 100%; }
 }
 .screen-slide.is-active { opacity: 1; }
 
+/* Clickable Joy-Con buttons (positions are % of the 470x197 console canvas) */
+.joy-btn {
+  position: absolute;
+  width: 4.2%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.joy-btn:hover { background: rgba(255,255,255,.28); box-shadow: 0 0 0 3px rgba(255,255,255,.55); }
+.joy-btn:active { transform: translate(-50%, -50%) scale(.85); background: rgba(0,0,0,.3); }
+.joy-btn:focus-visible { outline: 3px solid var(--primary, #1C7CD8); outline-offset: 2px; }
+
 @media (max-width: 1024px) {
   .work { padding: 100px 5vw 120px; }
 }
@@ -1656,6 +1673,13 @@ img { display: block; max-width: 100%; }
         <img src="assets/portfolio/sol-root.webp" alt="Sol Root logo and packaging" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
         <img src="assets/portfolio/ummati.webp" alt="Ummati brand and app" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
       </a>
+      <button type="button" class="joy-btn" data-joy="next" style="left:95.70%;top:25.13%" aria-label="Next project (A)"></button>
+      <button type="button" class="joy-btn" data-joy="prev" style="left:92.49%;top:32.23%" aria-label="Previous project (B)"></button>
+      <button type="button" class="joy-btn" data-joy="pause" style="left:89.30%;top:25.13%" aria-label="Pause or resume slideshow (Y)"></button>
+      <button type="button" class="joy-btn" data-joy="work" style="left:92.49%;top:18.02%" aria-label="See all my work (X)"></button>
+      <button type="button" class="joy-btn" data-joy="prev" style="left:4.06%;top:52.18%" aria-label="Previous project"></button>
+      <button type="button" class="joy-btn" data-joy="next" style="left:10.47%;top:52.69%" aria-label="Next project"></button>
+      <button type="button" class="joy-btn" data-joy="work" style="left:90.40%;top:71.27%" aria-label="See all my work"></button>
     </div>
   </div>
 
@@ -2121,16 +2145,27 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
   }
 })();
 
-/* Switch screen slideshow — cycle every 2 seconds */
+/* Switch screen slideshow: auto-cycles every 2 seconds, Joy-Con buttons control it */
 (function switchSlideshow(){
   const slides = document.querySelectorAll('.screen-slide');
   if (slides.length < 2) return;
-  let i = 0;
-  setInterval(() => {
+  let i = 0, timer = null, paused = false;
+  const show = n => {
     slides[i].classList.remove('is-active');
-    i = (i + 1) % slides.length;
+    i = (n + slides.length) % slides.length;
     slides[i].classList.add('is-active');
-  }, 2000);
+    slides[i].loading = 'eager';
+  };
+  const start = () => { clearInterval(timer); if (!paused) timer = setInterval(() => show(i + 1), 2000); };
+  const actions = {
+    next:  () => { show(i + 1); start(); },
+    prev:  () => { show(i - 1); start(); },
+    pause: () => { paused = !paused; paused ? clearInterval(timer) : start(); },
+    work:  () => { location.href = 'my-work.html'; }
+  };
+  document.querySelectorAll('.joy-btn').forEach(btn =>
+    btn.addEventListener('click', () => actions[btn.dataset.joy]()));
+  start();
 })();
 
 /* Track cursor position globally so scroll-aware tooltips can recheck */

@@ -759,6 +759,22 @@ img { display: block; max-width: 100%; }
   height: auto;
   margin: 0 auto;
 }
+/* Hands holding the console */
+.work-hero { padding: 0 9vw 8%; box-sizing: border-box; }
+.switch-frame .work-hero-img { position: relative; z-index: 1; }
+.hands {
+  position: absolute;
+  left: -12.77%;
+  top: 0;
+  width: 125.53%;
+  height: auto;
+  pointer-events: none;
+}
+.hands-back { z-index: 0; }
+.hands-front { z-index: 2; }
+.switch-screen, .joy-btn { z-index: 3; }
+
+
 /* Position the screen exactly over the SVG screen rect (x=103, y=29, w=263, h=140 in a 470x197 canvas) */
 .switch-screen {
   position: absolute;
@@ -1696,7 +1712,37 @@ img { display: block; max-width: 100%; }
 
   <div class="work-hero">
     <div class="switch-frame">
+<svg class="hands hands-back" viewBox="-60 0 590 280" aria-hidden="true">
+  <defs>
+    <linearGradient id="armFade" x1="0" y1="0" x2="0" y2="1"><stop offset=".68" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+    <mask id="armMask" maskUnits="userSpaceOnUse" x="-60" y="0" width="590" height="280"><rect x="-60" y="0" width="590" height="280" fill="url(#armFade)"/></mask>
+  </defs>
+  <g mask="url(#armMask)">
+    <g>
+      <path fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" d="M -6,92 C -40,92 -54,122 -50,152 C -47,184 -34,210 -30,290 L 66,290 C 62,250 54,222 46,192 L 12,192 Z"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-50" y="100" width="62" height="23" rx="11.5"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-50" y="125" width="62" height="23" rx="11.5"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-48" y="150" width="60" height="23" rx="11.5"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-42" y="175" width="54" height="22" rx="11"/>
+    </g>
+    <g transform="translate(470,0) scale(-1,1)">
+      <path fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" d="M -6,92 C -40,92 -54,122 -50,152 C -47,184 -34,210 -30,290 L 66,290 C 62,250 54,222 46,192 L 12,192 Z"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-50" y="100" width="62" height="23" rx="11.5"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-50" y="125" width="62" height="23" rx="11.5"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-48" y="150" width="60" height="23" rx="11.5"/>
+      <rect fill="#F4B88F" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" x="-42" y="175" width="54" height="22" rx="11"/>
+    </g>
+  </g>
+</svg>
       <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
+<svg class="hands hands-front" viewBox="-60 0 590 280" aria-hidden="true">
+  <path d="M -6,76 L 29,56" stroke="#0a0a0a" stroke-width="21" stroke-linecap="round" fill="none"/>
+  <path d="M -6,76 L 29,56" stroke="#F4B88F" stroke-width="16.5" stroke-linecap="round" fill="none"/>
+  <ellipse cx="28" cy="56" rx="5" ry="4" transform="rotate(-30 31 54)" fill="#FBD3B5" stroke="#0a0a0a" stroke-width="1.5"/>
+  <path d="M 478,124 L 441,107" stroke="#0a0a0a" stroke-width="21" stroke-linecap="round" fill="none"/>
+  <path d="M 478,124 L 441,107" stroke="#F4B88F" stroke-width="16.5" stroke-linecap="round" fill="none"/>
+  <ellipse cx="442" cy="107" rx="5" ry="4" transform="rotate(24 439 106)" fill="#FBD3B5" stroke="#0a0a0a" stroke-width="1.5"/>
+</svg>
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
         <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
         <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />

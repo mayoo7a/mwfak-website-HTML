@@ -874,6 +874,10 @@ img { display: block; max-width: 100%; }
   font-size: clamp(36px, 5.4vw, 84px);
   white-space: nowrap;
 }
+@media (max-width: 700px) {
+  .testimonials-title { text-align: center; }
+  .testimonials-title-banner { white-space: normal; font-size: clamp(30px, 9.5vw, 48px); text-wrap: balance; }
+}
 /* Override the old per-word styles — every word is just inline plain text on the swipe */
 .zg, .zg-1, .zg-2, .zg-3, .zg-4, .zg-5 {
   display: inline;
@@ -1028,11 +1032,12 @@ img { display: block; max-width: 100%; }
 }
 
 @media (max-width: 1024px) {
-  .testimonials { padding: 20px 5vw 100px; }
+  .testimonials { padding: 90px 5vw 100px; min-height: max(100vh, 640px); }
+  .testimonials-inner { margin-top: 0; }
   .testimonials-title { margin-bottom: 60px; }
 }
 @media (max-width: 600px) {
-  .testimonials { padding: 20px 5vw 80px; }
+  .testimonials { padding: 80px 5vw 80px; }
 }
 
 /* =========================================================
@@ -1348,6 +1353,7 @@ img { display: block; max-width: 100%; }
   display: block;
   margin-right: 6px;
 }
+.footer-bottom .footer-copy { margin-right: 76px; }
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center;
   flex-wrap: wrap;

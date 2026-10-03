@@ -905,128 +905,60 @@ img { display: block; max-width: 100%; }
 }
 
 /* ============================================================
-   TESTIMONIALS CAROUSEL — 3D rotating profile circle
+   REVIEWS GALAXY: starfield, floating UFOs, transmission box
    ============================================================ */
-.tc-scene {
-  perspective: 1400px;
-  width: min(92vmin, 720px);
-  aspect-ratio: 1.7;
-  display: grid;
-  place-items: center;
-  position: relative;
-  margin: -60px auto 0;
+.testimonials {
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(113,29,176,.38), transparent 55%),
+    radial-gradient(ellipse at 88% 85%, rgba(194,18,146,.28), transparent 55%),
+    radial-gradient(ellipse at 62% 42%, rgba(28,124,216,.2), transparent 60%),
+    var(--ink);
 }
-.tc-ring {
-  position: relative;
-  width: 0; height: 0;
-  transform-style: preserve-3d;
-  transform: rotateX(-6deg) rotateY(0deg);
-  transition: transform 0.7s cubic-bezier(.6, .02, .2, 1);
+.gx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.testimonials-inner { position: relative; z-index: 1; }
+.gx { position: relative; max-width: 1100px; margin: 0 auto; }
+.gx-sky { position: relative; height: clamp(300px, 36vw, 400px); }
+.gx-ufo {
+  position: absolute; left: var(--x); top: var(--y);
+  width: var(--sz, 88px); height: var(--sz, 88px);
+  margin: calc(var(--sz, 88px) / -2) 0 0 calc(var(--sz, 88px) / -2);
+  padding: 0; border: 0; background: none; cursor: pointer;
+  opacity: .62; scale: .85; z-index: 2;
+  transition: opacity .35s ease, scale .35s ease, filter .35s ease;
+  animation: gxFloat var(--dur, 6s) ease-in-out var(--del, 0s) infinite alternate;
 }
-.tc-node {
-  position: absolute;
-  width: var(--s);
-  height: var(--s);
-  margin: calc(var(--s) / -2);
-  transform: rotateY(var(--a)) translateZ(var(--r)) scale(0);
-  animation: tcPop .8s cubic-bezier(.2, .9, .25, 1) var(--d) forwards;
+.gx-ufo svg { width: 100%; height: 100%; display: block; }
+.gx-ufo:hover { opacity: .9; scale: 1; }
+.gx-ufo.active { opacity: 1; scale: 1.3; z-index: 3; filter: drop-shadow(0 0 16px var(--glow, #fff)) drop-shadow(0 0 40px var(--glow, #fff)); }
+.gx-ufo:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; border-radius: 12px; }
+@keyframes gxFloat {
+  from { translate: 0 -10px; rotate: -3deg; }
+  to   { translate: 8px 12px; rotate: 3deg; }
 }
-@keyframes tcPop {
-  to { transform: rotateY(var(--a)) translateZ(var(--r)) scale(1); }
+.gx-beam {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,.04));
+  opacity: 0; transition: opacity .4s ease;
 }
-.tc-pic {
-  width: 100%; height: 100%;
-  border-radius: 22%;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  background: var(--c1, #2A2E36);
-  box-shadow: 0 0 0 4px var(--c2), 0 0 36px 4px var(--c1), 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 2px rgba(255,255,255,.10);
-  transform: scale(0.56);
-  transition: transform .7s cubic-bezier(.6, .02, .2, 1), box-shadow .5s ease, opacity .6s ease;
-  backface-visibility: hidden;
+.gx-beam.on { opacity: 1; }
+.gx-box {
+  position: relative; z-index: 2;
+  width: min(780px, 100%); min-height: 210px; margin: 0 auto;
+  padding: 30px clamp(20px, 4vw, 48px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  text-align: center; background: var(--bg); color: var(--ink);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, calc(100% - 10px) 5px, calc(100% - 5px) 5px, calc(100% - 5px) 10px, 100% 10px, 100% calc(100% - 10px), calc(100% - 5px) calc(100% - 10px), calc(100% - 5px) calc(100% - 5px), calc(100% - 10px) calc(100% - 5px), calc(100% - 10px) 100%, 10px 100%, 10px calc(100% - 5px), 5px calc(100% - 5px), 5px calc(100% - 10px), 0 calc(100% - 10px), 0 10px, 5px 10px, 5px 5px, 10px 5px);
 }
-.tc-pic img { width: 100%; height: 100%; object-fit: cover; }
-.tc-pic svg.tc-alien { width: 72%; height: 72%; }
-/* No box — just floating text on the section background */
-.tc-review {
-  position: absolute;
-  top: calc(132% + 20px);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px) scale(0.85);
-  transform-origin: top center;
-  width: max-content;
-  max-width: min(85vmin, 460px);
-  text-align: center;
-  opacity: 0;
-  transition: opacity .35s ease .15s,
-              transform .45s cubic-bezier(.34, 1.45, .64, 1) .15s;
-  pointer-events: none;
-  background: transparent;
-  color: var(--bg);
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+.gx-rating { color: #FFA732; letter-spacing: .25em; font-size: 18px; }
+.gx-quote { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(21px, 2.5vw, 32px); line-height: 1.25; min-height: 2.5em; }
+.gx-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; }
+.gx-role { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .08em; opacity: .6; margin-top: -8px; }
+@media (max-width: 700px) {
+  .gx-sky { height: 250px; }
+  .gx-ufo { left: var(--mx); top: var(--my); --sz: 58px !important; }
+  .gx-box { min-height: 230px; padding: 24px 18px; }
 }
-.tc-review .tc-quote {
-  font-family: 'Karla', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: clamp(18px, 2.6vmin, 23px);
-  line-height: 1.35;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: none;
-  padding: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.tc-review .tc-quote .hl {
-  background: none;
-  padding: 0;
-}
-.tc-review .tc-name {
-  margin-top: .7rem;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--bg);
-}
-.tc-review .tc-role {
-  margin-top: 1px;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 500;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bg);
-  opacity: .55;
-}
-.tc-node.active .tc-pic {
-  transform: scale(1.08);
-  box-shadow: 0 0 0 4px var(--c2), 0 18px 48px rgba(0, 0, 0, .35);
-  opacity: 1;
-}
-/* Fade + scale neighbors by their ring distance from the active avatar */
-.tc-node[data-d="1"] .tc-pic { opacity: 0.8; transform: scale(0.74); }
-.tc-node[data-d="2"] .tc-pic { opacity: 0.6; transform: scale(0.610); }
-.tc-node[data-d="3"] .tc-pic { opacity: 0.3; transform: scale(0.472); }
-.tc-node[data-d="4"] .tc-pic { opacity: 0.1; transform: scale(0.448); }
-/* Hide the alien illustration on the far cards (3rd from each side + back) — show only the colored background */
-.tc-node[data-d="2"] .tc-alien,
-.tc-node[data-d="3"] .tc-alien,
-.tc-node[data-d="4"] .tc-alien { display: none; }
-.tc-node.active .tc-review {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0) scale(1);
-}
+@media (prefers-reduced-motion: reduce) { .gx-ufo { animation: none; } }
 
 @media (max-width: 900px) {
   .testimonials-row {
@@ -1753,6 +1685,7 @@ img { display: block; max-width: 100%; }
      TESTIMONIALS SECTION
      ============================================================ -->
 <section class="testimonials" id="testimonials">
+  <canvas class="gx-canvas" id="gxCanvas" aria-hidden="true"></canvas>
 
   <div class="testimonials-inner">
 
@@ -1766,9 +1699,18 @@ img { display: block; max-width: 100%; }
       </span>
     </h2>
 
-    <div class="testimonials-row">
-      <div class="tc-scene"><div class="tc-ring" id="tcRing"></div></div>
+    <div class="gx" id="gx">
+      <div class="gx-sky" id="gxSky"></div>
+      <div class="gx-beam" id="gxBeam"></div>
+      <div class="gx-box" id="gxBox" aria-live="polite">
+        <div class="gx-rating" aria-hidden="true">★★★★★</div>
+        <p class="gx-quote" id="gxQuote"></p>
+        <p class="gx-name" id="gxName"></p>
+        <p class="gx-role" id="gxRole"></p>
+      </div>
     </div>
+
+  </div>
 
   </div>
 
@@ -2075,11 +2017,15 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
 })();
 
 /* ============================================================
-   TESTIMONIALS 3D CAROUSEL
+   REVIEWS GALAXY: starfield canvas, floating UFOs, beam + typed quote
    ============================================================ */
-(function tcCarousel(){
-  const ring = document.getElementById('tcRing');
-  if (!ring) return;
+(function galaxy(){
+  const sky = document.getElementById('gxSky');
+  const sec = document.getElementById('testimonials');
+  if (!sky || !sec) return;
+  const beam = document.getElementById('gxBeam'), box = document.getElementById('gxBox'), gx = document.getElementById('gx');
+  const qEl = document.getElementById('gxQuote'), nEl = document.getElementById('gxName'), rEl = document.getElementById('gxRole');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const profiles = [
     // ----- Real reviews (showing inline green alien art on a gray background) -----
@@ -2094,7 +2040,6 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     { name: 'Tara N.',   role: 'Editorial · Freelancer.com',           stars: 5, img: '', review: 'Great communication and great work.' },
   ];
 
-  // Cute kawaii green alien inside a UFO — original SVG inspired by the kawaii style
   const ICON =
     '<svg class="tc-alien" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
       // Shadow under the ship
@@ -2139,74 +2084,96 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
       '<rect x="36" y="86" width="2.5" height="4" fill="#fdfcf9" stroke="#0e1838" stroke-width="1"/>' +
       '<rect x="61.5" y="86" width="2.5" height="4" fill="#fdfcf9" stroke="#0e1838" stroke-width="1"/>' +
     '</svg>';
-  // 8 soft pastel backgrounds — second value is a darker shade of the same hue
-  // used as the active-card border color
-  const palette = [
-    ['#F4B6C2', '#C68C9B'], // soft pink + darker pink
-    ['#B7E4C7', '#7FB28E'], // mint + darker mint
-    ['#FFCBA4', '#D89763'], // peach + darker peach
-    ['#C8B6E2', '#9682B7'], // lavender + deeper lavender
-    ['#FCE38A', '#C9B252'], // butter yellow + mustard
-    ['#B8DCE6', '#7FA8B3'], // sky blue + deeper blue
-    ['#DCC8E2', '#A48BB2'], // lilac + deeper lilac
-    ['#FBC4AB', '#C68C73'], // rose + deeper rose
-  ];
 
-  const N = profiles.length;
-  const SLOT = 360 / N;
-  const R = 'min(40vmin, 300px)';
-  const ROTATE = 700;
-  const FREEZE = 1500;
-  let nodes = [], k = 0, timer;
+  const glow = ['#F4B6C2','#B7E4C7','#FFCBA4','#C8B6E2','#FCE38A','#B8DCE6','#DCC8E2','#FBC4AB'];
+  const dx = [8,21,34,46,58,70,82,93], dy = [38,70,26,64,30,68,28,62];
+  const mx = [16,40,64,88,16,40,64,88], my = [28,28,28,28,72,72,72,72];
+  const ufos = [];
+  let cur = 0, timer = null, typer = null;
 
   profiles.forEach((p, i) => {
-    const [c1, c2] = palette[i % palette.length];
-    const node = document.createElement('div');
-    node.className = 'tc-node';
-    node.style.setProperty('--a', (SLOT * i) + 'deg');
-    node.style.setProperty('--r', R);
-    node.style.setProperty('--s', '96px');
-    node.style.setProperty('--d', (0.15 + i * 0.08) + 's');
-    node.innerHTML =
-      '<div class="tc-pic" style="--c1:' + c1 + ';--c2:' + c2 + '">' +
-        (p.img ? '<img src="' + p.img + '">' : ICON) +
-      '</div>' +
-      '<div class="tc-review">' +
-        '<div class="tc-quote"><span class="hl">"' + p.review + '"</span></div>' +
-        '<div class="tc-name">' + p.name + '</div>' +
-        '<div class="tc-role">' + p.role + '</div>' +
-      '</div>';
-    node.querySelector('.tc-pic').addEventListener('click', () => { k = i; go(); reset(); });
-    ring.appendChild(node);
-    nodes.push(node);
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'gx-ufo';
+    b.setAttribute('aria-label', 'Show review from ' + p.name);
+    b.style.setProperty('--x', dx[i] + '%'); b.style.setProperty('--y', dy[i] + '%');
+    b.style.setProperty('--mx', mx[i] + '%'); b.style.setProperty('--my', my[i] + '%');
+    b.style.setProperty('--glow', glow[i % glow.length]);
+    b.style.setProperty('--dur', (5 + (i % 4)) + 's'); b.style.setProperty('--del', (-i * 0.9) + 's');
+    b.innerHTML = ICON;
+    b.addEventListener('click', () => { show(i); restart(); });
+    sky.appendChild(b); ufos.push(b);
   });
 
-  function go() {
-    const front = ((k % N) + N) % N;
-    ring.style.transform = 'rotateX(-6deg) rotateY(' + (-SLOT * k) + 'deg)';
-    nodes.forEach((n, j) => {
-      n.classList.toggle('active', j === front);
-      const diff = Math.abs(j - front);
-      const d = Math.min(diff, N - diff);  // ring distance (0..N/2)
-      n.setAttribute('data-d', d);
-    });
+  function show(i){
+    cur = i;
+    const p = profiles[i];
+    ufos.forEach((u, j) => u.classList.toggle('active', j === i));
+    nEl.textContent = p.name; rEl.textContent = p.role;
+    clearInterval(typer);
+    const text = '\u201C' + p.review + '\u201D';
+    if (reduce) { qEl.textContent = text; }
+    else {
+      qEl.textContent = ''; let n = 0;
+      typer = setInterval(() => { n++; qEl.textContent = text.slice(0, n); if (n >= text.length) clearInterval(typer); }, 22);
+    }
+    beam.classList.add('on');
+    placeBeam();
   }
-  function nextStep() { k++; go(); }
-  function reset() { clearInterval(timer); timer = setInterval(nextStep, ROTATE + FREEZE); }
+  function placeBeam(){
+    const u = ufos[cur]; if (!u) return;
+    const g = gx.getBoundingClientRect(), ur = u.getBoundingClientRect(), br = box.getBoundingClientRect();
+    const ux = ur.left + ur.width / 2 - g.left, uy = ur.top + ur.height * 0.62 - g.top;
+    const by = br.top - g.top + 2, bl = br.left - g.left, bw = br.width;
+    const x1 = Math.max(bl + 16, Math.min(bl + bw - 16, ux - 120)), x2 = Math.max(bl + 16, Math.min(bl + bw - 16, ux + 120));
+    beam.style.clipPath = 'polygon(' + (ux - 8) + 'px ' + uy + 'px,' + (ux + 8) + 'px ' + uy + 'px,' + x2 + 'px ' + by + 'px,' + x1 + 'px ' + by + 'px)';
+  }
+  function restart(){ clearInterval(timer); timer = setInterval(() => show((cur + 1) % profiles.length), 6500); }
 
-  // Start once testimonials enters the viewport
-  const sec = document.querySelector('.testimonials');
-  if (sec) {
-    const obs = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setTimeout(() => { go(); reset(); }, 900);
-        obs.disconnect();
-      }
-    }, { threshold: 0.2 });
-    obs.observe(sec);
-  } else {
-    setTimeout(() => { go(); reset(); }, 900);
+  /* starfield */
+  const cv = document.getElementById('gxCanvas'), ctx = cv.getContext('2d');
+  let W = 0, H = 0, stars = [], shoot = null, visible = false, raf = 0, last = 0;
+  function resize(){
+    const r = sec.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+    const n = Math.round(Math.min(220, W * H / 7000));
+    stars = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, s: Math.random() * 1.5 + .5, v: Math.random() * 6 + 2 }));
+    draw(0);
   }
+  function draw(t){
+    ctx.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      const a = reduce ? .7 : .35 + .65 * Math.abs(Math.sin(t / 1000 * s.s + s.p));
+      ctx.globalAlpha = a; ctx.fillStyle = '#FAF3F0';
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
+      if (!reduce) { s.y -= s.v * (t - last) / 1000 * .12; if (s.y < -2) { s.y = H + 2; s.x = Math.random() * W; } }
+    }
+    if (!reduce) {
+      if (!shoot && Math.random() < .006) shoot = { x: Math.random() * W * .8 + W * .2, y: Math.random() * H * .4, life: 0 };
+      if (shoot) {
+        shoot.life += (t - last) / 1000; const k = shoot.life / .9;
+        const x = shoot.x - k * 260, y = shoot.y + k * 150;
+        const g = ctx.createLinearGradient(x, y, x + 90, y - 52); g.addColorStop(0, 'rgba(255,255,255,.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.globalAlpha = 1 - k; ctx.strokeStyle = g; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 90, y - 52); ctx.stroke();
+        if (k >= 1) shoot = null;
+      }
+    }
+    ctx.globalAlpha = 1; last = t;
+  }
+  function loop(t){ draw(t); placeBeam(); raf = requestAnimationFrame(loop); }
+
+  resize();
+  addEventListener('resize', () => { resize(); placeBeam(); });
+  show(0);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => {
+      visible = es[0].isIntersecting;
+      cancelAnimationFrame(raf);
+      if (visible) { restart(); if (!reduce) raf = requestAnimationFrame(loop); else placeBeam(); } else clearInterval(timer);
+    }, { threshold: .1 }).observe(sec);
+  } else { restart(); }
 })();
 
 /* Switch screen slideshow: auto-cycles every 2 seconds, Joy-Con buttons control it */

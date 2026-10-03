@@ -760,29 +760,47 @@ img { max-width: 100%; }
 /* Touch devices: no hover, so keep labels readable */
 
 
-/* Services page */
-.service { background: var(--bg); color: var(--ink); scroll-margin-top: 90px; padding: 80px 5vw; border-top: 1.5px solid rgba(10,21,48,.12); }
-.service-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.service-text { min-width: 0; }
-.service h2 { color: var(--ink); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(48px, 6vw, 96px); line-height: .95; letter-spacing: -0.01em; margin-bottom: 20px; }
-.service-tag { display: inline-block; max-width: 100%; padding: 22px 40px; background: var(--box) center/100% 100% no-repeat; color: var(--svc-text); font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; margin-bottom: 24px; }
-.service p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; max-width: 56ch; margin-bottom: 14px; }
-.service-label { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 11px !important; letter-spacing: .26em; text-transform: uppercase; opacity: .75; margin-top: 26px; }
-.service ul { list-style: none; display: grid; gap: 8px; margin: 10px 0 30px; padding: 0; }
-.service li { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 17px; padding-left: 26px; position: relative; }
-.service li::before { content: ""; position: absolute; left: 0; top: .45em; width: 10px; height: 10px; background: var(--ink); }
-.service-cta { display: inline-block; padding: 20px 38px; background: var(--box) center/100% 100% no-repeat; color: var(--svc-text); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background .25s ease, color .25s ease, transform .25s ease; }
-.service-cta:hover { transform: translateY(-3px) scale(1.04); }
-.service-media { display: grid; gap: 28px; min-width: 0; }
-.service-media img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 18px 40px -16px rgba(10,21,48,.35); }
-.service-media img:nth-child(1) { transform: rotate(-1.5deg); }
-.service-media img:nth-child(2) { transform: rotate(1.5deg); }
-.service:nth-of-type(even) .service-media { order: -1; }
+/* Services page: console-style menu */
+.stage { background: var(--ink); color: var(--bg); padding: 70px 5vw 100px; }
+.stage-inner { max-width: 1250px; margin: 0 auto; }
+.stage-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(28px, 3.4vw, 48px); margin-bottom: 36px; }
+.stage-title::after { content: ""; display: inline-block; width: .45em; height: .08em; margin-left: .15em; background: #C21292; animation: stageBlink 1s steps(2) infinite; }
+@keyframes stageBlink { 50% { opacity: 0; } }
+.menu-layout { display: grid; grid-template-columns: minmax(240px, 1fr) 2fr; gap: 48px; align-items: start; }
+.menu { display: grid; gap: 18px; }
+.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 26px 30px 26px 44px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 22px); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; opacity: .72; transform: scale(.96); transform-origin: left center; transition: transform .2s ease, opacity .2s ease; }
+.menu-item:hover { opacity: 1; }
+.menu-item[aria-selected="true"] { opacity: 1; transform: scale(1.04); }
+.menu-item:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; }
+.menu-item::before { content: ""; position: absolute; left: -26px; top: 50%; width: 34px; height: 34px; margin-top: -17px; background: url(assets/cursor.svg) center/contain no-repeat; image-rendering: pixelated; opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .2s ease; }
+.menu-item[aria-selected="true"]::before { opacity: 1; transform: translateX(0); animation: stageNudge .9s ease-in-out infinite; }
+@keyframes stageNudge { 50% { transform: translateX(6px); } }
+.screen { background: var(--bg); color: var(--ink); border: 14px solid #000; border-radius: 12px; padding: 36px clamp(20px, 3vw, 44px); min-width: 0; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+.panel[hidden] { display: none; }
+.panel { animation: panelIn .35s ease; }
+@keyframes panelIn { from { opacity: 0; transform: translateY(8px); } }
+.panel h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(44px, 5vw, 80px); line-height: .95; letter-spacing: -0.01em; margin-bottom: 16px; }
+.panel-tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; margin-bottom: 12px; }
+.panel-text { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.55; max-width: 56ch; margin-bottom: 18px; }
+.panel ul { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 8px; }
+.panel li { position: relative; padding-left: 24px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 16px; }
+.panel li::before { content: ""; position: absolute; left: 0; top: .45em; width: 9px; height: 9px; background: var(--ink); }
+.panel-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.panel-imgs img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 14px 30px -14px rgba(10,21,48,.4); }
+.panel-cta { display: inline-block; padding: 20px 38px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
+.panel-cta:hover { transform: translateY(-3px) scale(1.04); }
+.stage-hint { margin-top: 26px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
 @media (max-width: 900px) {
-  .service { padding: 60px 5vw; }
-  .service-inner { grid-template-columns: 1fr; gap: 36px; }
-  .service:nth-of-type(even) .service-media { order: 0; }
+  .stage { padding: 50px 5vw 70px; }
+  .menu-layout { grid-template-columns: 1fr; gap: 32px; }
+  .menu { grid-template-columns: 1fr 1fr; padding-left: 14px; }
+  .menu-item { padding: 20px 14px 20px 26px; transform-origin: center; }
+  .menu-item::before { left: -14px; width: 26px; height: 26px; margin-top: -13px; }
+  .screen { border-width: 10px; padding: 24px 18px; }
+  .panel-imgs { grid-template-columns: 1fr; }
+  .stage-hint { display: none; }
 }
+@media (prefers-reduced-motion: reduce) { .panel, .menu-item::before, .stage-title::after { animation: none; } }
 </style>
 </head>
 <body>
@@ -795,65 +813,52 @@ img { max-width: 100%; }
   <a href="website02.html" class="back-btn">← Back home</a>
 </header>
 
-<section class="intro">
-  <div class="intro-left">
-    <h1><span>What I do,</span> <span>how I do it</span></h1>
-  </div>
-</section>
-
-<section class="service" id="brand-identity" style="--box:url(assets/box-orange.svg);--svc-text:var(--ink)">
-  <div class="service-inner">
-    <div class="service-text">
-      <h2>Brand<br>Identity</h2>
-      <p class="service-tag">A full visual system your customers recognise everywhere.</p>
-      <p>Positioning, logo, colour, type and the rules that tie them together.</p>
-      <p class="service-label">What's included</p>
-      <ul><li>Audience and positioning research</li><li>Logo, colour palette and typography</li><li>Brand guidelines document</li></ul>
-      <a class="service-cta" href="my-work.html">See my work →</a>
+<section class="stage">
+  <div class="stage-inner">
+    <h1 class="stage-title">Select a service</h1>
+    <div class="menu-layout">
+      <div class="menu" role="tablist" aria-label="Services">
+<button type="button" class="menu-item" role="tab" id="tab-brand-identity" aria-controls="panel-brand-identity" aria-selected="true" data-slug="brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)"><span class="menu-label">Brand Identity</span></button>
+<button type="button" class="menu-item" role="tab" id="tab-logo-design" aria-controls="panel-logo-design" aria-selected="false" data-slug="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)"><span class="menu-label">Logo Design</span></button>
+<button type="button" class="menu-item" role="tab" id="tab-ui-ux-design" aria-controls="panel-ui-ux-design" aria-selected="false" data-slug="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg)"><span class="menu-label">UI/UX Design</span></button>
+<button type="button" class="menu-item" role="tab" id="tab-packaging-print" aria-controls="panel-packaging-print" aria-selected="false" data-slug="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg)"><span class="menu-label">Packaging & Print</span></button>
+      </div>
+      <div class="screen">
+<div class="panel" role="tabpanel" id="panel-brand-identity" aria-labelledby="tab-brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)">
+  <h2>Brand<br>Identity</h2>
+  <p class="panel-tag">A full visual system your customers recognise everywhere.</p>
+  <p class="panel-text">Positioning, logo, colour, type and the rules that tie them together.</p>
+  <ul><li>Audience and positioning research</li><li>Logo, colour palette and typography</li><li>Brand guidelines document</li></ul>
+  <div class="panel-imgs"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
+  <a class="panel-cta" href="my-work.html">See my work →</a>
+</div>
+<div class="panel" role="tabpanel" id="panel-logo-design" aria-labelledby="tab-logo-design" hidden style="--box:url(assets/box-magenta.svg);--txt:var(--bg)">
+  <h2>Logo<br>Design</h2>
+  <p class="panel-tag">One mark to carry your whole brand.</p>
+  <p class="panel-text">Drawn until it works tiny on a phone and huge on a building, in Arabic, Latin or both.</p>
+  <ul><li>Concept sketches and exploration</li><li>Colour, black, white and icon versions</li><li>Files ready for print and screen</li></ul>
+  <div class="panel-imgs"><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
+  <a class="panel-cta" href="my-work.html">See my work →</a>
+</div>
+<div class="panel" role="tabpanel" id="panel-ui-ux-design" aria-labelledby="tab-ui-ux-design" hidden style="--box:url(assets/box-blue.svg);--txt:var(--bg)">
+  <h2>UI/UX<br>Design</h2>
+  <p class="panel-tag">Flows people finish instead of abandoning.</p>
+  <p class="panel-text">I map how real people tap and scroll, then redesign the flow so they finish the task.</p>
+  <ul><li>User flows and wireframes</li><li>High-fidelity web and mobile screens</li><li>Arabic and English (RTL) layouts</li></ul>
+  <div class="panel-imgs"><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
+  <a class="panel-cta" href="my-work.html">See my work →</a>
+</div>
+<div class="panel" role="tabpanel" id="panel-packaging-print" aria-labelledby="tab-packaging-print" hidden style="--box:url(assets/box-red.svg);--txt:var(--bg)">
+  <h2>Packaging<br>&amp; Print</h2>
+  <p class="panel-tag">A product that wins in its first two seconds.</p>
+  <p class="panel-text">Packaging, labels and print layouts that pull people in and look good unboxed.</p>
+  <ul><li>Packaging and label design</li><li>Print-ready files</li><li>Realistic mockups</li></ul>
+  <div class="panel-imgs"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
+  <a class="panel-cta" href="my-work.html">See my work →</a>
+</div>
+      </div>
     </div>
-    <div class="service-media"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  </div>
-</section>
-
-<section class="service" id="logo-design" style="--box:url(assets/box-magenta.svg);--svc-text:var(--bg)">
-  <div class="service-inner">
-    <div class="service-text">
-      <h2>Logo<br>Design</h2>
-      <p class="service-tag">One mark to carry your whole brand.</p>
-      <p>Drawn until it works tiny on a phone and huge on a building, in Arabic, Latin or both.</p>
-      <p class="service-label">What's included</p>
-      <ul><li>Concept sketches and exploration</li><li>Colour, black, white and icon versions</li><li>Files ready for print and screen</li></ul>
-      <a class="service-cta" href="my-work.html">See my work →</a>
-    </div>
-    <div class="service-media"><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  </div>
-</section>
-
-<section class="service" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--svc-text:var(--bg)">
-  <div class="service-inner">
-    <div class="service-text">
-      <h2>UI/UX<br>Design</h2>
-      <p class="service-tag">Flows people finish instead of abandoning.</p>
-      <p>I map how real people tap and scroll, then redesign the flow so they finish the task.</p>
-      <p class="service-label">What's included</p>
-      <ul><li>User flows and wireframes</li><li>High-fidelity web and mobile screens</li><li>Arabic and English (RTL) layouts</li></ul>
-      <a class="service-cta" href="my-work.html">See my work →</a>
-    </div>
-    <div class="service-media"><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  </div>
-</section>
-
-<section class="service" id="packaging-print" style="--box:url(assets/box-red.svg);--svc-text:var(--bg)">
-  <div class="service-inner">
-    <div class="service-text">
-      <h2>Packaging<br>&amp; Print</h2>
-      <p class="service-tag">A product that wins in its first two seconds.</p>
-      <p>Packaging, labels and print layouts that pull people in and look good unboxed.</p>
-      <p class="service-label">What's included</p>
-      <ul><li>Packaging and label design</li><li>Print-ready files</li><li>Realistic mockups</li></ul>
-      <a class="service-cta" href="my-work.html">See my work →</a>
-    </div>
-    <div class="service-media"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
+    <p class="stage-hint">Use ↑ ↓ or click to choose</p>
   </div>
 </section>
 
@@ -946,5 +951,33 @@ img { max-width: 100%; }
   </div>
 </footer>
 
+<script>
+(function(){
+  const tabs = [...document.querySelectorAll('.menu-item')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function select(slug, focus){
+    tabs.forEach(t => {
+      const on = t.dataset.slug === slug;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    panels.forEach(p => p.hidden = p.id !== 'panel-' + slug);
+    try { history.replaceState(null, '', '#' + slug); } catch (e) {}
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t.dataset.slug));
+    t.addEventListener('mouseenter', () => select(t.dataset.slug));
+    t.addEventListener('keydown', e => {
+      const k = e.key;
+      if (k === 'ArrowDown' || k === 'ArrowRight') { e.preventDefault(); select(tabs[(i + 1) % tabs.length].dataset.slug, true); }
+      if (k === 'ArrowUp' || k === 'ArrowLeft') { e.preventDefault(); select(tabs[(i - 1 + tabs.length) % tabs.length].dataset.slug, true); }
+    });
+  });
+  const start = location.hash.slice(1);
+  select(tabs.some(t => t.dataset.slug === start) ? start : tabs[0].dataset.slug);
+  addEventListener('hashchange', () => { const h = location.hash.slice(1); if (tabs.some(t => t.dataset.slug === h)) select(h); });
+})();
+</script>
 </body>
 </html>

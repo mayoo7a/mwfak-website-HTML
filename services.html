@@ -768,7 +768,7 @@ img { max-width: 100%; }
 @keyframes stageBlink { 50% { opacity: 0; } }
 .menu-layout { display: grid; gap: 36px; }
 .menu { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 97px); z-index: 20; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 20px 14px 40px; background: var(--ink); margin: 0 -5vw; padding-left: calc(5vw + 24px); padding-right: 5vw; }
-.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 20px 20px 20px 34px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 22px); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: block; opacity: .72; transform: scale(.96); transform-origin: center; transition: transform .2s ease, opacity .2s ease; }
+.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 20px 14px 20px 30px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(11px, 1.15vw, 17px); letter-spacing: .06em; white-space: nowrap; text-transform: uppercase; cursor: pointer; text-decoration: none; display: block; opacity: .72; transform: scale(.96); transform-origin: center; transition: transform .2s ease, opacity .2s ease; }
 .menu-item:hover { opacity: 1; }
 .menu-item[aria-current="true"] { opacity: 1; transform: scale(1.04); }
 .menu-item:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; }
@@ -800,8 +800,8 @@ img { max-width: 100%; }
   .panel { aspect-ratio: auto; border-width: 10px; scroll-margin-top: 90px; }
   .panel-media { position: relative; aspect-ratio: 1400 / 745; inset: auto; }
   .panel-info { position: static; width: auto; background: var(--ink); padding: 22px 18px 26px; }
-  .panel h2 br { display: inline; }
-  .panel h2 { font-size: clamp(40px, 11vw, 60px); }
+  .panel h2 { font-size: clamp(30px, 9vw, 46px); white-space: nowrap; }
+  .menu-item { padding: 16px 8px 16px 20px; font-size: clamp(10px, 2.8vw, 13px); letter-spacing: .03em; }
   .panel-media figcaption { font-size: 9px; padding: 6px 10px; top: 10px; right: 10px; }
   .stage-hint { display: none; }
 }

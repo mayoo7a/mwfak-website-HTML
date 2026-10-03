@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Work · Marah Touqan</title>
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:   #FAF3F0;
+  --ink:  #0A1530;
+  --pop:  #C21292;
+  --soft: #FFA732;
+  --blue: #1C7CD8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; scroll-behavior: smooth; }
+
+/* Header */
+.header {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(250, 243, 240, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1.5px solid rgba(10, 21, 48, 0.08);
+}
+.brand {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--ink); text-decoration: none;
+}
+.brand img { height: 56px; width: 56px; object-fit: contain; }
+.brand-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.back-btn:hover { background: var(--ink); color: var(--bg); transform: translateX(-3px); }
+
+/* Page intro · Split personality: bold headline left, italic manifesto right */
+.intro {
+  padding: 80px 40px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+.intro-left h1 span { white-space: nowrap; }
+.intro-left h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 6.5vw, 96px);
+  line-height: 1.14;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+}
+.intro-right {
+  border-left: 3px solid var(--ink);
+  padding-left: 30px;
+}
+.intro-right p {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.4;
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+.intro-right p em { color: var(--pop); font-style: italic; }
+@media (max-width: 800px) {
+  .intro { grid-template-columns: 1fr; padding: 60px 20px 30px; text-align: center; }
+  .intro-left h1 { white-space: normal; font-size: clamp(36px, 10vw, 72px); }
+  .intro-right { border-left: none; border-top: 2px solid var(--ink); padding: 24px 0 0; }
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 60px 40px 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.project-item { display: block; }
+.project {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ink);
+  cursor: pointer;
+}
+.project img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.project-cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-top: 14px;
+}
+.project-type {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.5;
+  width: 100%;
+}
+.project-name {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(20px, 1.9vw, 30px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  .gallery { grid-template-columns: 1fr; padding: 40px 20px 80px; gap: 20px; }
+  .intro { padding: 60px 20px 20px; }
+  .header { padding: 16px 20px; }
+  .brand img { height: 46px; width: 46px; }
+  .brand-name { font-size: 20px; }
+  .back-btn { padding: 10px 16px; font-size: 11px; }
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(10, 21, 48, 0.94);
+  display: none;
+  place-items: center;
+  padding: 0;
+  cursor: zoom-out;
+}
+.lightbox.open { display: grid; }
+.lightbox img {
+  height: 100vh;
+  height: 100dvh;
+  width: auto;
+  max-width: 100vw;
+  max-height: 100vh;
+  max-height: 100dvh;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+.lightbox-close {
+  position: fixed;
+  z-index: 120;
+  top: 20px; right: 20px;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  background: rgba(10, 21, 48, 0.85);
+  color: var(--bg);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  display: grid; place-items: center;
+  transition: background .25s ease;
+}
+.lightbox-close:hover { background: var(--pop); }
+
+/* Footer */
+.sayhi-footer {
+  padding: 40px;
+  border-top: 1.5px solid rgba(10, 21, 48, 0.08);
+  text-align: center;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+/* Home page footer */
+.footer {
+  background: var(--bg);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top stripe marquee */
+.footer-marquee {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 14px 0;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--ink);
+}
+.footer-marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  animation: footerMarquee 38s linear infinite;
+}
+@keyframes footerMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.footer-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 80px 5vw 40px;
+}
+
+/* Big sign-off row */
+.footer-signoff {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  padding-bottom: 50px;
+  border-bottom: 1.5px solid rgba(10,21,48,0.18);
+  margin-bottom: 50px;
+  transform: translateY(-50px);
+}
+.footer-bye-img {
+  height: clamp(77px, 11.9vw, 170px);
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  transform: translate(10px, 15px);
+}
+.footer-bye {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  font-size: clamp(58px, 9.7vw, 161px);
+  color: var(--ink);
+}
+.footer-top {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 12px 18px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  transition: background .35s ease, color .35s ease;
+  white-space: nowrap;
+}
+.footer-top:hover { background: var(--ink); color: var(--bg); }
+.footer-top-arrow { font-size: 14px; }
+
+/* Three-column block */
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+.footer-col-label {
+  display: block;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: .5;
+  margin-bottom: 14px;
+}
+.footer-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.footer-list li { margin: 4px 0; }
+.footer-list a {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(22px, 1.8vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color .35s ease;
+}
+.footer-list a:hover { color: var(--pop); }
+
+.footer-contact {
+  margin: 0 0 4px;
+}
+.footer-contact a {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(10,21,48,0.25);
+  transition: color .3s ease, border-color .3s ease;
+}
+.footer-contact a:hover { color: var(--pop); border-color: var(--pop); }
+.footer-place {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  opacity: .55;
+  margin: 0;
+}
+.footer-status {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.4vw, 22px);
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+/* status-dot styles removed - no green dot, no animation */
+.footer-status-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  opacity: .55;
+  margin: 0;
+}
+
+/* Bottom row */
+.footer-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  margin-right: 6px;
+}
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(10,21,48,0.15);
+}
+.footer-copy,
+.footer-credit {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--ink);
+  opacity: .55;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.footer-credit { font-style: italic; }
+
+@media (max-width: 900px) {
+  .footer-inner { padding: 60px 5vw 30px; }
+  .footer-signoff { grid-template-columns: 1fr; align-items: start; }
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .footer-cols .footer-col:last-child { grid-column: span 2; justify-self: start; text-align: left; }
+}
+@media (max-width: 540px) {
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-cols .footer-col:last-child { grid-column: span 2; justify-self: start; text-align: left; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+
+
+/* Contact section (from home page) */
+.contact {
+  background: #FAF3F0;
+  color: var(--ink);
+  padding: 200px 5vw 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Tilted cream banner title (matching the work section style) */
+.contact-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+/* Contact title — cartoon speech bubble (30% smaller, nudged up) */
+.contact-title {
+  margin: -70px auto 30px;
+  display: inline-block;
+  position: relative;
+  padding: 25px 42px 30px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 46px;
+  box-shadow: 6px 6px 0 var(--ink);
+  border: 2px solid var(--ink);
+  transform: rotate(-2deg);
+}
+.contact-title::after {
+  /* speech bubble tail (lower-left) */
+  content: "";
+  position: absolute;
+  bottom: -26px;
+  left: 74px;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 30px 34px 0 0;
+  border-color: var(--ink) transparent transparent transparent;
+  filter: drop-shadow(0 2px 0 var(--ink));
+}
+.contact-title-banner {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  font-size: clamp(40px, 6.3vw, 100px);
+  color: var(--bg);
+  white-space: nowrap;
+}
+
+/* Contact lede — typewriter animation */
+.contact-lede {
+  position: relative;
+  font-family: 'VT323', 'Courier New', monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(20px, 1.8vw, 28px);
+  color: var(--bg);
+  opacity: 1;
+  max-width: 760px;
+  margin: 32px 0 0;
+  line-height: 1.4;
+  background: none;
+  border: none;
+  padding: 0 8px;
+  box-shadow: none;
+  transform: none;
+  text-align: left;
+  letter-spacing: 0.02em;
+  white-space: pre-wrap;
+}
+.contact-lede .tt-char {
+  opacity: 0;
+  transition: opacity 0s;
+}
+.contact-lede .tt-char.show { opacity: 1; }
+.contact-lede strong {
+  font-family: 'VT323', 'Courier New', monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--pop);
+  background: none;
+  text-decoration: none;
+}
+.contact-lede .tt-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.95em;
+  background: var(--pop);
+  vertical-align: -3px;
+  margin: 0 0 0 2px;
+  animation: ttBlink 0.9s steps(2) infinite;
+  opacity: 0;
+  white-space: nowrap;
+}
+/* Prevent the cursor from wrapping to a new line at end of paragraph */
+.contact-lede {
+  white-space: normal;
+}
+.contact-lede .tt-char:last-of-type + .tt-cursor,
+.contact-lede strong:last-of-type .tt-char:last-of-type + .tt-cursor { display: inline; }
+.contact-lede .tt-cursor.show { opacity: 1; }
+@keyframes ttBlink { 50% { opacity: 0; } }
+
+/* Contact cards grid */
+/* Contact layout: title/lede left, cards right (2x2) */
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  width: 100%;
+  max-width: 1240px;
+  margin: -20px auto 0;
+}
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+}
+@media (max-width: 540px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Contact card — testimonial-style: solid color box, dark blue border + shadow,
+   horizontal layout with icon on left, text on right */
+.contact-card {
+  --card-c: #C21292;
+  background: var(--card-c);
+  color: var(--bg);
+  text-decoration: none;
+  border: 2.5px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 8px 8px 0 var(--ink);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
+  text-align: left;
+  position: relative;
+  overflow: visible;
+  min-height: 94px;
+  box-sizing: border-box;
+  padding: 18px 26px;
+  transform-origin: center;
+  scale: 1.1;
+  transition: transform .25s ease, scale .25s ease;
+}
+.contact-card[data-card="email"]    { --card-c: #C21292; }
+.contact-card[data-card="behance"]  { --card-c: #1C7CD8; }
+.contact-card[data-card="linkedin"] { --card-c: #711DB0; }
+.contact-card[data-card="phone"]    { --card-c: #EF4040; }
+
+/* Slight rotation per card — matches testimonial cards */
+.contact-card:nth-child(1) { rotate: -1.5deg; }
+.contact-card:nth-child(2) { rotate: 1deg; }
+.contact-card:nth-child(3) { rotate: -0.6deg; }
+.contact-card:nth-child(4) { rotate: 1.2deg; }
+
+.contact-card:hover { scale: 1.14; }
+
+/* Platform icon on the left */
+.contact-card::before {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--bg);
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  transform-origin: center;
+}
+/* Text block on the right (label stacked on value) */
+.contact-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.contact-card[data-card="email"]::before    { content: "✉"; }
+.contact-card[data-card="behance"]::before  { content: "Be"; font-family: 'Anton', sans-serif; font-size: 30px; }
+.contact-card[data-card="linkedin"]::before {
+  content: "in";
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  background-image: linear-gradient(var(--bg), var(--bg));
+  background-repeat: no-repeat;
+  background-position: center calc(100% - 6px);
+  background-size: 0 3px;
+  transition: background-size 0.5s cubic-bezier(.2, 0.85, .3, 1), transform .35s cubic-bezier(.34, 1.56, .64, 1);
+}
+.contact-card[data-card="phone"]::before    { content: "☎"; }
+
+/* Icon hover animations removed */
+
+/* Email — flies up and away (like sending mail) */
+@keyframes iconEmail {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(8px, -14px) rotate(15deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+/* Behance — gentle wave / rock side-to-side */
+@keyframes iconBehance {
+  0%, 100% { transform: rotate(0deg); }
+  20%      { transform: rotate(-12deg); }
+  40%      { transform: rotate(10deg); }
+  60%      { transform: rotate(-8deg); }
+  80%      { transform: rotate(6deg); }
+}
+/* LinkedIn — slides in from the left like a notification */
+@keyframes iconLinked {
+  0%   { transform: translateX(-40px); opacity: 0; }
+  60%  { transform: translateX(6px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+/* Phone — ringing shake */
+@keyframes iconPhone {
+  0%, 100% { transform: rotate(0deg); }
+  15%      { transform: rotate(-18deg); }
+  30%      { transform: rotate(15deg); }
+  45%      { transform: rotate(-12deg); }
+  60%      { transform: rotate(10deg); }
+  75%      { transform: rotate(-6deg); }
+  90%      { transform: rotate(3deg); }
+}
+
+.contact-card-label {
+  display: block;
+  background: none;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  opacity: 0.75;
+}
+.contact-card-value {
+  display: block;
+  background: none;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--bg);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color .25s ease;
+}
+.contact-card-arrow { display: none; }
+
+.contact-footer {
+  text-align: center;
+  margin-top: 130px;
+}
+.contact-signoff {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.1vw, 18px);
+  color: var(--ink);
+  opacity: .7;
+  margin: 0;
+}
+.contact-signoff em {
+  font-style: normal;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: var(--pop);
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact { padding: 100px 5vw 90px; }
+  .contact-header { margin-bottom: 60px; }
+}
+@media (max-width: 600px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact { padding: 70px 5vw 70px; }
+}
+
+
+.contact { padding: 120px 5vw 110px; }
+@media (max-width: 1024px) { .contact { padding: 90px 5vw 80px; } }
+@media (max-width: 900px) {
+  .contact-card { scale: 1; }
+  .contact-card:nth-child(n) { rotate: 0deg; }
+  .contact-grid { gap: 18px; }
+}
+@media (max-width: 600px) { .contact { padding: 60px 16px 60px; } }
+
+/* ---- Responsive: all screens ---- */
+img { max-width: 100%; }
+
+/* Large desktops */
+@media (min-width: 1700px) {
+  .gallery { max-width: 1600px; gap: 36px; }
+  .intro { max-width: 1400px; }
+}
+
+/* Small laptops and large tablets */
+@media (max-width: 1100px) {
+  .gallery { padding: 50px 28px 80px; gap: 24px; }
+  .intro { padding: 70px 28px 30px; }
+  .header { padding: 18px 28px; }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footer-inner { padding: 60px 28px 30px; }
+  .sayhi-footer { padding: 32px 24px; }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  .header { padding: 14px 16px; gap: 10px; }
+  .brand { gap: 10px; }
+  .brand img { height: 40px; width: 40px; }
+  .brand-name { font-size: 17px; }
+  .back-btn { padding: 9px 13px; font-size: 10px; letter-spacing: 0.14em; }
+  .intro { padding: 44px 16px 16px; }
+  .intro-left h1 { font-size: clamp(30px, 11vw, 60px); white-space: normal; letter-spacing: 0.02em; }
+  .gallery { padding: 30px 16px 60px; gap: 16px; }
+  .project-cap { margin-top: 10px; gap: 2px 10px; }
+  .sayhi-footer { padding: 28px 16px; font-size: 15px; }
+  .footer-inner { padding: 46px 16px 26px; }
+  .footer-bottom { gap: 14px; }
+  .footer-logo { height: 38px; }
+  .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .brand-name { font-size: 15px; }
+  .back-btn { padding: 8px 11px; font-size: 9px; }
+  .footer-list a { font-size: 20px; }
+}
+
+/* Touch devices: no hover, so keep labels readable */
+
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="website02.html" class="brand" aria-label="Back home">
+    <img src="assets/logo.png" alt="Marah Touqan logo" width="256" height="239" />
+    <span class="brand-name">Marah Touqan</span>
+  </a>
+  <a href="website02.html" class="back-btn">← Back home</a>
+</header>
+
+<section class="intro">
+  <div class="intro-left">
+    <h1><span>My work,</span> <span>my archive</span></h1>
+  </div>
+</section>
+
+<section class="gallery">
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Baseera%20logo%20portfolio%20option%202.jpg" data-name="Baseera">
+      <img src="assets/portfolio/baseera.webp" alt="Baseera" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">Baseera</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Zinger%20Lab%20logo%20portfolio.jpg" data-name="Zinger Lab">
+      <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">Zinger Lab</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/33%20Butchery%20portfolio.jpg" data-name="33 Butchery">
+      <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">33 Butchery</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Canary%20Calls%20portfolio.jpg" data-name="Canary Calls">
+      <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">Canary Calls</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Compera%20Jewelry%20portfolio.jpg" data-name="Compera Jewelry">
+      <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">Compera Jewelry</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Heavyweight%20Hoodies%20portfolio.jpg" data-name="Heavyweight Hoodies">
+      <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">Heavyweight Hoodies</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/HBCS%20portfolio.jpg" data-name="HBCS">
+      <img src="assets/portfolio/hbcs.webp" alt="HBCS" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">HBCS</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/%D9%85%D8%AA%D9%85%D9%85%20portfolio.jpg" data-name="Motammem">
+      <img src="assets/portfolio/motammem.webp" alt="Motammem" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & identity</span>
+      <span class="project-name">Motammem</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Sol%20Root%20portfolio.jpg" data-name="Sol Root">
+      <img src="assets/portfolio/sol-root.webp" alt="Sol Root" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Logo & packaging</span>
+      <span class="project-name">Sol Root</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Ummati%20portfolio.jpg" data-name="Ummati">
+      <img src="assets/portfolio/ummati.webp" alt="Ummati" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Brand & app</span>
+      <span class="project-name">Ummati</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Battikhi%20Stays%20portfolio%204-three-columns.jpg" data-name="Battikhi Stays">
+      <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Brand & web</span>
+      <span class="project-name">Battikhi Stays</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Ticketat%20website%20portfolio.jpg" data-name="Ticketat">
+      <img src="assets/portfolio/ticketat.webp" alt="Ticketat" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Website</span>
+      <span class="project-name">Ticketat</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Mwafq%20website%20portfolio.jpg" data-name="Mwafq">
+      <img src="assets/portfolio/mwafq.webp" alt="Mwafq" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Website</span>
+      <span class="project-name">Mwafq</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/The%20Welcome%20Table%20portfolio.jpg" data-name="The Welcome Table">
+      <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Community brand</span>
+      <span class="project-name">The Welcome Table</span>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project" data-src="my work/Portofolio/Qanadeel%20slides%20portfolio.jpg" data-name="Qanadeel">
+      <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel" width="1400" height="745" loading="lazy" decoding="async" />
+    </div>
+    <div class="project-cap">
+      <span class="project-type">Presentation & brand</span>
+      <span class="project-name">Qanadeel</span>
+    </div>
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-layout">
+
+      <div class="contact-header">
+        <h2 class="contact-title">
+          <span class="contact-title-banner">Yalla, let's talk</span>
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <a class="contact-card" href="mailto:marah.touqan@gmail.com" data-card="email">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value">say hi via email</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener" data-card="behance">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Behance</span>
+            <span class="contact-card-value">@marahtouqan</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener" data-card="linkedin">
+          <span class="contact-card-text">
+            <span class="contact-card-label">LinkedIn</span>
+            <span class="contact-card-value">marah touqan</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="tel:+962776353333" data-card="phone">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Phone</span>
+            <span class="contact-card-value">+962 776 3533</span>
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-cols">
+
+      <div class="footer-col">
+        <span class="footer-col-label">Sitemap</span>
+        <ul class="footer-list">
+          <li><a href="website02.html">Home</a></li>
+          <li><a href="website02.html#about">About</a></li>
+          <li><a href="website02.html#services">Services</a></li>
+          <li><a href="website02.html#work">Work</a></li>
+          <li><a href="website02.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Elsewhere</span>
+        <ul class="footer-list">
+          <li><a href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/designermarahtouqan/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:marah.touqan@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Currently</span>
+        <p class="footer-status">
+          Open for freelance, part-time, and full-time remote work.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="website02.html" class="footer-logo-link" aria-label="Back to home"><img src="assets/logo.png" alt="Marah Touqan logo" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
+      <p class="footer-copy">© <span class="footer-year">2026</span> Marah Touqan. All work, all rights, all mine.</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Lightbox for full-size project view -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">×</button>
+  <img src="" alt="" id="lightbox-img" />
+</div>
+
+<script>
+(function(){
+  const projects = document.querySelectorAll('.project');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+
+  projects.forEach(p => {
+    p.addEventListener('click', () => {
+      lightboxImg.src = p.dataset.src;
+      lightboxImg.alt = p.dataset.name;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const close = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  lightbox.addEventListener('click', () => close());
+  ['click','pointerup','touchend'].forEach(ev =>
+    closeBtn.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); close(); })
+  );
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+})();
+</script>
+
+</body>
+</html>

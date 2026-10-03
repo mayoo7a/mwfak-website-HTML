@@ -427,8 +427,12 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 900px) {
   .mag-dragon-gif {
-    width: 110px;
+    width: clamp(240px, 42vw, 400px);
+    margin-left: -60px;
   }
+}
+@media (max-width: 600px) {
+  .mag-dragon-gif { width: 270px; margin-left: 0; }
 }
 
 /* Pixel art tooltip - dragon wish - follows the cursor */

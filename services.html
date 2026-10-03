@@ -766,19 +766,17 @@ img { max-width: 100%; }
 .stage-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(28px, 3.4vw, 48px); margin-bottom: 36px; }
 .stage-title::after { content: ""; display: inline-block; width: .45em; height: .08em; margin-left: .15em; background: #C21292; animation: stageBlink 1s steps(2) infinite; }
 @keyframes stageBlink { 50% { opacity: 0; } }
-.menu-layout { display: grid; grid-template-columns: minmax(240px, 1fr) 2fr; gap: 48px; align-items: start; }
-.menu { display: grid; gap: 18px; }
-.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 26px 30px 26px 44px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 22px); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; opacity: .72; transform: scale(.96); transform-origin: left center; transition: transform .2s ease, opacity .2s ease; }
+.menu-layout { display: grid; gap: 36px; }
+.menu { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 97px); z-index: 20; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 20px 14px 40px; background: var(--ink); margin: 0 -5vw; padding-left: calc(5vw + 24px); padding-right: 5vw; }
+.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 20px 20px 20px 34px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(16px, 1.6vw, 22px); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: block; opacity: .72; transform: scale(.96); transform-origin: center; transition: transform .2s ease, opacity .2s ease; }
 .menu-item:hover { opacity: 1; }
-.menu-item[aria-selected="true"] { opacity: 1; transform: scale(1.04); }
+.menu-item[aria-current="true"] { opacity: 1; transform: scale(1.04); }
 .menu-item:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; }
 .menu-item::before { content: ""; position: absolute; left: -26px; top: 50%; width: 34px; height: 34px; margin-top: -17px; background: url(assets/cursor.svg) center/contain no-repeat; image-rendering: pixelated; opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .2s ease; }
-.menu-item[aria-selected="true"]::before { opacity: 1; transform: translateX(0); animation: stageNudge .9s ease-in-out infinite; }
+.menu-item[aria-current="true"]::before { opacity: 1; transform: translateX(0); animation: stageNudge .9s ease-in-out infinite; }
 @keyframes stageNudge { 50% { transform: translateX(6px); } }
-.screen { background: #000; border: 14px solid #000; border-radius: 12px; min-width: 0; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
-.panel[hidden] { display: none; }
-.panel { position: relative; aspect-ratio: 1400 / 745; background: var(--ink); color: var(--bg); overflow: hidden; animation: panelIn .35s ease; }
-@keyframes panelIn { from { opacity: 0; } }
+.screen { display: grid; gap: 70px; min-width: 0; }
+.panel { position: relative; aspect-ratio: 1400 / 745; background: var(--ink); color: var(--bg); overflow: hidden; border: 14px solid #000; border-radius: 12px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); scroll-margin-top: 240px; }
 .panel-media, .panel-media figure { position: absolute; inset: 0; margin: 0; }
 .panel-media figure { opacity: 0; animation: boardFade 7s infinite; }
 .panel-media figure:nth-child(2) { animation-delay: 3.5s; }
@@ -796,12 +794,10 @@ img { max-width: 100%; }
 .stage-hint { margin-top: 26px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
 @media (max-width: 900px) {
   .stage { padding: 50px 5vw 70px; }
-  .menu-layout { grid-template-columns: 1fr; gap: 32px; }
-  .menu { grid-template-columns: 1fr 1fr; padding-left: 14px; }
+  .menu { position: static; grid-template-columns: 1fr 1fr; padding: 0 0 0 14px; margin: 0; }
   .menu-item { padding: 20px 14px 20px 26px; transform-origin: center; }
   .menu-item::before { left: -14px; width: 26px; height: 26px; margin-top: -13px; }
-  .screen { border-width: 10px; }
-  .panel { aspect-ratio: auto; }
+  .panel { aspect-ratio: auto; border-width: 10px; scroll-margin-top: 90px; }
   .panel-media { position: relative; aspect-ratio: 1400 / 745; inset: auto; }
   .panel-info { position: static; width: auto; background: var(--ink); padding: 22px 18px 26px; }
   .panel h2 br { display: inline; }
@@ -826,14 +822,14 @@ img { max-width: 100%; }
   <div class="stage-inner">
     <h1 class="stage-title">Select a service</h1>
     <div class="menu-layout">
-      <div class="menu" role="tablist" aria-label="Services">
-<button type="button" class="menu-item" role="tab" id="tab-brand-identity" aria-controls="panel-brand-identity" aria-selected="true" data-slug="brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)"><span class="menu-label">Brand Identity</span></button>
-<button type="button" class="menu-item" role="tab" id="tab-logo-design" aria-controls="panel-logo-design" aria-selected="false" data-slug="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)"><span class="menu-label">Logo Design</span></button>
-<button type="button" class="menu-item" role="tab" id="tab-ui-ux-design" aria-controls="panel-ui-ux-design" aria-selected="false" data-slug="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg)"><span class="menu-label">UI/UX Design</span></button>
-<button type="button" class="menu-item" role="tab" id="tab-packaging-print" aria-controls="panel-packaging-print" aria-selected="false" data-slug="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg)"><span class="menu-label">Packaging & Print</span></button>
-      </div>
+      <nav class="menu" aria-label="Services">
+<a class="menu-item" href="#brand-identity" data-slug="brand-identity" aria-current="false" style="--box:url(assets/box-orange.svg);--txt:var(--ink)"><span class="menu-label">Brand Identity</span></a>
+<a class="menu-item" href="#logo-design" data-slug="logo-design" aria-current="false" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)"><span class="menu-label">Logo Design</span></a>
+<a class="menu-item" href="#ui-ux-design" data-slug="ui-ux-design" aria-current="false" style="--box:url(assets/box-blue.svg);--txt:var(--bg)"><span class="menu-label">UI/UX Design</span></a>
+<a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-red.svg);--txt:var(--bg)"><span class="menu-label">Packaging & Print</span></a>
+      </nav>
       <div class="screen">
-<div class="panel" role="tabpanel" id="panel-brand-identity" aria-labelledby="tab-brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)">
+<div class="panel" id="brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)">
   <div class="panel-media"><figure><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Baseera</figcaption></figure><figure><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Battikhi Stays</figcaption></figure></div>
   <div class="panel-info">
     <h2>Brand<br> Identity</h2>
@@ -842,7 +838,7 @@ img { max-width: 100%; }
     <a class="panel-cta" href="my-work.html">Press start →</a>
   </div>
 </div>
-<div class="panel" role="tabpanel" id="panel-logo-design" aria-labelledby="tab-logo-design" hidden style="--box:url(assets/box-magenta.svg);--txt:var(--bg)">
+<div class="panel" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)">
   <div class="panel-media"><figure><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · 33 Butchery</figcaption></figure><figure><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Canary Calls</figcaption></figure></div>
   <div class="panel-info">
     <h2>Logo<br> Design</h2>
@@ -851,7 +847,7 @@ img { max-width: 100%; }
     <a class="panel-cta" href="my-work.html">Press start →</a>
   </div>
 </div>
-<div class="panel" role="tabpanel" id="panel-ui-ux-design" aria-labelledby="tab-ui-ux-design" hidden style="--box:url(assets/box-blue.svg);--txt:var(--bg)">
+<div class="panel" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg)">
   <div class="panel-media"><figure><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Mwafq</figcaption></figure><figure><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Ticketat</figcaption></figure></div>
   <div class="panel-info">
     <h2>UI/UX<br> Design</h2>
@@ -860,7 +856,7 @@ img { max-width: 100%; }
     <a class="panel-cta" href="my-work.html">Press start →</a>
   </div>
 </div>
-<div class="panel" role="tabpanel" id="panel-packaging-print" aria-labelledby="tab-packaging-print" hidden style="--box:url(assets/box-red.svg);--txt:var(--bg)">
+<div class="panel" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg)">
   <div class="panel-media"><figure><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Sol Root</figcaption></figure><figure><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Heavyweight Hoodies</figcaption></figure></div>
   <div class="panel-info">
     <h2>Packaging<br> &amp; Print</h2>
@@ -871,7 +867,7 @@ img { max-width: 100%; }
 </div>
       </div>
     </div>
-    <p class="stage-hint">Use ↑ ↓ or click to choose</p>
+    <p class="stage-hint">Click a title to jump to it</p>
   </div>
 </section>
 
@@ -966,30 +962,19 @@ img { max-width: 100%; }
 
 <script>
 (function(){
-  const tabs = [...document.querySelectorAll('.menu-item')];
-  const panels = [...document.querySelectorAll('.panel')];
-  function select(slug, focus){
-    tabs.forEach(t => {
-      const on = t.dataset.slug === slug;
-      t.setAttribute('aria-selected', on);
-      t.tabIndex = on ? 0 : -1;
-      if (on && focus) t.focus();
-    });
-    panels.forEach(p => p.hidden = p.id !== 'panel-' + slug);
-    try { history.replaceState(null, '', '#' + slug); } catch (e) {}
+  const links = [...document.querySelectorAll('.menu-item')];
+  const panels = links.map(l => document.getElementById(l.dataset.slug));
+  function mark(slug){
+    links.forEach(l => l.setAttribute('aria-current', l.dataset.slug === slug ? 'true' : 'false'));
   }
-  tabs.forEach((t, i) => {
-    t.addEventListener('click', () => select(t.dataset.slug));
-    t.addEventListener('mouseenter', () => select(t.dataset.slug));
-    t.addEventListener('keydown', e => {
-      const k = e.key;
-      if (k === 'ArrowDown' || k === 'ArrowRight') { e.preventDefault(); select(tabs[(i + 1) % tabs.length].dataset.slug, true); }
-      if (k === 'ArrowUp' || k === 'ArrowLeft') { e.preventDefault(); select(tabs[(i - 1 + tabs.length) % tabs.length].dataset.slug, true); }
-    });
-  });
-  const start = location.hash.slice(1);
-  select(tabs.some(t => t.dataset.slug === start) ? start : tabs[0].dataset.slug);
-  addEventListener('hashchange', () => { const h = location.hash.slice(1); if (tabs.some(t => t.dataset.slug === h)) select(h); });
+  mark(links[0].dataset.slug);
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) mark(e.target.id); });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    panels.forEach(p => p && io.observe(p));
+  }
+  links.forEach(l => l.addEventListener('click', () => mark(l.dataset.slug)));
 })();
 </script>
 </body>

@@ -775,19 +775,23 @@ img { max-width: 100%; }
 .menu-item::before { content: ""; position: absolute; left: -26px; top: 50%; width: 34px; height: 34px; margin-top: -17px; background: url(assets/cursor.svg) center/contain no-repeat; image-rendering: pixelated; opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .2s ease; }
 .menu-item[aria-selected="true"]::before { opacity: 1; transform: translateX(0); animation: stageNudge .9s ease-in-out infinite; }
 @keyframes stageNudge { 50% { transform: translateX(6px); } }
-.screen { background: var(--bg); color: var(--ink); border: 14px solid #000; border-radius: 12px; padding: 36px clamp(20px, 3vw, 44px); min-width: 0; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+.screen { background: #000; border: 14px solid #000; border-radius: 12px; min-width: 0; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
 .panel[hidden] { display: none; }
-.panel { animation: panelIn .35s ease; }
-@keyframes panelIn { from { opacity: 0; transform: translateY(8px); } }
-.panel h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(44px, 5vw, 80px); line-height: .95; letter-spacing: -0.01em; margin-bottom: 16px; }
-.panel-tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 28px); line-height: 1.25; margin-bottom: 12px; }
-.panel-text { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.55; max-width: 56ch; margin-bottom: 18px; }
-.panel ul { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 8px; }
-.panel li { position: relative; padding-left: 24px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 16px; }
-.panel li::before { content: ""; position: absolute; left: 0; top: .45em; width: 9px; height: 9px; background: var(--ink); }
-.panel-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
-.panel-imgs img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 14px 30px -14px rgba(10,21,48,.4); }
-.panel-cta { display: inline-block; padding: 20px 38px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
+.panel { position: relative; aspect-ratio: 1400 / 745; background: var(--ink); color: var(--bg); overflow: hidden; animation: panelIn .35s ease; }
+@keyframes panelIn { from { opacity: 0; } }
+.panel-media, .panel-media figure { position: absolute; inset: 0; margin: 0; }
+.panel-media figure { opacity: 0; animation: boardFade 7s infinite; }
+.panel-media figure:nth-child(2) { animation-delay: 3.5s; }
+@keyframes boardFade { 0% { opacity: 1; } 45% { opacity: 1; } 50% { opacity: 0; } 95% { opacity: 0; } 100% { opacity: 1; } }
+.panel-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.panel-media figcaption { position: absolute; right: 16px; top: 16px; background: var(--bg); color: var(--ink); padding: 8px 14px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; clip-path: polygon(4px 0, calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px), 0 4px, 2px 4px, 2px 2px, 4px 2px); }
+.panel-info { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 10px; padding: clamp(18px, 2.4vw, 34px); width: 64%; background: linear-gradient(90deg, rgba(10,21,48,.92) 0%, rgba(10,21,48,.78) 55%, rgba(10,21,48,0) 100%); }
+.panel h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(34px, 3.8vw, 60px); line-height: .95; letter-spacing: -0.01em; color: var(--bg); }
+.panel-tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(16px, 1.5vw, 21px); line-height: 1.25; max-width: 30ch; }
+.panel h2 br { display: none; }
+.panel ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.panel li { background: var(--bg); color: var(--ink); padding: 6px 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.panel-cta { display: inline-block; margin-top: 4px; padding: 16px 32px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
 .panel-cta:hover { transform: translateY(-3px) scale(1.04); }
 .stage-hint { margin-top: 26px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
 @media (max-width: 900px) {
@@ -796,11 +800,16 @@ img { max-width: 100%; }
   .menu { grid-template-columns: 1fr 1fr; padding-left: 14px; }
   .menu-item { padding: 20px 14px 20px 26px; transform-origin: center; }
   .menu-item::before { left: -14px; width: 26px; height: 26px; margin-top: -13px; }
-  .screen { border-width: 10px; padding: 24px 18px; }
-  .panel-imgs { grid-template-columns: 1fr; }
+  .screen { border-width: 10px; }
+  .panel { aspect-ratio: auto; }
+  .panel-media { position: relative; aspect-ratio: 1400 / 745; inset: auto; }
+  .panel-info { position: static; width: auto; background: var(--ink); padding: 22px 18px 26px; }
+  .panel h2 br { display: inline; }
+  .panel h2 { font-size: clamp(40px, 11vw, 60px); }
+  .panel-media figcaption { font-size: 9px; padding: 6px 10px; top: 10px; right: 10px; }
   .stage-hint { display: none; }
 }
-@media (prefers-reduced-motion: reduce) { .panel, .menu-item::before, .stage-title::after { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .panel, .menu-item::before, .stage-title::after { animation: none; } .panel-media figure:nth-child(1) { opacity: 1; animation: none; } .panel-media figure:nth-child(2) { display: none; } }
 </style>
 </head>
 <body>
@@ -825,36 +834,40 @@ img { max-width: 100%; }
       </div>
       <div class="screen">
 <div class="panel" role="tabpanel" id="panel-brand-identity" aria-labelledby="tab-brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)">
-  <h2>Brand<br>Identity</h2>
-  <p class="panel-tag">A full visual system your customers recognise everywhere.</p>
-  <p class="panel-text">Positioning, logo, colour, type and the rules that tie them together.</p>
-  <ul><li>Audience and positioning research</li><li>Logo, colour palette and typography</li><li>Brand guidelines document</li></ul>
-  <div class="panel-imgs"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  <a class="panel-cta" href="my-work.html">See my work →</a>
+  <div class="panel-media"><figure><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Baseera</figcaption></figure><figure><img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Battikhi Stays</figcaption></figure></div>
+  <div class="panel-info">
+    <h2>Brand<br> Identity</h2>
+    <p class="panel-tag">A full visual system your customers recognise everywhere.</p>
+    <ul><li>+ Positioning</li><li>+ Logo + colour + type</li><li>+ Brand guidelines</li></ul>
+    <a class="panel-cta" href="my-work.html">Press start →</a>
+  </div>
 </div>
 <div class="panel" role="tabpanel" id="panel-logo-design" aria-labelledby="tab-logo-design" hidden style="--box:url(assets/box-magenta.svg);--txt:var(--bg)">
-  <h2>Logo<br>Design</h2>
-  <p class="panel-tag">One mark to carry your whole brand.</p>
-  <p class="panel-text">Drawn until it works tiny on a phone and huge on a building, in Arabic, Latin or both.</p>
-  <ul><li>Concept sketches and exploration</li><li>Colour, black, white and icon versions</li><li>Files ready for print and screen</li></ul>
-  <div class="panel-imgs"><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  <a class="panel-cta" href="my-work.html">See my work →</a>
+  <div class="panel-media"><figure><img src="assets/portfolio/33-butchery.webp" alt="33 Butchery project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · 33 Butchery</figcaption></figure><figure><img src="assets/portfolio/canary-calls.webp" alt="Canary Calls project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Canary Calls</figcaption></figure></div>
+  <div class="panel-info">
+    <h2>Logo<br> Design</h2>
+    <p class="panel-tag">One mark to carry your whole brand.</p>
+    <ul><li>+ Concept sketches</li><li>+ Colour + icon versions</li><li>+ Print + screen files</li></ul>
+    <a class="panel-cta" href="my-work.html">Press start →</a>
+  </div>
 </div>
 <div class="panel" role="tabpanel" id="panel-ui-ux-design" aria-labelledby="tab-ui-ux-design" hidden style="--box:url(assets/box-blue.svg);--txt:var(--bg)">
-  <h2>UI/UX<br>Design</h2>
-  <p class="panel-tag">Flows people finish instead of abandoning.</p>
-  <p class="panel-text">I map how real people tap and scroll, then redesign the flow so they finish the task.</p>
-  <ul><li>User flows and wireframes</li><li>High-fidelity web and mobile screens</li><li>Arabic and English (RTL) layouts</li></ul>
-  <div class="panel-imgs"><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  <a class="panel-cta" href="my-work.html">See my work →</a>
+  <div class="panel-media"><figure><img src="assets/portfolio/mwafq.webp" alt="Mwafq project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Mwafq</figcaption></figure><figure><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Ticketat</figcaption></figure></div>
+  <div class="panel-info">
+    <h2>UI/UX<br> Design</h2>
+    <p class="panel-tag">Flows people finish instead of abandoning.</p>
+    <ul><li>+ Flows + wireframes</li><li>+ Web + mobile screens</li><li>+ Arabic + English (RTL)</li></ul>
+    <a class="panel-cta" href="my-work.html">Press start →</a>
+  </div>
 </div>
 <div class="panel" role="tabpanel" id="panel-packaging-print" aria-labelledby="tab-packaging-print" hidden style="--box:url(assets/box-red.svg);--txt:var(--bg)">
-  <h2>Packaging<br>&amp; Print</h2>
-  <p class="panel-tag">A product that wins in its first two seconds.</p>
-  <p class="panel-text">Packaging, labels and print layouts that pull people in and look good unboxed.</p>
-  <ul><li>Packaging and label design</li><li>Print-ready files</li><li>Realistic mockups</li></ul>
-  <div class="panel-imgs"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /></div>
-  <a class="panel-cta" href="my-work.html">See my work →</a>
+  <div class="panel-media"><figure><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Sol Root</figcaption></figure><figure><img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies project board" width="1400" height="745" loading="lazy" decoding="async" /><figcaption>Now playing · Heavyweight Hoodies</figcaption></figure></div>
+  <div class="panel-info">
+    <h2>Packaging<br> &amp; Print</h2>
+    <p class="panel-tag">A product that wins in its first two seconds.</p>
+    <ul><li>+ Packaging + labels</li><li>+ Print-ready files</li><li>+ Realistic mockups</li></ul>
+    <a class="panel-cta" href="my-work.html">Press start →</a>
+  </div>
 </div>
       </div>
     </div>

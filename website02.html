@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Marah Touqan | Brand Identity & UI/UX Designer</title>
+<script>/* open at the top: stop the browser restoring an old scroll position before the first paint */
+try { if ('scrollRestoration' in history && !location.hash) history.scrollRestoration = 'manual'; } catch (e) {}
+</script>
 <meta name="description" content="Freelance brand identity and UI/UX designer with 13+ years building logos, brand systems, packaging, responsive websites, and mobile apps for clients worldwide." />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <meta name="theme-color" content="#FAF3F0" />
@@ -2348,8 +2351,10 @@ addEventListener('scroll', () => {
   // open at the top of the page (the reel), unless the link points to a section
   if (!location.hash) {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
-    addEventListener('load', function () { window.scrollTo(0, 0); });
+    var toTop = function () { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+    toTop();
+    addEventListener('load', toTop);
+    addEventListener('pageshow', function (e) { if (e.persisted) toTop(); });   // restored from the back/forward cache
   }
 
   // smaller file on phones, full 1080p on bigger screens

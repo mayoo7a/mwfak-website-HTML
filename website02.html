@@ -915,7 +915,7 @@ img { display: block; max-width: 100%; }
 .gx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .testimonials-inner { position: relative; z-index: 1; }
 .cn { position: relative; max-width: 1100px; margin: 0 auto; }
-.cn-svg { display: block; width: 100%; height: clamp(200px, 26vw, 290px); transform: translateY(-70px); }
+.cn-svg { display: block; width: 100%; height: clamp(280px, calc(26vw + 80px), 370px); margin: -40px 0; transform: translateY(-70px); }
 .testimonials-title { position: relative; z-index: 2; }
 .cn-gal { cursor: default; touch-action: pan-y; }
 .cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; min-height: 200px; display: flex; flex-direction: column; align-items: center; gap: 12px; animation: cnIn .7s ease; }
@@ -928,7 +928,7 @@ img { display: block; max-width: 100%; }
 .cn-dot.on { width: 24px; opacity: 1; }
 .cn-dot:focus-visible { outline: 2px solid var(--bg); outline-offset: 3px; }
 @media (max-width: 360px) { .cn-quote { min-height: 3.75em; } }
-@media (max-width: 700px) { .cn-svg { transform: translateY(-45px); height: 240px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-text { min-height: 230px; } }
+@media (max-width: 700px) { .cn-svg { transform: translateY(-45px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-text { min-height: 230px; } }
 @media (prefers-reduced-motion: reduce) { .cn-text { animation: none; } }
 
 @media (max-width: 900px) {
@@ -2050,7 +2050,7 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     const r = gal.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
     gW = r.width; gH = r.height;
     gal.width = gW * d; gal.height = gH * d; gctx.setTransform(d, 0, 0, d, 0, 0);
-    R = Math.min(gW * 0.47, gH * 1.05);
+    R = Math.min(gW * 0.47, (gH - 80) * 1.05);   // 40px of spare room above and below, so star glows are never clipped
     seed();
   }
   function proj(f, a){

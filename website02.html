@@ -1857,17 +1857,15 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
 
 /* ============================================================
    SOFT SNAP with per-section snap flag.
-   - Snap targets:  hero, intro, magnificent, testimonials, contact
-   - Snap-active sections (intercept wheel inside them):
-       hero, intro, testimonials, contact
-   - magnificent and work scroll naturally; from those, snap kicks
-     back in once the user reaches the next snap-active section.
+   - Every section snaps: hero, intro, services, work, reviews, contact, footer.
+   - A section taller than the screen scrolls naturally until its edge
+     is reached, then the next wheel turn snaps to the neighbouring section.
    ============================================================ */
 (function softSnap(){
   const config = [
     { sel: '.hero',         snap: true  },
     { sel: '.intro',        snap: true  },
-    { sel: '.magnificent',  snap: false },
+    { sel: '.magnificent',  snap: true  },
     { sel: '.work',         snap: true  },
     { sel: '.testimonials', snap: true  },
     { sel: '.contact',      snap: true  },
@@ -1925,6 +1923,9 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     return result;
   }
 
+  const hasMoreBelow = sec => sec.el.getBoundingClientRect().bottom > window.innerHeight + 6;
+  const hasMoreAbove = sec => sec.el.getBoundingClientRect().top < -6;
+
   addEventListener('wheel', e => {
     if (window.innerWidth <= 768) return;     // free-scroll on mobile
     if (isAnimating) { e.preventDefault(); return; }
@@ -1940,8 +1941,9 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     // Only intercept wheel when current section is a snap-active section.
     if (!cur.snap) return;
 
-    // Going DOWN — snap to next section
+    // Going DOWN — snap to next section (let a tall section finish scrolling first)
     if (e.deltaY > 0 && idx < sections.length - 1) {
+      if (hasMoreBelow(cur)) return;
       e.preventDefault();
       if (!canSnap) return;
       if (now - wheelLock < WHEEL_COOLDOWN) return;
@@ -1956,6 +1958,7 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     if (e.deltaY < 0 && idx > 0) {
       const prev = sections[idx - 1];
       if (!prev.snap) return;
+      if (hasMoreAbove(cur)) return;
       e.preventDefault();
       if (!canSnap) return;
       if (now - wheelLock < WHEEL_COOLDOWN) return;
@@ -1973,6 +1976,7 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
     if (!cur.snap) return;
     if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
       if (idx >= sections.length - 1) return;
+      if (hasMoreBelow(cur)) return;
       e.preventDefault();
       const next = sections[idx + 1];
       animatedScrollTo(next.el.getBoundingClientRect().top + window.scrollY);
@@ -1980,6 +1984,7 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
       if (idx <= 0) return;
       const prev = sections[idx - 1];
       if (!prev.snap) return;
+      if (hasMoreAbove(cur)) return;
       e.preventDefault();
       animatedScrollTo(prev.el.getBoundingClientRect().top + window.scrollY);
     }

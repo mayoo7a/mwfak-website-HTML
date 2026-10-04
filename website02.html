@@ -690,7 +690,7 @@ img { display: block; max-width: 100%; }
   padding: 80px 5vw 80px;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 78vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -761,15 +761,6 @@ img { display: block; max-width: 100%; }
   margin-left: 0.12em;
   background: var(--pop);
   animation: workBlink 1s steps(2) infinite;
-}
-.work-title-sub {
-  display: block;
-  margin-top: 14px;
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(18px, 1.8vw, 26px);
-  color: var(--ink);
-  opacity: .75;
 }
 @keyframes workBlink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .work-title-main::after { animation: none; } }
@@ -1619,8 +1610,7 @@ img { display: block; max-width: 100%; }
 <section class="work" id="work">
 
   <h2 class="work-title">
-    <span class="work-title-main">Press start</span>
-    <span class="work-title-sub">Pick a project and play.</span>
+    <span class="work-title-main">My Work</span>
   </h2>
 
   <div class="work-hero">

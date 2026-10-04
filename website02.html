@@ -13,7 +13,7 @@ try { if ('scrollRestoration' in history && !location.hash) history.scrollRestor
 <link rel="preload" as="image" href="assets/hero-poster.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Karla:wght@400;500&family=Source+Sans+3:wght@300&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Karla:wght@400;500&family=Press+Start+2P&family=Source+Sans+3:wght@300&display=swap">
 
 <style>
 :root {
@@ -746,18 +746,18 @@ img { display: block; max-width: 100%; }
 }
 .work-title-main {
   display: block;
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  font-size: clamp(40px, 5.6vw, 88px);
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-size: clamp(22px, 3.3vw, 50px);
   color: var(--ink);
 }
 .work-title-main span {
-  text-decoration: underline;
-  text-decoration-color: var(--pop);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.14em;
+  display: inline-block;
+  padding-bottom: 0.6em;
+  background: linear-gradient(var(--pop), var(--pop)) left bottom / 100% 0.28em no-repeat;
 }
 
 /* Work hero — responsive Nintendo Switch with a slideshow inside the screen */

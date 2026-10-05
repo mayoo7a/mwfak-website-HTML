@@ -864,6 +864,13 @@ img { max-width: 100%; }
 .svc-proj img { display: block; width: 100%; height: auto; }
 .svc-proj figcaption { margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--bg); opacity: .8; }
 .svc-proj strong { font-weight: 700; }
+
+/* project image beside the text */
+.svc > .svc-top { max-width: none; }
+.svc-top { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 22px clamp(32px, 4vw, 64px); }
+.svc-top .svc-head, .svc-top .svc-body { grid-column: 1; }
+.svc-top .svc-proj { grid-column: 2; grid-row: 1 / span 2; margin: 0; align-self: start; position: sticky; top: 240px; }
+@media (max-width: 900px) { .svc-top .svc-proj { grid-column: 1; grid-row: auto; position: static; margin-top: 8px; } }
 </style>
 </head>
 <body>
@@ -899,8 +906,8 @@ img { max-width: 100%; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>New businesses that want a strong start</li><li>Established brands that have outgrown their look</li><li>Teams whose materials stopped matching</li></ul>
   </div>
-  </div>
   <figure class="svc-proj"><img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>The Welcome Table</strong>, Brand identity</figcaption></figure>
+  </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>We talk</strong><span class="svc-steptext">Your business, your audience, your goals, and what you love and hate.</span></li><li><span class="svc-num">2</span><strong>I propose</strong><span class="svc-steptext">A clear visual direction, and we choose the way forward together.</span></li><li><span class="svc-num">3</span><strong>I build</strong><span class="svc-steptext">The full system, tested on real examples.</span></li><li><span class="svc-num">4</span><strong>You launch</strong><span class="svc-steptext">Files and guidelines, ready to use from day one.</span></li></ol>
@@ -935,8 +942,8 @@ img { max-width: 100%; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>Start-ups choosing a first logo</li><li>Businesses replacing an old or unclear one</li><li>Brands going bilingual</li></ul>
   </div>
-  </div>
   <figure class="svc-proj"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Baseera</strong>, Logo design</figcaption></figure>
+  </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The business, the audience and the feeling the logo should give.</span></li><li><span class="svc-num">2</span><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest ones.</span></li><li><span class="svc-num">3</span><strong>Refine</strong><span class="svc-steptext">The chosen idea, tested small and large, on light and on dark.</span></li><li><span class="svc-num">4</span><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and every file you need.</span></li></ol>
@@ -971,8 +978,8 @@ img { max-width: 100%; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>Businesses launching a site or an app</li><li>Teams with a product that confuses people</li><li>Companies adding Arabic or English</li></ul>
   </div>
-  </div>
   <figure class="svc-proj"><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Ticketat</strong>, Website and booking flow</figcaption></figure>
+  </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Understand</strong><span class="svc-steptext">Your users, your goals and what is not working today.</span></li><li><span class="svc-num">2</span><strong>Map</strong><span class="svc-steptext">Every step people take, and what stays and what goes.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">From wireframes to finished screens for every size.</span></li><li><span class="svc-num">4</span><strong>Hand over</strong><span class="svc-steptext">Organised files and clear specifications for your developer.</span></li></ol>
@@ -1007,8 +1014,8 @@ img { max-width: 100%; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>Product brands of any size</li><li>Makers launching a first product</li><li>Businesses refreshing tired packaging</li></ul>
   </div>
-  </div>
   <figure class="svc-proj"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Sol Root</strong>, Brand and packaging</figcaption></figure>
+  </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The product, the audience and where it will be sold.</span></li><li><span class="svc-num">2</span><strong>Concepts</strong><span class="svc-steptext">A few packaging directions, and we pick one to develop.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">The finished design, shown on realistic mockups.</span></li><li><span class="svc-num">4</span><strong>Print prep</strong><span class="svc-steptext">Files prepared and checked before they reach the printer.</span></li></ol>

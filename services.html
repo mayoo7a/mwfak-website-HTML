@@ -843,6 +843,23 @@ img { max-width: 100%; }
 }
 @media (max-width: 520px) { .svc-steps { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .menu-item::before, .stage-title::after { animation: none; } .svc-card, .panel-cta { transition: none; } }
+
+/* single reading column: title, story, who, steps, receive, files, scope, tools, action */
+.svc > * { max-width: 900px; }
+.svc-top { grid-template-columns: 1fr; gap: 22px 0; }
+.svc-head { position: static; gap: 10px; }
+.svc-body { max-width: none; }
+.svc-body p.svc-lead { font-size: clamp(20px, 1.6vw, 24px); }
+.svc-how { margin-top: 44px; }
+.svc-end { grid-template-columns: 1fr; gap: 0; margin-top: 10px; }
+.svc-check { grid-template-columns: 1fr; }
+.svc-scope { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.svc-scope li { flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px 16px; border: 2px solid color-mix(in srgb, var(--c) 55%, transparent); }
+.svc-scope li:first-child { border-top: 2px solid color-mix(in srgb, var(--c) 55%, transparent); }
+.svc-scope strong { text-align: left; font-size: 22px; }
+.svc-cta { margin-top: 44px; }
+.svc-cta .panel-cta { margin-top: 0; }
+@media (max-width: 600px) { .svc-scope { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -871,8 +888,6 @@ img { max-width: 100%; }
   <header class="svc-head">
     <h2>Brand<br> Identity</h2>
     <p class="svc-tag">A full visual system your customers recognise everywhere.</p>
-    <a class="panel-cta" href="#contact">Start a project</a>
-    <blockquote class="svc-pull">Your call on the direction. My job is to make it impossible to ignore.</blockquote>
   </header>
   <div class="svc-body">
     <p class="svc-lead">Your customers should recognise you across a crowded shelf and a busy feed. A brand identity is how that happens: one set of choices for colour, type, shape and voice that makes every sign, post and package look like it belongs to you.</p>
@@ -901,14 +916,13 @@ img { max-width: 100%; }
       <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li><li><img src="assets/tools/photoshop.svg" alt="Adobe Photoshop" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Photoshop</span></li><li><img src="assets/tools/figma.svg" alt="Figma" width="30" height="30" loading="lazy" decoding="async"><span>Figma</span></li></ul>
     </div>
   </div>
+  <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
 <article class="svc" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg);--c:#C21292">
   <div class="svc-top">
   <header class="svc-head">
     <h2>Logo<br> Design</h2>
     <p class="svc-tag">One mark to carry your whole brand.</p>
-    <a class="panel-cta" href="#contact">Start a project</a>
-    <blockquote class="svc-pull">You bring the story. I bring the kerning.</blockquote>
   </header>
   <div class="svc-body">
     <p class="svc-lead">One mark has to carry your whole brand. It will sit on a phone screen, on a building and on a rubber stamp, and it has to look right on all three. So I draw it, redraw it, then redraw it again until it holds up tiny and huge.</p>
@@ -937,14 +951,13 @@ img { max-width: 100%; }
       <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li></ul>
     </div>
   </div>
+  <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
 <article class="svc" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg);--c:#1C7CD8">
   <div class="svc-top">
   <header class="svc-head">
     <h2>UI/UX<br> Design</h2>
     <p class="svc-tag">Flows people finish instead of abandoning.</p>
-    <a class="panel-cta" href="#contact">Start a project</a>
-    <blockquote class="svc-pull">Built for every screen, from a 320px phone to a 4K monitor.</blockquote>
   </header>
   <div class="svc-body">
     <p class="svc-lead">If users get lost in your app or site, it is not their fault. I watch how real people tap, scroll and give up, then redesign the flow so they finish the task instead of closing the tab.</p>
@@ -973,14 +986,13 @@ img { max-width: 100%; }
       <ul class="svc-toolrow"><li><img src="assets/tools/figma.svg" alt="Figma" width="30" height="30" loading="lazy" decoding="async"><span>Figma</span></li></ul>
     </div>
   </div>
+  <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
 <article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg);--c:#EF4040">
   <div class="svc-top">
   <header class="svc-head">
     <h2>Packaging<br> &amp; Print</h2>
     <p class="svc-tag">A product that wins in its first two seconds.</p>
-    <a class="panel-cta" href="#contact">Start a project</a>
-    <blockquote class="svc-pull">Print-ready files, screen-pretty mockups, real-world tested.</blockquote>
   </header>
   <div class="svc-body">
     <p class="svc-lead">Your product has two seconds to win on a shelf. I design packaging and labels that pull people in, survive the trip home and look great in someone's unboxing post.</p>
@@ -1009,6 +1021,7 @@ img { max-width: 100%; }
       <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li><li><img src="assets/tools/photoshop.svg" alt="Adobe Photoshop" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Photoshop</span></li></ul>
     </div>
   </div>
+  <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
 </div>
       </div>

@@ -776,41 +776,54 @@ img { max-width: 100%; }
 .menu-item[aria-current="true"]::before { opacity: 1; transform: translateX(0); animation: stageNudge .9s ease-in-out infinite; }
 @keyframes stageNudge { 50% { transform: translateX(6px); } }
 .svc-list-wrap { display: grid; gap: 0; min-width: 0; }
-.svc { display: grid; grid-template-columns: minmax(240px, 5fr) 7fr; gap: clamp(32px, 5vw, 80px); padding: 70px 0; border-top: 1px solid rgba(250,243,240,.16); scroll-margin-top: 230px; }
+.svc { padding: 80px 0 90px; border-top: 1px solid rgba(250,243,240,.16); scroll-margin-top: 230px; }
+.svc-top { display: grid; grid-template-columns: minmax(240px, 5fr) 7fr; gap: 0 clamp(32px, 5vw, 80px); align-items: start; }
 .svc:first-child { border-top: 0; padding-top: 30px; }
 .svc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; min-width: 0; position: sticky; top: 230px; align-self: start; }
 .svc-head h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(44px, 5.2vw, 84px); line-height: .95; letter-spacing: -0.01em; color: var(--bg); }
 .svc-tag { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(19px, 1.9vw, 26px); line-height: 1.3; opacity: .85; max-width: 22ch; }
 .panel-cta { display: inline-block; margin-top: 6px; padding: 18px 34px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
 .panel-cta:hover { transform: translateY(-3px) scale(1.04); }
-.svc-body { min-width: 0; max-width: 68ch; }
+.svc-pull { position: relative; margin-top: 26px; padding: 34px 0 0 0; max-width: 20ch; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.25; color: var(--c); }
+.svc-pull::before { content: "\201C"; position: absolute; left: -4px; top: -14px; font-family: 'Anton', sans-serif; font-style: normal; font-size: 84px; line-height: 1; color: var(--c); opacity: .9; }
+.svc-body { min-width: 0; max-width: 780px; }
 .svc-body p { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: var(--bg); opacity: .86; margin-bottom: 18px; }
-.svc-body p.svc-lead { font-size: clamp(19px, 1.7vw, 23px); line-height: 1.55; opacity: 1; }
-.svc-sub { display: inline-block; margin: 30px 0 16px; padding: 10px 20px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
-.svc-list { display: grid; gap: 0; margin-bottom: 6px; }
-.svc-item { padding: 16px 0; border-bottom: 1px solid rgba(250,243,240,.14); display: grid; grid-template-columns: minmax(150px, 1fr) 2fr; gap: 6px 24px; }
-.svc-item:first-child { border-top: 1px solid rgba(250,243,240,.14); }
-.svc-item dt { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; color: var(--bg); }
-.svc-item dd { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: var(--bg); opacity: .8; }
-.svc-steps { list-style: none; padding: 0; display: grid; gap: 14px; counter-reset: st; }
-.svc-steps li { counter-increment: st; display: grid; grid-template-columns: 34px 1fr; column-gap: 14px; align-items: baseline; }
-.svc-steps li::before { content: counter(st); grid-row: 1 / span 2; font-family: 'Anton', sans-serif; font-size: 22px; color: var(--bg); opacity: .5; }
-.svc-steps strong { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; color: var(--bg); }
-.svc-steps span { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: var(--bg); opacity: .8; }
+.svc-body p.svc-lead { font-size: clamp(20px, 1.8vw, 25px); line-height: 1.5; opacity: 1; }
+.svc-sub { display: inline-block; margin: 34px 0 20px; padding: 10px 20px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+.svc-cards { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 22px; }
+.svc-card { position: relative; padding: 22px 22px 22px 24px; background: rgba(250,243,240,.05); border: 2px solid var(--c); box-shadow: 6px 6px 0 color-mix(in srgb, var(--c) 55%, transparent); transition: transform .2s ease, box-shadow .2s ease; }
+.svc-card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--c); }
+.svc-card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.25; color: var(--bg); margin-bottom: 8px; }
+.svc-card p { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--bg); opacity: .8; margin: 0; }
+.svc-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.svc-chips li { padding: 12px 20px; border: 2px solid var(--c); border-radius: 999px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.2; color: var(--bg); }
+.svc-how { margin-top: 30px; }
+.svc-how .svc-sub { margin-top: 20px; }
+.svc-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; position: relative; counter-reset: st; }
+.svc-steps::before { content: ""; position: absolute; left: 6%; right: 6%; top: 22px; border-top: 3px dashed color-mix(in srgb, var(--c) 60%, transparent); }
+.svc-steps li { position: relative; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.svc-num { width: 46px; height: 46px; display: grid; place-items: center; background: var(--c); color: var(--txt); font-family: 'Anton', sans-serif; font-size: 22px; clip-path: polygon(6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px), 0 6px, 3px 6px, 3px 3px, 6px 3px); position: relative; z-index: 1; }
+.svc-steps strong { margin-top: 6px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 18px; color: var(--bg); }
+.svc-steptext { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--bg); opacity: .8; }
 .stage-hint { margin-top: 10px; padding-top: 28px; border-top: 1px solid rgba(250,243,240,.16); font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.4; opacity: .85; max-width: 60ch; }
+@media (max-width: 1100px) { .svc-steps { grid-template-columns: 1fr 1fr; } .svc-steps::before { display: none; } }
 @media (max-width: 900px) {
   .stage { padding: 50px 5vw 70px; }
   .menu { position: static; grid-template-columns: 1fr 1fr; padding: 0 0 0 14px; margin: 0; }
   .menu-item { padding: 16px 8px 16px 20px; font-size: clamp(10px, 2.8vw, 13px); letter-spacing: .03em; transform-origin: center; }
   .menu-item::before { left: -14px; width: 26px; height: 26px; margin-top: -13px; }
-  .svc { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; scroll-margin-top: 90px; }
+  .svc { padding: 52px 0 60px; scroll-margin-top: 90px; }
+  .svc-top { grid-template-columns: 1fr; gap: 28px 0; }
   .svc-head { position: static; }
   .svc-head h2 { font-size: clamp(40px, 11vw, 60px); }
-  .svc-tag { max-width: none; }
-  .svc-item { grid-template-columns: 1fr; }
+  .svc-tag, .svc-pull { max-width: none; }
   .svc-body p { font-size: 16px; }
+  .svc-cards { grid-template-columns: 1fr; }
+  .svc-chips li { font-size: 18px; }
+  .svc-how { margin-top: 10px; }
 }
-@media (prefers-reduced-motion: reduce) { .menu-item::before, .stage-title::after { animation: none; } }
+@media (max-width: 520px) { .svc-steps { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .menu-item::before, .stage-title::after { animation: none; } .svc-card, .panel-cta { transition: none; } }
 </style>
 </head>
 <body>
@@ -834,72 +847,92 @@ img { max-width: 100%; }
 <a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-red.svg);--txt:var(--bg)"><span class="menu-label">Packaging & Print</span></a>
       </nav>
       <div class="svc-list-wrap">
-<article class="svc" id="brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink)">
+<article class="svc" id="brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink);--c:#FFA732">
+  <div class="svc-top">
   <header class="svc-head">
     <h2>Brand<br> Identity</h2>
     <p class="svc-tag">A full visual system your customers recognise everywhere.</p>
     <a class="panel-cta" href="#contact">Start a project</a>
+    <blockquote class="svc-pull">Your call on the direction. My job is to make it impossible to ignore.</blockquote>
   </header>
   <div class="svc-body">
-    <p class="svc-lead">A brand identity is the set of visual decisions that makes a business easy to recognise and easy to trust. It covers your logo, your colours, your typefaces and the rules for using them, so everything you put out looks like it came from the same place.</p>
-    <p>I start with questions. Who are you serving, what do you want to sound like, and what makes you different from the other options your customers are looking at? The answers shape every choice that follows, so the identity fits your business instead of following a trend.</p>
-    <h3 class="svc-sub">What you get</h3>
-    <dl class="svc-list"><div class="svc-item"><dt>Research and positioning</dt><dd>A short brief that sums up your audience, your competitors and your voice. We agree on it before any design starts.</dd></div><div class="svc-item"><dt>Logo and variations</dt><dd>Your main logo plus horizontal, stacked and icon-only versions, each in full colour, black and white.</dd></div><div class="svc-item"><dt>Colour palette</dt><dd>Main and supporting colours with exact values for print and screen.</dd></div><div class="svc-item"><dt>Typography</dt><dd>Typefaces for headings and body text, chosen to work in Arabic, English or both.</dd></div><div class="svc-item"><dt>Brand guidelines</dt><dd>A document that shows how to use everything: the space around the logo, the smallest sizes, colour rules and what to avoid.</dd></div><div class="svc-item"><dt>Applications</dt><dd>Examples of the identity on real items such as social posts, stationery, signs and merchandise.</dd></div></dl>
-    <h3 class="svc-sub">Who it is for</h3>
-    <p>New businesses that need a strong start, and established ones whose look no longer matches who they have become. It also suits teams whose materials come from several people and have started to look inconsistent.</p>
-    <h3 class="svc-sub">How it works</h3>
-    <ol class="svc-steps"><li><strong>Discovery</strong><span>We talk through your business, your audience and your goals.</span></li><li><strong>Direction</strong><span>I present a clear visual direction and we choose the way forward together.</span></li><li><strong>Design</strong><span>I build the full system and apply it to real examples.</span></li><li><strong>Hand-off</strong><span>You receive the files and the guidelines, ready to use.</span></li></ol>
+    <p class="svc-lead">Your customers should recognise you across a crowded shelf and a busy feed. A brand identity is how that happens: one set of choices for colour, type, shape and voice that makes every sign, post and package look like it belongs to you.</p>
+    <p>I begin by listening. Who are you talking to, what do you sound like on a good day, and why would someone pick you over the shop next door? Then I build the whole visual system around those answers, so it fits your business and does not follow a trend that will look old in a year.</p>
+    <h3 class="svc-sub">What you walk away with</h3>
+    <ul class="svc-cards"><li class="svc-card"><h4>A clear starting point</h4><p>Audience, competitors and voice, boiled down to a short brief we both sign off before I draw anything.</p></li><li class="svc-card"><h4>A logo that behaves</h4><p>Your main logo plus horizontal, stacked and icon versions, in full colour, black and white.</p></li><li class="svc-card"><h4>Colours with exact codes</h4><p>A main palette and supporting colours, with exact values for print and screen so red stays the same red.</p></li><li class="svc-card"><h4>Type that speaks both languages</h4><p>Typefaces for headlines and text that look right in Arabic, English or both.</p></li><li class="svc-card"><h4>A rulebook people can follow</h4><p>Guidelines covering logo spacing, smallest sizes, colour rules and the things to never do.</p></li><li class="svc-card"><h4>Proof it works in the wild</h4><p>Your identity on real things: social posts, stationery, signs and merchandise.</p></li></ul>
+    <h3 class="svc-sub">Made for</h3>
+    <ul class="svc-chips"><li>New businesses that want a strong start</li><li>Established brands that have outgrown their look</li><li>Teams whose materials stopped matching</li></ul>
+  </div>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-steps"><li><span class="svc-num">1</span><strong>We talk</strong><span class="svc-steptext">Your business, your audience, your goals, and what you love and hate.</span></li><li><span class="svc-num">2</span><strong>I propose</strong><span class="svc-steptext">A clear visual direction, and we choose the way forward together.</span></li><li><span class="svc-num">3</span><strong>I build</strong><span class="svc-steptext">The full system, tested on real examples.</span></li><li><span class="svc-num">4</span><strong>You launch</strong><span class="svc-steptext">Files and guidelines, ready to use from day one.</span></li></ol>
   </div>
 </article>
-<article class="svc" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)">
+<article class="svc" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg);--c:#C21292">
+  <div class="svc-top">
   <header class="svc-head">
     <h2>Logo<br> Design</h2>
     <p class="svc-tag">One mark to carry your whole brand.</p>
     <a class="panel-cta" href="#contact">Start a project</a>
+    <blockquote class="svc-pull">You bring the story. I bring the kerning.</blockquote>
   </header>
   <div class="svc-body">
-    <p class="svc-lead">A logo is the one piece of your brand that appears everywhere: on a phone screen, a shop sign, a shipping box and a stamp. It has to stay clear and recognisable at every size, so I draw it carefully and test it small and large before I show it to you.</p>
-    <p>I design Arabic, English and bilingual logos. When a logo uses both scripts, I balance them so neither one looks like an add-on. You bring the story of your business, and I turn it into a single mark that is simple, distinctive and easy to remember.</p>
-    <h3 class="svc-sub">What you get</h3>
-    <dl class="svc-list"><div class="svc-item"><dt>Concept exploration</dt><dd>Sketches and early ideas, so you can see how I reached the final direction.</dd></div><div class="svc-item"><dt>Final logo</dt><dd>The chosen mark, refined curve by curve and letter by letter.</dd></div><div class="svc-item"><dt>Language versions</dt><dd>Arabic, English or bilingual layouts, as your business needs.</dd></div><div class="svc-item"><dt>Colour versions</dt><dd>Full colour, black, white, and a small icon version for places like social media profiles.</dd></div><div class="svc-item"><dt>Usage rules</dt><dd>The clear space around the logo, the smallest size it works at, and examples of what not to do.</dd></div><div class="svc-item"><dt>Final files</dt><dd>Vector files for print and image files for screens and social media.</dd></div></dl>
-    <h3 class="svc-sub">Who it is for</h3>
-    <p>Start-ups choosing their first logo, businesses replacing an old or unclear one, and brands going bilingual that need both scripts to look equally strong.</p>
-    <h3 class="svc-sub">How it works</h3>
-    <ol class="svc-steps"><li><strong>Brief</strong><span>You tell me about the business, the audience and the feeling the logo should give.</span></li><li><strong>Sketches</strong><span>I explore several directions and show you the strongest ones.</span></li><li><strong>Refinement</strong><span>I develop the chosen idea and test it at different sizes and on light and dark backgrounds.</span></li><li><strong>Delivery</strong><span>You receive the final logo in every version and every file you need.</span></li></ol>
+    <p class="svc-lead">One mark has to carry your whole brand. It will sit on a phone screen, on a building and on a rubber stamp, and it has to look right on all three. So I draw it, redraw it, then redraw it again until it holds up tiny and huge.</p>
+    <p>Arabic, Latin or both, I balance the scripts so neither feels like an afterthought. You hand me the story of your business and I turn it into a mark that is simple, distinctive and easy to remember.</p>
+    <h3 class="svc-sub">What you walk away with</h3>
+    <ul class="svc-cards"><li class="svc-card"><h4>Sketches you can see</h4><p>Early ideas and explorations, so you know how we got to the final mark.</p></li><li class="svc-card"><h4>One finished mark</h4><p>The chosen logo, refined curve by curve and letter by letter.</p></li><li class="svc-card"><h4>Both scripts, balanced</h4><p>Arabic, English or bilingual layouts where each script carries equal weight.</p></li><li class="svc-card"><h4>Every colour situation</h4><p>Full colour, black, white and a compact icon for profile pictures and favicons.</p></li><li class="svc-card"><h4>A short rulebook</h4><p>Clear space, smallest size and examples of what to avoid.</p></li><li class="svc-card"><h4>Files for everything</h4><p>Vector files for print and image files for screens and social media.</p></li></ul>
+    <h3 class="svc-sub">Made for</h3>
+    <ul class="svc-chips"><li>Start-ups choosing a first logo</li><li>Businesses replacing an old or unclear one</li><li>Brands going bilingual</li></ul>
+  </div>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The business, the audience and the feeling the logo should give.</span></li><li><span class="svc-num">2</span><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest ones.</span></li><li><span class="svc-num">3</span><strong>Refine</strong><span class="svc-steptext">The chosen idea, tested small and large, on light and on dark.</span></li><li><span class="svc-num">4</span><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and every file you need.</span></li></ol>
   </div>
 </article>
-<article class="svc" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg)">
+<article class="svc" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg);--c:#1C7CD8">
+  <div class="svc-top">
   <header class="svc-head">
     <h2>UI/UX<br> Design</h2>
     <p class="svc-tag">Flows people finish instead of abandoning.</p>
     <a class="panel-cta" href="#contact">Start a project</a>
+    <blockquote class="svc-pull">Built for every screen, from a 320px phone to a 4K monitor.</blockquote>
   </header>
   <div class="svc-body">
-    <p class="svc-lead">Good UI/UX design makes a website or an app easy to use without anyone having to think about it. When users get lost, they do not blame themselves, they leave. I look at how real people tap, scroll and decide, and I design the flow so they can finish what they came to do.</p>
-    <p>I design for every screen size, from a small phone to a large monitor, in both Arabic (right to left) and English. The result is a clear set of screens that looks good and that a developer can build from without guessing.</p>
-    <h3 class="svc-sub">What you get</h3>
-    <dl class="svc-list"><div class="svc-item"><dt>Research and goals</dt><dd>What your users need, what your business needs and where the two meet.</dd></div><div class="svc-item"><dt>User flows</dt><dd>A map of the steps people take, so unnecessary steps can be removed before anything is designed.</dd></div><div class="svc-item"><dt>Wireframes</dt><dd>Simple layouts that settle structure and content before colour and style.</dd></div><div class="svc-item"><dt>Final screens</dt><dd>Polished designs for web and mobile, using your brand colours, type and style.</dd></div><div class="svc-item"><dt>Right to left layouts</dt><dd>Arabic versions designed properly, with the layout mirrored instead of only translated.</dd></div><div class="svc-item"><dt>Developer hand-off</dt><dd>Organised design files with sizes, spacing and assets, so the finished build matches the design.</dd></div></dl>
-    <h3 class="svc-sub">Who it is for</h3>
-    <p>Businesses launching a website or an app, teams whose current product confuses users, and companies adding Arabic to an English product or English to an Arabic one.</p>
-    <h3 class="svc-sub">How it works</h3>
-    <ol class="svc-steps"><li><strong>Understand</strong><span>We go through your users, your goals and what is not working today.</span></li><li><strong>Map</strong><span>I lay out the steps people take and decide what stays and what goes.</span></li><li><strong>Design</strong><span>I move from wireframes to finished screens for every screen size.</span></li><li><strong>Hand-off</strong><span>Your developer receives organised files and clear specifications.</span></li></ol>
+    <p class="svc-lead">If users get lost in your app or site, it is not their fault. I watch how real people tap, scroll and give up, then redesign the flow so they finish the task instead of closing the tab.</p>
+    <p>I design for every screen size, in Arabic (right to left) and English. You get screens that look good, make sense and can be built by a developer without guessing.</p>
+    <h3 class="svc-sub">What you walk away with</h3>
+    <ul class="svc-cards"><li class="svc-card"><h4>Know your users</h4><p>Who they are, what they want and where they get stuck today.</p></li><li class="svc-card"><h4>A map of every step</h4><p>User flows that show the whole journey, so extra steps get cut before design starts.</p></li><li class="svc-card"><h4>Layouts before looks</h4><p>Wireframes that settle structure and content before colour and style.</p></li><li class="svc-card"><h4>Screens that finish the job</h4><p>Polished web and mobile designs in your brand colours, type and style.</p></li><li class="svc-card"><h4>Arabic done properly</h4><p>Right to left layouts that are mirrored with care, not just translated.</p></li><li class="svc-card"><h4>A calm hand-off</h4><p>Organised files with sizes, spacing and assets, so the build matches the design.</p></li></ul>
+    <h3 class="svc-sub">Made for</h3>
+    <ul class="svc-chips"><li>Businesses launching a site or an app</li><li>Teams with a product that confuses people</li><li>Companies adding Arabic or English</li></ul>
+  </div>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Understand</strong><span class="svc-steptext">Your users, your goals and what is not working today.</span></li><li><span class="svc-num">2</span><strong>Map</strong><span class="svc-steptext">Every step people take, and what stays and what goes.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">From wireframes to finished screens for every size.</span></li><li><span class="svc-num">4</span><strong>Hand over</strong><span class="svc-steptext">Organised files and clear specifications for your developer.</span></li></ol>
   </div>
 </article>
-<article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg)">
+<article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg);--c:#EF4040">
+  <div class="svc-top">
   <header class="svc-head">
     <h2>Packaging<br> &amp; Print</h2>
     <p class="svc-tag">A product that wins in its first two seconds.</p>
     <a class="panel-cta" href="#contact">Start a project</a>
+    <blockquote class="svc-pull">Print-ready files, screen-pretty mockups, real-world tested.</blockquote>
   </header>
   <div class="svc-body">
-    <p class="svc-lead">On a shelf, your package has about two seconds to be noticed. I design packaging, labels and printed pieces that stand out, tell people what the product is straight away, and still look good in a photo when someone unboxes it at home.</p>
-    <p>I also design printed material that has to be read, such as brochures, menus, catalogues and editorial layouts. Every file is prepared with printing in mind, so what you approve on screen is what comes off the press.</p>
-    <h3 class="svc-sub">What you get</h3>
-    <dl class="svc-list"><div class="svc-item"><dt>Packaging design</dt><dd>Boxes, bags, sleeves and jars, designed around the real shape and size of your product.</dd></div><div class="svc-item"><dt>Label design</dt><dd>Labels with a clear order of information, so the product name, key details and required text are easy to find.</dd></div><div class="svc-item"><dt>Print layouts</dt><dd>Brochures, menus, catalogues and other printed pieces, single page or many pages.</dd></div><div class="svc-item"><dt>Print-ready files</dt><dd>Files prepared for your printer with the correct sizes, bleed and colour setup.</dd></div><div class="svc-item"><dt>Mockups</dt><dd>Realistic previews of the finished product, useful for approvals, presentations and your online shop.</dd></div></dl>
-    <h3 class="svc-sub">Who it is for</h3>
-    <p>Product brands of any size, makers launching a first product, and businesses refreshing packaging that no longer reflects the quality inside.</p>
-    <h3 class="svc-sub">How it works</h3>
-    <ol class="svc-steps"><li><strong>Brief</strong><span>You tell me about the product, the audience and where it will be sold.</span></li><li><strong>Concepts</strong><span>I present packaging directions and we pick one to develop.</span></li><li><strong>Design and mockups</strong><span>I finish the design and show it on realistic mockups.</span></li><li><strong>Print preparation</strong><span>I prepare the files for your printer and check them before they go.</span></li></ol>
+    <p class="svc-lead">Your product has two seconds to win on a shelf. I design packaging and labels that pull people in, survive the trip home and look great in someone's unboxing post.</p>
+    <p>I also design print that has to be read: brochures, menus, catalogues and editorial layouts. Every file is prepared with the printer in mind, so what you approve on screen is what comes off the press.</p>
+    <h3 class="svc-sub">What you walk away with</h3>
+    <ul class="svc-cards"><li class="svc-card"><h4>Packaging that fits</h4><p>Boxes, bags, sleeves and jars designed around the real shape and size of your product.</p></li><li class="svc-card"><h4>Labels you can read</h4><p>A clear order of information, so the name, key details and required text are easy to find.</p></li><li class="svc-card"><h4>Print that gets read</h4><p>Brochures, menus, catalogues and other pieces, one page or many.</p></li><li class="svc-card"><h4>Files your printer will like</h4><p>Correct sizes, bleed and colour setup, checked before they go.</p></li><li class="svc-card"><h4>A look at the finished thing</h4><p>Realistic mockups for approvals, presentations and your online shop.</p></li></ul>
+    <h3 class="svc-sub">Made for</h3>
+    <ul class="svc-chips"><li>Product brands of any size</li><li>Makers launching a first product</li><li>Businesses refreshing tired packaging</li></ul>
+  </div>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The product, the audience and where it will be sold.</span></li><li><span class="svc-num">2</span><strong>Concepts</strong><span class="svc-steptext">A few packaging directions, and we pick one to develop.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">The finished design, shown on realistic mockups.</span></li><li><span class="svc-num">4</span><strong>Print prep</strong><span class="svc-steptext">Files prepared and checked before they reach the printer.</span></li></ol>
   </div>
 </article>
 </div>

@@ -871,6 +871,15 @@ img { max-width: 100%; }
 .svc-top .svc-head, .svc-top .svc-body { grid-column: 1; }
 .svc-top .svc-proj { grid-column: 2; grid-row: 1 / span 2; margin: 0; align-self: start; position: sticky; top: 240px; }
 @media (max-width: 900px) { .svc-top .svc-proj { grid-column: 1; grid-row: auto; position: static; margin-top: 8px; } }
+
+/* image stays pinned beside the whole description */
+@media (min-width: 901px) {
+  .svc { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: clamp(32px, 4vw, 64px); align-items: start; }
+  .svc > * { max-width: none; grid-column: 1; }
+  .svc > .svc-top { display: contents; }
+  .svc-top .svc-head, .svc-top .svc-body { grid-column: 1; margin-bottom: 22px; }
+  .svc .svc-proj { grid-column: 2; grid-row: 1 / span 6; position: sticky; top: 240px; margin: 0; }
+}
 </style>
 </head>
 <body>

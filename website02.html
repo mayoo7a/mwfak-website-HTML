@@ -556,10 +556,10 @@ img { display: block; max-width: 100%; }
   cursor: none;
 }
 /* Stagger + tilt: each card sits at a different vertical offset and angle */
-.mag-card[data-card="01"] { --card-color: #FFA732; --card-text: var(--bg);  transform: translateY(-30px) rotate(-3deg); margin-right: -1.2%; z-index: 1; }
-.mag-card[data-card="02"] { --card-color: #C21292; --card-text: var(--bg);  transform: translateY(30px)  rotate(2deg);  margin-right: -1.2%; z-index: 2; }
-.mag-card[data-card="03"] { --card-color: #1C7CD8; --card-text: var(--bg);  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
-.mag-card[data-card="04"] { --card-color: #EF4040; --card-text: var(--bg);  transform: translateY(50px)  rotate(3deg);  z-index: 4; }
+.mag-card[data-card="01"] { --card-color: #C21292; --card-text: var(--bg);  transform: translateY(-30px) rotate(-3deg); margin-right: -1.2%; z-index: 1; }
+.mag-card[data-card="02"] { --card-color: #FFA732; --card-text: var(--bg);  transform: translateY(30px)  rotate(2deg);  margin-right: -1.2%; z-index: 2; }
+.mag-card[data-card="03"] { --card-color: #EF4040; --card-text: var(--bg);  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
+.mag-card[data-card="04"] { --card-color: #1C7CD8; --card-text: var(--bg);  transform: translateY(50px)  rotate(3deg);  z-index: 4; }
 
 .mag-card:hover {
   transform: translateY(-30px) rotate(0deg) scale(1.03);
@@ -1575,23 +1575,26 @@ img { display: block; max-width: 100%; }
   <!-- Stacked, tilted service cards -->
   <div class="mag-cards">
 
-    <a class="mag-card" data-card="01" href="services.html#brand-identity">
-      <h3>Brand<br> Identity</h3>
-      <div class="mag-card-ribbon">Learn more</div>
-    </a>
-
-    <a class="mag-card" data-card="02" href="services.html#logo-design">
+    <a class="mag-card" data-card="01" href="services.html#logo-design">
       <h3>Logo<br> Design</h3>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
-    <a class="mag-card" data-card="03" href="services.html#ui-ux-design">
-      <h3>UI/UX<br> Design</h3>
+
+    <a class="mag-card" data-card="02" href="services.html#brand-identity">
+      <h3>Brand<br> Identity</h3>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
-    <a class="mag-card" data-card="04" href="services.html#packaging-print">
+
+    <a class="mag-card" data-card="03" href="services.html#packaging-print">
       <h3>Packaging<br> &amp; Print</h3>
+      <div class="mag-card-ribbon">Learn more</div>
+    </a>
+
+
+    <a class="mag-card" data-card="04" href="services.html#ui-ux-design">
+      <h3>UI/UX<br> Design</h3>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 

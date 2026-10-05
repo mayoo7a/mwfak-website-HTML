@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400&family=Silkscreen:wght@700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:   #FAF3F0;
@@ -807,6 +807,19 @@ img { max-width: 100%; }
 .svc-steps strong { margin-top: 6px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 18px; color: var(--bg); }
 .svc-steptext { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--bg); opacity: .8; }
 .stage-hint { margin-top: 10px; padding-top: 28px; border-top: 1px solid rgba(250,243,240,.16); font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.4; opacity: .85; max-width: 60ch; }
+.svc-end { display: grid; grid-template-columns: 7fr 5fr; gap: 10px clamp(32px, 5vw, 72px); margin-top: 26px; align-items: start; }
+.svc-end .svc-sub { margin-top: 20px; }
+.svc-filelist { list-style: none; padding: 0; display: grid; gap: 0; }
+.svc-filelist li { display: grid; grid-template-columns: minmax(96px, 150px) 1fr; gap: 6px 18px; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(250,243,240,.14); }
+.svc-filelist li:first-child { border-top: 1px solid rgba(250,243,240,.14); }
+.svc-filelist .ft { justify-self: start; padding: 7px 10px; background: var(--c); color: var(--txt); font-family: 'Silkscreen', 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .06em; line-height: 1.2; }
+.svc-filelist strong { display: block; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; color: var(--bg); }
+.svc-filelist li > div > span { display: block; margin-top: 3px; font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.55; color: var(--bg); opacity: .78; }
+.svc-toolrow { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 22px 26px; }
+.svc-toolrow li { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.tb { width: 64px; height: 64px; display: grid; place-items: center; background: var(--c); color: var(--txt); font-family: 'Silkscreen', 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; clip-path: polygon(8px 0, calc(100% - 8px) 0, calc(100% - 8px) 4px, calc(100% - 4px) 4px, calc(100% - 4px) 8px, 100% 8px, 100% calc(100% - 8px), calc(100% - 4px) calc(100% - 8px), calc(100% - 4px) calc(100% - 4px), calc(100% - 8px) calc(100% - 4px), calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 4px), 4px calc(100% - 4px), 4px calc(100% - 8px), 0 calc(100% - 8px), 0 8px, 4px 8px, 4px 4px, 8px 4px); }
+.tn { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .04em; color: var(--bg); }
+@media (max-width: 900px) { .svc-end { grid-template-columns: 1fr; } .svc-filelist li { grid-template-columns: 1fr; } }
 @media (max-width: 1100px) { .svc-steps { grid-template-columns: 1fr 1fr; } .svc-steps::before { display: none; } }
 @media (max-width: 900px) {
   .stage { padding: 50px 5vw 70px; }
@@ -869,6 +882,16 @@ img { max-width: 100%; }
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>We talk</strong><span class="svc-steptext">Your business, your audience, your goals, and what you love and hate.</span></li><li><span class="svc-num">2</span><strong>I propose</strong><span class="svc-steptext">A clear visual direction, and we choose the way forward together.</span></li><li><span class="svc-num">3</span><strong>I build</strong><span class="svc-steptext">The full system, tested on real examples.</span></li><li><span class="svc-num">4</span><strong>You launch</strong><span class="svc-steptext">Files and guidelines, ready to use from day one.</span></li></ol>
   </div>
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-filelist"><li><span class="ft">AI · EPS · SVG · PDF</span><div><strong>Logo files</strong><span>Vector files that stay sharp at any size, for print and for screens.</span></div></li><li><span class="ft">PNG · JPG</span><div><strong>Image files</strong><span>Every logo version, ready for websites, social media and documents.</span></div></li><li><span class="ft">PDF</span><div><strong>Brand guidelines</strong><span>Your logo rules, colours and typefaces in one document.</span></div></li><li><span class="ft">HEX · RGB · CMYK</span><div><strong>Colour codes</strong><span>Exact values for screens and for print.</span></div></li><li><span class="ft">AI · PDF · PNG</span><div><strong>Templates and mockups</strong><span>Social posts, stationery and other items, as agreed for the project.</span></div></li></ul>
+    </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Tools I use</h3>
+      <ul class="svc-toolrow"><li><span class="tb" aria-hidden="true">Ai</span><span class="tn">Illustrator</span></li><li><span class="tb" aria-hidden="true">Ps</span><span class="tn">Photoshop</span></li><li><span class="tb" aria-hidden="true">Id</span><span class="tn">InDesign</span></li></ul>
+    </div>
+  </div>
 </article>
 <article class="svc" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg);--c:#C21292">
   <div class="svc-top">
@@ -890,6 +913,16 @@ img { max-width: 100%; }
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The business, the audience and the feeling the logo should give.</span></li><li><span class="svc-num">2</span><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest ones.</span></li><li><span class="svc-num">3</span><strong>Refine</strong><span class="svc-steptext">The chosen idea, tested small and large, on light and on dark.</span></li><li><span class="svc-num">4</span><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and every file you need.</span></li></ol>
+  </div>
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-filelist"><li><span class="ft">AI · EPS · SVG · PDF</span><div><strong>Vector logo files</strong><span>The master files, sharp at any size, for print and for screens.</span></div></li><li><span class="ft">PNG · JPG</span><div><strong>Image files</strong><span>Full colour, black, white and icon versions, with transparent backgrounds where needed.</span></div></li><li><span class="ft">PDF</span><div><strong>Logo usage sheet</strong><span>Clear space, smallest size and what to avoid, on one page.</span></div></li><li><span class="ft">HEX · RGB · CMYK</span><div><strong>Colour codes</strong><span>The exact values used in your logo.</span></div></li></ul>
+    </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Tools I use</h3>
+      <ul class="svc-toolrow"><li><span class="tb" aria-hidden="true">Ai</span><span class="tn">Illustrator</span></li><li><span class="tb" aria-hidden="true">Ps</span><span class="tn">Photoshop</span></li></ul>
+    </div>
   </div>
 </article>
 <article class="svc" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg);--c:#1C7CD8">
@@ -913,6 +946,16 @@ img { max-width: 100%; }
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Understand</strong><span class="svc-steptext">Your users, your goals and what is not working today.</span></li><li><span class="svc-num">2</span><strong>Map</strong><span class="svc-steptext">Every step people take, and what stays and what goes.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">From wireframes to finished screens for every size.</span></li><li><span class="svc-num">4</span><strong>Hand over</strong><span class="svc-steptext">Organised files and clear specifications for your developer.</span></li></ol>
   </div>
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-filelist"><li><span class="ft">FIG</span><div><strong>Figma file</strong><span>Every screen, organised and named, with the styles and components used.</span></div></li><li><span class="ft">PDF · PNG</span><div><strong>Screen exports</strong><span>Your screens as images, for sharing, approvals and presentations.</span></div></li><li><span class="ft">SVG · PNG</span><div><strong>Exported assets</strong><span>Icons and images cut out for your developer, in the sizes they need.</span></div></li><li><span class="ft">PDF</span><div><strong>Style guide</strong><span>Colours, type, spacing and components in one reference.</span></div></li></ul>
+    </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Tools I use</h3>
+      <ul class="svc-toolrow"><li><span class="tb" aria-hidden="true">Fig</span><span class="tn">Figma</span></li><li><span class="tb" aria-hidden="true">Ai</span><span class="tn">Illustrator</span></li><li><span class="tb" aria-hidden="true">Ps</span><span class="tn">Photoshop</span></li></ul>
+    </div>
+  </div>
 </article>
 <article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg);--c:#EF4040">
   <div class="svc-top">
@@ -934,6 +977,16 @@ img { max-width: 100%; }
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The product, the audience and where it will be sold.</span></li><li><span class="svc-num">2</span><strong>Concepts</strong><span class="svc-steptext">A few packaging directions, and we pick one to develop.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">The finished design, shown on realistic mockups.</span></li><li><span class="svc-num">4</span><strong>Print prep</strong><span class="svc-steptext">Files prepared and checked before they reach the printer.</span></li></ol>
+  </div>
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-filelist"><li><span class="ft">PDF</span><div><strong>Print-ready files</strong><span>CMYK, with bleed and crop marks, prepared for your printer.</span></div></li><li><span class="ft">AI · INDD</span><div><strong>Editable source files</strong><span>So future changes and reprints are easy.</span></div></li><li><span class="ft">AI · PDF</span><div><strong>Dieline</strong><span>The flat template for your box, bag or label, placed under the design.</span></div></li><li><span class="ft">PNG · JPG</span><div><strong>Mockups</strong><span>Realistic previews for approvals, presentations and your online shop.</span></div></li></ul>
+    </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Tools I use</h3>
+      <ul class="svc-toolrow"><li><span class="tb" aria-hidden="true">Ai</span><span class="tn">Illustrator</span></li><li><span class="tb" aria-hidden="true">Id</span><span class="tn">InDesign</span></li><li><span class="tb" aria-hidden="true">Ps</span><span class="tn">Photoshop</span></li></ul>
+    </div>
   </div>
 </article>
 </div>

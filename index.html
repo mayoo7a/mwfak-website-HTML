@@ -425,15 +425,16 @@ img { display: block; max-width: 100%; }
 /* Main title block: dramatic mixed scales, off-center */
 .mag-title-block {
   position: relative;
-  display: flex; flex-direction: row; flex-wrap: wrap;
+  display: flex; flex-direction: row; flex-wrap: nowrap;   /* the gif always stays on the same line as the title */
   align-items: flex-end;
   justify-content: center;
-  gap: 24px 40px;
+  gap: clamp(12px, 2.8vw, 40px);
 }
 .mag-dragon-gif {
   position: relative;
   flex: 0 0 auto;
-  width: clamp(238px, 34vw, 527px);
+  width: clamp(120px, 34vw, 527px);
+  min-width: 0;
   height: auto;
   cursor: none;
   z-index: 5;
@@ -441,15 +442,6 @@ img { display: block; max-width: 100%; }
 }
 .mag-title-block:hover .mag-dragon-gif {
   transform: scale(1.04);
-}
-@media (max-width: 900px) {
-  .mag-dragon-gif {
-    width: clamp(240px, 42vw, 400px);
-    margin-left: -60px;
-  }
-}
-@media (max-width: 600px) {
-  .mag-dragon-gif { width: 270px; margin-left: 0; }
 }
 
 /* Pixel art tooltip - dragon wish - follows the cursor */
@@ -487,12 +479,13 @@ img { display: block; max-width: 100%; }
 .mag-title-pre {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: clamp(18px, 1.9vw, 31px);
+  font-size: clamp(13px, 1.9vw, 31px);
   color: var(--bg); opacity: .85;
   line-height: 1;
   margin: 0 0 12px;
+  white-space: nowrap;
   /* starts exactly where the D of DRAGON starts: the D's side gap in the big title, minus the S's side gap here */
-  padding-left: calc(clamp(85px, 15.3vw, 272px) * 0.037 - clamp(18px, 1.9vw, 31px) * 0.04);
+  padding-left: calc(clamp(56px, 15.3vw, 272px) * 0.037 - clamp(13px, 1.9vw, 31px) * 0.04);
   display: block;
   text-align: left;
   position: relative;
@@ -501,7 +494,7 @@ img { display: block; max-width: 100%; }
 .mag-word-anton {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
-  font-size: clamp(85px, 15.3vw, 272px);
+  font-size: clamp(56px, 15.3vw, 272px);
   line-height: 0.88;
   letter-spacing: -0.025em;
   color: var(--bg);

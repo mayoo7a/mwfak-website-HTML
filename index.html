@@ -1182,7 +1182,7 @@ img { display: block; max-width: 100%; }
 /* Big sign-off row */
 .footer-signoff {
   display: flex;
-  align-items: flex-end;
+  align-items: center;   /* the rabbit sits at the middle of the text height, also when the text wraps */
   gap: 24px;
   padding-bottom: 50px;
   border-bottom: 1.5px solid rgba(14,28,65,0.18);
@@ -1190,12 +1190,14 @@ img { display: block; max-width: 100%; }
   transform: translateY(-50px);
 }
 .footer-bye-img {
-  height: clamp(77px, 11.9vw, 170px);
+  height: clamp(100px, 15.5vw, 185px);
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  transform: translate(10px, 15px);
+  margin-left: auto;
+  transform: translate(10px, 0);
 }
+@media (min-width: 1700px) { .footer-bye-img { height: 170px; } }
 .footer-bye {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -1277,7 +1279,7 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 900px) {
   .footer-inner { padding: 60px 5vw 30px; }
-  .footer-signoff { grid-template-columns: 1fr; align-items: start; }
+  .footer-signoff { align-items: center; }
   .footer-cols { grid-template-columns: 1fr 1fr; gap: 30px; }
   .footer-cols .footer-col:last-child { grid-column: span 2; justify-self: start; text-align: left; }
 }

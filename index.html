@@ -1450,6 +1450,24 @@ img { display: block; max-width: 100%; }
 .mag-card[data-card="02"], .mag-card[data-card="03"] { --card-text: var(--ink); }
 .mag-card[data-card="04"] { --card-color: #1766B8; }
 .sticker.pen-sticker::after { color: var(--ink); }
+/* "Get a quote": header button (scrolls to contact) and WhatsApp button under the service cards */
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Bricolage Grotesque', 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
+.quote-btn:hover, .quote-btn:focus-visible { background: var(--pop); color: var(--bg); transform: translateY(-2px); outline: none; }
+.quote-btn:focus-visible { box-shadow: 0 0 0 3px var(--secondary); }
+.hero.hero--reel.hero--dark .quote-btn { background: var(--bg); color: var(--ink); }
+.hero.hero--reel.hero--dark .quote-btn:hover, .hero.hero--reel.hero--dark .quote-btn:focus-visible { background: var(--pop); color: var(--bg); }
+@media (max-width: 700px) {
+  .hero.hero--reel.hero--dark .quote-btn { background: var(--ink); color: var(--bg); }
+  .hero.hero--reel.hero--dark .quote-btn:hover { background: var(--pop); }
+  .quote-btn { padding: 11px 16px; font-size: 10px; letter-spacing: .14em; }
+  .header-actions { gap: 8px; }
+}
+@media (max-width: 400px) { .quote-btn { padding: 10px 12px; font-size: 9px; letter-spacing: .1em; } }
+.mag-cta { text-align: center; margin-top: -40px; padding: 0 5vw 110px; }
+.panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
+.panel-cta:hover, .panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
+@media (max-width: 600px) { .mag-cta { margin-top: 0; padding-bottom: 80px; } .panel-cta { padding: 16px 24px; font-size: 11px; } }
 </style>
 </head>
 <body>
@@ -1479,9 +1497,12 @@ img { display: block; max-width: 100%; }
       <span class="brand-name">Marah Touqan</span>
     </a>
 
-    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
-      <span></span><span></span>
-    </button>
+    <div class="header-actions">
+      <a class="quote-btn" href="#contact" data-hover>Get a quote</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <!-- Hero showreel: full width, plays once when the site opens. Click the video to pause or play; a replay button appears at the end -->
@@ -1624,6 +1645,9 @@ img { display: block; max-width: 100%; }
 
   </div>
 
+  <div class="mag-cta">
+    <a class="panel-cta" href="https://wa.me/962776353333?text=Hi%20Marah%2C%20I%27d%20like%20a%20quote%20for%20a%20project." target="_blank" rel="noopener">Get a quote on WhatsApp</a>
+  </div>
 
 </section>
 

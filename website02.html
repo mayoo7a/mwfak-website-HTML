@@ -62,6 +62,11 @@ body.cat-mode .pixel-cursor,
 body.cat-mode .trail-pixel { opacity: 0 !important; visibility: hidden; }
 .cursor-active .pixel-cursor { transform: translate(2px, 1px) scale(1.4); }
 
+/* touch devices have no mouse: no custom cursor, trail or cat follower, and the normal touch behaviour */
+@media (hover: none), (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+  .pixel-cursor, .trail-pixel, .cat-follower { display: none !important; }
+}
 /* Tiny pixel trail dots that fade behind the cursor - black & white only */
 .trail-pixel {
   position: fixed;
@@ -1808,8 +1813,9 @@ const TRAIL_INTERVAL = 35; // ms between trail pixels - lower = denser trail
 
 // Hide the cursor offscreen initially so it doesn't sit at (0,0)
 if (pixelCursor) { pixelCursor.style.left = '-100px'; pixelCursor.style.top = '-100px'; }
+const noMouse = matchMedia('(hover: none), (pointer: coarse)').matches;
 function moveCursor(e) {
-  if (!pixelCursor) return;
+  if (!pixelCursor || noMouse) return;
   pixelCursor.style.left = e.clientX + 'px';
   pixelCursor.style.top  = e.clientY + 'px';
 

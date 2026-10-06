@@ -925,6 +925,23 @@ html, body { cursor: none; }
 
 @media (max-width: 900px) { .svc-head h2 { font-size: clamp(28px, 9vw, 48px); } }
 @media (max-width: 900px) { .svc-top { grid-template-columns: minmax(0, 1fr); } .svc-top .svc-head, .svc-top .svc-body, .svc-top .svc-proj { grid-column: 1; } }
+
+/* small screens: contact boxes two per row, clean and unrotated (same on every page) */
+@media (max-width: 600px) {
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 0; }
+  .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; min-height: 0; padding: 14px 12px; box-shadow: 5px 5px 0 var(--ink); }
+  .contact-grid .contact-card:hover { scale: 1; }
+  .contact-card::before { width: 30px; height: 30px; font-size: 22px; }
+  .contact-card[data-card="behance"]::before, .contact-card[data-card="linkedin"]::before { font-size: 24px; }
+  .contact-card[data-card="email"]::before { -webkit-mask-size: 26px 26px; mask-size: 26px 26px; }
+  .contact-card-text { gap: 4px; }
+  .contact-card-label { font-size: 9px; letter-spacing: .18em; }
+  .contact-card-value { font-size: 14px; }
+}
+@media (max-width: 360px) {
+  .contact-card { padding: 12px 10px; }
+  .contact-card-value { font-size: 12px; letter-spacing: -0.02em; }
+}
 </style>
 </head>
 <body>

@@ -1463,6 +1463,23 @@ img { display: block; max-width: 100%; }
 /* clean envelope icon (replaces the odd-looking text glyph) */
 .contact-card[data-card="email"]::before { content: ""; background: #F7F7F7; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='26' height='18' rx='3.5'/%3E%3Cpath d='M4.5 9.5 16 18l11.5-8.5'/%3E%3C/svg%3E") center / 34px 34px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='26' height='18' rx='3.5'/%3E%3Cpath d='M4.5 9.5 16 18l11.5-8.5'/%3E%3C/svg%3E") center / 34px 34px no-repeat; }
 
+
+/* small screens: contact boxes two per row, clean and unrotated (same on every page) */
+@media (max-width: 600px) {
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 0; }
+  .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: column; align-items: flex-start; justify-content: center; gap: 8px; min-height: 0; padding: 14px 12px; box-shadow: 5px 5px 0 var(--ink); }
+  .contact-grid .contact-card:hover { scale: 1; }
+  .contact-card::before { width: 30px; height: 30px; font-size: 22px; }
+  .contact-card[data-card="behance"]::before, .contact-card[data-card="linkedin"]::before { font-size: 24px; }
+  .contact-card[data-card="email"]::before { -webkit-mask-size: 26px 26px; mask-size: 26px 26px; }
+  .contact-card-text { gap: 4px; }
+  .contact-card-label { font-size: 9px; letter-spacing: .18em; }
+  .contact-card-value { font-size: 14px; }
+}
+@media (max-width: 360px) {
+  .contact-card { padding: 12px 10px; }
+  .contact-card-value { font-size: 12px; letter-spacing: -0.02em; }
+}
 </style>
 </head>
 <body>

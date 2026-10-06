@@ -1463,7 +1463,7 @@ img { display: block; max-width: 100%; }
 <div class="cat-follower" id="catFollower" aria-hidden="true"></div>
 
 <!-- Off-canvas menu -->
-<nav class="menu-panel" id="menuPanel">
+<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
   <a href="#work" data-hover>Work</a>
   <a href="services.html" data-hover>Services</a>
   <a href="#about" data-hover>About</a>
@@ -1479,7 +1479,7 @@ img { display: block; max-width: 100%; }
       <span class="brand-name">Marah Touqan</span>
     </a>
 
-    <button class="burger" id="burger" aria-label="Open menu" data-hover>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
       <span></span><span></span>
     </button>
   </header>
@@ -1861,15 +1861,25 @@ document.querySelectorAll('[data-hover], a, button').forEach(el => {
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
 });
 
-/* Burger menu */
+/* Burger menu: keyboard (Escape closes) and screen-reader state (expanded, hidden, focus) */
 const burger = document.getElementById('burger');
 const menu   = document.getElementById('menuPanel');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  menu.classList.toggle('open');
-});
+function setMenu(open, returnFocus) {
+  burger.classList.toggle('open', open);
+  menu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+  menu.toggleAttribute('inert', !open);          // closed links cannot be tabbed to or read
+  if (open) { const first = menu.querySelector('a'); if (first) first.focus({ preventScroll: true }); }
+  else if (returnFocus) burger.focus({ preventScroll: true });
+}
+burger.addEventListener('click', () => setMenu(!menu.classList.contains('open'), false));
 document.querySelectorAll('.menu-panel a').forEach(a => {
-  a.addEventListener('click', () => { burger.classList.remove('open'); menu.classList.remove('open'); });
+  a.addEventListener('click', () => setMenu(false, false));
+});
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && menu.classList.contains('open')) { e.preventDefault(); setMenu(false, true); }
 });
 
 /* ============================================================

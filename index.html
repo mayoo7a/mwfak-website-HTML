@@ -1560,10 +1560,13 @@ img { display: block; max-width: 100%; }
   .work-caption { margin-top: 22px; }
 }
 /* hint on the console screen: tells people the screen opens the project */
-.screen-hint { position: absolute; right: 3%; bottom: 4%; z-index: 3; pointer-events: none; display: inline-flex; align-items: center; gap: .6em; padding: .4em .9em .4em .45em; border-radius: 999px; background: rgba(14,28,65,.88); color: #F7F7F7; font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(8px, 1.1vw, 14px); letter-spacing: .06em; white-space: nowrap; box-shadow: 0 3px 12px rgba(0,0,0,.35); transition: background .2s, transform .2s; }
-.screen-hint .hint-a { width: 1.9em; height: 1.9em; border-radius: 50%; background: #F7F7F7; color: #0E1C41; display: grid; place-items: center; font-weight: 800; font-size: 1em; line-height: 1; }
-.switch-screen:hover .screen-hint { background: #F9A323; color: #0E1C41; transform: scale(1.06); }
-@media (max-width: 700px) { .screen-hint { font-size: clamp(6px, 1.9vw, 9px); right: 3%; bottom: 4%; } }
+.wc-hint { margin-top: 10px; display: inline-flex; align-items: center; gap: .6em; font-family: 'Inter', sans-serif; font-weight: 600; font-size: clamp(12px, 1.1vw, 15px); color: var(--ink); opacity: .75; }
+.wc-hint svg { width: 1.3em; height: 1.3em; flex: none; }
+.wc-hint .h-mouse { display: none; }
+@media (hover: hover) { .wc-hint .h-touch { display: none; } .wc-hint .h-mouse { display: inline; } }
+.switch-screen { outline: 0 solid #F9A323; outline-offset: 0; transition: outline-width .15s steps(2, end); }
+@media (hover: hover) { .switch-screen:hover { outline: 4px solid #F9A323; } }
+.switch-screen:focus-visible { outline: 4px solid #F9A323; }
 </style>
 </head>
 <body>
@@ -1761,7 +1764,6 @@ img { display: block; max-width: 100%; }
     <div class="switch-frame">
       <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
-        <span class="screen-hint" aria-hidden="true"><span class="hint-a">A</span><span class="hint-label">Open project</span></span>
         <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" data-name="Baseera" data-type="Logo design" data-stem="baseera" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
         <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" data-name="Battikhi Stays" data-type="Brand and website" data-stem="battikhi-stays" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
         <img src="assets/portfolio/mwafq.webp" alt="Mwafq website UI" data-name="Mwafq" data-type="Website UI" data-stem="mwafq" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
@@ -1789,7 +1791,7 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="work-caption" aria-live="polite">
-    <div class="wc-text"><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span></div>
+    <div class="wc-text"><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span><div class="wc-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="h-touch">Tap the screen to open this project</span><span class="h-mouse">Click the screen to open this project</span></div></div>
   </div>
   <div class="work-cta"><a class="panel-cta" href="my-work.html">See all my work</a></div>
 

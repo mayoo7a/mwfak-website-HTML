@@ -1468,6 +1468,8 @@ img { display: block; max-width: 100%; }
 .panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
 .panel-cta:hover, .panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
 @media (max-width: 600px) { .mag-cta { margin-top: 0; padding-bottom: 80px; } .panel-cta { padding: 16px 24px; font-size: 11px; } }
+.mag-card-desc { margin: 12px 0 0; max-width: 24ch; text-wrap: balance; font-family: 'Inter', sans-serif; font-size: clamp(12px, 1vw, 14px); line-height: 1.45; text-align: center; color: var(--card-text, var(--ink)); }
+@media (max-width: 1024px) { .mag-card-desc { margin-top: 8px; } }
 </style>
 </head>
 <body>
@@ -1622,24 +1624,28 @@ img { display: block; max-width: 100%; }
 
     <a class="mag-card" data-card="01" href="services.html#logo-design">
       <h3>Logo<br> Design</h3>
+      <p class="mag-card-desc">One mark that holds up tiny and huge.</p>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
 
     <a class="mag-card" data-card="02" href="services.html#brand-identity">
       <h3>Brand<br> Identity</h3>
+      <p class="mag-card-desc">A full visual system, recognised everywhere.</p>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
 
     <a class="mag-card" data-card="03" href="services.html#packaging-print">
       <h3>Packaging<br> &amp; Print</h3>
+      <p class="mag-card-desc">Packaging that wins in its first two seconds.</p>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
 
     <a class="mag-card" data-card="04" href="services.html#ui-ux-design">
       <h3>UI/UX<br> Design</h3>
+      <p class="mag-card-desc">Flows people finish instead of abandoning.</p>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 

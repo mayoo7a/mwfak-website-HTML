@@ -921,6 +921,12 @@ html, body { cursor: none; }
 .svc-chips li { font-family: 'Bricolage Grotesque', sans-serif; font-style: normal; font-weight: 600; font-size: 16px; line-height: 1.45; padding-left: 26px; }
 .svc-chips li::before { top: 6px; width: 12px; height: 12px; box-sizing: border-box; background: transparent; border: 2px solid var(--c); }
 .svc-steptext, .svc-filetext, .svc-pricenote, .svc-scopenote { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: 15.5px; line-height: 1.55; opacity: .9; }
+
+/* contrast: every contact card text passes 4.5:1 (cream on magenta/purple/darker blue, navy on red) */
+.contact-card[data-card="behance"] { --card-c: #1766B8; }
+.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
+.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: var(--ink); }
+.contact-card .contact-card-label { opacity: 1; }
 </style>
 </head>
 <body>
@@ -943,7 +949,7 @@ html, body { cursor: none; }
       <nav class="menu" aria-label="Services">
 <a class="menu-item" href="#logo-design" data-slug="logo-design" aria-current="false" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)"><span class="menu-label">Logo Design</span></a>
 <a class="menu-item" href="#brand-identity" data-slug="brand-identity" aria-current="false" style="--box:url(assets/box-orange.svg);--txt:var(--ink)"><span class="menu-label">Brand Identity</span></a>
-<a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-red.svg);--txt:var(--bg)"><span class="menu-label">Packaging & Print</span></a>
+<a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-red.svg);--txt:var(--ink)"><span class="menu-label">Packaging & Print</span></a>
 <a class="menu-item" href="#ui-ux-design" data-slug="ui-ux-design" aria-current="false" style="--box:url(assets/box-blue.svg);--txt:var(--bg)"><span class="menu-label">UI/UX Design</span></a>
       </nav>
       <div class="svc-list-wrap">
@@ -1019,7 +1025,7 @@ html, body { cursor: none; }
   </div>
   <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
-<article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--bg);--c:#EF4040">
+<article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--ink);--c:#EF4040">
   <div class="svc-top">
   <header class="svc-head">
     <h2>Packaging<br> &amp; Print</h2>

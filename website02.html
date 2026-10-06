@@ -1441,6 +1441,15 @@ img { display: block; max-width: 100%; }
   .hero.hero--reel.hero--dark .burger span { background: var(--ink); }
   .hero.hero--reel.hero--dark .brand img { filter: none; }
 }
+
+/* contrast: every contact card text passes 4.5:1 (cream on magenta/purple/darker blue, navy on red) */
+.contact-card[data-card="behance"] { --card-c: #1766B8; }
+.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
+.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: var(--ink); }
+.contact-card .contact-card-label { opacity: 1; }
+.mag-card[data-card="02"], .mag-card[data-card="03"] { --card-text: var(--ink); }
+.mag-card[data-card="04"] { --card-color: #1766B8; }
+.sticker.pen-sticker::after { color: var(--ink); }
 </style>
 </head>
 <body>

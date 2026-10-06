@@ -244,7 +244,7 @@ img { display: block; max-width: 100%; }
 /* Big centered serif headline */
 .intro-headline {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(32px, 5.12vw, 88px);
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -571,10 +571,10 @@ img { display: block; max-width: 100%; }
   cursor: none;
 }
 /* Stagger + tilt: each card sits at a different vertical offset and angle */
-.mag-card[data-card="01"] { --card-color: #D12A94; --card-text: var(--bg);  transform: translateY(-30px) rotate(-3deg); margin-right: -1.2%; z-index: 1; }
-.mag-card[data-card="02"] { --card-color: #FFA92D; --card-text: var(--bg);  transform: translateY(30px)  rotate(2deg);  margin-right: -1.2%; z-index: 2; }
-.mag-card[data-card="03"] { --card-color: #FD513E; --card-text: var(--bg);  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
-.mag-card[data-card="04"] { --card-color: #1478DC; --card-text: var(--bg);  transform: translateY(50px)  rotate(3deg);  z-index: 4; }
+.mag-card[data-card="01"] { --card-color: #FFA92D; --card-text: #FFFFFF;  transform: translateY(-30px) rotate(-3deg); margin-right: -1.2%; z-index: 1; }
+.mag-card[data-card="02"] { --card-color: #D12A94; --card-text: #FFFFFF;  transform: translateY(30px)  rotate(2deg);  margin-right: -1.2%; z-index: 2; }
+.mag-card[data-card="03"] { --card-color: #1478DC; --card-text: #FFFFFF;  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
+.mag-card[data-card="04"] { --card-color: #FD513E; --card-text: #FFFFFF;  transform: translateY(50px)  rotate(3deg);  z-index: 4; }
 
 .mag-card:hover {
   transform: translateY(-30px) rotate(0deg) scale(1.03);
@@ -1057,10 +1057,6 @@ img { display: block; max-width: 100%; }
   scale: 1.1;
   transition: transform .25s ease, scale .25s ease;
 }
-.contact-card[data-card="email"]    { --card-c: #D12A94; }
-.contact-card[data-card="behance"]  { --card-c: #1478DC; }
-.contact-card[data-card="linkedin"] { --card-c: #711DB0; }
-.contact-card[data-card="phone"]    { --card-c: #FD513E; }
 
 /* Slight rotation per card — matches testimonial cards */
 .contact-card:nth-child(1) { rotate: -1.5deg; }
@@ -1091,6 +1087,10 @@ img { display: block; max-width: 100%; }
   gap: 5px;
   min-width: 0;
 }
+.contact-card[data-card="email"] { --card-c: #FFA92D; }
+.contact-card[data-card="behance"] { --card-c: #D12A94; }
+.contact-card[data-card="linkedin"] { --card-c: #1478DC; }
+.contact-card[data-card="phone"] { --card-c: #FD513E; }
 .contact-card[data-card="email"]::before    { content: "✉"; }
 .contact-card[data-card="behance"]::before  { content: "Be"; font-family: 'Anton', sans-serif; font-size: 30px; }
 .contact-card[data-card="linkedin"]::before {
@@ -1441,14 +1441,7 @@ img { display: block; max-width: 100%; }
   .hero.hero--reel.hero--dark .brand img { filter: none; }
 }
 
-/* contrast: every contact card text passes 4.5:1 (cream on magenta/purple/darker blue, navy on red) */
-.contact-card[data-card="behance"] { --card-c: #1478DC; }
-.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
-.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: var(--ink); }
 .contact-card .contact-card-label { opacity: 1; }
-.mag-card[data-card="02"], .mag-card[data-card="03"] { --card-text: var(--ink); }
-.mag-card[data-card="04"] { --card-color: #1478DC; }
-.sticker.pen-sticker::after { color: var(--ink); }
 /* "Get a quote": header button (scrolls to contact) and WhatsApp button under the service cards */
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
@@ -1472,36 +1465,11 @@ img { display: block; max-width: 100%; }
 
 /* white text and icons on every colored contact box (colors darkened so white passes 4.5:1) */
 .contact-card, .contact-card::before, .contact-card .contact-card-label, .contact-card .contact-card-value { color: #FFFFFF; }
-.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
-.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: #FFFFFF; }
-/* home service cards: white titles and descriptions on every card */
-.mag-card[data-card="01"], .mag-card[data-card="02"], .mag-card[data-card="03"], .mag-card[data-card="04"] { --card-text: #FFFFFF; }
 .sticker.pen-sticker::after { color: #FFFFFF; }
 .panel-cta { color: #FFFFFF; }
 /* clean envelope icon (replaces the odd-looking text glyph) */
 .contact-card[data-card="email"]::before { content: ""; background: #FFFFFF; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='26' height='18' rx='3.5'/%3E%3Cpath d='M4.5 9.5 16 18l11.5-8.5'/%3E%3C/svg%3E") center / 34px 34px no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7' width='26' height='18' rx='3.5'/%3E%3Cpath d='M4.5 9.5 16 18l11.5-8.5'/%3E%3C/svg%3E") center / 34px 34px no-repeat; }
-/* service cards use the four site colors */
-.mag-card[data-card="01"] { --card-color: #D12A94; }
-.mag-card[data-card="02"] { --card-color: #FFA92D; }
-.mag-card[data-card="03"] { --card-color: #FD513E; }
-.mag-card[data-card="04"] { --card-color: #1478DC; }
 
-/* contact boxes: the four site colors, identical on every page */
-.contact-card[data-card="email"]    { --card-c: #D12A94; }
-.contact-card[data-card="behance"]  { --card-c: #1478DC; }
-.contact-card[data-card="linkedin"] { --card-c: #FFA92D; }
-.contact-card[data-card="phone"]    { --card-c: #FD513E; }
-/* colors in order: yellow, pink, blue, red */
-.mag-card[data-card="01"] { --card-color: #FFA92D; }
-.mag-card[data-card="02"] { --card-color: #D12A94; }
-.mag-card[data-card="03"] { --card-color: #1478DC; }
-.mag-card[data-card="04"] { --card-color: #FD513E; }
-
-/* contact boxes in the same color order: yellow, pink, blue, red */
-.contact-card[data-card="email"]    { --card-c: #FFA92D; }
-.contact-card[data-card="behance"]  { --card-c: #D12A94; }
-.contact-card[data-card="linkedin"] { --card-c: #1478DC; }
-.contact-card[data-card="phone"]    { --card-c: #FD513E; }
 </style>
 </head>
 <body>
@@ -1660,20 +1628,17 @@ img { display: block; max-width: 100%; }
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
-
     <a class="mag-card" data-card="02" href="services.html#brand-identity">
       <h3>Brand<br> Identity</h3>
       <p class="mag-card-desc">A full visual system, recognised everywhere.</p>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
 
-
     <a class="mag-card" data-card="03" href="services.html#packaging-print">
       <h3>Packaging<br> &amp; Print</h3>
       <p class="mag-card-desc">Packaging that wins in its first two seconds.</p>
       <div class="mag-card-ribbon">Learn more</div>
     </a>
-
 
     <a class="mag-card" data-card="04" href="services.html#ui-ux-design">
       <h3>UI/UX<br> Design</h3>
@@ -1828,7 +1793,6 @@ img { display: block; max-width: 100%; }
      ============================================================ -->
 <footer class="footer">
 
-
   <div class="footer-inner">
 
     <!-- Big closing line, like a sign-off -->
@@ -1971,9 +1935,6 @@ addEventListener('keydown', e => {
     { name: 'Tara N.',   role: 'Editorial · Freelancer.com',           cStars: 5, img: '', review: 'Great communication and great work.' },
   ];
 
-
-
-
   const tint = ['#ffe3b0','#f9b8e6','#b5d8ff','#ffb3b3','#e0c2ff','#aef2e4','#fff2a8','#ffc9da'];
   const N = profiles.length;
   const ARMS = 4, TILT = 0.42, TURN = Math.PI * 3.1, ROT = -0.3;
@@ -2100,9 +2061,6 @@ addEventListener('keydown', e => {
     ctx.globalAlpha = 1; last = t;
   }
   function loop(t){ draw(t); drawGal(t); raf = requestAnimationFrame(loop); }
-
-
-
 
   layoutG(); resize();
   addEventListener('resize', () => { layoutG(); resize(); });

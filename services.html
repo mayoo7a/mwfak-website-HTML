@@ -899,6 +899,9 @@ html, body { cursor: none; }
   *, *::before, *::after { cursor: auto !important; }
   .pixel-cursor, .trail-pixel { display: none !important; }
 }
+/* "What you receive" is the main point of each service: a real heading, with the items directly under it */
+.svc-end .svc-files > .svc-sub:first-child { margin: 36px 0 22px; padding: 0 0 0 20px; border-left: 6px solid var(--c); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.05; letter-spacing: -0.01em; text-transform: none; color: var(--bg); }
+.svc-end .svc-files > .svc-sub:first-child::before { display: none; }
 </style>
 </head>
 <body>

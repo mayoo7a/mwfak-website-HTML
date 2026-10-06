@@ -23,7 +23,7 @@ try { if ('scrollRestoration' in history && !location.hash) history.scrollRestor
   --secondary: #FFA92D;  /* orange accent */
   --pop:       #D12A94;  /* bold magenta, stripe 1 */
   --soft:      #711DB0;  /* deep purple, stripe 2 */
-  --accent:    #EF4040;  /* red accent */
+  --accent:    #FD513E;  /* red accent */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -460,7 +460,7 @@ img { display: block; max-width: 100%; }
   top: 0;
   width: clamp(260px, 24vw, 380px);
   padding: 28px 30px;
-  background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140' preserveAspectRatio='none' shape-rendering='crispEdges'%3E%3Cpath d='M20 0H220V4H228V8H236V12H240V128H236V132H228V136H220V140H20V136H12V132H4V128H0V12H4V8H12V4H20Z' fill='%230a1530'/%3E%3Cpath d='M24 4H216V8H224V12H232V16H236V124H232V128H224V132H216V136H24V132H16V128H8V124H4V16H8V12H16V8H24Z' fill='%23FAF3F0'/%3E%3Crect x='28' y='12' width='4' height='4' fill='%23EF4040'/%3E%3Crect x='32' y='16' width='4' height='4' fill='%23FFA92D'/%3E%3Crect x='36' y='12' width='4' height='4' fill='%23D12A94'/%3E%3Crect x='204' y='124' width='4' height='4' fill='%23D12A94'/%3E%3Crect x='208' y='120' width='4' height='4' fill='%23EF4040'/%3E%3Crect x='200' y='120' width='4' height='4' fill='%23FFA92D'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140' preserveAspectRatio='none' shape-rendering='crispEdges'%3E%3Cpath d='M20 0H220V4H228V8H236V12H240V128H236V132H228V136H220V140H20V136H12V132H4V128H0V12H4V8H12V4H20Z' fill='%230a1530'/%3E%3Cpath d='M24 4H216V8H224V12H232V16H236V124H232V128H224V132H216V136H24V132H16V128H8V124H4V16H8V12H16V8H24Z' fill='%23FAF3F0'/%3E%3Crect x='28' y='12' width='4' height='4' fill='%23FD513E'/%3E%3Crect x='32' y='16' width='4' height='4' fill='%23FFA92D'/%3E%3Crect x='36' y='12' width='4' height='4' fill='%23D12A94'/%3E%3Crect x='204' y='124' width='4' height='4' fill='%23D12A94'/%3E%3Crect x='208' y='120' width='4' height='4' fill='%23FD513E'/%3E%3Crect x='200' y='120' width='4' height='4' fill='%23FFA92D'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
   color: var(--ink);
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -573,7 +573,7 @@ img { display: block; max-width: 100%; }
 /* Stagger + tilt: each card sits at a different vertical offset and angle */
 .mag-card[data-card="01"] { --card-color: #D12A94; --card-text: var(--bg);  transform: translateY(-30px) rotate(-3deg); margin-right: -1.2%; z-index: 1; }
 .mag-card[data-card="02"] { --card-color: #FFA92D; --card-text: var(--bg);  transform: translateY(30px)  rotate(2deg);  margin-right: -1.2%; z-index: 2; }
-.mag-card[data-card="03"] { --card-color: #EF4040; --card-text: var(--bg);  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
+.mag-card[data-card="03"] { --card-color: #FD513E; --card-text: var(--bg);  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
 .mag-card[data-card="04"] { --card-color: #1478DC; --card-text: var(--bg);  transform: translateY(50px)  rotate(3deg);  z-index: 4; }
 
 .mag-card:hover {
@@ -1061,7 +1061,7 @@ img { display: block; max-width: 100%; }
 .contact-card[data-card="email"]    { --card-c: #D12A94; }
 .contact-card[data-card="behance"]  { --card-c: #1478DC; }
 .contact-card[data-card="linkedin"] { --card-c: #711DB0; }
-.contact-card[data-card="phone"]    { --card-c: #EF4040; }
+.contact-card[data-card="phone"]    { --card-c: #FD513E; }
 
 /* Slight rotation per card — matches testimonial cards */
 .contact-card:nth-child(1) { rotate: -1.5deg; }
@@ -1443,12 +1443,12 @@ img { display: block; max-width: 100%; }
 }
 
 /* contrast: every contact card text passes 4.5:1 (cream on magenta/purple/darker blue, navy on red) */
-.contact-card[data-card="behance"] { --card-c: #1766B8; }
+.contact-card[data-card="behance"] { --card-c: #1478DC; }
 .contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
 .contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: var(--ink); }
 .contact-card .contact-card-label { opacity: 1; }
 .mag-card[data-card="02"], .mag-card[data-card="03"] { --card-text: var(--ink); }
-.mag-card[data-card="04"] { --card-color: #1766B8; }
+.mag-card[data-card="04"] { --card-color: #1478DC; }
 .sticker.pen-sticker::after { color: var(--ink); }
 /* "Get a quote": header button (scrolls to contact) and WhatsApp button under the service cards */
 .header-actions { display: flex; align-items: center; gap: 14px; }
@@ -1577,7 +1577,7 @@ img { display: block; max-width: 100%; }
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M100 25 C 50 25, 18 65, 18 110 C 18 145, 48 168, 80 162 C 90 160, 92 152, 88 145 C 80 132, 92 116, 108 120 C 122 124, 130 134, 148 134 C 172 134, 184 115, 184 92 C 184 55, 148 25, 100 25 Z"
             fill="#FAF3F0" stroke="#0a1530" stroke-width="6" stroke-linejoin="round"/>
-      <circle cx="62" cy="82" r="11" fill="#EF4040" stroke="#0a1530" stroke-width="3"/>
+      <circle cx="62" cy="82" r="11" fill="#FD513E" stroke="#0a1530" stroke-width="3"/>
       <circle cx="98" cy="62" r="11" fill="#FFA92D" stroke="#0a1530" stroke-width="3"/>
       <circle cx="138" cy="78" r="11" fill="#D12A94" stroke="#0a1530" stroke-width="3"/>
       <circle cx="148" cy="108" r="11" fill="#1478DC" stroke="#0a1530" stroke-width="3"/>
@@ -1601,7 +1601,7 @@ img { display: block; max-width: 100%; }
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <rect x="20"  y="70" width="130" height="90" rx="6" fill="#1478DC" stroke="#0a1530" stroke-width="5" stroke-linejoin="round"/>
       <rect x="40"  y="45" width="130" height="90" rx="6" fill="#FFA92D" stroke="#0a1530" stroke-width="5" stroke-linejoin="round"/>
-      <rect x="60"  y="20" width="130" height="90" rx="6" fill="#EF4040" stroke="#0a1530" stroke-width="5" stroke-linejoin="round"/>
+      <rect x="60"  y="20" width="130" height="90" rx="6" fill="#FD513E" stroke="#0a1530" stroke-width="5" stroke-linejoin="round"/>
     </svg>
   </div>
 

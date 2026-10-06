@@ -939,6 +939,24 @@ html, body { cursor: none; }
 @media (max-width: 600px) { .contact-card::before { -webkit-mask-size: 22px 22px; mask-size: 22px 22px; } }
 @media (max-width: 400px) { .contact-card::before { -webkit-mask-size: 19px 19px; mask-size: 19px 19px; } }
 @media (max-width: 340px) { .contact-card::before { -webkit-mask-size: 17px 17px; mask-size: 17px 17px; } }
+
+/* contact boxes on small screens: same height (94px) and roomy inner spacing as the desktop boxes, two per row */
+@media (max-width: 600px) {
+  .contact-grid .contact-card { min-height: 94px; padding: 18px 12px; gap: 10px; box-shadow: 6px 6px 0 var(--ink); }
+  .contact-card::before { width: 30px; height: 30px; -webkit-mask-size: 26px 26px; mask-size: 26px 26px; }
+  .contact-card-label { font-size: 10px; }
+  .contact-card-value { font-size: clamp(12px, calc(5.3vw - 9.5px), 14px); }
+}
+@media (max-width: 420px) {
+  .contact-grid .contact-card { padding: 18px 8px; gap: 8px; }
+  .contact-card::before { width: 26px; height: 26px; -webkit-mask-size: 22px 22px; mask-size: 22px 22px; }
+  .contact-card-label { font-size: 9px; }
+  .contact-card-value { font-size: clamp(9.5px, calc(5.3vw - 7.8px), 13px); }
+}
+@media (max-width: 340px) {
+  .contact-grid .contact-card { padding: 18px 6px; gap: 6px; }
+  .contact-card::before { width: 22px; height: 22px; -webkit-mask-size: 18px 18px; mask-size: 18px 18px; }
+}
 </style>
 </head>
 <body>

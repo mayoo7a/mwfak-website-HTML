@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:wght@600;700&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:   #FAF3F0;
@@ -779,7 +779,7 @@ img { max-width: 100%; }
 .svc-top { display: grid; grid-template-columns: minmax(240px, 5fr) 7fr; gap: 0 clamp(32px, 5vw, 80px); align-items: start; }
 .svc:first-child { border-top: 0; padding-top: 30px; }
 .svc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; min-width: 0; position: sticky; top: 230px; align-self: start; }
-.svc-head h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(32px, 3.7vw, 58px); line-height: 1; letter-spacing: -0.01em; color: var(--bg); white-space: nowrap; }
+.svc-head h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.7vw, 58px); line-height: 1; letter-spacing: -0.01em; color: var(--bg); white-space: nowrap; }
 .svc-head h2 br { display: none; }
 .svc-tag { font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(18px, 1.55vw, 22px); line-height: 1.3; opacity: .85; max-width: none; }
 .panel-cta { display: inline-block; margin-top: 6px; padding: 18px 34px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
@@ -900,7 +900,7 @@ html, body { cursor: none; }
   .pixel-cursor, .trail-pixel { display: none !important; }
 }
 /* items under "What you receive": same serif as the heading, bold; every bullet is a filled square */
-.svc-check li { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(19px, 1.5vw, 23px); line-height: 1.25; opacity: 1; padding-left: 26px; }
+.svc-check li { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(19px, 1.5vw, 23px); line-height: 1.25; opacity: 1; padding-left: 26px; }
 .svc-check li::before { top: .38em; width: 12px; height: 12px; background: var(--c); }
 .svc-chips li::before { background: var(--c); }
 .svc-pricebox { margin-top: 22px; display: grid; gap: 18px; }
@@ -909,15 +909,15 @@ html, body { cursor: none; }
 .svc-pricebox .svc-pricenote { margin: 8px 0 0; }
 .svc-check li::before { background: transparent; border: 2px solid var(--c); width: 12px; height: 12px; box-sizing: border-box; }
 /* fonts swapped: section titles are the serif, the items under "What you receive" are the grotesque */
-.svc-sub { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(22px, 1.9vw, 27px); letter-spacing: 0; text-transform: none; line-height: 1.1; }
+.svc-sub { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(22px, 1.9vw, 27px); letter-spacing: 0; text-transform: none; line-height: 1.1; }
 .svc-sub::before { top: .55em; margin-top: -6px; }
 .svc-check li { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.45; }
 .svc-check li::before { top: 6px; margin-top: 0; }
 /* one type system for every title and everything under it:
    titles and sub-titles = bold serif; the items and text under them = Inter; list markers = outlined squares */
-.svc-steps strong, .svc-minor { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; line-height: 1.15; }
+.svc-steps strong, .svc-minor { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; line-height: 1.15; }
 .svc-minor { color: var(--bg); }
-.svc-pricerow em { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; opacity: 1; }
+.svc-pricerow em { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; opacity: 1; }
 .svc-chips li { font-family: 'Inter', sans-serif; font-style: normal; font-weight: 600; font-size: 16px; line-height: 1.45; padding-left: 26px; }
 .svc-chips li::before { top: 6px; width: 12px; height: 12px; box-sizing: border-box; background: transparent; border: 2px solid var(--c); }
 .svc-steptext, .svc-filetext, .svc-pricenote, .svc-scopenote { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15.5px; line-height: 1.55; opacity: .9; }
@@ -946,6 +946,8 @@ html, body { cursor: none; }
 .contact-card[data-card="behance"]  { --card-c: #D12A94; }
 .contact-card[data-card="linkedin"] { --card-c: #1478DC; }
 .contact-card[data-card="phone"]    { --card-c: #FD513E; }
+@media (max-width: 900px) { .svc-head h2 { font-size: clamp(28px, 9vw, 48px); } }
+@media (max-width: 900px) { .svc-top { grid-template-columns: minmax(0, 1fr); } .svc-top .svc-head, .svc-top .svc-body, .svc-top .svc-proj { grid-column: 1; } }
 </style>
 </head>
 <body>

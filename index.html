@@ -1497,6 +1497,29 @@ img { display: block; max-width: 100%; }
   .contact-grid .contact-card { padding: 18px 6px; gap: 6px; }
   .contact-card::before { width: 22px; height: 22px; -webkit-mask-size: 18px 18px; mask-size: 18px 18px; }
 }
+
+/* small screens: icon spacing closer to the laptop boxes (space left of the icon, and between icon and text) */
+@media (max-width: 600px) {
+  .contact-grid .contact-card { padding: 18px 8px 18px 20px; gap: 16px; }
+  .contact-card::before { width: 26px; height: 26px; -webkit-mask-size: 26px 26px; mask-size: 26px 26px; }
+}
+@media (max-width: 420px) {
+  .contact-grid .contact-card { padding: 18px 6px 18px 16px; gap: 12px; }
+  .contact-card::before { width: 24px; height: 24px; -webkit-mask-size: 24px 24px; mask-size: 24px 24px; }
+  .contact-card-value { font-size: clamp(9px, calc(5.2vw - 8.3px), 13px); }
+}
+@media (max-width: 340px) {
+  .contact-grid .contact-card { padding: 18px 4px 18px 12px; gap: 8px; }
+  .contact-card::before { width: 20px; height: 20px; -webkit-mask-size: 20px 20px; mask-size: 20px 20px; }
+}
+
+/* small screens: the laptop box proportions, scaled with the screen (space left of icon, icon size, icon-to-text gap, box height) */
+@media (max-width: 600px) {
+  .contact-grid .contact-card { min-height: min(94px, calc(14vw + 10px)); padding: 10px 6px 10px calc(6.2vw - 1px); gap: calc(3.15vw - 0.5px); }
+  .contact-card::before { width: calc(5.4vw - 1px); height: calc(5.4vw - 1px); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+  .contact-card-label { font-size: clamp(8px, calc(1.6vw + 2px), 10px); }
+  .contact-card-value { font-size: clamp(9px, calc(3.5vw - 2.2px), 14px); }
+}
 </style>
 </head>
 <body>

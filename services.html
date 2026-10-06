@@ -906,6 +906,10 @@ html, body { cursor: none; }
 .svc-check li { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(19px, 1.5vw, 23px); line-height: 1.25; opacity: 1; padding-left: 26px; }
 .svc-check li::before { top: .38em; width: 12px; height: 12px; background: var(--c); }
 .svc-chips li::before { background: var(--c); }
+.svc-pricebox { margin-top: 22px; display: grid; gap: 18px; }
+.svc-pricerow em { display: block; margin-bottom: 6px; font-style: normal; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--bg); opacity: .8; }
+.svc-pricebox .svc-price { margin: 0; }
+.svc-pricebox .svc-pricenote { margin: 8px 0 0; }
 </style>
 </head>
 <body>
@@ -944,7 +948,7 @@ html, body { cursor: none; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>Start-ups choosing a first logo</li><li>Businesses replacing an old or unclear one</li><li>Brands going bilingual</li></ul>
   </div>
-  <figure class="svc-proj"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Baseera</strong>, Logo design</figcaption></figure>
+  <figure class="svc-proj"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Baseera</strong>, Logo design</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$450</strong></p></div></div></figure>
   </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
@@ -960,7 +964,6 @@ html, body { cursor: none; }
     </div>
     <div class="svc-tools">
       <h3 class="svc-sub">Scope</h3>
-      <p class="svc-price"><span>Starting from</span><strong>$450</strong></p>
       <ul class="svc-scope"><li><span>Concepts</span><strong>3</strong></li><li><span>Revisions</span><strong>2</strong></li><li><span>Timeline</span><strong>1 to 2 weeks</strong></li></ul>
       
       <h3 class="svc-sub">Made with</h3>
@@ -981,7 +984,7 @@ html, body { cursor: none; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>New businesses that want a strong start</li><li>Established brands that have outgrown their look</li><li>Teams whose materials stopped matching</li></ul>
   </div>
-  <figure class="svc-proj"><img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>The Welcome Table</strong>, Brand identity</figcaption></figure>
+  <figure class="svc-proj"><img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>The Welcome Table</strong>, Brand identity</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$1,200</strong></p></div></div></figure>
   </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
@@ -997,7 +1000,6 @@ html, body { cursor: none; }
     </div>
     <div class="svc-tools">
       <h3 class="svc-sub">Scope</h3>
-      <p class="svc-price"><span>Starting from</span><strong>$1,200</strong></p>
       <ul class="svc-scope"><li><span>Concepts</span><strong>3</strong></li><li><span>Revisions</span><strong>2</strong></li><li><span>Timeline</span><strong>3 to 4 weeks</strong></li></ul>
       
       <h3 class="svc-sub">Made with</h3>
@@ -1018,7 +1020,7 @@ html, body { cursor: none; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>Product brands of any size</li><li>Makers launching a first product</li><li>Businesses refreshing tired packaging</li></ul>
   </div>
-  <figure class="svc-proj"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Sol Root</strong>, Logo and packaging</figcaption></figure>
+  <figure class="svc-proj"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Sol Root</strong>, Logo and packaging</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><em>Packaging design</em><p class="svc-price"><span>Starting from</span><strong>$750</strong></p><p class="svc-pricenote">For the first product. Each extra product from $350.</p></div><div class="svc-pricerow"><em>Print and stationery</em><p class="svc-price"><span>Starting from</span><strong>$350</strong></p></div></div></figure>
   </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
@@ -1036,11 +1038,8 @@ html, body { cursor: none; }
     <div class="svc-tools">
       <h3 class="svc-sub">Scope</h3>
       <h4 class="svc-minor">Packaging design</h4>
-      <p class="svc-price"><span>Starting from</span><strong>$750</strong></p>
-      <p class="svc-pricenote">For the first product. Each extra product from $350.</p>
       <ul class="svc-scope"><li><span>Concepts</span><strong>2 to 3</strong></li><li><span>Revisions</span><strong>2</strong></li><li><span>Timeline</span><strong>2 to 3 weeks</strong></li></ul>
       <h4 class="svc-minor">Print and stationery</h4>
-      <p class="svc-price"><span>Starting from</span><strong>$350</strong></p>
       <ul class="svc-scope"><li><span>Revisions</span><strong>2</strong></li><li><span>Timeline</span><strong>1 to 2 weeks</strong></li></ul>
       <h3 class="svc-sub">Made with</h3>
       <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li><li><img src="assets/tools/photoshop.svg" alt="Adobe Photoshop" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Photoshop</span></li></ul>
@@ -1060,7 +1059,7 @@ html, body { cursor: none; }
     <h3 class="svc-sub">Made for</h3>
     <ul class="svc-chips"><li>Businesses launching a site or an app</li><li>Teams with a product that confuses people</li><li>Companies adding Arabic or English</li></ul>
   </div>
-  <figure class="svc-proj"><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Ticketat</strong>, Website and booking flow</figcaption></figure>
+  <figure class="svc-proj"><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Ticketat</strong>, Website and booking flow</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$1,200</strong></p><p class="svc-pricenote">Or $100 per screen for a smaller, defined set.</p></div></div></figure>
   </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
@@ -1076,8 +1075,6 @@ html, body { cursor: none; }
     </div>
     <div class="svc-tools">
       <h3 class="svc-sub">Scope</h3>
-      <p class="svc-price"><span>Starting from</span><strong>$1,200</strong></p>
-      <p class="svc-pricenote">Or $100 per screen for a smaller, defined set.</p>
       <ul class="svc-scope"><li><span>Screens</span><strong>As agreed</strong></li><li><span>Revisions</span><strong>2</strong></li><li><span>Timeline</span><strong>3 to 4 weeks</strong></li></ul>
       
       <h3 class="svc-sub">Made with</h3>

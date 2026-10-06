@@ -51,7 +51,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   text-transform: uppercase;
   transition: background .25s ease, color .25s ease, transform .25s ease;
 }
-.back-btn:hover { background: var(--ink); color: var(--bg); transform: translateX(-3px); }
+@media (hover: hover) { .back-btn:hover { background: var(--ink); color: var(--bg); transform: translateX(-3px); } }
 
 /* Page intro · Split personality: bold headline left, italic manifesto right */
 .intro {
@@ -188,7 +188,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   display: grid; place-items: center;
   transition: background .25s ease;
 }
-.lightbox-close:hover { background: var(--pop); }
+@media (hover: hover) { .lightbox-close:hover { background: var(--pop); } }
 
 /* Footer */
 .sayhi-footer {
@@ -278,7 +278,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   transition: background .35s ease, color .35s ease;
   white-space: nowrap;
 }
-.footer-top:hover { background: var(--ink); color: var(--bg); }
+@media (hover: hover) { .footer-top:hover { background: var(--ink); color: var(--bg); } }
 .footer-top-arrow { font-size: 14px; }
 
 /* Three-column block */
@@ -316,7 +316,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   text-decoration: none;
   transition: color .35s ease;
 }
-.footer-list a:hover { color: var(--pop); }
+@media (hover: hover) { .footer-list a:hover { color: var(--pop); } }
 
 .footer-contact {
   margin: 0 0 4px;
@@ -330,7 +330,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   border-bottom: 1.5px solid rgba(14,28,65,0.25);
   transition: color .3s ease, border-color .3s ease;
 }
-.footer-contact a:hover { color: var(--pop); border-color: var(--pop); }
+@media (hover: hover) { .footer-contact a:hover { color: var(--pop); border-color: var(--pop); } }
 .footer-place {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -556,7 +556,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .contact-card:nth-child(3) { rotate: -0.6deg; }
 .contact-card:nth-child(4) { rotate: 1.2deg; }
 
-.contact-card:hover { scale: 1.14; }
+@media (hover: hover) { .contact-card:hover { scale: 1.14; } }
 
 /* Platform icon on the left */
 .contact-card::before {
@@ -764,7 +764,7 @@ html, body { cursor: none; }
 @media (max-width: 600px) {
   .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 0; }
   .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; min-height: 0; padding: 14px 10px; box-shadow: 5px 5px 0 var(--ink); }
-  .contact-grid .contact-card:hover { scale: 1; }
+  @media (hover: hover) { .contact-grid .contact-card:hover { scale: 1; } }
   .contact-card::before { flex: 0 0 auto; width: 28px; height: 28px; font-size: 22px; }
   .contact-card-text { gap: 4px; }
   .contact-card-label { font-size: 9px; letter-spacing: .18em; }

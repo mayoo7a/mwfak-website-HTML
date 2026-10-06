@@ -129,7 +129,7 @@ img { display: block; max-width: 100%; }
   border-radius: 50%;
   transition: background .35s ease;
 }
-.burger:hover { background: rgba(238,241,234,0.18); }
+@media (hover: hover) { .burger:hover { background: rgba(238,241,234,0.18); } }
 .burger span {
   position: absolute; left: 14px; right: 14px; height: 2px; background: var(--ink);
   transition: transform .35s ease, top .35s ease;
@@ -157,9 +157,9 @@ img { display: block; max-width: 100%; }
   position: relative; padding: 4px 18px;
   transition: color .3s ease, transform .35s cubic-bezier(.2,.85,.2,1), letter-spacing .3s ease;
 }
-.menu-panel a:hover {
+@media (hover: hover) { .menu-panel a:hover {
   color: var(--secondary); /* orange on hover - only the color changes */
-}
+} }
 
 /* ---------- Responsive ---------- */
 
@@ -268,9 +268,9 @@ img { display: block; max-width: 100%; }
   display: inline-block;
   transition: color .25s ease;
 }
-.intro-headline .pixel:hover {
+@media (hover: hover) { .intro-headline .pixel:hover {
   color: var(--pop);
-}
+} }
 
 /* Cat photo follows the cursor while hovering "cat cuddles" */
 .cat-follower {
@@ -320,14 +320,15 @@ img { display: block; max-width: 100%; }
   background-color: rgba(0,0,0,0.001);
   z-index: 5;
 }
-.sticker:hover, .sticker.is-hovered { z-index: 20; }
+.sticker.is-hovered { z-index: 20; }
+@media (hover: hover) { .sticker:hover { z-index: 20; } }
 .sticker svg {
   display: block; width: 100%; height: auto; overflow: visible;
   transition: transform .3s ease;
   pointer-events: none;  /* SVG paths don't intercept - events bubble to the parent .sticker */
 }
-.sticker:hover svg,
 .sticker.is-hovered svg { transform: scale(1.12); }
+@media (hover: hover) { .sticker:hover svg { transform: scale(1.12); } }
 .sticker.is-hovered::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0) scale(1);
@@ -357,25 +358,25 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
   transition: opacity .3s ease, transform .35s cubic-bezier(.2,.85,.2,1);
 }
-.sticker:hover::after {
+@media (hover: hover) { .sticker:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0) scale(1);
-}
+} }
 
 /* Each sticker tooltip uses the uploaded box-pixels.svg design, with a unique body color per sticker */
 .sticker.palette-sticker::after { background-image: url("assets/box-magenta.svg"); }
-.sticker.pen-sticker::after     { background-image: url("assets/box-red.svg");     }
-.sticker.layers-sticker::after  { background-image: url("assets/box-blue.svg");    }
-.sticker.ruler-sticker::after   { background-image: url("assets/box-orange.svg"); color: var(--ink); }
+.sticker.pen-sticker::after { background-image: url("assets/box-red.svg");     }
+.sticker.layers-sticker::after { background-image: url("assets/box-blue.svg");    }
+.sticker.ruler-sticker::after { background-image: url("assets/box-orange.svg"); color: var(--ink); }
 /* Sizes only - positions are randomized via JS so each refresh looks different */
 .sticker.palette-sticker { width: 105px; animation: floatA 6s ease-in-out infinite, introFade 1s .9s cubic-bezier(.2,.85,.2,1) forwards; }
-.sticker.pen-sticker     { width: 105px; animation: floatB 7s ease-in-out infinite, introFade 1s 1.1s cubic-bezier(.2,.85,.2,1) forwards; }
-.sticker.layers-sticker  { width: 95px;  animation: floatA 8s ease-in-out infinite reverse, introFade 1s 1.2s cubic-bezier(.2,.85,.2,1) forwards; }
-.sticker.ruler-sticker   { width: 120px; animation: floatB 9s ease-in-out infinite, introFade 1s 1.3s cubic-bezier(.2,.85,.2,1) forwards; }
+.sticker.pen-sticker { width: 105px; animation: floatB 7s ease-in-out infinite, introFade 1s 1.1s cubic-bezier(.2,.85,.2,1) forwards; }
+.sticker.layers-sticker { width: 95px;  animation: floatA 8s ease-in-out infinite reverse, introFade 1s 1.2s cubic-bezier(.2,.85,.2,1) forwards; }
+.sticker.ruler-sticker { width: 120px; animation: floatB 9s ease-in-out infinite, introFade 1s 1.3s cubic-bezier(.2,.85,.2,1) forwards; }
 .sticker.ruler-sticker svg { transform: rotate(30deg); }
 /* Keep the 30deg rotation AND add scale on hover so the ruler grows like the others */
-.sticker.ruler-sticker:hover svg,
 .sticker.ruler-sticker.is-hovered svg { transform: rotate(30deg) scale(1.12); }
+@media (hover: hover) { .sticker.ruler-sticker:hover svg { transform: rotate(30deg) scale(1.12); } }
 
 @keyframes floatA {
   0%, 100% { transform: translateY(0) rotate(calc(var(--tilt, 0deg) - 4deg)); }
@@ -390,9 +391,9 @@ img { display: block; max-width: 100%; }
 @media (max-width: 1200px) {
   /* Shrink stickers on tablet so they don't crowd text */
   .sticker.palette-sticker { width: 90px;  }
-  .sticker.pen-sticker     { width: 90px;  }
-  .sticker.layers-sticker  { width: 80px;  }
-  .sticker.ruler-sticker   { width: 100px; }
+  .sticker.pen-sticker { width: 90px;  }
+  .sticker.layers-sticker { width: 80px;  }
+  .sticker.ruler-sticker { width: 100px; }
 }
 @media (max-width: 900px) {
   .intro { padding: 90px 5vw 110px; }
@@ -438,9 +439,9 @@ img { display: block; max-width: 100%; }
   z-index: 5;
   transition: transform .35s cubic-bezier(.2,.85,.2,1);
 }
-.mag-title-block:hover .mag-dragon-gif {
+@media (hover: hover) { .mag-title-block:hover .mag-dragon-gif {
   transform: scale(1.04);
-}
+} }
 
 /* Pixel art tooltip - dragon wish - follows the cursor */
 .dragon-tooltip {
@@ -567,11 +568,11 @@ img { display: block; max-width: 100%; }
 .mag-card[data-card="03"] { --card-color: #1E7CDF; --card-text: #F7F7F7;  transform: translateY(-10px) rotate(-2deg); margin-right: -1.2%; z-index: 3; }
 .mag-card[data-card="04"] { --card-color: #FA5643; --card-text: #F7F7F7;  transform: translateY(50px)  rotate(3deg);  z-index: 4; }
 
-.mag-card:hover {
+@media (hover: hover) { .mag-card:hover {
   transform: translateY(-30px) rotate(0deg) scale(1.03);
   z-index: 10;
   box-shadow: 0 36px 70px -16px rgba(0,0,0,.65);
-}
+} }
 
 .mag-card h3 {
   font-family: 'DM Serif Display', Georgia, serif;
@@ -632,11 +633,11 @@ img { display: block; max-width: 100%; }
   );
   transition: transform .3s cubic-bezier(.2,.85,.2,1), background .3s ease, color .3s ease;
 }
-.mag-card:hover .mag-card-ribbon {
+@media (hover: hover) { .mag-card:hover .mag-card-ribbon {
   transform: translateX(-50%) translateY(-4px);
   background: var(--ink);
   color: var(--bg);
-}
+} }
 
 @media (max-width: 1024px) {
   .mag-cards { flex-wrap: nowrap; padding: 40px 4vw 90px; gap: 14px; }
@@ -735,9 +736,9 @@ img { display: block; max-width: 100%; }
   border-color: var(--ink);
   color: var(--ink);
 }
-.back-to-top:hover {
+@media (hover: hover) { .back-to-top:hover {
   transform: translateY(-3px);
-}
+} }
 .back-to-top svg {
   width: 22px;
   height: 22px;
@@ -817,7 +818,7 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
   transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
 }
-.joy-btn:hover { background: rgba(255,255,255,.28); box-shadow: 0 0 0 3px rgba(255,255,255,.55); }
+@media (hover: hover) { .joy-btn:hover { background: rgba(255,255,255,.28); box-shadow: 0 0 0 3px rgba(255,255,255,.55); } }
 .joy-btn:active { transform: translate(-50%, -50%) scale(.85); background: rgba(0,0,0,.3); }
 .joy-btn:focus-visible { outline: 3px solid var(--primary, #1E7CDF); outline-offset: 2px; }
 
@@ -1055,7 +1056,7 @@ img { display: block; max-width: 100%; }
 .contact-card:nth-child(3) { rotate: -0.6deg; }
 .contact-card:nth-child(4) { rotate: 1.2deg; }
 
-.contact-card:hover { scale: 1.14; }
+@media (hover: hover) { .contact-card:hover { scale: 1.14; } }
 
 /* Platform icon on the left */
 .contact-card::before {
@@ -1228,7 +1229,7 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
   transition: color .35s ease;
 }
-.footer-list a:hover { color: var(--pop); }
+@media (hover: hover) { .footer-list a:hover { color: var(--pop); } }
 .footer-status {
   font-family: 'Inter', sans-serif;
   font-style: italic;
@@ -1394,12 +1395,12 @@ img { display: block; max-width: 100%; }
   transform: none;
   transition: opacity .35s ease, transform .35s ease, visibility 0s, background-color .25s ease, color .25s ease;
 }
-.hero-reel-btn:hover,
 .hero-reel-btn:focus-visible { background: var(--pop); color: var(--bg); outline: none; }
+@media (hover: hover) { .hero-reel-btn:hover { background: var(--pop); color: var(--bg); outline: none; } }
 .hero-reel-btn:focus-visible { box-shadow: 0 0 0 3px var(--secondary); }
 @media (max-width: 1280px) { .hero-reel-ctl { top: 58px; } }
 @media (max-width: 1024px) { .hero-reel-ctl { top: 45px; } }
-@media (max-width: 768px)  { .hero-reel-ctl { top: 39px; } }
+@media (max-width: 768px) { .hero-reel-ctl { top: 39px; } }
 /* the header floats over the reel and follows its scenes: cream on dark frames, ink on light ones */
 .hero.hero--reel .brand-name { transition: color .2s ease; }
 .hero.hero--reel .burger span { transition: transform .35s ease, top .35s ease, background-color .2s ease; }
@@ -1408,8 +1409,8 @@ img { display: block; max-width: 100%; }
 .hero.hero--reel.hero--dark .burger span { background: var(--bg); }
 .hero.hero--reel.hero--dark .brand img { filter: brightness(0) invert(1); }
 .hero.hero--reel.hero--dark .hero-reel-btn { background: var(--bg); color: var(--ink); }
-.hero.hero--reel.hero--dark .hero-reel-btn:hover,
 .hero.hero--reel.hero--dark .hero-reel-btn:focus-visible { background: var(--pop); color: var(--bg); }
+@media (hover: hover) { .hero.hero--reel.hero--dark .hero-reel-btn:hover { background: var(--pop); color: var(--bg); } }
 /* phones: the menu bar sits above the reel so it never covers the video */
 @media (max-width: 700px) {
   .hero.hero--reel { background: var(--bg); }
@@ -1425,20 +1426,23 @@ img { display: block; max-width: 100%; }
 /* "Get a quote": header button (scrolls to contact) and WhatsApp button under the service cards */
 .header-actions { display: flex; align-items: center; gap: 14px; }
 .quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
-.quote-btn:hover, .quote-btn:focus-visible { background: var(--pop); color: var(--bg); transform: translateY(-2px); outline: none; }
+.quote-btn:focus-visible { background: var(--pop); color: var(--bg); transform: translateY(-2px); outline: none; }
+@media (hover: hover) { .quote-btn:hover { background: var(--pop); color: var(--bg); transform: translateY(-2px); outline: none; } }
 .quote-btn:focus-visible { box-shadow: 0 0 0 3px var(--secondary); }
 .hero.hero--reel.hero--dark .quote-btn { background: var(--bg); color: var(--ink); }
-.hero.hero--reel.hero--dark .quote-btn:hover, .hero.hero--reel.hero--dark .quote-btn:focus-visible { background: var(--pop); color: var(--bg); }
+.hero.hero--reel.hero--dark .quote-btn:focus-visible { background: var(--pop); color: var(--bg); }
+@media (hover: hover) { .hero.hero--reel.hero--dark .quote-btn:hover { background: var(--pop); color: var(--bg); } }
 @media (max-width: 700px) {
   .hero.hero--reel.hero--dark .quote-btn { background: var(--ink); color: var(--bg); }
-  .hero.hero--reel.hero--dark .quote-btn:hover { background: var(--pop); }
+  @media (hover: hover) { .hero.hero--reel.hero--dark .quote-btn:hover { background: var(--pop); } }
   .quote-btn { padding: 11px 16px; font-size: 10px; letter-spacing: .14em; }
   .header-actions { gap: 8px; }
 }
 @media (max-width: 400px) { .quote-btn { padding: 10px 12px; font-size: 9px; letter-spacing: .1em; } }
 .mag-cta { text-align: center; margin-top: -40px; padding: 0 5vw 110px; }
 .panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
-.panel-cta:hover, .panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
+.panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
+@media (hover: hover) { .panel-cta:hover { transform: translateY(-3px) scale(1.04); outline: none; } }
 @media (max-width: 600px) { .mag-cta { margin-top: 0; padding-bottom: 80px; } .panel-cta { padding: 16px 24px; font-size: 11px; } }
 .mag-card-desc { margin: 12px 0 0; max-width: 24ch; text-wrap: balance; font-family: 'Inter', sans-serif; font-size: clamp(12px, 1vw, 14px); line-height: 1.45; text-align: center; color: var(--card-text, var(--ink)); }
 @media (max-width: 1024px) { .mag-card-desc { margin-top: 8px; } }
@@ -1453,7 +1457,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 600px) {
   .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 0; }
   .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; min-height: 0; padding: 14px 10px; box-shadow: 5px 5px 0 var(--ink); }
-  .contact-grid .contact-card:hover { scale: 1; }
+  @media (hover: hover) { .contact-grid .contact-card:hover { scale: 1; } }
   .contact-card::before { flex: 0 0 auto; width: 28px; height: 28px; font-size: 22px; }
   .contact-card-text { gap: 4px; }
   .contact-card-label { font-size: 9px; letter-spacing: .18em; }
@@ -1532,9 +1536,9 @@ img { display: block; max-width: 100%; }
 /* small screens: the intro stickers sit in the top and bottom corners of the section (inside its padding), so the section keeps its height */
 @media (max-width: 1050px) {
   .sticker.palette-sticker { width: clamp(36px, 10.5vw, 70px); animation: floatS 6s ease-in-out infinite, introFade 1s .9s cubic-bezier(.2,.85,.2,1) forwards; }
-  .sticker.pen-sticker     { width: clamp(36px, 10.5vw, 70px); animation: floatS 7s ease-in-out infinite, introFade 1s 1.1s cubic-bezier(.2,.85,.2,1) forwards; }
-  .sticker.layers-sticker  { width: clamp(34px, 9.8vw, 64px);  animation: floatS 8s ease-in-out infinite reverse, introFade 1s 1.2s cubic-bezier(.2,.85,.2,1) forwards; }
-  .sticker.ruler-sticker   { width: clamp(44px, 13vw, 86px);   animation: floatS 9s ease-in-out infinite, introFade 1s 1.3s cubic-bezier(.2,.85,.2,1) forwards; }
+  .sticker.pen-sticker { width: clamp(36px, 10.5vw, 70px); animation: floatS 7s ease-in-out infinite, introFade 1s 1.1s cubic-bezier(.2,.85,.2,1) forwards; }
+  .sticker.layers-sticker { width: clamp(34px, 9.8vw, 64px);  animation: floatS 8s ease-in-out infinite reverse, introFade 1s 1.2s cubic-bezier(.2,.85,.2,1) forwards; }
+  .sticker.ruler-sticker { width: clamp(44px, 13vw, 86px);   animation: floatS 9s ease-in-out infinite, introFade 1s 1.3s cubic-bezier(.2,.85,.2,1) forwards; }
   .sticker::after { display: none; }
 }
 @keyframes floatS {
@@ -1930,6 +1934,7 @@ const TRAIL_INTERVAL = 35; // ms between trail pixels - lower = denser trail
 // Hide the cursor offscreen initially so it doesn't sit at (0,0)
 if (pixelCursor) { pixelCursor.style.left = '-100px'; pixelCursor.style.top = '-100px'; }
 const noMouse = matchMedia('(hover: none), (pointer: coarse)').matches;
+const canHover = matchMedia('(hover: hover)').matches;   // false on touch screens: no hover effects at all
 function moveCursor(e) {
   if (!pixelCursor || noMouse) return;
   pixelCursor.style.left = e.clientX + 'px';
@@ -1953,7 +1958,7 @@ function moveCursor(e) {
 }
 addEventListener('pointermove', moveCursor, { passive: true });
 
-document.querySelectorAll('[data-hover], a, button').forEach(el => {
+if (canHover) document.querySelectorAll('[data-hover], a, button').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
 });
@@ -2177,7 +2182,7 @@ let _cursorX = -1, _cursorY = -1;
 addEventListener('pointermove', e => { _cursorX = e.clientX; _cursorY = e.clientY; }, { passive: true });
 
 /* JS-based hover for intro stickers — scroll-aware */
-document.querySelectorAll('.intro .sticker').forEach(s => {
+if (canHover) document.querySelectorAll('.intro .sticker').forEach(s => {
   s.addEventListener('pointerenter', () => s.classList.add('is-hovered'));
   s.addEventListener('pointerleave', () => s.classList.remove('is-hovered'));
 });
@@ -2194,7 +2199,7 @@ addEventListener('scroll', () => {
 (function catFollower(){
   const cat = document.getElementById('catFollower');
   const trigger = document.querySelector('.intro-headline .pixel');
-  if (!cat || !trigger) return;
+  if (!cat || !trigger || !canHover) return;
   const offsetX = -70, offsetY = -20;
   const place = (x, y) => {
     cat.style.left = (x + offsetX) + 'px';
@@ -2218,7 +2223,7 @@ addEventListener('scroll', () => {
 (function dragonTooltipFollower(){
   const tip = document.querySelector('.dragon-tooltip');
   const block = document.querySelector('.mag-title-block');
-  if (!tip || !block) return;
+  if (!tip || !block || !canHover) return;
   let lastX = -1, lastY = -1;
   const place = (x, y) => {
     lastX = x; lastY = y;

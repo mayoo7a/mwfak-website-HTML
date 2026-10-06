@@ -1132,6 +1132,12 @@ html, body { cursor: none; }
     closeBtn.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); close(); })
   );
   addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  // a link like my-work.html#baseera (from the home page console) opens that project straight away
+  const want = decodeURIComponent((location.hash || '').slice(1));
+  if (want) {
+    const hit = Array.from(projects).find(p => (p.dataset.src || '').endsWith('/' + want + '.webp'));
+    if (hit) setTimeout(() => hit.click(), 250);
+  }
 })();
 </script>
 

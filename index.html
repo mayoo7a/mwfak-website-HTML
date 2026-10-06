@@ -1545,6 +1545,23 @@ img { display: block; max-width: 100%; }
   0%, 100% { transform: translateY(0) rotate(calc(var(--tilt, 0deg) - 3deg)); }
   50%      { transform: translateY(-5px) rotate(calc(var(--tilt, 0deg) + 3deg)); }
 }
+/* Switch section: caption (name, type, counter), arrows, "See all my work", and a zoomed console on phones */
+.work-caption { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 26px; }
+.wc-text { display: grid; gap: 4px; justify-items: center; text-align: center; min-width: 0; }
+.wc-count { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .22em; color: var(--ink); }
+.wc-name { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.05; color: var(--ink); }
+.wc-type { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.wc-arrow { display: none; width: 46px; height: 46px; flex: 0 0 auto; border: 2.5px solid var(--ink); border-radius: 50%; background: transparent; color: var(--ink); place-items: center; padding: 0; }
+.work-cta { text-align: center; margin-top: 22px; }
+.switch-frame { touch-action: pan-y; }
+@media (max-width: 700px) {
+  .work { min-height: 0; padding: 56px 5vw 56px; }
+  .work-title { margin-bottom: 20px; }
+  .work-hero { margin: 8px -5vw 0; width: auto; overflow: hidden; }
+  .switch-frame { flex: 0 0 auto; width: 128vw; max-width: none; margin: 0; }
+  .wc-arrow { display: grid; }
+  .work-caption { gap: 12px; margin-top: 22px; }
+}
 </style>
 </head>
 <body>
@@ -1742,21 +1759,21 @@ img { display: block; max-width: 100%; }
     <div class="switch-frame">
       <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
-        <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
-        <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/mwafq.webp" alt="Mwafq website UI" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel presentation design" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table brand" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/ticketat.webp" alt="Ticketat website UI" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab logo" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery logo and identity" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls logo and identity" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry logo and identity" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/hbcs.webp" alt="HBCS logo" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies logo and identity" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/motammem.webp" alt="Motammem logo and identity" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/sol-root.webp" alt="Sol Root logo and packaging" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/ummati.webp" alt="Ummati brand and app" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" data-name="Baseera" data-type="Logo design" data-stem="baseera" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
+        <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" data-name="Battikhi Stays" data-type="Brand and website" data-stem="battikhi-stays" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/mwafq.webp" alt="Mwafq website UI" data-name="Mwafq" data-type="Website UI" data-stem="mwafq" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel presentation design" data-name="Qanadeel" data-type="Presentation design" data-stem="qanadeel" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table brand" data-name="The Welcome Table" data-type="Brand identity" data-stem="the-welcome-table" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/ticketat.webp" alt="Ticketat website UI" data-name="Ticketat" data-type="Website UI" data-stem="ticketat" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab logo" data-name="Zinger Lab" data-type="Logo and identity" data-stem="zinger-lab" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery logo and identity" data-name="33 Butchery" data-type="Logo and identity" data-stem="33-butchery" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls logo and identity" data-name="Canary Calls" data-type="Logo and identity" data-stem="canary-calls" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry logo and identity" data-name="Compera Jewelry" data-type="Logo and identity" data-stem="compera-jewelry" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/hbcs.webp" alt="HBCS logo" data-name="HBCS" data-type="Logo" data-stem="hbcs" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies logo and identity" data-name="Heavyweight Hoodies" data-type="Logo and identity" data-stem="heavyweight-hoodies" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/motammem.webp" alt="Motammem logo and identity" data-name="Motammem" data-type="Logo and identity" data-stem="motammem" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/sol-root.webp" alt="Sol Root logo and packaging" data-name="Sol Root" data-type="Logo and packaging" data-stem="sol-root" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/ummati.webp" alt="Ummati brand and app" data-name="Ummati" data-type="Brand and app" data-stem="ummati" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
       </a>
       <button type="button" class="joy-btn" data-joy="next" style="left:95.70%;top:25.13%" aria-label="Next project (A)"></button>
       <button type="button" class="joy-btn" data-joy="prev" style="left:92.49%;top:32.23%" aria-label="Previous project (B)"></button>
@@ -1767,6 +1784,13 @@ img { display: block; max-width: 100%; }
       <button type="button" class="joy-btn" data-joy="work" style="left:90.40%;top:71.27%" aria-label="See all my work"></button>
     </div>
   </div>
+
+  <div class="work-caption" aria-live="polite">
+    <button type="button" class="wc-arrow wc-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="wc-text"><span class="wc-count" id="wcCount">01 / 15</span><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span></div>
+    <button type="button" class="wc-arrow wc-next" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="work-cta"><a class="panel-cta" href="my-work.html">See all my work</a></div>
 
 </section>
 
@@ -2154,16 +2178,27 @@ addEventListener('keydown', e => {
   } else { started = true; show(0); restart(); }
 })();
 
-/* Switch screen slideshow: auto-cycles every 2 seconds, Joy-Con buttons control it */
+/* Switch screen slideshow: auto-cycles every 2 seconds. Joy-Con buttons, the arrows and swiping control it; the caption follows the slide */
 (function switchSlideshow(){
   const slides = document.querySelectorAll('.screen-slide');
   if (slides.length < 2) return;
-  let i = 0, timer = null, paused = false;
+  const screenLink = document.querySelector('.switch-screen');
+  const frame = document.querySelector('.switch-frame');
+  const cCount = document.getElementById('wcCount'), cName = document.getElementById('wcName'), cType = document.getElementById('wcType');
+  let i = 0, timer = null, paused = false, swiped = false;
+  const caption = () => {
+    const s = slides[i];
+    if (cCount) cCount.textContent = String(i + 1).padStart(2, '0') + ' / ' + slides.length;
+    if (cName) cName.textContent = s.dataset.name || '';
+    if (cType) cType.textContent = s.dataset.type || '';
+    if (screenLink) { screenLink.href = 'my-work.html#' + (s.dataset.stem || ''); screenLink.setAttribute('aria-label', 'Open ' + (s.dataset.name || 'project') + ' in My Work'); }
+  };
   const show = n => {
     slides[i].classList.remove('is-active');
     i = (n + slides.length) % slides.length;
     slides[i].classList.add('is-active');
     slides[i].loading = 'eager';
+    caption();
   };
   const start = () => { clearInterval(timer); if (!paused) timer = setInterval(() => show(i + 1), 2000); };
   const actions = {
@@ -2174,6 +2209,20 @@ addEventListener('keydown', e => {
   };
   document.querySelectorAll('.joy-btn').forEach(btn =>
     btn.addEventListener('click', () => actions[btn.dataset.joy]()));
+  document.querySelectorAll('.wc-prev').forEach(b => b.addEventListener('click', actions.prev));
+  document.querySelectorAll('.wc-next').forEach(b => b.addEventListener('click', actions.next));
+  // swipe left or right on the console to change the project; a tap still opens it in My Work
+  if (frame) {
+    let x0 = 0, y0 = 0, t0 = 0;
+    frame.addEventListener('touchstart', e => { const t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; t0 = Date.now(); clearInterval(timer); }, { passive: true });
+    frame.addEventListener('touchend', e => {
+      const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) { swiped = true; setTimeout(() => { swiped = false; }, 450); dx < 0 ? show(i + 1) : show(i - 1); }
+      start();
+    }, { passive: true });
+    if (screenLink) screenLink.addEventListener('click', e => { if (swiped) e.preventDefault(); });
+  }
+  caption();
   start();
 })();
 

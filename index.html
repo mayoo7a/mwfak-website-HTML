@@ -1529,6 +1529,8 @@ img { display: block; max-width: 100%; }
 /* the P.S. breaks after the first sentence when it needs two lines */
 .contact-signoff .ps-line { display: inline-block; }
 @media (max-width: 600px) { .contact-signoff { font-size: clamp(9px, 3vw, 14px); } }
+/* "Currently" text: when it needs two lines it breaks after "part-time" */
+.footer-status .fs-line { display: inline-block; }
 </style>
 </head>
 <body>
@@ -1887,7 +1889,7 @@ img { display: block; max-width: 100%; }
       <div class="footer-col">
         <span class="footer-col-label">Currently</span>
         <p class="footer-status">
-          Open for freelance, part-time, and full-time remote work.
+          <span class="fs-line">Open for freelance, part-time</span> <span class="fs-line">and full-time remote work.</span>
         </p>
       </div>
 

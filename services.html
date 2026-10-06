@@ -986,6 +986,8 @@ html, body { cursor: none; }
 .footer-logo { height: clamp(30px, 8vw, 44px); flex: 0 0 auto; }
 .footer-bottom .footer-copy { white-space: nowrap; min-width: 0; font-size: clamp(10px, 3.1vw, 12px); }
 @media (max-width: 900px) { .footer-bottom { justify-content: flex-start; } .footer-bottom .footer-copy { margin-right: 0; } }
+/* "Currently" text: when it needs two lines it breaks after "part-time" */
+.footer-status .fs-line { display: inline-block; }
 </style>
 </head>
 <body>
@@ -1240,7 +1242,7 @@ html, body { cursor: none; }
       <div class="footer-col">
         <span class="footer-col-label">Currently</span>
         <p class="footer-status">
-          Open for freelance, part-time, and full-time remote work.
+          <span class="fs-line">Open for freelance, part-time</span> <span class="fs-line">and full-time remote work.</span>
         </p>
       </div>
 

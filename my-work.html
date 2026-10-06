@@ -778,6 +778,12 @@ html, body { cursor: none; }
 .contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
 .contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: var(--ink); }
 .contact-card .contact-card-label { opacity: 1; }
+
+/* white text and icons on every colored contact box (colors darkened so white passes 4.5:1) */
+.contact-card[data-card="phone"] { --card-c: #D12E2E; }
+.contact-card, .contact-card::before, .contact-card .contact-card-label, .contact-card .contact-card-value { color: #FFFFFF; }
+.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
+.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: #FFFFFF; }
 </style>
 </head>
 <body>

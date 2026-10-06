@@ -767,7 +767,7 @@ img { max-width: 100%; }
 @keyframes stageBlink { 50% { opacity: 0; } }
 .menu-layout { display: grid; gap: 36px; }
 .menu { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 97px); z-index: 20; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 20px 14px 40px; background: var(--ink); margin: 0 -5vw; padding-left: calc(5vw + 24px); padding-right: 5vw; }
-.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 20px 14px 20px 30px; text-align: left; font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(11px, 1.15vw, 17px); letter-spacing: .06em; white-space: nowrap; text-transform: uppercase; cursor: pointer; text-decoration: none; display: block; opacity: .72; transform: scale(.96); transform-origin: center; transition: transform .2s ease, opacity .2s ease; }
+.menu-item { position: relative; border: 0; background: var(--box) center/100% 100% no-repeat; color: var(--txt); padding: 20px 14px 20px 30px; text-align: left; font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(11px, 1.15vw, 17px); letter-spacing: .06em; white-space: nowrap; text-transform: uppercase; cursor: pointer; text-decoration: none; display: block; opacity: 1; transform: scale(.96); transform-origin: center; transition: transform .2s ease, opacity .2s ease; }
 .menu-item:hover { opacity: 1; }
 .menu-item[aria-current="true"] { opacity: 1; transform: scale(1.04); }
 .menu-item:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; }
@@ -927,6 +927,12 @@ html, body { cursor: none; }
 .contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
 .contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: var(--ink); }
 .contact-card .contact-card-label { opacity: 1; }
+
+/* white text and icons on every colored contact box (colors darkened so white passes 4.5:1) */
+.contact-card[data-card="phone"] { --card-c: #D12E2E; }
+.contact-card, .contact-card::before, .contact-card .contact-card-label, .contact-card .contact-card-value { color: #FFFFFF; }
+.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
+.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: #FFFFFF; }
 </style>
 </head>
 <body>
@@ -947,13 +953,13 @@ html, body { cursor: none; }
     <h1 class="stage-title">My Services</h1>
     <div class="menu-layout">
       <nav class="menu" aria-label="Services">
-<a class="menu-item" href="#logo-design" data-slug="logo-design" aria-current="false" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)"><span class="menu-label">Logo Design</span></a>
-<a class="menu-item" href="#brand-identity" data-slug="brand-identity" aria-current="false" style="--box:url(assets/box-orange.svg);--txt:var(--ink)"><span class="menu-label">Brand Identity</span></a>
-<a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-red.svg);--txt:var(--ink)"><span class="menu-label">Packaging & Print</span></a>
-<a class="menu-item" href="#ui-ux-design" data-slug="ui-ux-design" aria-current="false" style="--box:url(assets/box-blue.svg);--txt:var(--bg)"><span class="menu-label">UI/UX Design</span></a>
+<a class="menu-item" href="#logo-design" data-slug="logo-design" aria-current="false" style="--box:url(assets/box-magenta.svg);--txt:#FFFFFF"><span class="menu-label">Logo Design</span></a>
+<a class="menu-item" href="#brand-identity" data-slug="brand-identity" aria-current="false" style="--box:url(assets/box-orange.svg);--txt:#FFFFFF"><span class="menu-label">Brand Identity</span></a>
+<a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-red.svg);--txt:#FFFFFF"><span class="menu-label">Packaging & Print</span></a>
+<a class="menu-item" href="#ui-ux-design" data-slug="ui-ux-design" aria-current="false" style="--box:url(assets/box-blue.svg);--txt:#FFFFFF"><span class="menu-label">UI/UX Design</span></a>
       </nav>
       <div class="svc-list-wrap">
-<article class="svc" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:var(--bg);--c:#C21292">
+<article class="svc" id="logo-design" style="--box:url(assets/box-magenta.svg);--txt:#FFFFFF;--c:#C21292">
   <div class="svc-top">
   <header class="svc-head">
     <h2>Logo<br> Design</h2>
@@ -989,7 +995,7 @@ html, body { cursor: none; }
   </div>
   <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
-<article class="svc" id="brand-identity" style="--box:url(assets/box-orange.svg);--txt:var(--ink);--c:#FFA732">
+<article class="svc" id="brand-identity" style="--box:url(assets/box-orange.svg);--txt:#FFFFFF;--c:#FFA732">
   <div class="svc-top">
   <header class="svc-head">
     <h2>Brand<br> Identity</h2>
@@ -1025,7 +1031,7 @@ html, body { cursor: none; }
   </div>
   <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
-<article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:var(--ink);--c:#EF4040">
+<article class="svc" id="packaging-print" style="--box:url(assets/box-red.svg);--txt:#FFFFFF;--c:#EF4040">
   <div class="svc-top">
   <header class="svc-head">
     <h2>Packaging<br> &amp; Print</h2>
@@ -1064,7 +1070,7 @@ html, body { cursor: none; }
   </div>
   <div class="svc-cta"><a class="panel-cta" href="#contact">Start a project</a></div>
 </article>
-<article class="svc" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:var(--bg);--c:#1C7CD8">
+<article class="svc" id="ui-ux-design" style="--box:url(assets/box-blue.svg);--txt:#FFFFFF;--c:#1C7CD8">
   <div class="svc-top">
   <header class="svc-head">
     <h2>UI/UX<br> Design</h2>

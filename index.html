@@ -1470,6 +1470,18 @@ img { display: block; max-width: 100%; }
 @media (max-width: 600px) { .mag-cta { margin-top: 0; padding-bottom: 80px; } .panel-cta { padding: 16px 24px; font-size: 11px; } }
 .mag-card-desc { margin: 12px 0 0; max-width: 24ch; text-wrap: balance; font-family: 'Inter', sans-serif; font-size: clamp(12px, 1vw, 14px); line-height: 1.45; text-align: center; color: var(--card-text, var(--ink)); }
 @media (max-width: 1024px) { .mag-card-desc { margin-top: 8px; } }
+
+/* white text and icons on every colored contact box (colors darkened so white passes 4.5:1) */
+.contact-card[data-card="phone"] { --card-c: #D12E2E; }
+.contact-card, .contact-card::before, .contact-card .contact-card-label, .contact-card .contact-card-value { color: #FFFFFF; }
+.contact-card[data-card="phone"], .contact-card[data-card="phone"]::before,
+.contact-card[data-card="phone"] .contact-card-label, .contact-card[data-card="phone"] .contact-card-value { color: #FFFFFF; }
+/* home service cards: white titles and descriptions on every card */
+.mag-card[data-card="01"], .mag-card[data-card="02"], .mag-card[data-card="03"], .mag-card[data-card="04"] { --card-text: #FFFFFF; }
+.mag-card[data-card="02"] { --card-color: #B45309; }
+.mag-card[data-card="03"] { --card-color: #D12E2E; }
+.sticker.pen-sticker::after { color: #FFFFFF; }
+.panel-cta { color: #FFFFFF; }
 </style>
 </head>
 <body>

@@ -908,6 +908,11 @@ html, body { cursor: none; }
 .svc-pricebox .svc-price { margin: 0; }
 .svc-pricebox .svc-pricenote { margin: 8px 0 0; }
 .svc-check li::before { background: transparent; border: 2px solid var(--c); width: 12px; height: 12px; box-sizing: border-box; }
+/* fonts swapped: section titles are the serif, the items under "What you receive" are the grotesque */
+.svc-sub { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(22px, 1.9vw, 27px); letter-spacing: 0; text-transform: none; line-height: 1.1; }
+.svc-sub::before { top: .55em; margin-top: -6px; }
+.svc-check li { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.45; }
+.svc-check li::before { top: 6px; margin-top: 0; }
 </style>
 </head>
 <body>

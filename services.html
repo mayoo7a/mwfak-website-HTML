@@ -763,8 +763,7 @@ img { max-width: 100%; }
 /* Services page: console-style menu */
 .stage { background: var(--ink); color: var(--bg); padding: 70px 5vw 100px; }
 .stage-inner { max-width: 1250px; margin: 0 auto; }
-.stage-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(28px, 3.4vw, 48px); margin-bottom: 36px; }
-.stage-title::after { content: ""; display: inline-block; width: .45em; height: .08em; margin-left: .15em; background: #C21292; animation: stageBlink 1s steps(2) infinite; }
+.stage-title { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(28px, 3.4vw, 48px); margin-bottom: 36px; text-align: center; }
 @keyframes stageBlink { 50% { opacity: 0; } }
 .menu-layout { display: grid; gap: 36px; }
 .menu { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 97px); z-index: 20; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 20px 14px 40px; background: var(--ink); margin: 0 -5vw; padding-left: calc(5vw + 24px); padding-right: 5vw; }
@@ -900,7 +899,7 @@ img { max-width: 100%; }
 
 <section class="stage">
   <div class="stage-inner">
-    <h1 class="stage-title">What I do</h1>
+    <h1 class="stage-title">My Services</h1>
     <div class="menu-layout">
       <nav class="menu" aria-label="Services">
 <a class="menu-item" href="#logo-design" data-slug="logo-design" aria-current="false" style="--box:url(assets/box-magenta.svg);--txt:var(--bg)"><span class="menu-label">Logo Design</span></a>

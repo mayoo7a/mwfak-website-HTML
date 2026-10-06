@@ -913,6 +913,14 @@ html, body { cursor: none; }
 .svc-sub::before { top: .55em; margin-top: -6px; }
 .svc-check li { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.45; }
 .svc-check li::before { top: 6px; margin-top: 0; }
+/* one type system for every title and everything under it:
+   titles and sub-titles = bold serif; the items and text under them = Bricolage; list markers = outlined squares */
+.svc-steps strong, .svc-minor { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; line-height: 1.15; }
+.svc-minor { color: var(--bg); }
+.svc-pricerow em { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; opacity: 1; }
+.svc-chips li { font-family: 'Bricolage Grotesque', sans-serif; font-style: normal; font-weight: 600; font-size: 16px; line-height: 1.45; padding-left: 26px; }
+.svc-chips li::before { top: 6px; width: 12px; height: 12px; box-sizing: border-box; background: transparent; border: 2px solid var(--c); }
+.svc-steptext, .svc-filetext, .svc-pricenote, .svc-scopenote { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: 15.5px; line-height: 1.55; opacity: .9; }
 </style>
 </head>
 <body>

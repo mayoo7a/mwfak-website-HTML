@@ -799,10 +799,11 @@ img { display: block; max-width: 100%; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity .6s ease;
+  transform: translateX(100%);
+  transition: transform .6s ease;
 }
-.screen-slide.is-active { opacity: 1; }
+.screen-slide.is-active { transform: none; }
+@media (prefers-reduced-motion: reduce) { .screen-slide { transition: none; } }
 
 /* Clickable Joy-Con buttons (positions are % of the 470x197 console canvas) */
 .joy-btn {
@@ -2176,7 +2177,7 @@ addEventListener('keydown', e => {
   } else { started = true; show(0); restart(); }
 })();
 
-/* Switch screen slideshow: auto-cycles every 2 seconds. Joy-Con buttons, the arrows and swiping control it; the caption follows the slide */
+/* Switch screen slideshow: slides left every 2.5 seconds. Joy-Con buttons, the arrows and swiping control it; the caption follows the slide */
 (function switchSlideshow(){
   const slides = document.querySelectorAll('.screen-slide');
   if (slides.length < 2) return;
@@ -2190,17 +2191,26 @@ addEventListener('keydown', e => {
     if (cType) cType.textContent = s.dataset.type || '';
     if (screenLink) { screenLink.href = 'my-work.html#' + (s.dataset.stem || ''); screenLink.setAttribute('aria-label', 'Open ' + (s.dataset.name || 'project') + ' in My Work'); }
   };
-  const show = n => {
-    slides[i].classList.remove('is-active');
+  const show = (n, dir = 1) => {
+    const old = slides[i];
     i = (n + slides.length) % slides.length;
-    slides[i].classList.add('is-active');
-    slides[i].loading = 'eager';
+    const nw = slides[i];
+    nw.loading = 'eager';
     caption();
+    if (old === nw) return;
+    // park every other slide off-screen, start the new one just beside the screen, then slide both across
+    slides.forEach(s => { if (s !== old && s !== nw) { s.style.transition = 'none'; s.style.transform = 'translateX(100%)'; } });
+    nw.style.transition = 'none'; nw.style.transform = 'translateX(' + (dir * 100) + '%)';
+    void nw.offsetWidth;
+    old.style.transition = ''; nw.style.transition = '';
+    old.style.transform = 'translateX(' + (-dir * 100) + '%)';
+    nw.style.transform = 'translateX(0)';
+    old.classList.remove('is-active'); nw.classList.add('is-active');
   };
-  const start = () => { clearInterval(timer); if (!paused) timer = setInterval(() => show(i + 1), 2000); };
+  const start = () => { clearInterval(timer); if (!paused) timer = setInterval(() => show(i + 1), 2500); };
   const actions = {
     next:  () => { show(i + 1); start(); },
-    prev:  () => { show(i - 1); start(); },
+    prev:  () => { show(i - 1, -1); start(); },
     pause: () => { paused = !paused; paused ? clearInterval(timer) : start(); },
     work:  () => { location.href = screenLink.href; }
   };
@@ -2212,7 +2222,7 @@ addEventListener('keydown', e => {
     frame.addEventListener('touchstart', e => { const t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; t0 = Date.now(); clearInterval(timer); }, { passive: true });
     frame.addEventListener('touchend', e => {
       const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0;
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) { swiped = true; setTimeout(() => { swiped = false; }, 450); dx < 0 ? show(i + 1) : show(i - 1); }
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) { swiped = true; setTimeout(() => { swiped = false; }, 450); dx < 0 ? show(i + 1) : show(i - 1, -1); }
       start();
     }, { passive: true });
     if (screenLink) screenLink.addEventListener('click', e => { if (swiped) e.preventDefault(); });

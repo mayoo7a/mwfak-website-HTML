@@ -1545,23 +1545,25 @@ img { display: block; max-width: 100%; }
   0%, 100% { transform: translateY(0) rotate(calc(var(--tilt, 0deg) - 3deg)); }
   50%      { transform: translateY(-5px) rotate(calc(var(--tilt, 0deg) + 3deg)); }
 }
-/* Switch section: caption (name, type, counter), arrows, "See all my work", and a zoomed console on phones */
+/* Switch section: caption (name and type), "See all my work", and a full-width console on phones */
 .work-caption { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 26px; }
 .wc-text { display: grid; gap: 4px; justify-items: center; text-align: center; min-width: 0; }
-.wc-count { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .22em; color: var(--ink); }
 .wc-name { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.05; color: var(--ink); }
 .wc-type { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
-.wc-arrow { display: none; width: 46px; height: 46px; flex: 0 0 auto; border: 2.5px solid var(--ink); border-radius: 50%; background: transparent; color: var(--ink); place-items: center; padding: 0; }
 .work-cta { text-align: center; margin-top: 22px; }
 .switch-frame { touch-action: pan-y; }
 @media (max-width: 700px) {
   .work { min-height: 0; padding: 56px 5vw 56px; }
   .work-title { margin-bottom: 20px; }
   .work-hero { margin: 8px -5vw 0; width: auto; overflow: hidden; }
-  .switch-frame { flex: 0 0 auto; width: 128vw; max-width: none; margin: 0; }
-  .wc-arrow { display: grid; }
-  .work-caption { gap: 12px; margin-top: 22px; }
+  .switch-frame { flex: 0 0 auto; width: 100vw; max-width: none; margin: 0; }   /* the whole console, edge to edge */
+  .work-caption { margin-top: 22px; }
 }
+/* hint on the console screen: tells people the screen opens the project */
+.screen-hint { position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); z-index: 3; display: inline-flex; align-items: center; gap: .5em; padding: .55em 1.1em; border-radius: 999px; background: var(--ink); color: #F7F7F7; font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(8px, 1.15vw, 14px); letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; pointer-events: none; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+.screen-hint .hint-mouse { display: none; }
+@media (hover: hover) { .screen-hint .hint-touch { display: none; } .screen-hint .hint-mouse { display: inline; } }
+@media (max-width: 700px) { .screen-hint { font-size: clamp(7px, 2.1vw, 10px); bottom: 5%; padding: .5em .95em; } }
 </style>
 </head>
 <body>
@@ -1759,6 +1761,7 @@ img { display: block; max-width: 100%; }
     <div class="switch-frame">
       <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
+        <span class="screen-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span class="hint-touch">Tap to open</span><span class="hint-mouse">Click to open</span></span>
         <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" data-name="Baseera" data-type="Logo design" data-stem="baseera" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
         <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" data-name="Battikhi Stays" data-type="Brand and website" data-stem="battikhi-stays" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
         <img src="assets/portfolio/mwafq.webp" alt="Mwafq website UI" data-name="Mwafq" data-type="Website UI" data-stem="mwafq" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
@@ -1786,9 +1789,7 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="work-caption" aria-live="polite">
-    <button type="button" class="wc-arrow wc-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <div class="wc-text"><span class="wc-count" id="wcCount">01 / 15</span><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span></div>
-    <button type="button" class="wc-arrow wc-next" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <div class="wc-text"><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span></div>
   </div>
   <div class="work-cta"><a class="panel-cta" href="my-work.html">See all my work</a></div>
 
@@ -2188,7 +2189,6 @@ addEventListener('keydown', e => {
   let i = 0, timer = null, paused = false, swiped = false;
   const caption = () => {
     const s = slides[i];
-    if (cCount) cCount.textContent = String(i + 1).padStart(2, '0') + ' / ' + slides.length;
     if (cName) cName.textContent = s.dataset.name || '';
     if (cType) cType.textContent = s.dataset.type || '';
     if (screenLink) { screenLink.href = 'my-work.html#' + (s.dataset.stem || ''); screenLink.setAttribute('aria-label', 'Open ' + (s.dataset.name || 'project') + ' in My Work'); }
@@ -2209,8 +2209,6 @@ addEventListener('keydown', e => {
   };
   document.querySelectorAll('.joy-btn').forEach(btn =>
     btn.addEventListener('click', () => actions[btn.dataset.joy]()));
-  document.querySelectorAll('.wc-prev').forEach(b => b.addEventListener('click', actions.prev));
-  document.querySelectorAll('.wc-next').forEach(b => b.addEventListener('click', actions.next));
   // swipe left or right on the console to change the project; a tap still opens it in My Work
   if (frame) {
     let x0 = 0, y0 = 0, t0 = 0;

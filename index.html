@@ -13,7 +13,7 @@ try { if ('scrollRestoration' in history && !location.hash) history.scrollRestor
 <link rel="preload" as="image" href="assets/hero-poster.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Karla:wght@400;500&family=Jersey+10&family=Source+Sans+3:wght@300&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jersey+10&display=swap">
 
 <style>
 :root {
@@ -152,7 +152,7 @@ img { display: block; max-width: 100%; }
 }
 .menu-panel.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .menu-panel a {
-  font-family: 'Anton', 'Bricolage Grotesque', sans-serif;
+  font-family: 'Anton', sans-serif;
   font-weight: 400; font-size: clamp(56px, 11vw, 140px); line-height: 0.95;
   color: var(--bg); letter-spacing: 0.01em; text-transform: uppercase;
   position: relative; padding: 4px 18px;
@@ -345,7 +345,7 @@ img { display: block; max-width: 100%; }
   background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none' shape-rendering='crispEdges'%3E%3Cpath d='M16 0H184V4H192V8H200V72H192V76H184V80H16V76H8V72H0V8H8V4H16Z' fill='%230a1530'/%3E%3Cpath d='M20 4H180V8H188V12H196V68H188V72H180V76H20V72H12V68H4V12H12V8H20Z' fill='%23C21292'/%3E%3Crect x='20' y='8' width='160' height='4' fill='%23FFA732'/%3E%3Crect x='12' y='12' width='176' height='2' fill='%23FFA732'/%3E%3Crect x='12' y='66' width='176' height='2' fill='%23FFA732'/%3E%3Crect x='20' y='68' width='160' height='4' fill='%23FFA732'/%3E%3Crect x='176' y='60' width='12' height='4' fill='%23FAF3F0'/%3E%3Crect x='180' y='56' width='8' height='4' fill='%23FAF3F0'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
   color: #FAF3F0;
   padding: 26px 40px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.16em;
@@ -462,7 +462,7 @@ img { display: block; max-width: 100%; }
   padding: 28px 30px;
   background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140' preserveAspectRatio='none' shape-rendering='crispEdges'%3E%3Cpath d='M20 0H220V4H228V8H236V12H240V128H236V132H228V136H220V140H20V136H12V132H4V128H0V12H4V8H12V4H20Z' fill='%230a1530'/%3E%3Cpath d='M24 4H216V8H224V12H232V16H236V124H232V128H224V132H216V136H24V132H16V128H8V124H4V16H8V12H16V8H24Z' fill='%23FAF3F0'/%3E%3Crect x='28' y='12' width='4' height='4' fill='%23EF4040'/%3E%3Crect x='32' y='16' width='4' height='4' fill='%23FFA732'/%3E%3Crect x='36' y='12' width='4' height='4' fill='%23C21292'/%3E%3Crect x='204' y='124' width='4' height='4' fill='%23C21292'/%3E%3Crect x='208' y='120' width='4' height='4' fill='%23EF4040'/%3E%3Crect x='200' y='120' width='4' height='4' fill='%23FFA732'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
   color: var(--ink);
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: clamp(14px, 1.05vw, 17px);
   line-height: 1.5;
@@ -486,7 +486,7 @@ img { display: block; max-width: 100%; }
 }
 
 .mag-title-pre {
-  font-family: 'Myriad Pro', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: clamp(23px, 2.35vw, 39px);
   color: var(--bg); opacity: .85;
@@ -614,7 +614,7 @@ img { display: block; max-width: 100%; }
   background: var(--bg);
   color: var(--ink);
   padding: 12px 24px 13px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   letter-spacing: 0.18em;
   font-size: 12px;
@@ -925,9 +925,9 @@ img { display: block; max-width: 100%; }
 .cn-gal { cursor: default; touch-action: pan-y; }
 .cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; min-height: 200px; display: flex; flex-direction: column; align-items: center; gap: 12px; animation: cnIn .7s ease; }
 @keyframes cnIn { from { opacity: 0; transform: translateY(8px); } }
-.cn-quote { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 2.55vw, 34px); line-height: 1.25; color: var(--bg); min-height: 2.5em; display: flex; align-items: center; justify-content: center; margin-top: var(--qshift, -35px); }
-.cn-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--bg); }
-.cn-role { font-family: 'Bricolage Grotesque', sans-serif; font-size: 12px; letter-spacing: .08em; color: var(--bg); opacity: .6; margin-top: -6px; }
+.cn-quote { font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(20px, 2.55vw, 34px); line-height: 1.25; color: var(--bg); min-height: 2.5em; display: flex; align-items: center; justify-content: center; margin-top: var(--qshift, -35px); }
+.cn-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--bg); }
+.cn-role { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: .08em; color: var(--bg); opacity: .6; margin-top: -6px; }
 .cn-dots { display: flex; gap: 10px; margin-top: 10px; }
 .cn-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 8px; background: var(--bg); opacity: .3; cursor: pointer; transition: width .35s ease, opacity .35s ease; }
 .cn-dot.on { width: 24px; opacity: 1; }
@@ -1112,7 +1112,7 @@ img { display: block; max-width: 100%; }
   margin: 0;
   border: none;
   padding: 0;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 10px;
   line-height: 1;
@@ -1127,7 +1127,7 @@ img { display: block; max-width: 100%; }
   margin: 0;
   border: none;
   padding: 0;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1;
@@ -1143,7 +1143,7 @@ img { display: block; max-width: 100%; }
   margin-top: 130px;
 }
 .contact-signoff {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Inter', sans-serif;
   font-style: italic;
   font-size: clamp(14px, 1.1vw, 18px);
   color: var(--ink);
@@ -1152,7 +1152,7 @@ img { display: block; max-width: 100%; }
 }
 .contact-signoff em {
   font-style: normal;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1224,7 +1224,7 @@ img { display: block; max-width: 100%; }
 }
 .footer-col-label {
   display: block;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.28em;
@@ -1251,7 +1251,7 @@ img { display: block; max-width: 100%; }
 }
 .footer-list a:hover { color: var(--pop); }
 .footer-status {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Inter', sans-serif;
   font-style: italic;
   font-size: clamp(18px, 1.4vw, 22px);
   color: var(--ink);
@@ -1394,7 +1394,7 @@ img { display: block; max-width: 100%; }
   border-radius: 999px;
   background: var(--ink);
   color: var(--bg);
-  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: clamp(9px, 0.74vw, 14px);
   line-height: 1;
@@ -1452,7 +1452,7 @@ img { display: block; max-width: 100%; }
 .sticker.pen-sticker::after { color: var(--ink); }
 /* "Get a quote": header button (scrolls to contact) and WhatsApp button under the service cards */
 .header-actions { display: flex; align-items: center; gap: 14px; }
-.quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Bricolage Grotesque', 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
+.quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
 .quote-btn:hover, .quote-btn:focus-visible { background: var(--pop); color: var(--bg); transform: translateY(-2px); outline: none; }
 .quote-btn:focus-visible { box-shadow: 0 0 0 3px var(--secondary); }
 .hero.hero--reel.hero--dark .quote-btn { background: var(--bg); color: var(--ink); }
@@ -1465,7 +1465,7 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 400px) { .quote-btn { padding: 10px 12px; font-size: 9px; letter-spacing: .1em; } }
 .mag-cta { text-align: center; margin-top: -40px; padding: 0 5vw 110px; }
-.panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
+.panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
 .panel-cta:hover, .panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
 @media (max-width: 600px) { .mag-cta { margin-top: 0; padding-bottom: 80px; } .panel-cta { padding: 16px 24px; font-size: 11px; } }
 .mag-card-desc { margin: 12px 0 0; max-width: 24ch; text-wrap: balance; font-family: 'Inter', sans-serif; font-size: clamp(12px, 1vw, 14px); line-height: 1.45; text-align: center; color: var(--card-text, var(--ink)); }

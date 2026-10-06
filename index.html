@@ -1550,7 +1550,8 @@ img { display: block; max-width: 100%; }
 .wc-text { display: grid; gap: 4px; justify-items: center; text-align: center; min-width: 0; }
 .wc-name { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1.05; color: var(--ink); }
 .wc-type { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
-.work-cta { text-align: center; margin-top: 22px; }
+.work-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 22px; margin-top: 22px; }
+.panel-cta--blue { background-image: url(assets/box-blue.svg); }
 .switch-frame { touch-action: pan-y; }
 @media (max-width: 700px) {
   .work { min-height: 0; padding: 56px 5vw 56px; }
@@ -1560,11 +1561,7 @@ img { display: block; max-width: 100%; }
   .work-caption { margin-top: 22px; }
 }
 /* hint on the console screen: tells people the screen opens the project */
-.wc-hint { margin-top: 10px; display: inline-flex; align-items: center; gap: .6em; font-family: 'Inter', sans-serif; font-weight: 600; font-size: clamp(12px, 1.1vw, 15px); color: var(--ink); opacity: .75; }
-.wc-hint svg { width: 1.3em; height: 1.3em; flex: none; }
-.wc-hint .h-mouse { display: none; }
-@media (hover: hover) { .wc-hint .h-touch { display: none; } .wc-hint .h-mouse { display: inline; } }
-.switch-screen { outline: 0 solid #F9A323; outline-offset: 0; transition: outline-width .15s steps(2, end); }
+@media (hover: hover) { .switch-screen { outline: 0 solid #F9A323; outline-offset: 0; transition: outline-width .15s steps(2, end); }
 @media (hover: hover) { .switch-screen:hover { outline: 4px solid #F9A323; } }
 .switch-screen:focus-visible { outline: 4px solid #F9A323; }
 </style>
@@ -1791,9 +1788,9 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="work-caption" aria-live="polite">
-    <div class="wc-text"><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span><div class="wc-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="h-touch">Tap the screen to open this project</span><span class="h-mouse">Click the screen to open this project</span></div></div>
+    <div class="wc-text"><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span></div>
   </div>
-  <div class="work-cta"><a class="panel-cta" href="my-work.html">See all my work</a></div>
+  <div class="work-cta"><a class="panel-cta panel-cta--blue" id="wcOpen" href="my-work.html#baseera">View project</a><a class="panel-cta" href="my-work.html">See all my work</a></div>
 
 </section>
 
@@ -2193,6 +2190,7 @@ addEventListener('keydown', e => {
     const s = slides[i];
     if (cName) cName.textContent = s.dataset.name || '';
     if (cType) cType.textContent = s.dataset.type || '';
+    const wo = document.getElementById('wcOpen'); if (wo) wo.href = 'my-work.html#' + (s.dataset.stem || '');
     if (screenLink) { screenLink.href = 'my-work.html#' + (s.dataset.stem || ''); screenLink.setAttribute('aria-label', 'Open ' + (s.dataset.name || 'project') + ' in My Work'); }
   };
   const show = n => {

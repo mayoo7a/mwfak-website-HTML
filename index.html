@@ -2253,15 +2253,23 @@ addEventListener('scroll', () => {
     if (w <= 1050) {
       // phones and small tablets: top-left, top-right, bottom-left, bottom-right corners, inside the section's padding
       const corners = [
-        { top: '14px',  left: '6%' },
-        { top: '18px',  right: '7%' },
-        { bottom: '16px', left: '9%' },
-        { bottom: '20px', right: '6%' }
+        { top: 0,  left: '7%',  stagger: 0 },
+        { top: 0,  right: '8%', stagger: 8 },
+        { bottom: 0, left: '10%', stagger: 6 },
+        { bottom: 0, right: '7%', stagger: 0 }
       ];
+      // centre each shape in the free band between the section edge and the text, so it has space on both sides
+      const sr = section.getBoundingClientRect();
+      const head = document.querySelector('.intro-headline').getBoundingClientRect();
+      const body = document.querySelector('.intro-body').getBoundingClientRect();
+      const topGap = Math.max(0, head.top - sr.top), botGap = Math.max(0, sr.bottom - body.bottom);
       stickers.forEach((s, i) => {
         const c = corners[i % corners.length];
         s.style.position = 'absolute';
-        s.style.top = c.top || 'auto'; s.style.bottom = c.bottom || 'auto';
+        const sh = s.getBoundingClientRect().height || 40;
+        const gap = c.top !== undefined ? topGap : botGap;
+        const off = Math.round(Math.min(64, Math.max(8, (gap - sh) / 2)) + (c.stagger || 0) * 0.5);
+        s.style.top = c.top !== undefined ? off + 'px' : 'auto'; s.style.bottom = c.bottom !== undefined ? off + 'px' : 'auto';
         s.style.left = c.left || 'auto'; s.style.right = c.right || 'auto';
         const tilt = ((i % 2 ? 1 : -1) * (4 + i * 2)).toFixed(1);
         s.style.setProperty('--tilt', tilt + 'deg');
@@ -2298,6 +2306,8 @@ addEventListener('scroll', () => {
   };
   layout();
   addEventListener('resize', layout);
+  addEventListener('load', () => setTimeout(layout, 200));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => layout());
 })();
 
 /* Back-to-top — sticky circle button that scrolls to the top */

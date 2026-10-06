@@ -902,6 +902,10 @@ html, body { cursor: none; }
 /* "What you receive" is the main point of each service: a real heading, with the items directly under it */
 .svc-end .svc-files > .svc-sub:first-child { margin: 36px 0 22px; padding: 0 0 0 20px; border-left: 6px solid var(--c); font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(30px, 2.8vw, 42px); line-height: 1.05; letter-spacing: -0.01em; text-transform: none; color: var(--bg); }
 .svc-end .svc-files > .svc-sub:first-child::before { display: none; }
+/* items under "What you receive": same serif as the heading, bold; every bullet is a filled square */
+.svc-check li { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(19px, 1.5vw, 23px); line-height: 1.25; opacity: 1; padding-left: 26px; }
+.svc-check li::before { top: .38em; width: 12px; height: 12px; background: var(--c); }
+.svc-chips li::before { background: var(--c); }
 </style>
 </head>
 <body>

@@ -43,7 +43,17 @@ html, body {
    SECTION-BY-SECTION SNAP SCROLLING (Apple / fullPage.js style)
    The HTML element is the scroll container.
    ============================================================ */
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; scroll-snap-type: y proximity; }
+/* browser-native, gentle snapping: sections settle when you stop near one, and it never fights the wheel, keyboard or touch */
+.hero, .intro, .magnificent, .work, .testimonials, .contact, .footer { scroll-snap-align: start; }
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  html { scroll-snap-type: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .intro-headline, .intro-body, .sticker { opacity: 1 !important; }
+}
 body { margin: 0; overflow-x: hidden; }
 
 /* Custom pixel cursor - uses external cursor.svg with built-in outline + fill */
@@ -1852,142 +1862,6 @@ burger.addEventListener('click', () => {
 document.querySelectorAll('.menu-panel a').forEach(a => {
   a.addEventListener('click', () => { burger.classList.remove('open'); menu.classList.remove('open'); });
 });
-
-/* ============================================================
-   SOFT SNAP with per-section snap flag.
-   - Every section snaps: hero, intro, services, work, reviews, contact, footer.
-   - A section taller than the screen scrolls naturally until its edge
-     is reached, then the next wheel turn snaps to the neighbouring section.
-   ============================================================ */
-(function softSnap(){
-  const config = [
-    { sel: '.hero',         snap: true  },
-    { sel: '.intro',        snap: true  },
-    { sel: '.magnificent',  snap: true  },
-    { sel: '.work',         snap: true  },
-    { sel: '.testimonials', snap: true  },
-    { sel: '.contact',      snap: true  },
-    { sel: '.footer',       snap: true  },
-  ];
-  const sections = config
-    .map(c => ({ ...c, el: document.querySelector(c.sel) }))
-    .filter(s => s.el);
-  if (sections.length < 2) return;
-
-  let isAnimating = false;
-  let wheelLock = 0;
-  let lastWheelTime = 0;
-  let canSnap = true;
-  const ANIM_MS = 1100;          // length of the eased scroll
-  const WHEEL_COOLDOWN = 1300;   // ignore wheels during/just after a snap
-  const GESTURE_GAP = 250;       // ms with no wheel before treating next wheel as a new gesture
-
-  // easeInOutCubic — smooth start, fast middle, smooth end
-  const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-  function animatedScrollTo(targetY) {
-    const startY = window.scrollY;
-    const dist = targetY - startY;
-    const startT = performance.now();
-    isAnimating = true;
-
-    function tick(now){
-      const elapsed = now - startT;
-      const p = Math.min(1, elapsed / ANIM_MS);
-      const y = startY + dist * ease(p);
-      window.scrollTo(0, y);
-      if (p < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        isAnimating = false;
-      }
-    }
-    requestAnimationFrame(tick);
-  }
-
-  function currentIndex() {
-    // Use the vertical CENTER of the viewport to decide which section we're "in".
-    // This is more accurate than checking the very top, especially for short
-    // sections (like the footer) that can't reach the top of the viewport.
-    const center = window.scrollY + window.innerHeight / 2;
-    let result = 0;
-    for (let i = 0; i < sections.length; i++) {
-      const r = sections[i].el.getBoundingClientRect();
-      const top = r.top + window.scrollY;
-      const bottom = top + r.height;
-      if (center >= top && center < bottom) { return i; }
-      if (top <= center) result = i;
-    }
-    return result;
-  }
-
-  const hasMoreBelow = sec => sec.el.getBoundingClientRect().bottom > window.innerHeight + 6;
-  const hasMoreAbove = sec => sec.el.getBoundingClientRect().top < -6;
-
-  addEventListener('wheel', e => {
-    if (window.innerWidth <= 768) return;     // free-scroll on mobile
-    if (isAnimating) { e.preventDefault(); return; }
-
-    // Detect a new wheel gesture (user paused, then started wheeling again)
-    const now = performance.now();
-    if (now - lastWheelTime > GESTURE_GAP) canSnap = true;
-    lastWheelTime = now;
-
-    const idx = currentIndex();
-    const cur = sections[idx];
-
-    // Only intercept wheel when current section is a snap-active section.
-    if (!cur.snap) return;
-
-    // Going DOWN — snap to next section (let a tall section finish scrolling first)
-    if (e.deltaY > 0 && idx < sections.length - 1) {
-      if (hasMoreBelow(cur)) return;
-      e.preventDefault();
-      if (!canSnap) return;
-      if (now - wheelLock < WHEEL_COOLDOWN) return;
-      wheelLock = now;
-      canSnap = false;
-      const next = sections[idx + 1];
-      animatedScrollTo(next.el.getBoundingClientRect().top + window.scrollY);
-      return;
-    }
-
-    // Going UP — only snap if the immediately previous section is also snap-active.
-    if (e.deltaY < 0 && idx > 0) {
-      const prev = sections[idx - 1];
-      if (!prev.snap) return;
-      if (hasMoreAbove(cur)) return;
-      e.preventDefault();
-      if (!canSnap) return;
-      if (now - wheelLock < WHEEL_COOLDOWN) return;
-      wheelLock = now;
-      canSnap = false;
-      animatedScrollTo(prev.el.getBoundingClientRect().top + window.scrollY);
-    }
-  }, { passive: false });
-
-  addEventListener('keydown', e => {
-    if (window.innerWidth <= 768) return;
-    if (isAnimating) return;
-    const idx = currentIndex();
-    const cur = sections[idx];
-    if (!cur.snap) return;
-    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-      if (idx >= sections.length - 1) return;
-      if (hasMoreBelow(cur)) return;
-      e.preventDefault();
-      const next = sections[idx + 1];
-      animatedScrollTo(next.el.getBoundingClientRect().top + window.scrollY);
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-      if (idx <= 0) return;
-      const prev = sections[idx - 1];
-      if (!prev.snap) return;
-      if (hasMoreAbove(cur)) return;
-      e.preventDefault();
-      animatedScrollTo(prev.el.getBoundingClientRect().top + window.scrollY);
-    }
-  });
-})();
 
 /* ============================================================
    REVIEWS: spiral galaxy, starfield canvas

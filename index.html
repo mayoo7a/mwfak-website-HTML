@@ -1526,6 +1526,9 @@ img { display: block; max-width: 100%; }
 .footer-logo { height: clamp(30px, 8vw, 44px); flex: 0 0 auto; }
 .footer-bottom .footer-copy { white-space: nowrap; min-width: 0; font-size: clamp(10px, 3.1vw, 12px); }
 @media (max-width: 900px) { .footer-bottom { justify-content: flex-start; } .footer-bottom .footer-copy { margin-right: 0; } }
+/* the P.S. breaks after the first sentence when it needs two lines */
+.contact-signoff .ps-line { display: inline-block; }
+@media (max-width: 600px) { .contact-signoff { font-size: clamp(9px, 3vw, 14px); } }
 </style>
 </head>
 <body>
@@ -1836,7 +1839,7 @@ img { display: block; max-width: 100%; }
 
     <div class="contact-footer">
       <p class="contact-signoff">
-        <em>P.S. </em>My blind cat reviews every project before delivery. So far, zero complaints.
+        <span class="ps-line"><em>P.S. </em>My blind cat reviews every project before delivery.</span> <span class="ps-line">So far, zero complaints.</span>
       </p>
     </div>
 

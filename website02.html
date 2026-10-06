@@ -1859,6 +1859,58 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
 });
 
 /* ============================================================
+   GENTLE SECTION SNAP (custom, never takes over the wheel or keys)
+   - The visitor scrolls freely. When scrolling stops close to the top of a
+     section, the page eases the last bit into place (0.5s).
+   - Any wheel, touch, key press or click cancels it straight away.
+   - Off on phones and when the visitor prefers reduced motion.
+   ============================================================ */
+(function gentleSnap(){
+  const reduceMq = matchMedia('(prefers-reduced-motion: reduce)');
+  const secs = ['.hero', '.intro', '.magnificent', '.work', '.testimonials', '.contact', '.footer']
+    .map(sel => document.querySelector(sel)).filter(Boolean);
+  if (secs.length < 2) return;
+  const SETTLE_MS = 120;        // scrolling must be still this long before we snap
+  const ANIM_MS = 500;          // length of the ease into place
+  const NEAR = 0.5;             // snap when you stop within half a screen of a section top
+  let timer = 0, anim = 0, busy = false;
+
+  const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const off = () => reduceMq.matches || innerWidth <= 768;
+
+  function cancel(){ if (anim) { cancelAnimationFrame(anim); anim = 0; } busy = false; }
+
+  function snap(){
+    if (off()) return;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const y0 = scrollY, limit = innerHeight * NEAR;
+    let target = null, best = limit;
+    for (const el of secs) {
+      const top = el.getBoundingClientRect().top + y0;
+      const d = Math.abs(top - y0);
+      if (d < best && d > 1) { best = d; target = Math.min(top, max); }
+    }
+    if (target === null || Math.abs(target - y0) < 2) return;
+    const t0 = performance.now(), dist = target - y0;
+    busy = true;
+    (function tick(now){
+      const p = Math.min(1, (now - t0) / ANIM_MS);
+      scrollTo(0, y0 + dist * ease(p));
+      if (p < 1 && busy) anim = requestAnimationFrame(tick); else { anim = 0; busy = false; }
+    })(t0);
+  }
+
+  function onScroll(){
+    if (busy) return;                       // our own animation
+    clearTimeout(timer);
+    timer = setTimeout(snap, SETTLE_MS);
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(ev =>
+    addEventListener(ev, () => { cancel(); clearTimeout(timer); }, { passive: true }));
+})();
+
+/* ============================================================
    REVIEWS: spiral galaxy, starfield canvas
    ============================================================ */
 (function spiralGalaxy(){

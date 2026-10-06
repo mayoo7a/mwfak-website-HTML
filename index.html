@@ -491,7 +491,8 @@ img { display: block; max-width: 100%; }
   color: var(--bg); opacity: .85;
   line-height: 1;
   margin: 0 0 12px;
-  padding-left: 10px;
+  /* starts exactly where the D of DRAGON starts: the D's side gap in the big title, minus the S's side gap here */
+  padding-left: calc(clamp(85px, 15.3vw, 272px) * 0.037 - clamp(23px, 2.35vw, 39px) * 0.04);
   display: block;
   text-align: left;
   position: relative;

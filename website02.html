@@ -1863,7 +1863,7 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
    - The visitor scrolls freely. When scrolling stops close to the top of a
      section, the page eases the last bit into place (0.5s).
    - Any wheel, touch, key press or click cancels it straight away.
-   - Off on phones and when the visitor prefers reduced motion.
+   - Off on phones. With reduced motion it settles at once instead of animating.
    ============================================================ */
 (function gentleSnap(){
   const reduceMq = matchMedia('(prefers-reduced-motion: reduce)');
@@ -1876,7 +1876,7 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
   let timer = 0, anim = 0, busy = false;
 
   const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-  const off = () => reduceMq.matches || innerWidth <= 768;
+  const off = () => innerWidth <= 768;   // phones keep plain scrolling
 
   function cancel(){ if (anim) { cancelAnimationFrame(anim); anim = 0; } busy = false; }
 
@@ -1891,11 +1891,12 @@ document.querySelectorAll('.menu-panel a').forEach(a => {
       if (d < best && d > 1) { best = d; target = Math.min(top, max); }
     }
     if (target === null || Math.abs(target - y0) < 2) return;
+    if (reduceMq.matches) { scrollTo({ top: target, left: 0, behavior: 'instant' }); return; }   // reduced motion: settle at once, no animation
     const t0 = performance.now(), dist = target - y0;
     busy = true;
     (function tick(now){
       const p = Math.min(1, (now - t0) / ANIM_MS);
-      scrollTo(0, y0 + dist * ease(p));
+      scrollTo({ top: y0 + dist * ease(p), left: 0, behavior: 'instant' });
       if (p < 1 && busy) anim = requestAnimationFrame(tick); else { anim = 0; busy = false; }
     })(t0);
   }

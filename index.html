@@ -2349,7 +2349,7 @@ addEventListener('scroll', () => {
 (function placeStickers(){
   const stickers = Array.from(document.querySelectorAll('.intro .sticker'));
   if (!stickers.length) return;
-  const layout = () => {
+  const place = () => {
     const section = document.querySelector('.intro');
     if (!section) return;
     const w = section.clientWidth;
@@ -2409,6 +2409,26 @@ addEventListener('scroll', () => {
       s.style.transform = `rotate(${tilt}deg)`;
     });
   };
+  // hide any shape that would touch the text or run off the section, so only shapes that really fit are shown
+  const fit = () => {
+    const section = document.querySelector('.intro');
+    if (!section) return;
+    const sr = section.getBoundingClientRect();
+    const lines = [];
+    ['.intro-headline', '.intro-body'].forEach(sel => {
+      const el = document.querySelector(sel); if (!el) return;
+      const rg = document.createRange(); rg.selectNodeContents(el);
+      Array.from(rg.getClientRects()).forEach(r => { if (r.width > 2 && r.height > 2) lines.push(r); });
+    });
+    const pad = 16;
+    stickers.forEach(s => {
+      const r = s.getBoundingClientRect();
+      const out = r.left < sr.left + 4 || r.right > sr.right - 4 || r.top < sr.top + 4 || r.bottom > sr.bottom - 4;
+      const hit = lines.some(l => r.left < l.right + pad && r.right > l.left - pad && r.top < l.bottom + pad && r.bottom > l.top - pad);
+      s.style.display = (out || hit) ? 'none' : '';
+    });
+  };
+  const layout = () => { place(); fit(); };
   layout();
   addEventListener('resize', layout);
   addEventListener('load', () => setTimeout(layout, 200));

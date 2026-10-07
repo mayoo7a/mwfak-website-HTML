@@ -370,6 +370,8 @@ img { display: block; max-width: 100%; }
 .sticker.layers-sticker::after { background-image: url("assets/box-blue.svg");    }
 .sticker.ruler-sticker::after { background-image: url("assets/box-orange.svg"); color: var(--ink); }
 /* Sizes only - positions are randomized via JS so each refresh looks different */
+/* the vector shapes only show on wide screens */
+@media (max-width: 1199px) { .intro .sticker { display: none !important; } }
 .sticker.palette-sticker { width: 105px; animation: floatA 6s ease-in-out infinite, introFade 1s .9s cubic-bezier(.2,.85,.2,1) forwards; }
 .sticker.pen-sticker { width: 105px; animation: floatB 7s ease-in-out infinite, introFade 1s 1.1s cubic-bezier(.2,.85,.2,1) forwards; }
 .sticker.layers-sticker { width: 95px;  animation: floatA 8s ease-in-out infinite reverse, introFade 1s 1.2s cubic-bezier(.2,.85,.2,1) forwards; }

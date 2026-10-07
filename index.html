@@ -1564,6 +1564,13 @@ img { display: block; max-width: 100%; }
   .switch-frame { flex: 0 0 auto; width: 96vw; max-width: none; margin: 0; }   /* whole console with a small gap each side */
   .work-caption { margin-top: 22px; }
 }
+
+/* phones: sections shrink to their content instead of filling a whole screen, so there is no big empty space above and below */
+@media (max-width: 700px) {
+  .intro { min-height: 0; padding-top: 84px; padding-bottom: 84px; }
+  .intro-body { margin-top: 40px; }
+  .testimonials { min-height: 0 !important; padding-top: 80px; padding-bottom: 80px; }
+}
 </style>
 </head>
 <body>

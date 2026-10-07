@@ -1407,9 +1407,9 @@ img { display: block; max-width: 100%; }
 .hero.hero--reel .brand-name { transition: color .2s ease; }
 .hero.hero--reel .burger span { transition: transform .35s ease, top .35s ease, background-color .2s ease; }
 .hero.hero--reel .brand img { transition: filter .2s ease; }
-.hero.hero--reel.hero--dark .brand-name { color: var(--bg); }
+.hero.hero--reel.hero--dark-l .brand-name { color: var(--bg); }
 .hero.hero--reel.hero--dark .burger span { background: var(--bg); }
-.hero.hero--reel.hero--dark .brand img { filter: brightness(0) invert(1); }
+.hero.hero--reel.hero--dark-l .brand img { filter: brightness(0) invert(1); }
 .hero.hero--reel.hero--dark .hero-reel-btn { background: var(--bg); color: var(--ink); }
 .hero.hero--reel.hero--dark .hero-reel-btn:focus-visible { background: var(--pop); color: var(--bg); }
 @media (hover: hover) { .hero.hero--reel.hero--dark .hero-reel-btn:hover { background: var(--pop); color: var(--bg); } }
@@ -1419,9 +1419,9 @@ img { display: block; max-width: 100%; }
   .hero.hero--reel .header { position: relative; }
   .hero-reel-ctl { top: auto; bottom: 5px; transform: none; }
   .hero-reel-btn { padding: 0.6em 1.25em 0.6em 1em; }
-  .hero.hero--reel.hero--dark .brand-name { color: var(--ink); }
+  .hero.hero--reel.hero--dark-l .brand-name { color: var(--ink); }
   .hero.hero--reel.hero--dark .burger span { background: var(--ink); }
-  .hero.hero--reel.hero--dark .brand img { filter: none; }
+  .hero.hero--reel.hero--dark-l .brand img { filter: none; }
 }
 
 .contact-card .contact-card-label { opacity: 1; }
@@ -2502,7 +2502,14 @@ addEventListener('scroll', () => {
   // seconds where the reel's background is dark (navy, red, purple, magenta)
   var DARK = [[0, 2.4], [26.3, 28.1], [30.4, 46.4]];   // measured from assets/hero.mp4 (top of the frame)
   function isDark(t) { for (var i = 0; i < DARK.length; i++) { if (t >= DARK[i][0] && t < DARK[i][1]) return true; } return false; }
-  function tone() { hero.classList.toggle('hero--dark', isDark(v.ended ? (v.duration || 46.3) - 0.05 : v.currentTime)); }   // the last frame is dark navy, so the logo stays white when the reel ends
+  // the logo (top left) follows the left side of the frame; the buttons on the right follow DARK above
+  var DARK_L = [[0, 2.4], [26.2, 28.2], [33.6, 41.6], [42.4, 46.4]];   // measured the same way, top-left corner only
+  function inRanges(R, t) { for (var i = 0; i < R.length; i++) { if (t >= R[i][0] && t < R[i][1]) return true; } return false; }
+  function tone() {
+    var t = v.ended ? (v.duration || 46.3) - 0.05 : v.currentTime;   // the last frame is dark navy, so everything stays light when the reel ends
+    hero.classList.toggle('hero--dark', isDark(t));
+    hero.classList.toggle('hero--dark-l', inRanges(DARK_L, t));
+  }
   var raf = 0;
 
   // colours read off the reel's left and right edges, so the space beside the video

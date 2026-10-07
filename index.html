@@ -2093,26 +2093,16 @@ addEventListener('keydown', e => {
       const f = markerR[i % markerR.length], a = (i % ARMS) * (Math.PI * 2 / ARMS) + f * TURN + rot * (1.15 - f * 0.75);
       const [x, y] = proj(f, a); mpos.push([x, y]);
       const on = i === cur, col = tint[i % tint.length];
-      // kawaii-style star: chunky rounded body in a palette colour, tiny face; the selected one bounces and blinks
+      // plain solid dot in a palette colour; the selected one is bigger, yellow and ringed in cream
       const sc = gW < 700 ? 0.9 : 1;
-      const r = (on ? 27 : 15) * sc, yy = y - (on && !reduce ? Math.abs(Math.sin(t / 300)) * 5 : 0);
-      const tilt = on && !reduce ? Math.sin(t / 420) * 0.14 : 0;
-      const body = on ? '#F9A323' : col;
-      gctx.lineJoin = 'round'; gctx.fillStyle = body; gctx.strokeStyle = body; gctx.lineWidth = r * 0.42;
-      starPath(gctx, x, yy, r * 0.82, tilt); gctx.fill(); gctx.stroke();
-      const ink = '#0E1C41', blink = on && !reduce && (t % 3200) < 140;
-      gctx.fillStyle = ink; gctx.strokeStyle = ink; gctx.lineCap = 'round';
-      if (blink) { gctx.lineWidth = r * 0.1; gctx.beginPath(); gctx.moveTo(x - r * 0.4, yy + r * 0.04); gctx.lineTo(x - r * 0.14, yy + r * 0.04); gctx.moveTo(x + r * 0.14, yy + r * 0.04); gctx.lineTo(x + r * 0.4, yy + r * 0.04); gctx.stroke(); }
-      else { gctx.beginPath(); gctx.arc(x - r * 0.27, yy + r * 0.04, r * 0.11, 0, 6.283); gctx.arc(x + r * 0.27, yy + r * 0.04, r * 0.11, 0, 6.283); gctx.fill(); }
-      gctx.lineWidth = Math.max(1.4, r * 0.09); gctx.beginPath(); gctx.arc(x, yy + r * 0.12, r * 0.2, 0.2 * Math.PI, 0.8 * Math.PI); gctx.stroke();
-      gctx.globalAlpha = 0.6; gctx.fillStyle = CR; gctx.beginPath();
-      gctx.arc(x - r * 0.5, yy + r * 0.22, r * 0.1, 0, 6.283); gctx.arc(x + r * 0.5, yy + r * 0.22, r * 0.1, 0, 6.283); gctx.fill(); gctx.globalAlpha = 1;
-      if (on) {   // little cream twinkles orbiting the selected star
-        gctx.fillStyle = CR;
-        for (let k = 0; k < 3; k++) {
-          const an = (reduce ? 0 : t / 900) + k * 2.094, px = x + Math.cos(an) * r * 1.7, py = yy + Math.sin(an) * r * 1.3, u = 3 + (k % 2) * 1.5;
-          gctx.fillRect(px - u, py - 1, u * 2, 2); gctx.fillRect(px - 1, py - u, 2, u * 2);
-        }
+      if (on) {
+        const pr = reduce ? 0 : (t % 1400) / 1400;
+        gctx.globalAlpha = 1 - pr; gctx.lineWidth = 2.5; gctx.strokeStyle = CR;
+        gctx.beginPath(); gctx.arc(x, y, (11 + pr * 12) * sc, 0, 6.283); gctx.stroke(); gctx.globalAlpha = 1;
+        gctx.fillStyle = '#F9A323'; gctx.beginPath(); gctx.arc(x, y, 8.5 * sc, 0, 6.283); gctx.fill();
+        gctx.lineWidth = 2.5; gctx.strokeStyle = CR; gctx.stroke();
+      } else {
+        gctx.beginPath(); gctx.arc(x, y, 6.5 * sc, 0, 6.283); gctx.lineWidth = 4; gctx.strokeStyle = '#0E1C41'; gctx.stroke(); gctx.fillStyle = col; gctx.fill();
       }
     }
   }

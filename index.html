@@ -2084,7 +2084,7 @@ addEventListener('keydown', e => {
     const r = gal.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
     gW = r.width; gH = r.height;
     gal.width = gW * d; gal.height = gH * d; gctx.setTransform(d, 0, 0, d, 0, 0);
-    R = Math.min(gW * 0.47, (gH - 80) * 1.05);   // 40px of spare room above and below, so star glows are never clipped
+    R = Math.max(20, Math.min(gW * 0.47, (gH - 80) * 1.05));   // 40px of spare room above and below, so star glows are never clipped
     seed();
   }
   function proj(f, a){
@@ -2093,6 +2093,7 @@ addEventListener('keydown', e => {
     return [gW / 2 + x * cs - y * sn, gH / 2 + x * sn + y * cs];
   }
   function drawGal(t){
+    if (gW < 20 || gH < 20) return;   // not laid out yet: wait for the next resize
     const dt = gLast ? Math.min((t - gLast) / 1000, 0.05) : 0; gLast = t;
     if (!reduce) rot += dt * 0.05;
     gctx.clearRect(0, 0, gW, gH);
@@ -2225,15 +2226,18 @@ addEventListener('keydown', e => {
   }
   function loop(t){ draw(t); drawGal(t); raf = requestAnimationFrame(loop); }
 
-  layoutG(); resize(); fixSizes();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fixSizes);
-  addEventListener('resize', () => { layoutG(); resize(); fixSizes(); });
-  drawGal(0);
+  const relayout = () => { try { layoutG(); resize(); fixSizes(); drawGal(gLast || 0); } catch (e) {} };
+  relayout();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  addEventListener('resize', relayout);
+  addEventListener('load', relayout);
+  if ('ResizeObserver' in window) new ResizeObserver(() => { const r = gal.getBoundingClientRect(); if (Math.abs(r.width - gW) > 1 || Math.abs(r.height - gH) > 1) relayout(); }).observe(gal);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(es => {
       visible = es[0].isIntersecting;
       cancelAnimationFrame(raf);
       if (visible) {
+        relayout();
         if (!started) { started = true; show(0); }
         restart();
         if (!reduce) raf = requestAnimationFrame(loop);

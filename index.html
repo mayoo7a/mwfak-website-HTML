@@ -2176,12 +2176,21 @@ addEventListener('keydown', e => {
   const mkStar = p => ({ x: p.x, y: p.y, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, s: Math.random() * 1.5 + .5, v: Math.random() * 6 + 2, col: sfCols[Math.floor(Math.random() * sfCols.length)], big: Math.random() < 0.22 });
   // keep the sky clear behind the review text: stars are only drawn around it
   function updateEx(){
-    const a = sec.getBoundingClientRect(), b = text.getBoundingClientRect();
-    ex = { l: b.left - a.left - 28, r: b.right - a.left + 28, t: b.top - a.top - 18, b: b.bottom - a.top + 18 };
+    // box around everything the reader sees: quote text, name, role and dots (measured on the real text, not just the container)
+    const a = sec.getBoundingClientRect();
+    let l = 1e9, r = -1e9, t = 1e9, bt = -1e9;
+    const add = b => { if (!b || !b.width) return; l = Math.min(l, b.left); r = Math.max(r, b.right); t = Math.min(t, b.top); bt = Math.max(bt, b.bottom); };
+    add(text.getBoundingClientRect());
+    [qEl, nEl, rEl, dotsEl].forEach(e => add(e.getBoundingClientRect()));
+    if (qEl.firstChild) { const rg = document.createRange(); rg.selectNodeContents(qEl); add(rg.getBoundingClientRect()); }
+    if (l > r) return;
+    ex = { l: l - a.left - 28, r: r - a.left + 28, t: t - a.top - 22, b: bt - a.top + 22 };
   }
   const inEx = (x, y, m) => ex && x > ex.l - m && x < ex.r + m && y > ex.t - m && y < ex.b + m;
   const sfCols = ['#F2EBE8', '#F2EBE8', '#F9A323', '#D23697', '#1E7CDF'];
+  let exAt = 0;
   function draw(t){
+    if (t - exAt > 200 || t < exAt) { updateEx(); exAt = t; }
     ctx.clearRect(0, 0, W, H);
     for (const s of stars) {
       const on = reduce || Math.floor(t / 1000 * s.s + s.p) % 3 !== 0;   // steps on and off, like cartoon twinkling

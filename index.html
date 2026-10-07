@@ -973,21 +973,17 @@ img { display: block; max-width: 100%; }
   background: var(--ink);
   color: var(--bg);
   border-radius: 46px;
-  box-shadow: 6px 6px 0 var(--ink);
-  border: 2px solid var(--ink);
   transform: rotate(-2deg);
 }
 .contact-title::after {
-  /* speech bubble tail (lower-left) */
+  /* speech bubble tail (lower-left): a curved point that grows out of the bubble */
   content: "";
   position: absolute;
-  bottom: -26px;
-  left: 74px;
-  width: 0; height: 0;
-  border-style: solid;
-  border-width: 30px 34px 0 0;
-  border-color: var(--ink) transparent transparent transparent;
-  filter: drop-shadow(0 2px 0 var(--ink));
+  bottom: -30px;
+  left: 64px;
+  width: 46px; height: 34px;
+  background: var(--ink);
+  clip-path: path('M0 0 H46 Q22 6 0 34 Q4 16 0 0 Z');
 }
 .contact-title-banner {
   display: block;

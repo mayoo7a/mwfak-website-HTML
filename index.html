@@ -916,19 +916,17 @@ img { display: block; max-width: 100%; }
 .cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; display: flex; flex-direction: column; align-items: center; gap: 22px; animation: cnIn .5s steps(4, end); }
 @keyframes cnIn { from { opacity: 0; transform: translateY(8px) rotate(-1deg); } }
 /* cartoon speech bubble for the review, tail pointing up at the galaxy */
-.cn-card { position: relative; width: 100%; min-height: 220px; box-sizing: border-box; padding: 30px 36px 26px; background: #F2EBE8; color: var(--ink); border: 4px solid #F7F7F7; border-radius: 34px; box-shadow: 8px 8px 0 #D23697; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transform: rotate(-.8deg); }
-.cn-card::before { content: ""; position: absolute; top: -26px; left: 18%; width: 40px; height: 30px; background: #F7F7F7; clip-path: polygon(0 100%, 55% 0, 100% 100%); }
-.cn-card::after { content: ""; position: absolute; top: -14px; left: calc(18% + 7px); width: 26px; height: 20px; background: #F2EBE8; clip-path: polygon(0 100%, 55% 0, 100% 100%); }
-.cn-quote { font-family: 'DM Serif Display', serif; font-style: normal; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.2; color: var(--ink); display: flex; align-items: center; justify-content: center; margin: 0; }
+.cn-card { position: relative; width: 100%; min-height: 200px; box-sizing: border-box; padding: 0 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.cn-quote { font-family: 'DM Serif Display', serif; font-style: normal; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.2; color: var(--bg); display: flex; align-items: center; justify-content: center; margin: 0; }
 .cn-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); background: #F9A323; padding: 7px 14px; border: 3px solid var(--ink); border-radius: 999px; margin: 0; transform: rotate(1.5deg); }
-.cn-role { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .08em; color: var(--ink); opacity: .7; margin: 0; }
+.cn-role { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .08em; color: var(--bg); opacity: .7; margin: 0; }
 .cn-dots { display: flex; gap: 12px; margin-top: 4px; }
 .cn-dot { width: 14px; height: 14px; padding: 0; border: 3px solid #F7F7F7; border-radius: 5px; background: transparent; cursor: pointer; transition: transform .2s steps(3, end), background .2s; }
 .cn-dot:nth-child(4n+1).on { background: #F9A323; } .cn-dot:nth-child(4n+2).on { background: #D23697; } .cn-dot:nth-child(4n+3).on { background: #1E7CDF; } .cn-dot:nth-child(4n).on { background: #FA5643; }
 .cn-dot.on { transform: scale(1.35) rotate(45deg); }
 .cn-dot:focus-visible { outline: 2px solid var(--bg); outline-offset: 3px; }
-@media (max-width: 360px) { .cn-card { padding: 26px 20px 22px; } }
-@media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-card { min-height: 250px; padding: 30px 22px 24px; } }
+
+@media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-card { min-height: 230px; } }
 @media (prefers-reduced-motion: reduce) { .cn-text { animation: none; } .cn-dot { transition: none; } }
 
 @media (max-width: 900px) {
@@ -2095,12 +2093,16 @@ addEventListener('keydown', e => {
       const f = markerR[i % markerR.length], a = (i % ARMS) * (Math.PI * 2 / ARMS) + f * TURN + rot * (1.15 - f * 0.75);
       const [x, y] = proj(f, a); mpos.push([x, y]);
       const on = i === cur, col = tint[i % tint.length];
-      const wob = on && !reduce ? Math.sin(t / 220) * 0.18 : 0;
-      const r = (on ? 20 : 11) * (gW < 700 ? 0.9 : 1);
-      starPath(gctx, x, y, r, wob);
-      gctx.lineJoin = 'round'; gctx.lineWidth = on ? 5 : 3.5; gctx.strokeStyle = CR; gctx.stroke();
-      gctx.fillStyle = on ? '#F9A323' : col; gctx.fill();
-      if (on) { gctx.fillStyle = CR; gctx.beginPath(); gctx.arc(x - r * 0.18, y - r * 0.12, r * 0.14, 0, 6.283); gctx.fill(); }
+      const pulse = on && !reduce ? 1 + Math.sin(t / 260) * 0.12 : 1;
+      const r = (on ? 17 : 9) * pulse * (gW < 700 ? 0.9 : 1);
+      // flat halo in the review colour, then a cream four-point sparkle
+      gctx.fillStyle = on ? '#F9A323' : col;
+      gctx.beginPath(); gctx.arc(x, y, r * (on ? 1.55 : 1.45), 0, 6.283); gctx.fill();
+      if (on) { gctx.lineWidth = 3; gctx.strokeStyle = CR; gctx.stroke(); }
+      gctx.fillStyle = CR; gctx.beginPath();
+      gctx.moveTo(x, y - r); gctx.quadraticCurveTo(x, y, x + r, y); gctx.quadraticCurveTo(x, y, x, y + r);
+      gctx.quadraticCurveTo(x, y, x - r, y); gctx.quadraticCurveTo(x, y, x, y - r); gctx.closePath(); gctx.fill();
+      gctx.fillStyle = on ? '#F9A323' : col; gctx.beginPath(); gctx.arc(x, y, r * 0.2, 0, 6.283); gctx.fill();
     }
   }
   function pick(e){

@@ -1783,7 +1783,7 @@ img { display: block; max-width: 100%; }
   </div>
 
   <div class="work-caption" aria-live="polite">
-    <div class="wc-text"><span class="wc-name" id="wcName">Baseera</span><span class="wc-type" id="wcType">Logo design</span></div>
+    <div class="wc-text"><span class="wc-name" id="wcName">Logo design</span><span class="wc-type" id="wcType">Baseera</span></div>
   </div>
   <div class="work-cta"><a class="panel-cta panel-cta--pink" href="my-work.html">See all my work</a></div>
 
@@ -2183,8 +2183,8 @@ addEventListener('keydown', e => {
   let i = 0, timer = null, paused = false, swiped = false;
   const caption = () => {
     const s = slides[i];
-    if (cName) cName.textContent = s.dataset.name || '';
-    if (cType) cType.textContent = s.dataset.type || '';
+    if (cName) cName.textContent = s.dataset.type || '';
+    if (cType) cType.textContent = s.dataset.name || '';
     if (screenLink) { screenLink.href = 'my-work.html#' + (s.dataset.stem || ''); screenLink.setAttribute('aria-label', 'Open ' + (s.dataset.name || 'project') + ' in My Work'); }
   };
   const show = (n, dir = 1) => {

@@ -871,10 +871,13 @@ img { display: block; max-width: 100%; }
   line-height: 0.95;
   font-size: clamp(36px, 5.4vw, 84px);
   white-space: nowrap;
+  text-shadow: 4px 4px 0 #D23697, 8px 8px 0 #1E7CDF;
+  transform: rotate(-1.5deg);
 }
 @media (max-width: 700px) {
   .testimonials-title { text-align: center; }
   .testimonials-title-banner { white-space: normal; font-size: clamp(30px, 9.5vw, 48px); text-wrap: balance; }
+  .testimonials-title-banner { text-shadow: 3px 3px 0 #D23697; line-height: 1.05; }
 }
 /* Override the old per-word styles — every word is just inline plain text on the swipe */
 .zg, .zg-1, .zg-2, .zg-3, .zg-4, .zg-5 {
@@ -902,11 +905,7 @@ img { display: block; max-width: 100%; }
    REVIEWS GALAXY: starfield, floating UFOs, transmission box
    ============================================================ */
 .testimonials {
-  background:
-    radial-gradient(ellipse at 18% 12%, rgba(30,124,223,.32), transparent 55%),
-    radial-gradient(ellipse at 88% 85%, rgba(210,54,151,.28), transparent 55%),
-    radial-gradient(ellipse at 62% 42%, rgba(30,124,223,.2), transparent 60%),
-    var(--ink);
+  background: var(--ink);
 }
 .gx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .testimonials-inner { position: relative; z-index: 1; }
@@ -914,18 +913,23 @@ img { display: block; max-width: 100%; }
 .cn-svg { display: block; width: 100%; height: clamp(280px, calc(26vw + 80px), 370px); margin: -40px 0; transform: translateY(-30px); }
 .testimonials-title { position: relative; z-index: 2; }
 .cn-gal { cursor: default; touch-action: pan-y; }
-.cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; min-height: 200px; display: flex; flex-direction: column; align-items: center; gap: 12px; animation: cnIn .7s ease; }
-@keyframes cnIn { from { opacity: 0; transform: translateY(8px); } }
-.cn-quote { font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(20px, 2.55vw, 34px); line-height: 1.25; color: var(--bg); min-height: 2.5em; display: flex; align-items: center; justify-content: center; margin-top: var(--qshift, -35px); }
-.cn-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--bg); }
-.cn-role { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: .08em; color: var(--bg); opacity: .6; margin-top: -6px; }
-.cn-dots { display: flex; gap: 10px; margin-top: 10px; }
-.cn-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 8px; background: var(--bg); opacity: .3; cursor: pointer; transition: width .35s ease, opacity .35s ease; }
-.cn-dot.on { width: 24px; opacity: 1; }
+.cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; display: flex; flex-direction: column; align-items: center; gap: 22px; animation: cnIn .5s steps(4, end); }
+@keyframes cnIn { from { opacity: 0; transform: translateY(8px) rotate(-1deg); } }
+/* cartoon speech bubble for the review, tail pointing up at the galaxy */
+.cn-card { position: relative; width: 100%; min-height: 220px; box-sizing: border-box; padding: 30px 36px 26px; background: #F2EBE8; color: var(--ink); border: 4px solid #F7F7F7; border-radius: 34px; box-shadow: 8px 8px 0 #D23697; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transform: rotate(-.8deg); }
+.cn-card::before { content: ""; position: absolute; top: -26px; left: 18%; width: 40px; height: 30px; background: #F7F7F7; clip-path: polygon(0 100%, 55% 0, 100% 100%); }
+.cn-card::after { content: ""; position: absolute; top: -14px; left: calc(18% + 7px); width: 26px; height: 20px; background: #F2EBE8; clip-path: polygon(0 100%, 55% 0, 100% 100%); }
+.cn-quote { font-family: 'DM Serif Display', serif; font-style: normal; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.2; color: var(--ink); display: flex; align-items: center; justify-content: center; margin: 0; }
+.cn-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); background: #F9A323; padding: 7px 14px; border: 3px solid var(--ink); border-radius: 999px; margin: 0; transform: rotate(1.5deg); }
+.cn-role { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .08em; color: var(--ink); opacity: .7; margin: 0; }
+.cn-dots { display: flex; gap: 12px; margin-top: 4px; }
+.cn-dot { width: 14px; height: 14px; padding: 0; border: 3px solid #F7F7F7; border-radius: 5px; background: transparent; cursor: pointer; transition: transform .2s steps(3, end), background .2s; }
+.cn-dot:nth-child(4n+1).on { background: #F9A323; } .cn-dot:nth-child(4n+2).on { background: #D23697; } .cn-dot:nth-child(4n+3).on { background: #1E7CDF; } .cn-dot:nth-child(4n).on { background: #FA5643; }
+.cn-dot.on { transform: scale(1.35) rotate(45deg); }
 .cn-dot:focus-visible { outline: 2px solid var(--bg); outline-offset: 3px; }
-@media (max-width: 360px) { .cn-quote { min-height: 3.75em; } }
-@media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-text { min-height: 230px; } }
-@media (prefers-reduced-motion: reduce) { .cn-text { animation: none; } }
+@media (max-width: 360px) { .cn-card { padding: 26px 20px 22px; } }
+@media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-card { min-height: 250px; padding: 30px 22px 24px; } }
+@media (prefers-reduced-motion: reduce) { .cn-text { animation: none; } .cn-dot { transition: none; } }
 
 @media (max-width: 900px) {
   .testimonials-row {
@@ -1806,9 +1810,11 @@ img { display: block; max-width: 100%; }
     <div class="cn" id="cn">
       <canvas class="cn-svg cn-gal" id="cnGal" role="img" aria-label="A spiral galaxy. The bright stars are client reviews; select one to read it."></canvas>
       <div class="cn-text" id="cnText" aria-live="polite">
-        <p class="cn-quote" id="cnQuote"></p>
-        <p class="cn-name" id="cnName"></p>
-        <p class="cn-role" id="cnRole"></p>
+        <div class="cn-card">
+          <p class="cn-quote" id="cnQuote"></p>
+          <p class="cn-name" id="cnName"></p>
+          <p class="cn-role" id="cnRole"></p>
+        </div>
         <div class="cn-dots" id="cnDots"></div>
       </div>
     </div>
@@ -2026,7 +2032,9 @@ addEventListener('keydown', e => {
     { name: 'Tara N.',   role: 'Editorial · Freelancer.com',           cStars: 5, img: '', review: 'Great communication and great work.' },
   ];
 
-  const tint = ['#ffe3b0','#f9b8e6','#b5d8ff','#ffb3b3','#e0c2ff','#aef2e4','#fff2a8','#ffc9da'];
+  const tint = ['#F9A323','#D23697','#1E7CDF','#FA5643','#F9A323','#D23697','#1E7CDF','#FA5643'];
+  const CR = '#F7F7F7';
+  const starPath = (c, x, y, r, rot) => { c.beginPath(); for (let k = 0; k < 10; k++) { const rr = k % 2 ? r * 0.5 : r, an = rot - Math.PI / 2 + k * Math.PI / 5; c[k ? 'lineTo' : 'moveTo'](x + Math.cos(an) * rr, y + Math.sin(an) * rr); } c.closePath(); };
   const N = profiles.length;
   const ARMS = 4, TILT = 0.42, TURN = Math.PI * 3.1, ROT = -0.3;
   const markerR = [0.34, 0.58, 0.8, 0.46, 0.9, 0.28, 0.68, 0.55];
@@ -2041,15 +2049,15 @@ addEventListener('keydown', e => {
 
   function rnd(){ return (Math.random() + Math.random() + Math.random() - 1.5) / 1.5; }
   function seed(){
-    const n = gW < 700 ? 1100 : 2200;
+    const n = gW < 700 ? 320 : 620;
     parts = [];
     for (let i = 0; i < n; i++) {
       const f = Math.pow(Math.random(), 0.62);
       const arm = i % ARMS;
       const ang = arm * (Math.PI * 2 / ARMS) + f * TURN + rnd() * (0.5 - f * 0.28);
       const rad = f + rnd() * 0.035;
-      const hue = f < 0.25 ? [255, 218, 150] : f < 0.6 ? [236, 128, 206] : [128, 160, 255];
-      parts.push({ f: Math.max(rad, 0.01), a: ang, c: hue, s: Math.random() * 1.3 + 0.35, al: Math.random() * 0.6 + 0.25 });
+      const hue = f < 0.25 ? '#F9A323' : f < 0.6 ? '#D23697' : '#1E7CDF';
+      parts.push({ f: Math.max(rad, 0.01), a: ang, c: Math.random() < 0.08 ? '#F2EBE8' : hue, s: (Math.random() * 2.6 + 2.6) * (gW < 700 ? 0.8 : 1), al: 1 });
     }
   }
   function layoutG(){
@@ -2068,41 +2076,36 @@ addEventListener('keydown', e => {
     const dt = gLast ? Math.min((t - gLast) / 1000, 0.05) : 0; gLast = t;
     if (!reduce) rot += dt * 0.05;
     gctx.clearRect(0, 0, gW, gH);
-    gctx.globalCompositeOperation = 'lighter';
-    // core glow
     const [cx, cy] = [gW / 2, gH / 2];
-    const g = gctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.55);
-    g.addColorStop(0, 'rgba(255,236,190,.95)'); g.addColorStop(0.12, 'rgba(255,190,110,.55)'); g.addColorStop(0.4, 'rgba(194,60,170,.16)'); g.addColorStop(1, 'rgba(194,60,170,0)');
-    gctx.save(); gctx.translate(cx, cy); gctx.rotate(ROT); gctx.scale(1, TILT * 1.35); gctx.translate(-cx, -cy);
-    gctx.fillStyle = g; gctx.beginPath(); gctx.arc(cx, cy, R * 0.55, 0, 6.283); gctx.fill(); gctx.restore();
-    // particles
+    // flat cartoon core: yellow sun with a cream highlight
+    gctx.save(); gctx.translate(cx, cy); gctx.rotate(ROT); gctx.scale(1, TILT * 1.35);
+    gctx.fillStyle = '#FA5643'; gctx.beginPath(); gctx.arc(0, 0, R * 0.17, 0, 6.283); gctx.fill();
+    gctx.fillStyle = '#F9A323'; gctx.beginPath(); gctx.arc(0, 0, R * 0.12, 0, 6.283); gctx.fill();
+    gctx.fillStyle = '#F7F7F7'; gctx.beginPath(); gctx.arc(-R * 0.035, -R * 0.035, R * 0.04, 0, 6.283); gctx.fill();
+    gctx.restore();
+    // chunky square dots along the arms
     for (const p of parts) {
       const [x, y] = proj(p.f, p.a + rot * (1.15 - p.f * 0.75));
-      gctx.fillStyle = 'rgba(' + p.c[0] + ',' + p.c[1] + ',' + p.c[2] + ',' + p.al + ')';
-      gctx.fillRect(x, y, p.s, p.s);
+      gctx.fillStyle = p.c;
+      gctx.fillRect(Math.round(x), Math.round(y), p.s, p.s);
     }
-    // review stars
+    // review stars: cartoon stars with a thick cream outline
     mpos = [];
     for (let i = 0; i < N; i++) {
       const f = markerR[i % markerR.length], a = (i % ARMS) * (Math.PI * 2 / ARMS) + f * TURN + rot * (1.15 - f * 0.75);
       const [x, y] = proj(f, a); mpos.push([x, y]);
       const on = i === cur, col = tint[i % tint.length];
-      const rad = on ? 38 : 14;
-      const hg = gctx.createRadialGradient(x, y, 0, x, y, rad);
-      hg.addColorStop(0, on ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.7)'); hg.addColorStop(0.3, col + (on ? 'aa' : '55')); hg.addColorStop(1, 'rgba(255,255,255,0)');
-      gctx.fillStyle = hg; gctx.beginPath(); gctx.arc(x, y, rad, 0, 6.283); gctx.fill();
-      gctx.fillStyle = on ? '#F7F7F7' : col; gctx.beginPath(); gctx.arc(x, y, on ? 4.5 : 2.6, 0, 6.283); gctx.fill();
-      if (on) {
-        const L = 18 + 3 * Math.sin(t / 380);
-        gctx.strokeStyle = 'rgba(255,255,255,.9)'; gctx.lineWidth = 1.4; gctx.beginPath();
-        gctx.moveTo(x - L, y); gctx.lineTo(x + L, y); gctx.moveTo(x, y - L); gctx.lineTo(x, y + L); gctx.stroke();
-      }
+      const wob = on && !reduce ? Math.sin(t / 220) * 0.18 : 0;
+      const r = (on ? 20 : 11) * (gW < 700 ? 0.9 : 1);
+      starPath(gctx, x, y, r, wob);
+      gctx.lineJoin = 'round'; gctx.lineWidth = on ? 5 : 3.5; gctx.strokeStyle = CR; gctx.stroke();
+      gctx.fillStyle = on ? '#F9A323' : col; gctx.fill();
+      if (on) { gctx.fillStyle = CR; gctx.beginPath(); gctx.arc(x - r * 0.18, y - r * 0.12, r * 0.14, 0, 6.283); gctx.fill(); }
     }
-    gctx.globalCompositeOperation = 'source-over';
   }
   function pick(e){
     const r = gal.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
-    let best = -1, bd = 26 * 26;
+    let best = -1, bd = 30 * 30;
     mpos.forEach((m, i) => { const d = (m[0] - x) * (m[0] - x) + (m[1] - y) * (m[1] - y); if (d < bd) { bd = d; best = i; } });
     return best;
   }
@@ -2127,29 +2130,23 @@ addEventListener('keydown', e => {
     W = r.width; H = r.height;
     cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
     const n = Math.round(Math.min(220, W * H / 7000));
-    stars = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, s: Math.random() * 1.5 + .5, v: Math.random() * 6 + 2 }));
+    stars = Array.from({ length: Math.round(n * 0.6) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, s: Math.random() * 1.5 + .5, v: Math.random() * 6 + 2, col: sfCols[Math.floor(Math.random() * sfCols.length)], big: Math.random() < 0.22 }));
     draw(0);
   }
+  const sfCols = ['#F2EBE8', '#F2EBE8', '#F9A323', '#D23697', '#1E7CDF'];
   function draw(t){
     ctx.clearRect(0, 0, W, H);
     for (const s of stars) {
-      const a = reduce ? .7 : .35 + .65 * Math.abs(Math.sin(t / 1000 * s.s + s.p));
-      ctx.globalAlpha = a; ctx.fillStyle = '#F2EBE8';
-      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
-      if (!reduce) { s.y -= s.v * (t - last) / 1000 * .12; if (s.y < -2) { s.y = H + 2; s.x = Math.random() * W; } }
-    }
-    if (!reduce) {
-      if (!shoot && Math.random() < .006) shoot = { x: Math.random() * W * .8 + W * .2, y: Math.random() * H * .4, life: 0 };
-      if (shoot) {
-        shoot.life += (t - last) / 1000; const k = shoot.life / .9;
-        const x = shoot.x - k * 260, y = shoot.y + k * 150;
-        const g = ctx.createLinearGradient(x, y, x + 90, y - 52); g.addColorStop(0, 'rgba(255,255,255,.9)'); g.addColorStop(1, 'rgba(255,255,255,0)');
-        ctx.globalAlpha = 1 - k; ctx.strokeStyle = g; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 90, y - 52); ctx.stroke();
-        if (k >= 1) shoot = null;
+      const on = reduce || Math.floor(t / 1000 * s.s + s.p) % 3 !== 0;   // steps on and off, like cartoon twinkling
+      if (on) {
+        ctx.fillStyle = s.col;
+        const u = s.r > 1 ? 4 : 3;
+        if (s.big) { ctx.fillRect(s.x - u * 2, s.y - 1, u * 4, 2); ctx.fillRect(s.x - 1, s.y - u * 2, 2, u * 4); }
+        else ctx.fillRect(Math.round(s.x), Math.round(s.y), u, u);
       }
+      if (!reduce) { s.y -= s.v * (t - last) / 1000 * .12; if (s.y < -8) { s.y = H + 8; s.x = Math.random() * W; } }
     }
-    ctx.globalAlpha = 1; last = t;
+    last = t;
   }
   function loop(t){ draw(t); drawGal(t); raf = requestAnimationFrame(loop); }
 

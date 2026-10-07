@@ -916,9 +916,9 @@ img { display: block; max-width: 100%; }
 .cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; display: flex; flex-direction: column; align-items: center; gap: 22px; animation: cnIn .5s steps(4, end); }
 @keyframes cnIn { from { opacity: 0; transform: translateY(8px) rotate(-1deg); } }
 /* cartoon speech bubble for the review, tail pointing up at the galaxy */
-.cn-card { position: relative; width: 100%; min-height: 200px; box-sizing: border-box; padding: 0 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.cn-card { position: relative; width: 100%; box-sizing: border-box; padding: 0 12px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 14px; }
 .cn-quote { font-family: 'DM Serif Display', serif; font-style: normal; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.2; color: var(--bg); display: flex; align-items: center; justify-content: center; margin: 0; }
-.cn-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); background: #F9A323; padding: 7px 14px; border: 3px solid var(--ink); border-radius: 999px; margin: 0; transform: rotate(1.5deg); }
+.cn-name { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); background: #F9A323; padding: 7px 14px; border: 3px solid var(--ink); border-radius: 999px; margin: 0; transform: rotate(1.5deg); text-align: center; box-sizing: border-box; white-space: nowrap; }
 .cn-role { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .08em; color: var(--bg); opacity: .7; margin: 0; }
 .cn-dots { display: flex; gap: 12px; margin-top: 4px; }
 .cn-dot { width: 14px; height: 14px; padding: 0; border: 3px solid #F7F7F7; border-radius: 5px; background: transparent; cursor: pointer; transition: transform .2s steps(3, end), background .2s; }
@@ -926,7 +926,7 @@ img { display: block; max-width: 100%; }
 .cn-dot.on { transform: scale(1.35) rotate(45deg); }
 .cn-dot:focus-visible { outline: 2px solid var(--bg); outline-offset: 3px; }
 
-@media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } .cn-card { min-height: 230px; } }
+@media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } }
 @media (prefers-reduced-motion: reduce) { .cn-text { animation: none; } .cn-dot { transition: none; } }
 
 @media (max-width: 900px) {
@@ -2127,6 +2127,18 @@ addEventListener('keydown', e => {
     text.style.animation = 'none'; void text.offsetWidth; text.style.animation = '';
     if (reduce || !started) drawGal(gLast || 0);
   }
+  // keep the review layout still: the quote box, name pill and role line are sized to the largest review
+  function fixSizes(){
+    const keep = [qEl.textContent, nEl.textContent, rEl.textContent];
+    qEl.style.minHeight = nEl.style.minWidth = rEl.style.minHeight = '';
+    let qh = 0, nw = 0, rh = 0;
+    profiles.forEach(p => {
+      qEl.textContent = '\u201C' + p.review + '\u201D'; nEl.textContent = p.name; rEl.textContent = p.role;
+      qh = Math.max(qh, qEl.offsetHeight); nw = Math.max(nw, nEl.offsetWidth); rh = Math.max(rh, rEl.offsetHeight);
+    });
+    qEl.textContent = keep[0]; nEl.textContent = keep[1]; rEl.textContent = keep[2];
+    qEl.style.minHeight = qh + 'px'; nEl.style.minWidth = nw + 'px'; rEl.style.minHeight = rh + 'px';
+  }
   function restart(){ clearInterval(timer); timer = setInterval(() => show((cur + 1) % N), 2500); }
 
   /* starfield */
@@ -2157,8 +2169,9 @@ addEventListener('keydown', e => {
   }
   function loop(t){ draw(t); drawGal(t); raf = requestAnimationFrame(loop); }
 
-  layoutG(); resize();
-  addEventListener('resize', () => { layoutG(); resize(); });
+  layoutG(); resize(); fixSizes();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fixSizes);
+  addEventListener('resize', () => { layoutG(); resize(); fixSizes(); });
   drawGal(0);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(es => {

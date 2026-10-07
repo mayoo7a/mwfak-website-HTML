@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:   #F2EBE8;
@@ -96,12 +96,29 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 
 /* Gallery grid */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
   padding: 60px 40px 100px;
   max-width: 1400px;
   margin: 0 auto;
+}
+/* one block per service: its title, then the projects under it */
+.work-group { margin-bottom: 90px; }
+.work-group:last-child { margin-bottom: 0; }
+.work-group-title {
+  display: inline-block;
+  margin: 0 0 28px;
+  padding-bottom: 8px;
+  border-bottom: 7px solid var(--accent);
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 .project-item { display: block; }
 .project {
@@ -143,7 +160,10 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 }
 
 @media (max-width: 800px) {
-  .gallery { grid-template-columns: 1fr; padding: 40px 20px 80px; gap: 20px; }
+  .gallery { padding: 40px 20px 80px; }
+  .work-grid { grid-template-columns: 1fr; gap: 20px; }
+  .work-group { margin-bottom: 64px; }
+  .work-group-title { margin-bottom: 20px; border-bottom-width: 6px; }
   .intro { padding: 60px 20px 20px; }
   .header { padding: 16px 20px; }
   .brand img { height: 46px; width: 46px; }
@@ -697,13 +717,15 @@ img { max-width: 100%; }
 
 /* Large desktops */
 @media (min-width: 1700px) {
-  .gallery { max-width: 1600px; gap: 36px; }
+  .gallery { max-width: 1600px; }
+  .work-grid { gap: 36px; }
   .intro { max-width: 1400px; }
 }
 
 /* Small laptops and large tablets */
 @media (max-width: 1100px) {
-  .gallery { padding: 50px 28px 80px; gap: 24px; }
+  .gallery { padding: 50px 28px 80px; }
+  .work-grid { gap: 24px; }
   .intro { padding: 70px 28px 30px; }
   .header { padding: 18px 28px; }
 }
@@ -723,7 +745,8 @@ img { max-width: 100%; }
   .back-btn { padding: 9px 13px; font-size: 10px; letter-spacing: 0.14em; }
   .intro { padding: 44px 16px 16px; }
   .intro-left h1 { font-size: clamp(30px, 11vw, 60px); white-space: normal; letter-spacing: 0.02em; }
-  .gallery { padding: 30px 16px 60px; gap: 16px; }
+  .gallery { padding: 30px 16px 60px; }
+  .work-grid { gap: 16px; }
   .project-cap { margin-top: 10px; gap: 2px 10px; }
   .sayhi-footer { padding: 28px 16px; font-size: 15px; }
   .footer-inner { padding: 46px 16px 26px; }
@@ -860,153 +883,180 @@ html, body { cursor: none; }
 
 <section class="gallery">
 
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/baseera.webp" data-name="Baseera">
-      <img src="assets/portfolio/baseera.webp" alt="Baseera" width="1400" height="745" loading="lazy" decoding="async" />
+  <div class="work-group" id="logo-design" style="--accent:#F9A323">
+    <h2 class="work-group-title">Logo Design</h2>
+    <div class="work-grid">
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/baseera.webp" data-name="Baseera">
+        <img src="assets/portfolio/baseera.webp" alt="Baseera" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">Baseera</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Baseera</span>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/zinger-lab.webp" data-name="Zinger Lab">
+        <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">Zinger Lab</span>
+      </div>
     </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/zinger-lab.webp" data-name="Zinger Lab">
-      <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab" width="1400" height="745" loading="lazy" decoding="async" />
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/33-butchery.webp" data-name="33 Butchery">
+        <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">33 Butchery</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Zinger Lab</span>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/canary-calls.webp" data-name="Canary Calls">
+        <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">Canary Calls</span>
+      </div>
     </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/33-butchery.webp" data-name="33 Butchery">
-      <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery" width="1400" height="745" loading="lazy" decoding="async" />
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/compera-jewelry.webp" data-name="Compera Jewelry">
+        <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">Compera Jewelry</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">33 Butchery</span>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/hbcs.webp" data-name="HBCS">
+        <img src="assets/portfolio/hbcs.webp" alt="HBCS" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">HBCS</span>
+      </div>
     </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/canary-calls.webp" data-name="Canary Calls">
-      <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls" width="1400" height="745" loading="lazy" decoding="async" />
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/heavyweight-hoodies.webp" data-name="Heavyweight Hoodies">
+        <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">Heavyweight Hoodies</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Canary Calls</span>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/motammem.webp" data-name="Motammem">
+        <img src="assets/portfolio/motammem.webp" alt="Motammem" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo design</span>
+        <span class="project-name">Motammem</span>
+      </div>
     </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/compera-jewelry.webp" data-name="Compera Jewelry">
-      <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry" width="1400" height="745" loading="lazy" decoding="async" />
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/sol-root.webp" data-name="Sol Root">
+        <img src="assets/portfolio/sol-root.webp" alt="Sol Root" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo and packaging</span>
+        <span class="project-name">Sol Root</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Compera Jewelry</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/heavyweight-hoodies.webp" data-name="Heavyweight Hoodies">
-      <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Heavyweight Hoodies</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/hbcs.webp" data-name="HBCS">
-      <img src="assets/portfolio/hbcs.webp" alt="HBCS" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">HBCS</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/motammem.webp" data-name="Motammem">
-      <img src="assets/portfolio/motammem.webp" alt="Motammem" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & identity</span>
-      <span class="project-name">Motammem</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/sol-root.webp" data-name="Sol Root">
-      <img src="assets/portfolio/sol-root.webp" alt="Sol Root" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Logo & packaging</span>
-      <span class="project-name">Sol Root</span>
     </div>
   </div>
 
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/ummati.webp" data-name="Ummati">
-      <img src="assets/portfolio/ummati.webp" alt="Ummati" width="1400" height="745" loading="lazy" decoding="async" />
+  <div class="work-group" id="brand-identity" style="--accent:#D23697">
+    <h2 class="work-group-title">Brand Identity</h2>
+    <div class="work-grid">
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/battikhi-stays.webp" data-name="Battikhi Stays">
+        <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Brand and website</span>
+        <span class="project-name">Battikhi Stays</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Brand & app</span>
-      <span class="project-name">Ummati</span>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/the-welcome-table.webp" data-name="The Welcome Table">
+        <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Brand identity</span>
+        <span class="project-name">The Welcome Table</span>
+      </div>
     </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/battikhi-stays.webp" data-name="Battikhi Stays">
-      <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays" width="1400" height="745" loading="lazy" decoding="async" />
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/ummati.webp" data-name="Ummati">
+        <img src="assets/portfolio/ummati.webp" alt="Ummati" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Brand and UI/UX web/app</span>
+        <span class="project-name">Ummati</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Brand & web</span>
-      <span class="project-name">Battikhi Stays</span>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/qanadeel.webp" data-name="Qanadeel">
+        <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Presentation design</span>
+        <span class="project-name">Qanadeel</span>
+      </div>
     </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/the-welcome-table.webp" data-name="The Welcome Table">
-      <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Community brand</span>
-      <span class="project-name">The Welcome Table</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/mwafq.webp" data-name="Mwafq">
-      <img src="assets/portfolio/mwafq.webp" alt="Mwafq" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Website</span>
-      <span class="project-name">Mwafq</span>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/ticketat.webp" data-name="Ticketat">
-      <img src="assets/portfolio/ticketat.webp" alt="Ticketat" width="1400" height="745" loading="lazy" decoding="async" />
-    </div>
-    <div class="project-cap">
-      <span class="project-type">Website</span>
-      <span class="project-name">Ticketat</span>
     </div>
   </div>
 
-  <div class="project-item">
-    <div class="project" data-src="assets/portfolio/qanadeel.webp" data-name="Qanadeel">
-      <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel" width="1400" height="745" loading="lazy" decoding="async" />
+  <div class="work-group" id="packaging" style="--accent:#1E7CDF">
+    <h2 class="work-group-title">Packaging &amp; Print</h2>
+    <div class="work-grid">
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/sol-root.webp" data-name="Sol Root">
+        <img src="assets/portfolio/sol-root.webp" alt="Sol Root" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Logo and packaging</span>
+        <span class="project-name">Sol Root</span>
+      </div>
     </div>
-    <div class="project-cap">
-      <span class="project-type">Presentation & brand</span>
-      <span class="project-name">Qanadeel</span>
+    </div>
+  </div>
+
+  <div class="work-group" id="ui-ux" style="--accent:#FA5643">
+    <h2 class="work-group-title">UI/UX Design</h2>
+    <div class="work-grid">
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/mwafq.webp" data-name="Mwafq">
+        <img src="assets/portfolio/mwafq.webp" alt="Mwafq" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">UI/UX web/app</span>
+        <span class="project-name">Mwafq</span>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/ticketat.webp" data-name="Ticketat">
+        <img src="assets/portfolio/ticketat.webp" alt="Ticketat" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">UI/UX web</span>
+        <span class="project-name">Ticketat</span>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="project" data-src="assets/portfolio/ummati.webp" data-name="Ummati">
+        <img src="assets/portfolio/ummati.webp" alt="Ummati" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">Brand and UI/UX web/app</span>
+        <span class="project-name">Ummati</span>
+      </div>
+    </div>
     </div>
   </div>
 

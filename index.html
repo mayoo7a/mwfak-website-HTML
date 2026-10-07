@@ -2138,26 +2138,33 @@ addEventListener('keydown', e => {
     });
     qEl.textContent = keep[0]; nEl.textContent = keep[1]; rEl.textContent = keep[2];
     qEl.style.minHeight = qh + 'px'; nEl.style.minWidth = nw + 'px'; rEl.style.minHeight = rh + 'px';
+    updateEx();
   }
   function restart(){ clearInterval(timer); timer = setInterval(() => show((cur + 1) % N), 2500); }
 
   /* starfield */
   const cv = document.getElementById('gxCanvas'), ctx = cv.getContext('2d');
-  let W = 0, H = 0, stars = [], shoot = null, visible = false, raf = 0, last = 0;
+  let W = 0, H = 0, ex = null, stars = [], shoot = null, visible = false, raf = 0, last = 0;
   function resize(){
     const r = sec.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
     W = r.width; H = r.height;
     cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
     const n = Math.round(Math.min(220, W * H / 7000));
     stars = Array.from({ length: Math.round(n * 0.6) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, s: Math.random() * 1.5 + .5, v: Math.random() * 6 + 2, col: sfCols[Math.floor(Math.random() * sfCols.length)], big: Math.random() < 0.22 }));
-    draw(0);
+    updateEx(); draw(0);
   }
+  // keep the sky clear behind the review text: stars are only drawn around it
+  function updateEx(){
+    const a = sec.getBoundingClientRect(), b = text.getBoundingClientRect();
+    ex = { l: b.left - a.left - 28, r: b.right - a.left + 28, t: b.top - a.top - 18, b: b.bottom - a.top + 18 };
+  }
+  const inEx = (x, y, m) => ex && x > ex.l - m && x < ex.r + m && y > ex.t - m && y < ex.b + m;
   const sfCols = ['#F2EBE8', '#F2EBE8', '#F9A323', '#D23697', '#1E7CDF'];
   function draw(t){
     ctx.clearRect(0, 0, W, H);
     for (const s of stars) {
       const on = reduce || Math.floor(t / 1000 * s.s + s.p) % 3 !== 0;   // steps on and off, like cartoon twinkling
-      if (on) {
+      if (on && !inEx(s.x, s.y, 6)) {
         ctx.fillStyle = s.col;
         const u = s.r > 1 ? 4 : 3;
         if (s.big) { ctx.fillRect(s.x - u * 2, s.y - 1, u * 4, 2); ctx.fillRect(s.x - 1, s.y - u * 2, 2, u * 4); }

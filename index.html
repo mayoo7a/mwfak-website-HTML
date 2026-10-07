@@ -2502,7 +2502,7 @@ addEventListener('scroll', () => {
   // seconds where the reel's background is dark (navy, red, purple, magenta)
   var DARK = [[0, 2.4], [26.3, 28.1], [30.4, 46.4]];   // measured from assets/hero.mp4 (top of the frame)
   function isDark(t) { for (var i = 0; i < DARK.length; i++) { if (t >= DARK[i][0] && t < DARK[i][1]) return true; } return false; }
-  function tone() { hero.classList.toggle('hero--dark', !v.ended && isDark(v.currentTime)); }
+  function tone() { hero.classList.toggle('hero--dark', isDark(v.ended ? (v.duration || 46.3) - 0.05 : v.currentTime)); }   // the last frame is dark navy, so the logo stays white when the reel ends
   var raf = 0;
 
   // colours read off the reel's left and right edges, so the space beside the video

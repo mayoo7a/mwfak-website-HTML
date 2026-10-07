@@ -1559,9 +1559,9 @@ img { display: block; max-width: 100%; }
 .panel-cta--pink { background-image: url(assets/box-magenta.svg); }
 .switch-frame { touch-action: pan-y; }
 @media (max-width: 700px) {
-  .work { min-height: 0; padding: 56px 5vw 56px; }
-  .work-hero { margin: 8px -5vw 0; width: auto; overflow: hidden; }
-  .switch-frame { flex: 0 0 auto; width: 96vw; max-width: none; margin: 0; }   /* whole console with a small gap each side */
+  .work { min-height: 0; padding: 56px 12px 56px; }
+  .work-hero { margin: 8px 0 0; width: 100%; overflow: visible; }
+  .switch-frame { flex: 0 0 auto; width: 100%; max-width: none; margin: 0; }   /* whole console, with the section's 12px padding as the gap on each side (a percentage, so a scrollbar can never push it off one side) */
   .work-caption { margin-top: 22px; }
 }
 

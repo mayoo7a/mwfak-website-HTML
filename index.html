@@ -2032,7 +2032,7 @@ addEventListener('keydown', e => {
 
   const tint = ['#F9A323','#D23697','#1E7CDF','#FA5643','#F9A323','#D23697','#1E7CDF','#FA5643'];
   const CR = '#F7F7F7';
-  const starPath = (c, x, y, r, rot) => { c.beginPath(); for (let k = 0; k < 10; k++) { const rr = k % 2 ? r * 0.5 : r, an = rot - Math.PI / 2 + k * Math.PI / 5; c[k ? 'lineTo' : 'moveTo'](x + Math.cos(an) * rr, y + Math.sin(an) * rr); } c.closePath(); };
+  const starPath = (c, x, y, r, rot) => { c.beginPath(); for (let k = 0; k < 10; k++) { const rr = k % 2 ? r * 0.55 : r, an = rot - Math.PI / 2 + k * Math.PI / 5; c[k ? 'lineTo' : 'moveTo'](x + Math.cos(an) * rr, y + Math.sin(an) * rr); } c.closePath(); };
   const N = profiles.length;
   const ARMS = 4, TILT = 0.42, TURN = Math.PI * 3.1, ROT = -0.3;
   const markerR = [0.34, 0.58, 0.8, 0.46, 0.9, 0.28, 0.68, 0.55];
@@ -2093,16 +2093,27 @@ addEventListener('keydown', e => {
       const f = markerR[i % markerR.length], a = (i % ARMS) * (Math.PI * 2 / ARMS) + f * TURN + rot * (1.15 - f * 0.75);
       const [x, y] = proj(f, a); mpos.push([x, y]);
       const on = i === cur, col = tint[i % tint.length];
-      const pulse = on && !reduce ? 1 + Math.sin(t / 260) * 0.12 : 1;
-      const r = (on ? 17 : 9) * pulse * (gW < 700 ? 0.9 : 1);
-      // flat halo in the review colour, then a cream four-point sparkle
-      gctx.fillStyle = on ? '#F9A323' : col;
-      gctx.beginPath(); gctx.arc(x, y, r * (on ? 1.55 : 1.45), 0, 6.283); gctx.fill();
-      if (on) { gctx.lineWidth = 3; gctx.strokeStyle = CR; gctx.stroke(); }
-      gctx.fillStyle = CR; gctx.beginPath();
-      gctx.moveTo(x, y - r); gctx.quadraticCurveTo(x, y, x + r, y); gctx.quadraticCurveTo(x, y, x, y + r);
-      gctx.quadraticCurveTo(x, y, x - r, y); gctx.quadraticCurveTo(x, y, x, y - r); gctx.closePath(); gctx.fill();
-      gctx.fillStyle = on ? '#F9A323' : col; gctx.beginPath(); gctx.arc(x, y, r * 0.2, 0, 6.283); gctx.fill();
+      // kawaii-style star: chunky rounded body in a palette colour, tiny face; the selected one bounces and blinks
+      const sc = gW < 700 ? 0.9 : 1;
+      const r = (on ? 27 : 15) * sc, yy = y - (on && !reduce ? Math.abs(Math.sin(t / 300)) * 5 : 0);
+      const tilt = on && !reduce ? Math.sin(t / 420) * 0.14 : 0;
+      const body = on ? '#F9A323' : col;
+      gctx.lineJoin = 'round'; gctx.fillStyle = body; gctx.strokeStyle = body; gctx.lineWidth = r * 0.42;
+      starPath(gctx, x, yy, r * 0.82, tilt); gctx.fill(); gctx.stroke();
+      const ink = '#0E1C41', blink = on && !reduce && (t % 3200) < 140;
+      gctx.fillStyle = ink; gctx.strokeStyle = ink; gctx.lineCap = 'round';
+      if (blink) { gctx.lineWidth = r * 0.1; gctx.beginPath(); gctx.moveTo(x - r * 0.4, yy + r * 0.04); gctx.lineTo(x - r * 0.14, yy + r * 0.04); gctx.moveTo(x + r * 0.14, yy + r * 0.04); gctx.lineTo(x + r * 0.4, yy + r * 0.04); gctx.stroke(); }
+      else { gctx.beginPath(); gctx.arc(x - r * 0.27, yy + r * 0.04, r * 0.11, 0, 6.283); gctx.arc(x + r * 0.27, yy + r * 0.04, r * 0.11, 0, 6.283); gctx.fill(); }
+      gctx.lineWidth = Math.max(1.4, r * 0.09); gctx.beginPath(); gctx.arc(x, yy + r * 0.12, r * 0.2, 0.2 * Math.PI, 0.8 * Math.PI); gctx.stroke();
+      gctx.globalAlpha = 0.6; gctx.fillStyle = CR; gctx.beginPath();
+      gctx.arc(x - r * 0.5, yy + r * 0.22, r * 0.1, 0, 6.283); gctx.arc(x + r * 0.5, yy + r * 0.22, r * 0.1, 0, 6.283); gctx.fill(); gctx.globalAlpha = 1;
+      if (on) {   // little cream twinkles orbiting the selected star
+        gctx.fillStyle = CR;
+        for (let k = 0; k < 3; k++) {
+          const an = (reduce ? 0 : t / 900) + k * 2.094, px = x + Math.cos(an) * r * 1.7, py = yy + Math.sin(an) * r * 1.3, u = 3 + (k % 2) * 1.5;
+          gctx.fillRect(px - u, py - 1, u * 2, 2); gctx.fillRect(px - 1, py - u, 2, u * 2);
+        }
+      }
     }
   }
   function pick(e){

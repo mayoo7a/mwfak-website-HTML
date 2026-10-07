@@ -2097,23 +2097,17 @@ addEventListener('keydown', e => {
       const sc = gW < 700 ? 0.9 : 1;
       const base = on ? '#F9A323' : col;
       const tw = reduce ? 0.5 : 0.5 + 0.5 * Math.sin(t / 420 + i * 1.7);
-      const r = (on ? 22 : 13) * sc * (0.88 + 0.22 * tw);
+      const r = (on ? 15 : 9) * sc * (0.88 + 0.22 * tw);
       const gl = gctx.createRadialGradient(x, y, 0, x, y, r * 2.2);
       gl.addColorStop(0, base + (on ? 'cc' : '99')); gl.addColorStop(1, base + '00');
       gctx.fillStyle = gl; gctx.beginPath(); gctx.arc(x, y, r * 2.2, 0, 6.283); gctx.fill();
-      if (on && !reduce) {
-        const pr = (t % 1400) / 1400;
-        gctx.globalAlpha = 1 - pr; gctx.lineWidth = 2.5; gctx.strokeStyle = CR;
-        gctx.beginPath(); gctx.arc(x, y, r * (0.8 + pr * 0.9), 0, 6.283); gctx.stroke(); gctx.globalAlpha = 1;
-      }
       const spark = (rr, k) => { gctx.beginPath(); gctx.moveTo(x, y - rr);
         gctx.quadraticCurveTo(x + rr * k, y - rr * k, x + rr, y); gctx.quadraticCurveTo(x + rr * k, y + rr * k, x, y + rr);
         gctx.quadraticCurveTo(x - rr * k, y + rr * k, x - rr, y); gctx.quadraticCurveTo(x - rr * k, y - rr * k, x, y - rr); gctx.closePath(); };
       spark(r, 0.16);
       const bg = gctx.createRadialGradient(x, y, 0, x, y, r);
-      bg.addColorStop(0, '#FFFFFF'); bg.addColorStop(0.28, '#FFFFFF'); bg.addColorStop(0.55, base); bg.addColorStop(1, base);
+      bg.addColorStop(0, '#FFFFFF'); bg.addColorStop(0.18, '#FFFFFF'); bg.addColorStop(0.5, base); bg.addColorStop(1, base);
       gctx.fillStyle = bg; gctx.fill();
-      gctx.lineJoin = 'round'; gctx.lineWidth = 1.5; gctx.strokeStyle = 'rgba(255,255,255,.85)'; gctx.stroke();
     }
   }
   function pick(e){

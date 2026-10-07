@@ -968,24 +968,27 @@ img { display: block; max-width: 100%; }
 }
 /* Contact title — cartoon speech bubble (30% smaller, nudged up) */
 .contact-title {
+  /* everything is sized in em from the title's own font size, so the bubble keeps the same shape on every screen */
+  font-size: clamp(40px, 6.3vw, 100px);
   margin: -70px auto 30px;
   display: inline-block;
   position: relative;
-  padding: 25px 42px 30px;
+  padding: .625em 1.05em .75em;
   background: var(--ink);
   color: var(--bg);
-  border-radius: 46px;
+  border-radius: 1.15em;
   transform: rotate(-2deg);
 }
 .contact-title::after {
   /* speech bubble tail (lower-left): a curved point that grows out of the bubble */
   content: "";
   position: absolute;
-  bottom: -30px;
-  left: 64px;
-  width: 46px; height: 34px;
+  bottom: -.75em;
+  left: 1.6em;
+  width: 1.15em; height: .85em;
   background: var(--ink);
-  clip-path: path('M0 0 H46 Q22 6 0 34 Q4 16 0 0 Z');
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 34' preserveAspectRatio='none'%3E%3Cpath d='M0 0H46Q22 6 0 34Q4 16 0 0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 34' preserveAspectRatio='none'%3E%3Cpath d='M0 0H46Q22 6 0 34Q4 16 0 0Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
 .contact-title-banner {
   display: block;
@@ -994,7 +997,7 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 0.92;
-  font-size: clamp(40px, 6.3vw, 100px);
+  font-size: 1em;
   color: var(--bg);
   white-space: nowrap;
 }

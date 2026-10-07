@@ -2151,7 +2151,16 @@ addEventListener('keydown', e => {
     cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
     const n = Math.round(Math.min(220, W * H / 7000));
     stars = Array.from({ length: Math.round(n * 0.6) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, p: Math.random() * 6.28, s: Math.random() * 1.5 + .5, v: Math.random() * 6 + 2, col: sfCols[Math.floor(Math.random() * sfCols.length)], big: Math.random() < 0.22 }));
-    updateEx(); draw(0);
+    updateEx();
+    // extra stars in the empty space to the left and right of the review text
+    if (ex && ex.l > 70) {
+      const y0 = Math.max(0, ex.t - 50), y1 = Math.min(H, ex.b + 50), per = Math.round(Math.min(26, (y1 - y0) / 11));
+      [[16, ex.l - 14], [ex.r + 14, W - 16]].forEach(([x0, x1]) => {
+        if (x1 - x0 < 20) return;
+        for (let k = 0; k < per; k++) stars.push({ x: x0 + Math.random() * (x1 - x0), y: y0 + Math.random() * (y1 - y0), r: 1.6, p: Math.random() * 6.28, s: Math.random() * 1.2 + .6, v: 0, col: sfCols[Math.floor(Math.random() * sfCols.length)], big: Math.random() < 0.45, band: [x0, x1, y0, y1] });
+      });
+    }
+    draw(0);
   }
   // keep the sky clear behind the review text: stars are only drawn around it
   function updateEx(){

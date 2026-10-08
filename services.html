@@ -1072,7 +1072,8 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 
 /* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
 .svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }
-@media (min-width: 901px) { .svc .svc-proj { grid-row: 1 / span 2 !important; } }   /* centred beside the title and description */
+/* wide screens: the image (with its caption and price) stays pinned in the middle of the screen on the right while you read; the middle is measured on the whole block, text underneath included */
+@media (min-width: 901px) { .svc .svc-proj { position: sticky !important; top: var(--proj-top, 150px) !important; align-self: start !important; grid-row: 1 / span 6 !important; } }
 .svc-head { position: static !important; top: auto !important; align-self: start; }
 </style>
 </head>
@@ -1470,6 +1471,26 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     const u = new URL(a.href, location.href);
     if (u.pathname === location.pathname && !u.hash) a.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
   });
+})();
+</script>
+
+<script>
+/* keep each project block (image + caption + price) vertically centred on the screen while it is pinned */
+(function(){
+  const figs = document.querySelectorAll('.svc-proj');
+  if (!figs.length) return;
+  const set = () => {
+    const barH = (document.querySelector('.header') || { offsetHeight: 80 }).offsetHeight;
+    figs.forEach(f => {
+      const h = f.getBoundingClientRect().height;
+      f.style.setProperty('--proj-top', Math.max(barH + 16, Math.round((innerHeight - h) / 2)) + 'px');
+    });
+  };
+  set();
+  addEventListener('resize', set);
+  addEventListener('load', set);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(set);
+  figs.forEach(f => f.querySelectorAll('img').forEach(i => { if (!i.complete) i.addEventListener('load', set); }));
 })();
 </script>
 </body>

@@ -1277,23 +1277,23 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
   const prevBtn = lightbox.querySelector('.lb-prev'), nextBtn = lightbox.querySelector('.lb-next');
   const tEl = document.getElementById('lb-type'), nEl = document.getElementById('lb-name'), dEl = document.getElementById('lb-desc');
 
-  // short, plain descriptions (based on what each board shows)
+  // what each company does, in two short lines
   const DESC = {
-    'baseera': ['An Arabic-inspired logo with bilingual versions,', 'a colour palette, and light and dark versions.'],
-    'zinger-lab': ['A bold stacked logo for a food brand,', 'shown on signage and packaging, with its colours and typeface.'],
-    '33-butchery': ['A bull-and-number logo with its colours and typeface,', 'and versions for light, dark and red backgrounds.'],
-    'canary-calls': ['A friendly canary mascot logo for a call business,', 'with its colour palette and versions for every background.'],
-    'compera-jewelry': ['A refined monogram logo for a jewellery brand,', 'shown on gift boxes with soft peach tones.'],
-    'hbcs': ['A clean, modern logo for an accounting company,', 'with a symbol, colour palette and typography.'],
-    'heavyweight-hoodies': ['A mountain-shaped logo for a hoodie brand,', 'shown on a clothing label with warm brown and orange tones.'],
-    'motammem': ['An Arabic calligraphy logo that forms a building,', 'with colour options and clear-space guidance.'],
-    'sol-root': ['A logo and packaging for a tahini brand,', 'with Arabic and English lockups and a natural green palette.'],
-    'battikhi-stays': ['A brand identity for family stays, with a logo,', 'a colour palette, typography, a website and printed guest materials.'],
-    'the-welcome-table': ['A warm brand identity for a community table,', 'with a logo, merchandise, stickers and social posts.'],
-    'ummati': ['A brand identity and app design with a logo,', 'colours, typography, an app icon, mobile screens and a website.'],
-    'qanadeel': ['A presentation design for an association,', 'with covers, a deck layout and content slides in Arabic.'],
-    'mwafq': ['A website and app design for booking medical exams,', 'in Arabic and English, with a clear booking flow.'],
-    'ticketat': ['A website and booking flow for events, in Arabic,', 'with colourful event pages and a clear checkout.']
+    'baseera': ['A therapy service that uses art', 'as a way to help people express themselves and heal.'],
+    'zinger-lab': ['A burger restaurant', 'serving burgers, sandwiches and fries.'],
+    '33-butchery': ['A butcher shop', 'selling quality cuts of meat to its customers.'],
+    'canary-calls': ['A call center that', 'handles customer calls for businesses.'],
+    'compera-jewelry': ['A jewellery brand', 'selling elegant pieces, packaged as gifts.'],
+    'hbcs': ['An accounting company', 'providing accounting services for businesses.'],
+    'heavyweight-hoodies': ['A clothing brand', 'making heavyweight, warm hoodies.'],
+    'motammem': ['A construction company', 'handling building and contracting work.'],
+    'sol-root': ['A food brand', 'selling tahini in jars.'],
+    'battikhi-stays': ['A hospitality brand in Jordan', 'offering comfortable stays for families.'],
+    'the-welcome-table': ['A community brand built around', 'hospitality and sharing coffee together.'],
+    'ummati': ['An app that helps people', 'build lasting Sunnah habits, one step at a time.'],
+    'qanadeel': ['An association for', 'child development and childhood programmes.'],
+    'mwafq': ['A platform for people to', 'find and book official medical exams.'],
+    'ticketat': ['An events platform', 'for discovering events and booking tickets online.']
   };
   const stem = p => (p.dataset.src || '').split('/').pop().replace(/\.webp$/, '');
   // flip order = the order of the page, each project once

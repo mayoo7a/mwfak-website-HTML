@@ -1070,6 +1070,12 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 
 /* the four service buttons scroll away with the page (they no longer stay stuck under the top bar) */
 .menu { position: static !important; top: auto !important; }
+/* service switcher: plain tabs with a coloured underline (no pixel buttons, no pointer icon) */
+.menu-item::before { display: none !important; }
+.menu-item { --c: #F9A323; background: none !important; padding: 14px 4px 12px !important; color: #F7F7F7; opacity: .55; transform: none !important; border-bottom: 4px solid transparent; transition: opacity .2s, border-color .2s; }
+.menu-item:nth-child(2) { --c: #D23697; } .menu-item:nth-child(3) { --c: #1E7CDF; } .menu-item:nth-child(4) { --c: #FA5643; }
+@media (hover: hover) { .menu-item:hover { opacity: 1; border-bottom-color: color-mix(in srgb, var(--c) 55%, transparent); } }
+.menu-item[aria-current="true"] { opacity: 1; border-bottom-color: var(--c); }
 
 /* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
 .svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }

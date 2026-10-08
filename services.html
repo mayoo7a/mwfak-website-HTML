@@ -1164,7 +1164,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
   </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
-    <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The business, the audience and the feeling the logo should give.</span></li><li><span class="svc-num">2</span><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest ones.</span></li><li><span class="svc-num">3</span><strong>Refine</strong><span class="svc-steptext">The chosen idea, tested small and large, on light and on dark.</span></li><li><span class="svc-num">4</span><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and every file you need.</span></li></ol>
+    <ol class="svc-levels"><li><span class="svc-lvnum">1</span><div class="svc-lvtext"><strong>Brief</strong><span class="svc-steptext">The business, the audience and the feeling the logo should give.</span><span class="svc-lvbar"><i style="width:25%"></i></span></div></li><li><span class="svc-lvnum">2</span><div class="svc-lvtext"><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest ones.</span><span class="svc-lvbar"><i style="width:50%"></i></span></div></li><li><span class="svc-lvnum">3</span><div class="svc-lvtext"><strong>Refine</strong><span class="svc-steptext">The chosen idea, tested small and large, on light and on dark.</span><span class="svc-lvbar"><i style="width:75%"></i></span></div></li><li><span class="svc-lvnum">4</span><div class="svc-lvtext"><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and every file you need.</span><span class="svc-lvbar"><i style="width:100%"></i></span></div></li></ol>
   </div>
   <div class="svc-end">
     <div class="svc-files">
@@ -1533,6 +1533,17 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 
 <!-- TEMPORARY: link to the layout options page; to be removed once one option is chosen -->
 <a class="tmp-options-link" href="how-we-get-there-options.html">See the 5 “How we get there” options →</a>
-<style>.tmp-options-link { position: fixed; left: 16px; bottom: 16px; z-index: 60; padding: 12px 16px; background: #F9A323; color: #0E1C41; font: 700 12px/1.2 'Inter', sans-serif; letter-spacing: .06em; text-decoration: none; border: 2.5px solid #0E1C41; box-shadow: 4px 4px 0 #0E1C41; } @media (max-width: 640px) { .tmp-options-link { font-size: 11px; padding: 10px 12px; max-width: 70vw; } }</style>
+<style>.tmp-options-link { position: fixed; left: 16px; bottom: 16px; z-index: 60; padding: 12px 16px; background: #F9A323; color: #0E1C41; font: 700 12px/1.2 'Inter', sans-serif; letter-spacing: .06em; text-decoration: none; border: 2.5px solid #0E1C41; box-shadow: 4px 4px 0 #0E1C41; } @media (max-width: 640px) { .tmp-options-link { font-size: 11px; padding: 10px 12px; max-width: 70vw; } }
+/* "How we get there" as game stages (chosen for Logo Design): number, title, text and a progress bar, in narrow boxes */
+.svc-levels { list-style: none; display: grid; gap: 14px; max-width: 520px; }
+.svc-levels li { display: grid; grid-template-columns: 54px 1fr; gap: 18px; align-items: center; padding: 16px 20px; border: 2.5px solid var(--bg); box-shadow: 6px 6px 0 var(--c); background: rgba(242,235,232,.04); }
+.svc-lvnum { font-family: 'Anton', sans-serif; font-size: 50px; line-height: 1; color: var(--c); text-align: center; }
+.svc-lvtext { min-width: 0; display: grid; gap: 4px; }
+.svc-lvtext strong { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 21px; line-height: 1.1; color: var(--bg); margin: 0; }
+.svc-lvtext .svc-steptext { font-size: 14.5px; line-height: 1.5; }
+.svc-lvbar { display: block; height: 7px; margin-top: 8px; background: rgba(242,235,232,.15); }
+.svc-lvbar i { display: block; height: 100%; background: var(--c); }
+@media (max-width: 480px) { .svc-levels li { grid-template-columns: 44px 1fr; gap: 14px; padding: 14px 14px; } .svc-lvnum { font-size: 40px; } }
+</style>
 </body>
 </html>

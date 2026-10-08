@@ -86,13 +86,48 @@ body { padding: 0 5vw 120px; }
   .levels li { grid-template-columns: 1fr; gap: 6px; }
   .levels .lv b { display: inline; font-size: 40px; margin-left: 8px; }
 }
+
+/* ===== SCOPE options ===== */
+.part { max-width: 1100px; margin: 0 auto; padding: 90px 0 0; }
+.part h2 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(28px, 3.4vw, 44px); padding-bottom: 14px; border-bottom: 3px solid var(--yellow); display: inline-block; }
+.part p { margin-top: 12px; opacity: .75; max-width: 60ch; line-height: 1.6; }
+.opt.sc { padding-top: 40px; }
+.lbl { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; opacity: .72; }
+.big { font-family: 'Anton', sans-serif; font-weight: 400; line-height: 1; }
+/* S1 big numbers with dividers */
+.s1 { --c: var(--yellow); display: flex; max-width: 640px; }
+.s1 > div { flex: 1; padding: 6px 26px; border-left: 3px solid var(--c); }
+.s1 > div:first-child { padding-left: 0; border-left: 0; }
+.s1 .big { font-size: 64px; color: var(--c); }
+.s1 .big small { font-size: 26px; margin-left: 6px; }
+.s1 .lbl { margin-top: 8px; display: block; }
+/* S2 pills in one line */
+.s2 { --c: var(--pink); display: flex; flex-wrap: wrap; gap: 12px; }
+.s2 span { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px 12px 14px; border: 2.5px solid var(--c); border-radius: 999px; font-weight: 600; font-size: 16px; }
+.s2 b { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--c); color: var(--white); font-family: 'Anton', sans-serif; font-weight: 400; font-size: 15px; }
+/* S3 receipt with dotted leaders */
+.s3 { --c: var(--blue); max-width: 440px; list-style: none; padding: 20px 24px; border: 2.5px dashed color-mix(in srgb, var(--c) 70%, transparent); }
+.s3 li { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; }
+.s3 li::after { content: ""; order: 2; flex: 1; border-bottom: 2px dotted rgba(242,235,232,.35); }
+.s3 .lbl { order: 1; opacity: .85; } .s3 strong { order: 3; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 24px; color: var(--c); }
+/* S4 filled pixel blocks with hard shadow */
+.s4 { --c: var(--red); display: grid; grid-template-columns: repeat(3, minmax(0, 190px)); gap: 22px; }
+.s4 > div { padding: 18px 20px; background: var(--c); color: var(--white); border: 2.5px solid var(--bg); box-shadow: 6px 6px 0 rgba(242,235,232,.9); }
+.s4 .lbl { opacity: .9; display: block; } .s4 .big { font-size: 40px; margin-top: 8px; display: block; }
+/* S5 icon badges */
+.s5 { --c: var(--yellow); display: grid; gap: 14px; max-width: 420px; }
+.s5 > div { display: flex; align-items: center; gap: 16px; }
+.s5 .ic { width: 54px; height: 54px; border-radius: 50%; background: color-mix(in srgb, var(--c) 18%, transparent); border: 2.5px solid var(--c); display: grid; place-items: center; flex: none; color: var(--c); }
+.s5 .ic svg { width: 26px; height: 26px; }
+.s5 .big { font-size: 34px; } .s5 .lbl { display: block; margin-top: 2px; }
+@media (max-width: 640px) { .s1 { flex-direction: column; gap: 14px; } .s1 > div { border-left: 0; border-top: 3px solid var(--c); padding: 14px 0 0; } .s1 > div:first-child { border-top: 0; padding-top: 0; } .s4 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <h1>“How we get there”: 5 options</h1>
-  <p>Same four steps in every option (shown with the Logo Design wording). Each option is shown in a different service colour, and in the real page it takes the colour of its service. Tell me the number you like.</p>
+  <h1>Services: layout options</h1>
+  <p>Part 1 is “How we get there” (first), part 2 is “Scope” (further down, <a href="#scope-options" style="color:#F9A323">jump to it</a>). Same four steps in every option (shown with the Logo Design wording). Each option is shown in a different service colour, and in the real page it takes the colour of its service. Tell me the number you like.</p>
 </header>
 
 <section class="opt o1">
@@ -148,6 +183,56 @@ body { padding: 0 5vw 120px; }
     <li><div class="lv">Level<b>3</b></div><div><div class="t">Refine</div><p class="d">The chosen idea, tested small and large, on light and on dark.</p><div class="bar"><i style="width:75%"></i></div></div></li>
     <li><div class="lv">Level<b>4</b></div><div><div class="t">Deliver</div><p class="d">The final logo in every version and every file you need.</p><div class="bar"><i style="width:100%"></i></div></div></li>
   </ol>
+</section>
+
+<div class="part" id="scope-options"><h2>Scope: 5 options</h2><p>The three boxes under the description (Concepts, Revisions, Timeline). Shown with the Logo Design numbers; the colour follows each service.</p></div>
+
+<section class="opt sc">
+  <span class="tag">Scope option 1 <em>Big numbers</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="s1">
+    <div><span class="big">2</span><span class="lbl">Concepts</span></div>
+    <div><span class="big">2</span><span class="lbl">Revisions</span></div>
+    <div><span class="big">1<small>week</small></span><span class="lbl">Timeline</span></div>
+  </div>
+</section>
+
+<section class="opt sc">
+  <span class="tag">Scope option 2 <em>Pills</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="s2">
+    <span><b>2</b> Concepts</span><span><b>2</b> Revisions</span><span><b>1</b> Week to deliver</span>
+  </div>
+</section>
+
+<section class="opt sc">
+  <span class="tag">Scope option 3 <em>Receipt</em></span>
+  <h3 class="sub">Scope</h3>
+  <ul class="s3">
+    <li><span class="lbl">Concepts</span><strong>2</strong></li>
+    <li><span class="lbl">Revisions</span><strong>2</strong></li>
+    <li><span class="lbl">Timeline</span><strong>1 week</strong></li>
+  </ul>
+</section>
+
+<section class="opt sc">
+  <span class="tag">Scope option 4 <em>Solid blocks</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="s4">
+    <div><span class="lbl">Concepts</span><span class="big">2</span></div>
+    <div><span class="lbl">Revisions</span><span class="big">2</span></div>
+    <div><span class="lbl">Timeline</span><span class="big">1 week</span></div>
+  </div>
+</section>
+
+<section class="opt sc">
+  <span class="tag">Scope option 5 <em>Icons</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="s5">
+    <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><div><span class="big">2 concepts</span><span class="lbl">Two ideas to choose from</span></div></div>
+    <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4h-4"/></svg></span><div><span class="big">2 revisions</span><span class="lbl">Two rounds of changes</span></div></div>
+    <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><span class="big">1 week</span><span class="lbl">From brief to final files</span></div></div>
+  </div>
 </section>
 
 </body>

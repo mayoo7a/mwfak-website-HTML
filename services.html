@@ -1441,6 +1441,16 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     panels.forEach(p => p && io.observe(p));
   }
   links.forEach(l => l.addEventListener('click', () => mark(l.dataset.slug)));
+  /* a click brings the section's top line right under the header */
+  const hdr = document.querySelector('.header');
+  const setH = () => document.documentElement.style.setProperty('--hdr', (hdr ? Math.round(hdr.getBoundingClientRect().height) : 72) + 'px');
+  setH(); addEventListener('resize', setH);
+  links.forEach(l => l.addEventListener('click', e => {
+    const a = document.getElementById(l.dataset.slug); if (!a) return;
+    e.preventDefault(); history.replaceState(null, '', '#' + l.dataset.slug);
+    const go = () => scrollTo({ top: a.getBoundingClientRect().top + scrollY - (hdr ? hdr.getBoundingClientRect().height : 72), behavior: 'smooth' });
+    go(); setTimeout(go, 700); setTimeout(go, 1500);
+  }));
 })();
 </script>
 <script>
@@ -1602,6 +1612,12 @@ document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('clic
 /* section titles: 5% bigger, a little more room above the text under them */
 .svc-sub { font-size: clamp(23.1px, 1.995vw, 28.35px); margin-bottom: 26px; }
 .svc-sub::before { top: .55em; }
+/* anchors land with the section's top line right under the header */
+.svc { scroll-margin-top: var(--hdr, 72px) !important; }
+html { scroll-padding-top: 0 !important; }
+/* "Starting from": same colour as the price, a little smaller and thinner */
+.svc-price span { color: var(--bg); font-size: 20px; font-weight: 400; letter-spacing: .06em; }
+@media (max-width: 480px) { .svc-price span { font-size: 16px; } }
 </style>
 </body>
 </html>

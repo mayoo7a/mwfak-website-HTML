@@ -1545,6 +1545,9 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .svc-tltext .svc-steptext { max-width: 46ch; }
 .svc-tltext .svc-steptext { font-size: 14.25px; max-width: none; }
 @media (min-width: 701px) { .svc-tltext .svc-steptext { white-space: nowrap; } }
+
+/* no line under the top bar */
+.header, .header.header--stuck, .header:not(.header--stuck) { border-bottom: 0 !important; box-shadow: none !important; }
 </style>
 </body>
 </html>

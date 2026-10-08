@@ -1588,6 +1588,30 @@ document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('clic
   place(); addEventListener('resize', place); addEventListener('load', place);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
 })();
+
+/* back-to-top button */
+(function () {
+  var btn = document.createElement('button');
+  btn.className = 'back-to-top'; btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19 V5 M5 12 L12 5 L19 12"/></svg>';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  function bgUnder() {
+    var x = innerWidth - 50, y = innerHeight - 50, els = document.elementsFromPoint(x, y);
+    for (var i = 0; i < els.length; i++) {
+      if (els[i] === btn) continue;
+      var c = getComputedStyle(els[i]).backgroundColor.match(/[\d.]+/g);
+      if (c && (c.length < 4 || parseFloat(c[3]) > 0.5)) return c.map(Number);
+    }
+    return [14, 28, 65];
+  }
+  function toggle() {
+    btn.classList.toggle('is-visible', scrollY > 200);
+    var c = bgUnder(); var lum = (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) / 255;
+    btn.classList.toggle('is-on-light', lum > 0.6);
+  }
+  toggle(); addEventListener('scroll', toggle, { passive: true }); addEventListener('resize', toggle);
+})();
 </script>
 
 <style>
@@ -1637,6 +1661,13 @@ html { scroll-padding-top: 0 !important; }
 /* project caption sits above the image */
 .svc-proj > figcaption { order: -1; margin: 0 0 12px; }
 @media (min-width: 481px) { .svc-cta--proj { align-self: start; margin-top: 0; margin-bottom: 0; } }
+
+/* back-to-top button (same as the home page): appears after scrolling, colour follows the background under it */
+.back-to-top { position: fixed; right: 24px; bottom: 24px; width: 52px; height: 52px; border-radius: 50%; border: 2.5px solid #F2EBE8; background: transparent; color: #F2EBE8; display: grid; place-items: center; cursor: pointer; z-index: 50; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .3s ease, transform .3s ease; padding: 0; }
+.back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top.is-on-light { border-color: #0E1C41; color: #0E1C41; }
+@media (hover: hover) { .back-to-top:hover { transform: translateY(-3px); } }
+.back-to-top svg { width: 22px; height: 22px; }
 </style>
 </body>
 </html>

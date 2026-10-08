@@ -160,38 +160,35 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   color: var(--ink);
 }
 
-/* hover interactions: four different ideas on the first four projects (for review) */
+/* hover interactions, round 2: four different ideas on the first four projects (for review) */
 .project img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.work-cursor { position: fixed; left: 0; top: 0; z-index: 60; pointer-events: none; padding: 10px 16px; border-radius: 999px; background: var(--accent, #F9A323); color: #fff; font: 700 12px/1 'Inter', sans-serif; letter-spacing: .2em; transform: translate(-50%, -50%) scale(0); transition: transform .18s ease; }
+.work-cursor.on { transform: translate(-50%, -50%) scale(1); }
 @media (hover: hover) {
-  /* 1 · block lift: the card jumps up-left, a hard coloured block shows behind it */
-  #logo-design .project-item:nth-child(1) .project { transition: transform .18s steps(4), box-shadow .18s steps(4); }
-  #logo-design .project-item:nth-child(1):hover .project { transform: translate(-6px, -6px); box-shadow: 10px 10px 0 var(--accent); }
+  /* 1 · cursor label: a small VIEW tag follows the mouse over the project */
+  #logo-design .project-item:nth-child(1) .project { cursor: none; }
 
-  /* 2 · viewfinder: four pixel corners close in and a VIEW tag slides up */
-  #logo-design .project-item:nth-child(2) .project::before { content: ''; position: absolute; inset: 14px; z-index: 2; pointer-events: none; opacity: 0; transform: scale(1.06); transition: opacity .2s, transform .25s ease;
-    background:
-      linear-gradient(#0E1C41,#0E1C41) 0 0/26px 4px, linear-gradient(#0E1C41,#0E1C41) 0 0/4px 26px,
-      linear-gradient(#0E1C41,#0E1C41) 100% 0/26px 4px, linear-gradient(#0E1C41,#0E1C41) 100% 0/4px 26px,
-      linear-gradient(#0E1C41,#0E1C41) 0 100%/26px 4px, linear-gradient(#0E1C41,#0E1C41) 0 100%/4px 26px,
-      linear-gradient(#0E1C41,#0E1C41) 100% 100%/26px 4px, linear-gradient(#0E1C41,#0E1C41) 100% 100%/4px 26px;
-    background-repeat: no-repeat; filter: drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1.5px #fff); }
-  #logo-design .project-item:nth-child(2) .project::after { content: 'VIEW +'; position: absolute; right: 22px; bottom: 22px; z-index: 3; padding: 9px 14px; background: var(--accent); color: #fff; font: 700 12px/1 'Inter', sans-serif; letter-spacing: .2em; transform: translateY(150%); transition: transform .25s cubic-bezier(.3,1.4,.5,1); }
-  #logo-design .project-item:nth-child(2):hover .project::before { opacity: 1; transform: scale(1); }
-  #logo-design .project-item:nth-child(2):hover .project::after { transform: translateY(0); }
+  /* 2 · caption slide: name slides right, an arrow appears, image eases in */
+  #logo-design .project-item:nth-child(2) .project-name { display: inline-flex; align-items: center; gap: 10px; transition: transform .25s ease; }
+  #logo-design .project-item:nth-child(2) .project-name::after { content: '\2192'; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--accent); opacity: 0; transform: translateX(-12px); transition: opacity .25s, transform .25s; }
+  #logo-design .project-item:nth-child(2):hover .project-name { transform: translateX(8px); }
+  #logo-design .project-item:nth-child(2):hover .project-name::after { opacity: 1; transform: none; }
+  #logo-design .project-item:nth-child(2):hover img { transform: scale(1.04); }
 
-  /* 3 · colour wipe: image zooms, a coloured wash steps in from the left, name underline grows */
-  #logo-design .project-item:nth-child(3) .project::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: var(--accent); mix-blend-mode: multiply; opacity: .55; transform: translateX(-101%); transition: transform .4s steps(8); }
-  #logo-design .project-item:nth-child(3):hover .project::after { transform: translateX(0); }
-  #logo-design .project-item:nth-child(3):hover img { transform: scale(1.07); }
-  #logo-design .project-item:nth-child(3) .project-name { background: linear-gradient(var(--accent), var(--accent)) 0 100%/0 5px no-repeat; padding-bottom: 3px; transition: background-size .35s ease; }
-  #logo-design .project-item:nth-child(3):hover .project-name { background-size: 100% 5px; }
+  /* 3 · tilt: the card leans toward the mouse with a soft glare (JS sets --rx --ry --gx --gy) */
+  #logo-design .project-item:nth-child(3) { perspective: 900px; }
+  #logo-design .project-item:nth-child(3) .project { transition: transform .12s linear; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); will-change: transform; }
+  #logo-design .project-item:nth-child(3) .project::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .2s; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.35), transparent 55%); }
+  #logo-design .project-item:nth-child(3):hover .project::after { opacity: 1; }
 
-  /* 4 · sticker pop: card tilts, a round OPEN sticker bounces in on the corner */
-  #logo-design .project-item:nth-child(4) .project { transition: transform .25s cubic-bezier(.3,1.5,.5,1); }
-  #logo-design .project-item:nth-child(4):hover .project { transform: rotate(-1.6deg) scale(1.025); }
-  #logo-design .project-item:nth-child(4) .project::after { content: 'OPEN'; position: absolute; top: 14px; right: 14px; z-index: 3; display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; background: var(--accent); color: #fff; font: 400 18px/1 'Anton', sans-serif; letter-spacing: .06em; transform: scale(0) rotate(-25deg); transition: transform .3s cubic-bezier(.3,1.6,.5,1); }
-  #logo-design .project-item:nth-child(4):hover .project::after { transform: scale(1) rotate(10deg); }
+  /* 4 · sparkle: pixel stars twinkle in on two corners */
+  #logo-design .project-item:nth-child(4) .project::before, #logo-design .project-item:nth-child(4) .project::after { content: ''; position: absolute; z-index: 3; pointer-events: none; background: #fff; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); transform: scale(0) rotate(-90deg); transition: transform .35s cubic-bezier(.3,1.6,.5,1); filter: drop-shadow(0 0 3px rgba(0,0,0,.35)); }
+  #logo-design .project-item:nth-child(4) .project::before { width: 34px; height: 34px; top: 16px; left: 16px; }
+  #logo-design .project-item:nth-child(4) .project::after { width: 22px; height: 22px; right: 22px; bottom: 22px; transition-delay: .08s; }
+  #logo-design .project-item:nth-child(4):hover .project::before, #logo-design .project-item:nth-child(4):hover .project::after { transform: scale(1) rotate(0); animation: twinkle 1.1s .4s ease-in-out infinite; }
+  #logo-design .project-item:nth-child(4):hover img { transform: scale(1.03); }
 }
+@keyframes twinkle { 50% { transform: scale(.7) rotate(20deg); } }
 
 @media (max-width: 800px) {
   .gallery { padding: 40px 20px 80px; }
@@ -1528,6 +1525,26 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
   const h = document.querySelector('.header'); if (!h) return;
   const on = () => h.classList.toggle('header--stuck', (window.scrollY || document.documentElement.scrollTop) > 40);
   addEventListener('scroll', on, { passive: true }); on();
+})();
+
+(function () {
+  if (!matchMedia('(hover: hover)').matches) return;
+  const items = document.querySelectorAll('#logo-design .project-item');
+  if (items.length < 3) return;
+  // 1 · cursor label
+  const tag = document.createElement('div'); tag.className = 'work-cursor'; tag.textContent = 'VIEW'; document.body.appendChild(tag);
+  const p1 = items[0].querySelector('.project'); tag.style.setProperty('--accent', '#F9A323');
+  p1.addEventListener('mouseenter', () => tag.classList.add('on'));
+  p1.addEventListener('mouseleave', () => tag.classList.remove('on'));
+  p1.addEventListener('mousemove', e => { tag.style.left = e.clientX + 'px'; tag.style.top = e.clientY + 'px'; });
+  // 3 · tilt
+  const p3 = items[2].querySelector('.project');
+  p3.addEventListener('mousemove', e => {
+    const r = p3.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    p3.style.setProperty('--ry', ((x - .5) * 8) + 'deg'); p3.style.setProperty('--rx', ((.5 - y) * 6) + 'deg');
+    p3.style.setProperty('--gx', (x * 100) + '%'); p3.style.setProperty('--gy', (y * 100) + '%');
+  });
+  p3.addEventListener('mouseleave', () => { p3.style.setProperty('--rx', '0deg'); p3.style.setProperty('--ry', '0deg'); });
 })();
 </script>
 </body>

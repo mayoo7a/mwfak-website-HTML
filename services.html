@@ -1114,8 +1114,11 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .svc-fade-btn { align-items: center; gap: 10px; padding: 10px 6px; font-size: 14px; color: var(--c); }
 .svc-fade-btn::after { content: ''; width: 9px; height: 9px; border: solid var(--c); border-width: 0 3px 3px 0; transform: rotate(45deg) translateY(-2px); transition: transform .2s; }
 .svc-fade.is-open .svc-fade-btn::after { transform: rotate(-135deg) translateY(-2px); }
+.svc-proj { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; }
+.svc-proj > img, .svc-proj > figcaption { grid-column: 1 / -1; }
+.svc-proj > .svc-pricebox { grid-column: 1; }
 .svc-cta--proj { grid-column: 2; margin-top: 0; margin-bottom: -10.5px; align-self: end; }
-@media (max-width: 480px) { .svc-proj { grid-template-columns: minmax(0, 1fr); } .svc-cta--proj { grid-column: 1; margin-top: 20px; margin-bottom: 0; justify-self: center; } }
+@media (max-width: 480px) { .svc-proj { column-gap: 8px; } .svc-cta--proj .panel-cta { padding: 14px 16px; font-size: 11px; letter-spacing: .12em; white-space: nowrap; } .svc-pricebox .svc-price { gap: 6px; } .svc-pricebox .svc-price span { font-size: 10px; letter-spacing: .1em; } .svc-pricebox .svc-price strong { font-size: 24px; } }
 @media (max-width: 700px) { .svc-pair > div + div { margin-top: 56px; } }
 @media (min-width: 901px) { .svc-top .svc-body { margin-bottom: 0 !important; } }
 .svc-body > p:last-child { margin-bottom: 0; }

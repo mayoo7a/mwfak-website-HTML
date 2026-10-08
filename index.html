@@ -1601,6 +1601,20 @@ img { display: block; max-width: 100%; }
   @media (hover: hover) { .hero.hero--reel.hero--dark .header-nav a:hover { color: var(--pop); } }
   .header-actions .burger { display: none; }
 }
+
+/* wide screens: once you scroll, the top bar stays fixed at the top on a cream background */
+@media (min-width: 1200px) {
+  html { scroll-padding-top: 74px; }   /* section links stop below the fixed bar */
+  .header { transition: background-color .25s ease, padding .25s ease, box-shadow .25s ease; }
+  .hero.hero--reel .header.header--stuck { position: fixed; padding-top: 14px; padding-bottom: 14px; background: rgba(242,235,232,.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: 0 2px 0 rgba(14,28,65,.12); }
+  .hero.hero--reel .header.header--stuck .brand img { filter: none; height: 46px; width: 46px; }
+  .hero.hero--reel .header.header--stuck .brand-name { color: var(--ink); font-size: 22px; }
+  .hero.hero--reel .header.header--stuck .header-nav a { color: var(--ink); }
+  .hero.hero--reel .header.header--stuck .header-nav a:focus-visible { color: var(--pop); }
+  @media (hover: hover) { .hero.hero--reel .header.header--stuck .header-nav a:hover { color: var(--pop); } }
+  .hero.hero--reel .header.header--stuck .quote-btn { background: var(--ink); color: var(--bg); }
+  @media (hover: hover) { .hero.hero--reel .header.header--stuck .quote-btn:hover { background: var(--pop); color: var(--bg); } }
+}
 </style>
 </head>
 <body>
@@ -2673,6 +2687,16 @@ addEventListener('scroll', () => {
       window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(TO) + '&su=' + encodeURIComponent(SUBJECT), '_blank', 'noopener');
     }, 900);
   });
+})();
+
+/* top bar: stays at the top once the page is scrolled (wide screens; the CSS only styles it there) */
+(function stickyHeader(){
+  const h = document.querySelector('.hero .header');
+  if (!h) return;
+  const on = () => h.classList.toggle('header--stuck', (window.scrollY || document.documentElement.scrollTop) > 60);
+  addEventListener('scroll', on, { passive: true });
+  addEventListener('resize', on);
+  on();
 })();
 </script>
 </body>

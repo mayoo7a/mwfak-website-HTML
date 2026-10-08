@@ -1619,6 +1619,13 @@ img { display: block; max-width: 100%; }
 /* services section: space below the cards (the quote button that used to be here is gone) */
 .magnificent { padding-bottom: 40px; }
 @media (max-width: 600px) { .magnificent { padding-bottom: 50px; } }
+
+/* open menu: the bar turns see-through over the dark menu and the X (and logo) are white all the time */
+body.menu-open .header, body.menu-open .hero.hero--reel .header, body.menu-open .hero.hero--reel .header.header--stuck, body.menu-open .header.header--stuck { background: transparent !important; box-shadow: none !important; border-bottom-color: transparent !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+body.menu-open .burger span, body.menu-open .hero.hero--reel .burger span, body.menu-open .header .burger span { background: #F7F7F7 !important; }
+body.menu-open .brand-name, body.menu-open .hero.hero--reel .brand-name, body.menu-open .hero.hero--reel .header.header--stuck .brand-name { color: #F7F7F7 !important; }
+body.menu-open .brand img, body.menu-open .hero.hero--reel .brand img { filter: brightness(0) invert(1) !important; }
+body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu-open .hero.hero--reel .header.header--stuck .quote-btn { background: #F7F7F7 !important; color: #0E1C41 !important; }
 </style>
 </head>
 <body>
@@ -2052,6 +2059,7 @@ const burger = document.getElementById('burger');
 const menu   = document.getElementById('menuPanel');
 function setMenu(open, returnFocus) {
   burger.classList.toggle('open', open);
+  document.body.classList.toggle('menu-open', open);
   menu.classList.toggle('open', open);
   burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');

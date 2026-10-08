@@ -1114,24 +1114,33 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .svc-proj > img, .svc-proj > figcaption { grid-column: 1 / -1; }
 .svc-proj > .svc-pricebox { grid-column: 1; }
 
-/* four toggle styles, one per service (for review) */
-.svc-more--a > summary { display: inline-flex; border: 0; padding: 18px 34px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); }
+/* four toggle styles, round 2 (for review) */
+.svc-more > summary > span { display: inline-block; }
+/* A: inventory slots */
+.svc-more--a > summary { display: inline-flex; border: 0; padding: 4px 0; gap: 16px; justify-content: flex-start; }
+.svc-more--a > summary::before { content: ''; width: 66px; height: 22px; flex: none; background: linear-gradient(90deg, var(--c) 0 22px, transparent 22px 22px) 0 0/22px 22px no-repeat; background: repeating-linear-gradient(90deg, transparent 0 0), var(--c); -webkit-mask: linear-gradient(90deg, #000 0 20px, transparent 20px 23px, #000 23px 43px, transparent 43px 46px, #000 46px 66px); mask: linear-gradient(90deg, #000 0 20px, transparent 20px 23px, #000 23px 43px, transparent 43px 46px, #000 46px 66px); }
+.svc-more--a[open] > summary::before { opacity: .45; }
 .svc-more--a > summary::after { display: none; }
-.svc-more--a > summary::before { content: '+'; font-size: 16px; margin-right: 12px; }
-.svc-more--a[open] > summary::before { content: '\2212'; }
-@media (hover: hover) { .svc-more--a > summary:hover { background-color: transparent; transform: translateY(-3px); } }
-.svc-more--b > summary { border: 0; padding: 6px 0; justify-content: flex-start; gap: 14px; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 24px; letter-spacing: 0; text-transform: none; }
-.svc-more--b > summary::before { content: '+'; display: grid; place-items: center; width: 30px; height: 30px; flex: none; background: var(--c); color: #fff; font: 700 20px/1 'Inter', sans-serif; }
-.svc-more--b[open] > summary::before { content: '\2212'; }
-.svc-more--b > summary::after { flex: 1; height: 0; border-top: 2px dashed var(--c); background: none; opacity: .6; }
+.svc-more--a > summary > span::after { content: ' \2192'; }
+.svc-more--a[open] > summary > span::after { content: ' \2191'; }
+/* B: divider line with a centred label */
+.svc-more--b > summary { border: 0; padding: 0; gap: 18px; justify-content: center; }
+.svc-more--b > summary::before { content: ''; flex: 1; height: 0; border-top: 2px solid var(--c); opacity: .5; }
+.svc-more--b > summary::after { width: auto; height: auto; flex: 1; border-top: 2px solid var(--c); background: none; opacity: .5; }
 .svc-more--b[open] > summary::after { background: none; }
-.svc-more--c > summary { display: inline-flex; border: 0; padding: 4px 0; gap: 14px; justify-content: flex-start; }
-.svc-more--c > summary::before { content: ''; width: 24px; height: 24px; background: var(--c); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h4v1h1v3H6V2H5V1H3v1H2v2H1V1h1zM1 4h6v4H1z'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath d='M2 0h4v1h1v3H6V2H5V1H3v1H2v2H1V1h1zM1 4h6v4H1z'/%3E%3C/svg%3E") center/contain no-repeat; }
-.svc-more--c[open] > summary::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath d='M5 0h2v1h1v2H7V1H5v1H4v2H3V1h1V0zM0 4h6v4H0z' transform='translate(1 0)'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath d='M5 0h2v1h1v2H7V1H5v1H4v2H3V1h1V0zM0 4h6v4H0z' transform='translate(1 0)'/%3E%3C/svg%3E"); }
-.svc-more--c > summary::after { content: 'Click to unlock'; width: auto; height: auto; background: none; font-size: 11px; letter-spacing: .14em; color: var(--c); }
-.svc-more--c[open] > summary::after { content: 'Unlocked'; background: none; }
-.svc-more--d > summary { display: inline-flex; padding: 9px 16px; gap: 10px; font-size: 12px; }
-.svc-more--d > summary::after { width: 11px; height: 11px; }
+.svc-more--b > summary > span { padding: 10px 18px; border: 2px solid var(--c); }
+.svc-more--b > summary > span::after { content: ' +'; color: var(--c); }
+.svc-more--b[open] > summary > span::after { content: ' \2212'; }
+/* C: big serif italic text link */
+.svc-more--c > summary { display: inline-flex; border: 0; padding: 0 0 6px; gap: 12px; justify-content: flex-start; font-family: 'DM Serif Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 26px; letter-spacing: 0; text-transform: none; border-bottom: 3px solid var(--c); }
+.svc-more--c > summary::after { content: '\2193'; width: auto; height: auto; background: none; color: var(--c); font-family: 'Inter', sans-serif; font-style: normal; font-weight: 700; font-size: 22px; line-height: 1; transition: transform .2s; }
+.svc-more--c[open] > summary::after { background: none; transform: rotate(180deg); }
+/* D: tilted sticker */
+.svc-more--d > summary { display: inline-flex; border: 0; padding: 14px 26px; gap: 12px; background: var(--c); color: #fff; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 20px; letter-spacing: .06em; transform: rotate(-2deg); box-shadow: 6px 6px 0 rgba(255,255,255,.9); transition: transform .15s, box-shadow .15s; }
+.svc-more--d > summary::after { content: '+'; width: auto; height: auto; background: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; line-height: 1; }
+.svc-more--d[open] > summary::after { content: '\2212'; background: none; transform: none; }
+.svc-more--d[open] > summary { transform: rotate(0); box-shadow: 3px 3px 0 rgba(255,255,255,.9); }
+@media (hover: hover) { .svc-more--d > summary:hover { transform: rotate(0) translateY(-2px); background-color: var(--c); } }
 .svc-cta--proj { grid-column: 2; margin-top: 0; margin-bottom: -10.5px; align-self: end; }
 @media (max-width: 480px) { .svc-proj { grid-template-columns: minmax(0, 1fr); } .svc-cta--proj { grid-column: 1; margin-top: 20px; margin-bottom: 0; justify-self: center; } }
 @media (max-width: 700px) { .svc-pair > div + div { margin-top: 56px; } }
@@ -1200,7 +1209,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Brief</strong><span class="svc-steptext">Your business, your audience and the feeling you want.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Refine</strong><span class="svc-steptext">Tested small and large, on light and on dark.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and file.</span></div></li></ol>
   </div>
-  <details class="svc-more svc-more--a"><summary>What you receive</summary>
+  <details class="svc-more svc-more--a"><summary><span>What you receive</span></summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>
@@ -1239,7 +1248,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>We talk</strong><span class="svc-steptext">Your business, your audience, your goals, and what you love and hate.</span></li><li><span class="svc-num">2</span><strong>I propose</strong><span class="svc-steptext">A clear visual direction, and we choose the way forward together.</span></li><li><span class="svc-num">3</span><strong>I build</strong><span class="svc-steptext">The full system, tested on real examples.</span></li><li><span class="svc-num">4</span><strong>You launch</strong><span class="svc-steptext">Files and guidelines, ready to use from day one.</span></li></ol>
   </div>
-  <details class="svc-more svc-more--b"><summary>What you receive</summary>
+  <details class="svc-more svc-more--b"><summary><span>What you receive</span></summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>
@@ -1278,7 +1287,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The product, the audience and where it will be sold.</span></li><li><span class="svc-num">2</span><strong>Concepts</strong><span class="svc-steptext">A few packaging directions, and we pick one to develop.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">The finished design, shown on realistic mockups.</span></li><li><span class="svc-num">4</span><strong>Print prep</strong><span class="svc-steptext">Files prepared and checked before they reach the printer.</span></li></ol>
   </div>
-  <details class="svc-more svc-more--c"><summary>What you receive</summary>
+  <details class="svc-more svc-more--c"><summary><span>What you receive</span></summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>
@@ -1318,7 +1327,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Understand</strong><span class="svc-steptext">Your users, your goals and what is not working today.</span></li><li><span class="svc-num">2</span><strong>Map</strong><span class="svc-steptext">Every step people take, and what stays and what goes.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">From wireframes to finished screens for every size.</span></li><li><span class="svc-num">4</span><strong>Hand over</strong><span class="svc-steptext">Organised files and clear specifications for your developer.</span></li></ol>
   </div>
-  <details class="svc-more svc-more--d"><summary>What you receive</summary>
+  <details class="svc-more svc-more--d"><summary><span>What you receive</span></summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>

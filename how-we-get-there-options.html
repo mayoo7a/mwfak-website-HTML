@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>How we get there · 5 options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#F2EBE8; --ink:#0E1C41; --white:#F7F7F7; --yellow:#F9A323; --pink:#D23697; --blue:#1E7CDF; --red:#FA5643; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; }
+body { padding: 0 5vw 120px; }
+.top { max-width: 1100px; margin: 0 auto; padding: 56px 0 10px; }
+.top h1 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(30px, 4vw, 52px); line-height: 1.05; }
+.top p { margin-top: 12px; opacity: .75; max-width: 60ch; line-height: 1.6; }
+.opt { max-width: 1100px; margin: 0 auto; padding: 64px 0 56px; border-top: 1px solid rgba(242,235,232,.16); }
+.opt:first-of-type { border-top: 0; }
+.tag { display: inline-block; margin-bottom: 26px; padding: 7px 12px; background: var(--bg); color: var(--ink); font-weight: 700; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.tag em { font-style: normal; opacity: .6; margin-left: 8px; }
+.sub { position: relative; display: block; margin: 0 0 26px; padding-left: 24px; font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); }
+.sub::before { content: ""; position: absolute; left: 0; top: 50%; width: 12px; height: 12px; margin-top: -6px; background: var(--c); }
+.opt { --c: var(--yellow); }
+.t { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.1; }
+.d { font-size: 15px; line-height: 1.6; opacity: .82; }
+/* pixel number square used in several options */
+.px { width: 46px; height: 46px; display: grid; place-items: center; background: var(--c); color: var(--white); font-family: 'Anton', sans-serif; font-size: 22px; flex: none;
+  clip-path: polygon(6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px), 0 6px, 3px 6px, 3px 3px, 6px 3px); }
+
+/* 1 — vertical timeline */
+.o1 { --c: var(--yellow); }
+.v-line { position: relative; list-style: none; max-width: 640px; }
+.v-line::before { content: ""; position: absolute; left: 22px; top: 22px; bottom: 22px; border-left: 3px dashed color-mix(in srgb, var(--c) 60%, transparent); }
+.v-line li { position: relative; display: flex; gap: 22px; padding-bottom: 30px; }
+.v-line li:last-child { padding-bottom: 0; }
+.v-line .px { position: relative; z-index: 1; }
+.v-line .t { margin-top: 2px; }
+.v-line .d { margin-top: 6px; max-width: 46ch; }
+
+/* 2 — four cards with a big number */
+.o2 { --c: var(--pink); }
+.cards { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.cards li { position: relative; overflow: hidden; min-height: 210px; padding: 24px 22px; border: 2.5px solid var(--c); border-radius: 18px; background: color-mix(in srgb, var(--c) 10%, transparent); }
+.cards li b { position: absolute; right: 14px; top: -14px; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 120px; line-height: 1; color: var(--c); opacity: .28; }
+.cards .t { position: relative; }
+.cards .d { position: relative; margin-top: 10px; }
+
+/* 3 — stairs going up */
+.o3 { --c: var(--blue); }
+.stairs { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: end; min-height: 330px; }
+.stairs li { position: relative; padding: 18px 18px 20px; background: var(--c); color: var(--white); border-top: 5px solid color-mix(in srgb, var(--white) 55%, var(--c)); }
+.stairs li:nth-child(1) { height: 150px; } .stairs li:nth-child(2) { height: 210px; } .stairs li:nth-child(3) { height: 270px; } .stairs li:nth-child(4) { height: 330px; }
+.stairs li:nth-child(2) { background: color-mix(in srgb, var(--c) 88%, #000); } .stairs li:nth-child(3) { background: color-mix(in srgb, var(--c) 76%, #000); } .stairs li:nth-child(4) { background: color-mix(in srgb, var(--c) 64%, #000); }
+.stairs b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 40px; line-height: 1; display: block; }
+.stairs .t { margin-top: 6px; }
+.stairs .d { margin-top: 6px; opacity: .95; }
+
+/* 4 — arrow banner (chevrons) */
+.o4 { --c: var(--red); }
+.chev { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; filter: drop-shadow(0 4px 0 rgba(0,0,0,.25)); }
+.chev li { position: relative; padding: 22px 34px 22px 38px; background: var(--c); color: var(--white); clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%, 26px 50%); margin-left: -12px; }
+.chev li:first-child { margin-left: 0; clip-path: polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%); padding-left: 24px; }
+.chev li:nth-child(2) { background: color-mix(in srgb, var(--c) 90%, #fff); } .chev li:nth-child(3) { background: color-mix(in srgb, var(--c) 80%, #fff); } .chev li:nth-child(4) { background: color-mix(in srgb, var(--c) 70%, #fff); }
+.chev b { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: .14em; opacity: .85; }
+.chev .t { margin-top: 4px; }
+.chev .d { margin-top: 8px; font-size: 14px; }
+
+/* 5 — game levels with a progress bar */
+.o5 { --c: var(--yellow); }
+.levels { list-style: none; display: grid; gap: 16px; max-width: 760px; }
+.levels li { display: grid; grid-template-columns: 110px 1fr; gap: 22px; align-items: center; padding: 18px 22px; border: 2.5px solid var(--bg); box-shadow: 6px 6px 0 var(--c); background: rgba(242,235,232,.04); }
+.levels .lv { font-family: 'Anton', sans-serif; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--c); }
+.levels .lv b { display: block; font-weight: 400; font-size: 52px; line-height: 1; letter-spacing: 0; color: var(--bg); }
+.levels .bar { height: 8px; margin-top: 12px; background: rgba(242,235,232,.15); }
+.levels .bar i { display: block; height: 100%; background: var(--c); }
+
+@media (max-width: 900px) {
+  .cards, .stairs, .chev { grid-template-columns: 1fr 1fr; }
+  .stairs { min-height: 0; align-items: stretch; gap: 14px; } .stairs li { height: auto !important; }
+  .chev { gap: 14px; filter: none; } .chev li, .chev li:first-child { margin-left: 0; clip-path: none; padding: 20px; }
+}
+@media (max-width: 560px) {
+  .cards, .stairs, .chev { grid-template-columns: 1fr; }
+  .levels li { grid-template-columns: 1fr; gap: 6px; }
+  .levels .lv b { display: inline; font-size: 40px; margin-left: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>“How we get there”: 5 options</h1>
+  <p>Same four steps in every option (shown with the Logo Design wording). Each option is shown in a different service colour, and in the real page it takes the colour of its service. Tell me the number you like.</p>
+</header>
+
+<section class="opt o1">
+  <span class="tag">Option 1 <em>Timeline</em></span>
+  <h3 class="sub">How we get there</h3>
+  <ol class="v-line">
+    <li><span class="px">1</span><div><div class="t">Brief</div><p class="d">The business, the audience and the feeling the logo should give.</p></div></li>
+    <li><span class="px">2</span><div><div class="t">Sketch</div><p class="d">Several directions, and I show you the strongest ones.</p></div></li>
+    <li><span class="px">3</span><div><div class="t">Refine</div><p class="d">The chosen idea, tested small and large, on light and on dark.</p></div></li>
+    <li><span class="px">4</span><div><div class="t">Deliver</div><p class="d">The final logo in every version and every file you need.</p></div></li>
+  </ol>
+</section>
+
+<section class="opt o2">
+  <span class="tag">Option 2 <em>Cards</em></span>
+  <h3 class="sub">How we get there</h3>
+  <ol class="cards">
+    <li><b>1</b><div class="t">Brief</div><p class="d">The business, the audience and the feeling the logo should give.</p></li>
+    <li><b>2</b><div class="t">Sketch</div><p class="d">Several directions, and I show you the strongest ones.</p></li>
+    <li><b>3</b><div class="t">Refine</div><p class="d">The chosen idea, tested small and large, on light and on dark.</p></li>
+    <li><b>4</b><div class="t">Deliver</div><p class="d">The final logo in every version and every file you need.</p></li>
+  </ol>
+</section>
+
+<section class="opt o3">
+  <span class="tag">Option 3 <em>Stairs</em></span>
+  <h3 class="sub">How we get there</h3>
+  <ol class="stairs">
+    <li><b>1</b><div class="t">Brief</div><p class="d">The business, the audience and the feeling the logo should give.</p></li>
+    <li><b>2</b><div class="t">Sketch</div><p class="d">Several directions, and I show you the strongest ones.</p></li>
+    <li><b>3</b><div class="t">Refine</div><p class="d">The chosen idea, tested small and large, on light and on dark.</p></li>
+    <li><b>4</b><div class="t">Deliver</div><p class="d">The final logo in every version and every file you need.</p></li>
+  </ol>
+</section>
+
+<section class="opt o4">
+  <span class="tag">Option 4 <em>Arrow banner</em></span>
+  <h3 class="sub">How we get there</h3>
+  <ol class="chev">
+    <li><b>STEP 1</b><div class="t">Brief</div><p class="d">The business, the audience and the feeling the logo should give.</p></li>
+    <li><b>STEP 2</b><div class="t">Sketch</div><p class="d">Several directions, and I show you the strongest ones.</p></li>
+    <li><b>STEP 3</b><div class="t">Refine</div><p class="d">The chosen idea, tested small and large, on light and on dark.</p></li>
+    <li><b>STEP 4</b><div class="t">Deliver</div><p class="d">The final logo in every version and every file you need.</p></li>
+  </ol>
+</section>
+
+<section class="opt o5">
+  <span class="tag">Option 5 <em>Game levels</em></span>
+  <h3 class="sub">How we get there</h3>
+  <ol class="levels">
+    <li><div class="lv">Level<b>1</b></div><div><div class="t">Brief</div><p class="d">The business, the audience and the feeling the logo should give.</p><div class="bar"><i style="width:25%"></i></div></div></li>
+    <li><div class="lv">Level<b>2</b></div><div><div class="t">Sketch</div><p class="d">Several directions, and I show you the strongest ones.</p><div class="bar"><i style="width:50%"></i></div></div></li>
+    <li><div class="lv">Level<b>3</b></div><div><div class="t">Refine</div><p class="d">The chosen idea, tested small and large, on light and on dark.</p><div class="bar"><i style="width:75%"></i></div></div></li>
+    <li><div class="lv">Level<b>4</b></div><div><div class="t">Deliver</div><p class="d">The final logo in every version and every file you need.</p><div class="bar"><i style="width:100%"></i></div></div></li>
+  </ol>
+</section>
+
+</body>
+</html>

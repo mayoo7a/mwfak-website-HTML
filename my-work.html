@@ -181,17 +181,17 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   cursor: zoom-out;
 }
 .lightbox.open { display: grid; }
-.lightbox img {
-  height: 100vh;
-  height: 100dvh;
-  width: auto;
-  max-width: 100vw;
-  max-height: 100vh;
-  max-height: 100dvh;
-  object-fit: contain;
-  border-radius: 0;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-}
+.lb-fig { margin: 0; display: grid; justify-items: center; gap: 16px; max-width: min(900px, 86vw); cursor: default; }
+.lightbox img { display: block; max-width: 100%; max-height: 58vh; max-height: 58dvh; width: auto; height: auto; object-fit: contain; border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
+.lb-cap { display: grid; gap: 4px; justify-items: center; text-align: center; max-width: 62ch; color: var(--bg); }
+.lb-type { font-weight: 700; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .65; }
+.lb-name { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .01em; text-transform: uppercase; line-height: 1.1; }
+.lb-desc { margin-top: 6px; font-size: 15px; line-height: 1.6; opacity: .88; }
+.lb-arrow { position: fixed; z-index: 120; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--bg); background: rgba(14, 28, 65, 0.85); color: var(--bg); display: grid; place-items: center; cursor: pointer; padding: 0; transition: background .25s ease, transform .2s ease; }
+.lb-prev { left: clamp(10px, 3vw, 40px); } .lb-next { right: clamp(10px, 3vw, 40px); }
+@media (hover: hover) { .lb-arrow:hover { background: var(--pop); } }
+.lb-arrow:focus-visible { outline: 3px solid #F9A323; outline-offset: 2px; }
+@media (max-width: 640px) { .lb-arrow { top: auto; bottom: 18px; transform: none; width: 42px; height: 42px; } .lb-prev { left: calc(50% - 56px); } .lb-next { right: calc(50% - 56px); } .lightbox img { max-height: 46vh; max-height: 46dvh; } .lb-fig { max-width: 90vw; padding-bottom: 56px; } }
 .lightbox-close {
   position: fixed;
   z-index: 120;
@@ -1241,9 +1241,14 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 </footer>
 
 <!-- Lightbox for full-size project view -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project">
   <button class="lightbox-close" aria-label="Close">×</button>
-  <img alt="" id="lightbox-img" />
+  <button class="lb-arrow lb-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-arrow lb-next" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <figure class="lb-fig">
+    <img alt="" id="lightbox-img" />
+    <figcaption class="lb-cap"><span class="lb-type" id="lb-type"></span><strong class="lb-name" id="lb-name"></strong><p class="lb-desc" id="lb-desc"></p></figcaption>
+  </figure>
 </div>
 
 <script>
@@ -1252,30 +1257,90 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = lightbox.querySelector('.lb-prev'), nextBtn = lightbox.querySelector('.lb-next');
+  const tEl = document.getElementById('lb-type'), nEl = document.getElementById('lb-name'), dEl = document.getElementById('lb-desc');
 
-  projects.forEach(p => {
-    p.addEventListener('click', () => {
-      lightboxImg.src = p.dataset.src;
-      lightboxImg.alt = p.dataset.name;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
+  // short, plain descriptions (based on what each board shows)
+  const DESC = {
+    'baseera': 'An Arabic-inspired logo with English and bilingual versions, a colour palette, and light and dark versions.',
+    'zinger-lab': 'A bold stacked logo for a food brand, shown on signage and packaging, with its colours and typeface.',
+    '33-butchery': 'A bull-and-number logo with its colours, typeface, and versions for light, dark and red backgrounds.',
+    'canary-calls': 'A friendly canary mascot logo for a call business, with its colour palette and versions for every background.',
+    'compera-jewelry': 'A refined monogram logo for a jewellery brand, shown on gift boxes with soft peach tones.',
+    'hbcs': 'A clean, modern logo for an accounting company, with a symbol, colour palette and typography.',
+    'heavyweight-hoodies': 'A mountain-shaped logo for a hoodie brand, shown on a clothing label with warm brown and orange tones.',
+    'motammem': 'An Arabic calligraphy logo that forms a building, with colour options and clear-space guidance.',
+    'sol-root': 'A logo and packaging for a tahini brand, with Arabic and English lockups and a natural green palette.',
+    'battikhi-stays': 'A brand identity for family stays, with a logo, palette, typography, a website and printed guest materials.',
+    'the-welcome-table': 'A warm brand identity for a community table, with a logo, merchandise, stickers and social posts.',
+    'ummati': 'A brand identity and app design: logo, colours, typography, app icon, mobile screens and a website.',
+    'qanadeel': 'A presentation design with covers, a deck layout and content slides in Arabic.',
+    'mwafq': 'A website and app design for booking medical exams, in Arabic and English, with a clear booking flow.',
+    'ticketat': 'A website and booking flow for events, in Arabic, with colourful event pages and a clear checkout.'
+  };
+  const stem = p => (p.dataset.src || '').split('/').pop().replace(/\.webp$/, '');
+  // flip order = the order of the page, each project once
+  const list = [];
+  projects.forEach(p => { if (!list.some(q => q.dataset.src === p.dataset.src)) list.push(p); });
+  let cur = -1;
 
+  function show(i) {
+    cur = (i + list.length) % list.length;
+    const p = list[cur];
+    lightboxImg.src = p.dataset.src;
+    lightboxImg.alt = p.dataset.name;
+    const cap = p.closest('.project-item');
+    tEl.textContent = cap && cap.querySelector('.project-type') ? cap.querySelector('.project-type').textContent : '';
+    nEl.textContent = p.dataset.name;
+    dEl.textContent = DESC[stem(p)] || '';
+    lightbox.setAttribute('aria-label', p.dataset.name);
+    // load the neighbours so flipping is instant
+    [1, -1].forEach(d => { const n = list[(cur + d + list.length) % list.length]; if (n) new Image().src = n.dataset.src; });
+  }
+  function open(p) {
+    show(list.findIndex(q => q.dataset.src === p.dataset.src));
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
   const close = () => {
     lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
-  lightbox.addEventListener('click', () => close());
+  const isOpen = () => lightbox.classList.contains('open');
+
+  projects.forEach(p => p.addEventListener('click', () => open(p)));
+
+  // clicking the dark background closes; the picture, text and arrows do not
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
   ['click','pointerup','touchend'].forEach(ev =>
     closeBtn.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); close(); })
   );
-  addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-  // a link like my-work.html#baseera (from the home page console) opens that project straight away
+  prevBtn.addEventListener('click', e => { e.stopPropagation(); show(cur - 1); });
+  nextBtn.addEventListener('click', e => { e.stopPropagation(); show(cur + 1); });
+
+  addEventListener('keydown', (e) => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1); }
+  });
+
+  // swipe left / right on touch screens
+  let x0 = 0, y0 = 0, tracking = false;
+  lightbox.addEventListener('touchstart', e => { if (e.touches.length !== 1) { tracking = false; return; } tracking = true; x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    if (!tracking) return; tracking = false;
+    const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.4) show(dx < 0 ? cur + 1 : cur - 1);
+  }, { passive: true });
+
+  // a link like my-work.html#baseera opens that project straight away
   const want = decodeURIComponent((location.hash || '').slice(1));
   if (want) {
     const hit = Array.from(projects).find(p => (p.dataset.src || '').endsWith('/' + want + '.webp'));
-    if (hit) setTimeout(() => hit.click(), 250);
+    if (hit) setTimeout(() => open(hit), 250);
   }
 })();
 </script>

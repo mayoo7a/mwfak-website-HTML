@@ -195,7 +195,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .lb-prev { left: max(-58px, calc(8px - (100vw - 100%) / 2)); } .lb-next { right: max(-58px, calc(8px - (100vw - 100%) / 2)); }
 @media (hover: hover) { .lb-arrow:hover { background: var(--pop); } }
 .lb-arrow:focus-visible { outline: 3px solid #F9A323; outline-offset: 2px; }
-@media (max-width: 640px) { .lb-arrow { position: fixed; top: auto; bottom: 18px; transform: none; width: 42px; height: 42px; } .lb-prev { left: calc(50% - 56px); right: auto; } .lb-next { right: calc(50% - 56px); left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; padding-bottom: 56px; } .lb-cap { min-height: 150px; } }
+@media (max-width: 640px) { .lb-arrow { width: 30px; height: 58px; border: 0; border-radius: 8px; background: rgba(14, 28, 65, 0.62); color: #F7F7F7; } .lb-arrow svg { width: 20px; height: 20px; } .lb-prev { left: 5px; right: auto; } .lb-next { right: 5px; left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; } .lb-cap { min-height: 150px; } }
 .lightbox-close {
   position: fixed;
   z-index: 120;

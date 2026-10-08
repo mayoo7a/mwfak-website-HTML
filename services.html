@@ -1126,7 +1126,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .svc-proj > img, .svc-proj > figcaption { grid-column: 1 / -1; }
 .svc-proj > .svc-pricebox { grid-column: 1; }
 .svc-cta--proj { grid-column: 2; margin-top: 0; margin-bottom: -10.5px; align-self: end; }
-@media (max-width: 480px) { .svc-proj { grid-template-columns: minmax(0, 1fr); } .svc-cta--proj { grid-column: 1; margin-top: 20px; margin-bottom: 0; justify-self: start; } }
+@media (max-width: 480px) { .svc-proj { grid-template-columns: minmax(0, 1fr); } .svc-cta--proj { grid-column: 1; margin-top: 30px; margin-bottom: 0; justify-self: start; } }
 @media (max-width: 700px) { .svc-pair > div + div { margin-top: 56px; } }
 @media (min-width: 901px) { .svc-top .svc-body { margin-bottom: 0 !important; } }
 .svc-body > p:last-child { margin-bottom: 0; }
@@ -1578,8 +1578,9 @@ document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('clic
   function place() {
     arts.forEach(art => {
       const cta = art.querySelector('.svc-cta--proj'), price = art.querySelector('.svc-price'); if (!cta || !price) return;
-      cta.style.marginTop = '0px';
+      cta.style.marginTop = '';
       if (matchMedia('(max-width: 480px)').matches || !art.offsetParent) return;
+      cta.style.marginTop = '0px';
       const p = price.getBoundingClientRect(), c = cta.getBoundingClientRect();
       cta.style.marginTop = Math.max(0, Math.round((p.top + p.height / 2) - (c.top + c.height / 2))) + 'px';
     });

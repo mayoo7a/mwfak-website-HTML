@@ -910,6 +910,15 @@ html { scroll-padding-top: 90px; }
 @media (hover: hover) { .back-link:hover { color: var(--pop); } .back-link:hover span { transform: translateX(-4px); } }
 @media (max-width: 1100px) { .page-back .back-link { top: 18px; left: 28px; } }
 @media (max-width: 640px) { .page-back .back-link { top: 14px; left: 16px; font-size: 10px; } .back-link span { font-size: 14px; } }
+
+/* once scrolled: the top bar gets a little smaller and about 10% more see-through */
+.header { transition: padding .25s ease, background-color .25s ease; }
+.header.header--stuck { padding-top: 12px; padding-bottom: 12px; background: rgba(242,235,232,.82); }
+.header.header--stuck .brand img { height: 46px; width: 46px; }
+.header.header--stuck .brand-name { font-size: 24px; }
+.header.header--stuck .burger { width: 46px; height: 46px; }
+@media (max-width: 1100px) { .header.header--stuck { padding-top: 10px; padding-bottom: 10px; } .header.header--stuck .brand img { height: 40px; width: 40px; } .header.header--stuck .brand-name { font-size: 19px; } }
+@media (max-width: 640px) { .header.header--stuck { padding-top: 8px; padding-bottom: 8px; } .header.header--stuck .brand img { height: 34px; width: 34px; } .header.header--stuck .brand-name { font-size: 15px; } .header.header--stuck .burger { width: 40px; height: 40px; } }
 </style>
 </head>
 <body>
@@ -1350,6 +1359,15 @@ html { scroll-padding-top: 90px; }
     const u = new URL(a.href, location.href);
     if (u.pathname === location.pathname && !u.hash) a.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
   });
+})();
+</script>
+
+<script>
+/* top bar: shrinks a little once the page is scrolled */
+(function(){
+  const h = document.querySelector('.header'); if (!h) return;
+  const on = () => h.classList.toggle('header--stuck', (window.scrollY || document.documentElement.scrollTop) > 40);
+  addEventListener('scroll', on, { passive: true }); on();
 })();
 </script>
 </body>

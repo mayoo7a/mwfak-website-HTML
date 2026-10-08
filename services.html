@@ -1047,6 +1047,15 @@ html { scroll-padding-top: 90px; }
   .header:not(.header--stuck) .header-nav a:focus-visible { color: #F9A323; }
   @media (hover: hover) { .header:not(.header--stuck) .header-nav a:hover { color: #F9A323; } }
 }
+
+/* once scrolled: the top bar gets a little smaller and about 10% more see-through */
+.header { transition: padding .25s ease, background-color .25s ease; }
+.header.header--stuck { padding-top: 12px; padding-bottom: 12px; background: rgba(242,235,232,.82); }
+.header.header--stuck .brand img { height: 46px; width: 46px; }
+.header.header--stuck .brand-name { font-size: 24px; }
+.header.header--stuck .burger { width: 46px; height: 46px; }
+@media (max-width: 1100px) { .header.header--stuck { padding-top: 10px; padding-bottom: 10px; } .header.header--stuck .brand img { height: 40px; width: 40px; } .header.header--stuck .brand-name { font-size: 19px; } }
+@media (max-width: 640px) { .header.header--stuck { padding-top: 8px; padding-bottom: 8px; } .header.header--stuck .brand img { height: 34px; width: 34px; } .header.header--stuck .brand-name { font-size: 15px; } .header.header--stuck .burger { width: 40px; height: 40px; } }
 </style>
 </head>
 <body>

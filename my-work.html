@@ -195,7 +195,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .lb-prev { left: max(-58px, calc(8px - (100vw - 100%) / 2)); } .lb-next { right: max(-58px, calc(8px - (100vw - 100%) / 2)); }
 @media (hover: hover) { .lb-arrow:hover { background: var(--pop); } }
 .lb-arrow:focus-visible { outline: 3px solid #F9A323; outline-offset: 2px; }
-@media (max-width: 640px) { .lb-arrow { width: 30px; height: 58px; border: 0; border-radius: 8px; background: rgba(14, 28, 65, 0.62); color: #F7F7F7; } .lb-arrow svg { width: 20px; height: 20px; } .lb-prev { left: 5px; right: auto; } .lb-next { right: 5px; left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; } .lb-cap { min-height: 150px; } }
+@media (max-width: 640px) { .lb-desc { text-wrap: wrap; } .lb-desc span { display: inline; } .lb-arrow { width: 30px; height: 58px; border: 0; border-radius: 8px; background: rgba(14, 28, 65, 0.62); color: #F7F7F7; } .lb-arrow svg { width: 20px; height: 20px; } .lb-prev { left: 5px; right: auto; } .lb-next { right: 5px; left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; } .lb-cap { min-height: 150px; } }
 .lightbox-close {
   position: fixed;
   z-index: 120;
@@ -1298,11 +1298,41 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     const cap = p.closest('.project-item');
     tEl.textContent = cap && cap.querySelector('.project-type') ? cap.querySelector('.project-type').textContent : '';
     nEl.textContent = p.dataset.name;
-    const d = DESC[stem(p)] || []; dEl.innerHTML = ''; d.forEach(t => { const l = document.createElement('span'); l.textContent = t; dEl.appendChild(l); });
+    const d = DESC[stem(p)] || []; dEl.innerHTML = ''; d.forEach((t, k) => { if (k) dEl.appendChild(document.createTextNode(' ')); const l = document.createElement('span'); l.textContent = t; dEl.appendChild(l); });
     lightbox.setAttribute('aria-label', p.dataset.name);
+    layoutDesc();
     // load the neighbours so flipping is instant
     [1, -1].forEach(d => { const n = list[(cur + d + list.length) % list.length]; if (n) new Image().src = n.dataset.src; });
   }
+  // on phones the description is wrapped by hand so the last row is the shortest one
+  function layoutDesc() {
+    const d = dEl, phone = matchMedia('(max-width: 640px)').matches;
+    d.querySelectorAll('br.lb-br').forEach(x => x.remove());
+    if (!phone || !d.textContent.trim()) return;
+    const avail = d.clientWidth || d.parentElement.clientWidth;
+    if (!avail) return;
+    const cs = getComputedStyle(d), cv = layoutDesc.cv || (layoutDesc.cv = document.createElement('canvas')), ctx = cv.getContext('2d');
+    ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+    const words = d.textContent.trim().split(/\s+/), sp = ctx.measureText(' ').width, wd = words.map(w => ctx.measureText(w).width);
+    const pack = lim => { const rows = [[]], widths = [0]; words.forEach((w, i) => { let r = rows.length - 1; const add = (rows[r].length ? sp : 0) + wd[i]; if (rows[r].length && widths[r] + add > lim) { rows.push([]); widths.push(0); r++; } widths[r] += (rows[r].length ? sp : 0) + wd[i]; rows[r].push(i); }); return { rows, widths }; };
+    const base = pack(avail - 2), n = base.rows.length;
+    if (n < 2) return;
+    // try every wrapping width and keep the layout whose last row is the shortest compared with the others
+    let best = base, bestScore = 1e9;
+    for (let lim = avail - 2; lim > avail * 0.45; lim -= 3) {
+      const r = pack(lim);
+      if (r.rows.length > n + 1) break;
+      if (r.rows.length < 2) continue;
+      const last = r.widths[r.widths.length - 1], others = Math.min.apply(null, r.widths.slice(0, -1));
+      const score = (last - others) + (r.rows.length - n) * 60;   // a negative score means the last row is the shortest
+      if (score < bestScore) { bestScore = score; best = r; }
+    }
+    // rebuild the text with a line break after each row
+    const text = best.rows.map(r => r.map(i => words[i]).join(' '));
+    d.textContent = '';
+    text.forEach((t, k) => { if (k) { const br = document.createElement('br'); br.className = 'lb-br'; d.appendChild(br); } d.appendChild(document.createTextNode(t)); });
+  }
+  addEventListener('resize', () => { if (isOpen()) show(cur); });
   function open(p) {
     show(list.findIndex(q => q.dataset.src === p.dataset.src));
     lightbox.classList.add('open');

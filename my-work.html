@@ -189,11 +189,13 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .lb-name { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .01em; text-transform: uppercase; line-height: 1.1; }
 .lb-desc { margin-top: 6px; font-size: 15px; line-height: 1.6; opacity: .88; }
 .lb-desc span { display: block; }
-.lb-arrow { position: fixed; z-index: 120; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--bg); background: rgba(14, 28, 65, 0.85); color: var(--bg); display: grid; place-items: center; cursor: pointer; padding: 0; transition: background .25s ease, transform .2s ease; }
-.lb-prev { left: clamp(10px, 3vw, 40px); } .lb-next { right: clamp(10px, 3vw, 40px); }
+.lb-stage { position: relative; width: fit-content; max-width: 100%; }
+.lb-arrow { position: absolute; z-index: 120; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--bg); background: rgba(14, 28, 65, 0.85); color: var(--bg); display: grid; place-items: center; cursor: pointer; padding: 0; transition: background .25s ease, transform .2s ease; }
+/* beside the picture, vertically in the middle of it; when the screen is too narrow they sit on the picture's edges, 8px from the screen edge */
+.lb-prev { left: max(-58px, calc(8px - (100vw - 100%) / 2)); } .lb-next { right: max(-58px, calc(8px - (100vw - 100%) / 2)); }
 @media (hover: hover) { .lb-arrow:hover { background: var(--pop); } }
 .lb-arrow:focus-visible { outline: 3px solid #F9A323; outline-offset: 2px; }
-@media (max-width: 640px) { .lb-arrow { top: auto; bottom: 18px; transform: none; width: 42px; height: 42px; } .lb-prev { left: calc(50% - 56px); } .lb-next { right: calc(50% - 56px); } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; padding-bottom: 56px; } .lb-cap { min-height: 150px; } }
+@media (max-width: 640px) { .lb-arrow { position: fixed; top: auto; bottom: 18px; transform: none; width: 42px; height: 42px; } .lb-prev { left: calc(50% - 56px); right: auto; } .lb-next { right: calc(50% - 56px); left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; padding-bottom: 56px; } .lb-cap { min-height: 150px; } }
 .lightbox-close {
   position: fixed;
   z-index: 120;
@@ -1245,10 +1247,12 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 <!-- Lightbox for full-size project view -->
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project">
   <button class="lightbox-close" aria-label="Close">×</button>
-  <button class="lb-arrow lb-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <button class="lb-arrow lb-next" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
   <figure class="lb-fig">
-    <img alt="" id="lightbox-img" />
+    <div class="lb-stage">
+      <button class="lb-arrow lb-prev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="lb-arrow lb-next" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      <img alt="" id="lightbox-img" />
+    </div>
     <figcaption class="lb-cap"><span class="lb-type" id="lb-type"></span><strong class="lb-name" id="lb-name"></strong><p class="lb-desc" id="lb-desc"></p></figcaption>
   </figure>
 </div>

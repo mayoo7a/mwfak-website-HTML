@@ -1070,15 +1070,14 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 
 /* the four service buttons scroll away with the page (they no longer stay stuck under the top bar) */
 .menu { position: static !important; top: auto !important; }
-/* service switcher: serif names with a square, hollow until selected */
-.menu-item::before { content: '' !important; display: block !important; position: static !important; flex: none; width: 16px; height: 16px; margin: 0 !important; border: 3px solid var(--c); background: transparent; opacity: 1 !important; transform: none !important; animation: none !important; }
-.menu-item { --c: #F9A323; display: flex; align-items: center; gap: 12px; background: none !important; border: 0; padding: 14px 4px !important; text-align: left; color: #F7F7F7; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2vw, 30px); letter-spacing: 0; text-transform: none; opacity: .5; transform: none !important; transition: opacity .2s; }
+/* service switcher: rounded colour cards, title only (same look as the home page service cards) */
+.menu-item::before { display: none !important; }
+.menu-item { --c: #F9A323; display: flex; align-items: center; justify-content: center; min-height: 76px; padding: 18px 12px !important; border: 0; border-radius: 24px; background: color-mix(in srgb, var(--c) 55%, #0E1C41) !important; color: #F7F7F7; text-align: center; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2vw, 30px); letter-spacing: -.01em; text-transform: none; white-space: nowrap; opacity: 1; transform: none !important; box-shadow: 0 14px 30px -14px rgba(0,0,0,.6); transition: background .25s, transform .25s cubic-bezier(.2,.85,.2,1); }
 .menu-item:nth-child(2) { --c: #D23697; } .menu-item:nth-child(3) { --c: #1E7CDF; } .menu-item:nth-child(4) { --c: #FA5643; }
-@media (hover: hover) { .menu-item:hover { opacity: .85; } }
-.menu-item[aria-current="true"] { opacity: 1; }
-.menu-item[aria-current="true"]::before { background: var(--c); }
-@media (min-width: 601px) and (max-width: 900px) { .menu { grid-template-columns: repeat(4, max-content) !important; justify-content: center; column-gap: 20px !important; padding: 0 !important; } .menu-item { font-size: clamp(14px, 2.2vw, 19px) !important; gap: 8px; white-space: nowrap; } }
-@media (max-width: 600px) { .menu { grid-template-columns: repeat(2, max-content) !important; justify-content: center; column-gap: clamp(12px, 4vw, 28px) !important; row-gap: 4px !important; padding: 0 !important; } .menu-item { font-size: clamp(14px, 4.4vw, 22px) !important; gap: 8px; } }
+@media (hover: hover) { .menu-item:hover { background: color-mix(in srgb, var(--c) 80%, #0E1C41) !important; } }
+.menu-item[aria-current="true"] { background: var(--c) !important; transform: translateY(-4px) !important; }
+@media (max-width: 900px) { .menu { grid-template-columns: repeat(4, 1fr) !important; column-gap: 12px !important; row-gap: 12px !important; padding: 0 !important; } .menu-item { font-size: clamp(14px, 2.4vw, 20px) !important; min-height: 64px; padding: 14px 8px !important; white-space: normal; line-height: 1.05; } }
+@media (max-width: 600px) { .menu { grid-template-columns: 1fr 1fr !important; } .menu-item { font-size: clamp(17px, 5vw, 22px) !important; } }
 
 /* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
 .svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }

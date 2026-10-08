@@ -121,13 +121,42 @@ body { padding: 0 5vw 120px; }
 .s5 .ic svg { width: 26px; height: 26px; }
 .s5 .big { font-size: 34px; } .s5 .lbl { display: block; margin-top: 2px; }
 @media (max-width: 640px) { .s1 { flex-direction: column; gap: 14px; } .s1 > div { border-left: 0; border-top: 3px solid var(--c); padding: 14px 0 0; } .s1 > div:first-child { border-top: 0; padding-top: 0; } .s4 { grid-template-columns: 1fr; } }
+
+/* ===== SCOPE round 2 ===== */
+.r2 { --c: var(--yellow); }
+/* A: one sentence */
+.a { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.5; max-width: 30ch; }
+.a b { font-family: 'DM Serif Display', serif; font-weight: 400; color: var(--c); font-size: 1.25em; padding: 0 .12em; background: linear-gradient(transparent 68%, color-mix(in srgb, var(--c) 28%, transparent) 68%); }
+/* B: route */
+.b { display: flex; align-items: flex-start; max-width: 680px; position: relative; padding-top: 6px; }
+.b::before { content: ""; position: absolute; left: 22px; right: 22px; top: 28px; border-top: 3px dashed color-mix(in srgb, var(--c) 60%, transparent); }
+.b > div { flex: 1; text-align: center; position: relative; }
+.b .dot { width: 44px; height: 44px; margin: 0 auto; display: grid; place-items: center; background: var(--c); color: var(--white); font-family: 'Anton', sans-serif; font-size: 22px; position: relative; z-index: 1; clip-path: polygon(6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px), 0 6px, 3px 6px, 3px 3px, 6px 3px); }
+.b .t2 { margin-top: 12px; font-family: 'DM Serif Display', serif; font-size: 20px; } .b .lbl { display: block; margin-top: 2px; }
+/* C: checklist */
+.c { list-style: none; display: grid; gap: 12px; }
+.c li { position: relative; padding-left: 26px; font-size: 19px; }
+.c li::before { content: ""; position: absolute; left: 0; top: .4em; width: 12px; height: 12px; background: var(--c); }
+.c li b { font-weight: 700; }
+/* D: stamps */
+.d2 { display: flex; flex-wrap: wrap; gap: 22px; }
+.d2 > div { width: 128px; height: 128px; border-radius: 50%; border: 3px solid var(--c); display: grid; place-content: center; text-align: center; transform: rotate(-6deg); box-shadow: inset 0 0 0 5px var(--ink), inset 0 0 0 7px color-mix(in srgb, var(--c) 55%, transparent); }
+.d2 > div:nth-child(2) { transform: rotate(4deg); } .d2 > div:nth-child(3) { transform: rotate(-3deg); }
+.d2 .big { font-size: 38px; color: var(--c); } .d2 .lbl { font-size: 11px; margin-top: 4px; display: block; }
+/* E: pixel counters */
+.e { display: grid; gap: 16px; max-width: 520px; }
+.e > div { display: grid; grid-template-columns: 110px 1fr; align-items: center; gap: 14px; }
+.e .sq { display: flex; flex-wrap: wrap; gap: 6px; }
+.e .sq i { width: 20px; height: 20px; background: var(--c); } .e .sq i.off { background: rgba(242,235,232,.14); }
+.e .note { margin-left: 8px; font-weight: 600; }
+@media (max-width: 640px) { .b { flex-direction: column; gap: 18px; } .b::before { display: none; } .e > div { grid-template-columns: 1fr; gap: 6px; } }
 </style>
 </head>
 <body>
 
 <header class="top">
   <h1>Services: layout options</h1>
-  <p>Part 1 is “How we get there” (first), part 2 is “Scope” (further down, <a href="#scope-options" style="color:#F9A323">jump to it</a>). Same four steps in every option (shown with the Logo Design wording). Each option is shown in a different service colour, and in the real page it takes the colour of its service. Tell me the number you like.</p>
+  <p>Part 1 is “How we get there” (first), part 2 is “Scope” (further down: <a href="#scope-options" style="color:#F9A323">first 5</a> and <a href="#scope-options-2" style="color:#F9A323">5 more</a>). Same four steps in every option (shown with the Logo Design wording). Each option is shown in a different service colour, and in the real page it takes the colour of its service. Tell me the number you like.</p>
 </header>
 
 <section class="opt o1">
@@ -232,6 +261,50 @@ body { padding: 0 5vw 120px; }
     <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><div><span class="big">2 concepts</span><span class="lbl">Two ideas to choose from</span></div></div>
     <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4h-4"/></svg></span><div><span class="big">2 revisions</span><span class="lbl">Two rounds of changes</span></div></div>
     <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><span class="big">1 week</span><span class="lbl">From brief to final files</span></div></div>
+  </div>
+</section>
+
+<div class="part" id="scope-options-2"><h2>Scope: 5 more options</h2><p>A second round, with different ideas. Same numbers (2 concepts, 2 revisions, 1 week).</p></div>
+
+<section class="opt sc r2">
+  <span class="tag">Scope B1 <em>One sentence</em></span>
+  <h3 class="sub">Scope</h3>
+  <p class="a" style="opacity:1;margin-top:0">You get <b>2</b> concepts, <b>2</b> rounds of revisions, and the final files in <b>1 week</b>.</p>
+</section>
+
+<section class="opt sc r2" style="--c: var(--pink)">
+  <span class="tag">Scope B2 <em>The route</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="b">
+    <div><span class="dot">2</span><div class="t2">Concepts</div><span class="lbl">to choose from</span></div>
+    <div><span class="dot">2</span><div class="t2">Revisions</div><span class="lbl">rounds of changes</span></div>
+    <div><span class="dot">1</span><div class="t2">Week</div><span class="lbl">to the final files</span></div>
+  </div>
+</section>
+
+<section class="opt sc r2" style="--c: var(--blue)">
+  <span class="tag">Scope B3 <em>Checklist</em></span>
+  <h3 class="sub">Scope</h3>
+  <ul class="c"><li><b>2</b> concepts to choose from</li><li><b>2</b> revision rounds included</li><li>Delivered in <b>1 week</b></li></ul>
+</section>
+
+<section class="opt sc r2" style="--c: var(--red)">
+  <span class="tag">Scope B4 <em>Stamps</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="d2">
+    <div><span class="big">2</span><span class="lbl">Concepts</span></div>
+    <div><span class="big">2</span><span class="lbl">Revisions</span></div>
+    <div><span class="big">1</span><span class="lbl">Week</span></div>
+  </div>
+</section>
+
+<section class="opt sc r2">
+  <span class="tag">Scope B5 <em>Pixel counters</em></span>
+  <h3 class="sub">Scope</h3>
+  <div class="e">
+    <div><span class="lbl">Concepts</span><span class="sq"><i></i><i></i></span></div>
+    <div><span class="lbl">Revisions</span><span class="sq"><i></i><i></i></span></div>
+    <div><span class="lbl">Timeline</span><span class="sq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span class="note">7 days</span></span></div>
   </div>
 </section>
 

@@ -160,6 +160,39 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   color: var(--ink);
 }
 
+/* hover interactions: four different ideas on the first four projects (for review) */
+.project img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+@media (hover: hover) {
+  /* 1 · block lift: the card jumps up-left, a hard coloured block shows behind it */
+  #logo-design .project-item:nth-child(1) .project { transition: transform .18s steps(4), box-shadow .18s steps(4); }
+  #logo-design .project-item:nth-child(1):hover .project { transform: translate(-6px, -6px); box-shadow: 10px 10px 0 var(--accent); }
+
+  /* 2 · viewfinder: four pixel corners close in and a VIEW tag slides up */
+  #logo-design .project-item:nth-child(2) .project::before { content: ''; position: absolute; inset: 14px; z-index: 2; pointer-events: none; opacity: 0; transform: scale(1.06); transition: opacity .2s, transform .25s ease;
+    background:
+      linear-gradient(#0E1C41,#0E1C41) 0 0/26px 4px, linear-gradient(#0E1C41,#0E1C41) 0 0/4px 26px,
+      linear-gradient(#0E1C41,#0E1C41) 100% 0/26px 4px, linear-gradient(#0E1C41,#0E1C41) 100% 0/4px 26px,
+      linear-gradient(#0E1C41,#0E1C41) 0 100%/26px 4px, linear-gradient(#0E1C41,#0E1C41) 0 100%/4px 26px,
+      linear-gradient(#0E1C41,#0E1C41) 100% 100%/26px 4px, linear-gradient(#0E1C41,#0E1C41) 100% 100%/4px 26px;
+    background-repeat: no-repeat; filter: drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1.5px #fff); }
+  #logo-design .project-item:nth-child(2) .project::after { content: 'VIEW +'; position: absolute; right: 22px; bottom: 22px; z-index: 3; padding: 9px 14px; background: var(--accent); color: #fff; font: 700 12px/1 'Inter', sans-serif; letter-spacing: .2em; transform: translateY(150%); transition: transform .25s cubic-bezier(.3,1.4,.5,1); }
+  #logo-design .project-item:nth-child(2):hover .project::before { opacity: 1; transform: scale(1); }
+  #logo-design .project-item:nth-child(2):hover .project::after { transform: translateY(0); }
+
+  /* 3 · colour wipe: image zooms, a coloured wash steps in from the left, name underline grows */
+  #logo-design .project-item:nth-child(3) .project::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: var(--accent); mix-blend-mode: multiply; opacity: .55; transform: translateX(-101%); transition: transform .4s steps(8); }
+  #logo-design .project-item:nth-child(3):hover .project::after { transform: translateX(0); }
+  #logo-design .project-item:nth-child(3):hover img { transform: scale(1.07); }
+  #logo-design .project-item:nth-child(3) .project-name { background: linear-gradient(var(--accent), var(--accent)) 0 100%/0 5px no-repeat; padding-bottom: 3px; transition: background-size .35s ease; }
+  #logo-design .project-item:nth-child(3):hover .project-name { background-size: 100% 5px; }
+
+  /* 4 · sticker pop: card tilts, a round OPEN sticker bounces in on the corner */
+  #logo-design .project-item:nth-child(4) .project { transition: transform .25s cubic-bezier(.3,1.5,.5,1); }
+  #logo-design .project-item:nth-child(4):hover .project { transform: rotate(-1.6deg) scale(1.025); }
+  #logo-design .project-item:nth-child(4) .project::after { content: 'OPEN'; position: absolute; top: 14px; right: 14px; z-index: 3; display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; background: var(--accent); color: #fff; font: 400 18px/1 'Anton', sans-serif; letter-spacing: .06em; transform: scale(0) rotate(-25deg); transition: transform .3s cubic-bezier(.3,1.6,.5,1); }
+  #logo-design .project-item:nth-child(4):hover .project::after { transform: scale(1) rotate(10deg); }
+}
+
 @media (max-width: 800px) {
   .gallery { padding: 40px 20px 80px; }
   .work-grid { grid-template-columns: 1fr; gap: 20px; }

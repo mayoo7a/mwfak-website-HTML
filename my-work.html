@@ -165,21 +165,23 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .work-cursor { position: fixed; left: 0; top: 0; z-index: 60; pointer-events: none; padding: 10px 16px; border-radius: 999px; background: var(--accent, #F9A323); color: #fff; font: 700 12px/1 'Inter', sans-serif; letter-spacing: .2em; transform: translate(-50%, -50%) scale(0); transition: transform .18s ease; }
 .work-cursor.on { transform: translate(-50%, -50%) scale(1); }
 @media (hover: hover) {
+  #logo-design .project-item:nth-child(-n+4) .project { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  #logo-design .project-item:nth-child(-n+4):hover .project { transform: scale(1.04); }
+
   /* 1 · cursor label: a small VIEW tag follows the mouse over the project */
   #logo-design .project-item:nth-child(1) .project { cursor: none; }
 
-  #logo-design .project-item:nth-child(1):hover img, #logo-design .project-item:nth-child(3):hover img { transform: scale(1.04); }
 
   /* 2 · caption slide: name slides right, an arrow appears, image eases in */
   #logo-design .project-item:nth-child(2) .project-name { display: inline-flex; align-items: center; gap: 10px; transition: transform .25s ease; }
   #logo-design .project-item:nth-child(2) .project-name::after { content: '\2192'; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--accent); opacity: 0; transform: translateX(-12px); transition: opacity .25s, transform .25s; }
   #logo-design .project-item:nth-child(2):hover .project-name { transform: translateX(8px); }
   #logo-design .project-item:nth-child(2):hover .project-name::after { opacity: 1; transform: none; }
-  #logo-design .project-item:nth-child(2):hover img { transform: scale(1.04); }
 
   /* 3 · tilt: the card leans toward the mouse with a soft glare (JS sets --rx --ry --gx --gy) */
   #logo-design .project-item:nth-child(3) { perspective: 900px; }
-  #logo-design .project-item:nth-child(3) .project { transition: transform .12s linear; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); will-change: transform; }
+  #logo-design .project-item:nth-child(3) .project { transition: transform .12s linear; transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1); will-change: transform; }
+  #logo-design .project-item:nth-child(3):hover .project { transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.04); }
   #logo-design .project-item:nth-child(3) .project::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .2s; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.35), transparent 55%); }
   #logo-design .project-item:nth-child(3):hover .project::after { opacity: 1; }
 
@@ -188,7 +190,6 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   #logo-design .project-item:nth-child(4) .project::before { width: 34px; height: 34px; top: 16px; left: 16px; }
   #logo-design .project-item:nth-child(4) .project::after { width: 22px; height: 22px; right: 22px; bottom: 22px; transition-delay: .08s; }
   #logo-design .project-item:nth-child(4):hover .project::before, #logo-design .project-item:nth-child(4):hover .project::after { transform: scale(1) rotate(0); animation: twinkle 1.1s .4s ease-in-out infinite; }
-  #logo-design .project-item:nth-child(4):hover img { transform: scale(1.04); }
 }
 @keyframes twinkle { 50% { transform: scale(.7) rotate(20deg); } }
 

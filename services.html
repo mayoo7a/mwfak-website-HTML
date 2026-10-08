@@ -1103,12 +1103,11 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .svc-cta { margin-top: 56px; }
 
 .svc-more { margin-top: 56px; }
-.svc-more > summary { display: inline-flex; align-items: center; gap: 12px; cursor: pointer; list-style: none; font-family: 'DM Serif Display', Georgia, serif; font-size: 24px; color: var(--bg); padding: 6px 0; }
+.svc-more > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; padding: 16px 20px; border: 2px solid var(--c); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--bg); transition: background .15s; }
 .svc-more > summary::-webkit-details-marker { display: none; }
-.svc-more > summary::before { content: '+'; display: inline-grid; place-items: center; width: 26px; height: 26px; background: var(--c); color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px; line-height: 1; }
-.svc-more[open] > summary::before { content: '\2212'; }
-.svc-more > summary .svc-more-close, .svc-more[open] > summary .svc-more-open { display: none; }
-.svc-more[open] > summary .svc-more-close { display: inline; }
+.svc-more > summary::after { content: ''; flex: none; width: 14px; height: 14px; background: linear-gradient(var(--c), var(--c)) center/100% 4px no-repeat, linear-gradient(var(--c), var(--c)) center/4px 100% no-repeat; }
+.svc-more[open] > summary::after { background: linear-gradient(var(--c), var(--c)) center/100% 4px no-repeat; }
+@media (hover: hover) { .svc-more > summary:hover { background: color-mix(in srgb, var(--c) 18%, transparent); } }
 .svc-more > summary:focus-visible { outline: 2px solid var(--c); outline-offset: 4px; }
 .svc-more > .svc-end { margin-top: 32px; }
 .svc-proj { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; }
@@ -1182,7 +1181,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Brief</strong><span class="svc-steptext">Your business, your audience and the feeling you want.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Refine</strong><span class="svc-steptext">Tested small and large, on light and on dark.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and file.</span></div></li></ol>
   </div>
-  <details class="svc-more"><summary><span class="svc-more-open">See what you receive</span><span class="svc-more-close">Show less</span></summary>
+  <details class="svc-more"><summary>What you receive</summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>
@@ -1221,7 +1220,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>We talk</strong><span class="svc-steptext">Your business, your audience, your goals, and what you love and hate.</span></li><li><span class="svc-num">2</span><strong>I propose</strong><span class="svc-steptext">A clear visual direction, and we choose the way forward together.</span></li><li><span class="svc-num">3</span><strong>I build</strong><span class="svc-steptext">The full system, tested on real examples.</span></li><li><span class="svc-num">4</span><strong>You launch</strong><span class="svc-steptext">Files and guidelines, ready to use from day one.</span></li></ol>
   </div>
-  <details class="svc-more"><summary><span class="svc-more-open">See what you receive</span><span class="svc-more-close">Show less</span></summary>
+  <details class="svc-more"><summary>What you receive</summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>
@@ -1260,7 +1259,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Brief</strong><span class="svc-steptext">The product, the audience and where it will be sold.</span></li><li><span class="svc-num">2</span><strong>Concepts</strong><span class="svc-steptext">A few packaging directions, and we pick one to develop.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">The finished design, shown on realistic mockups.</span></li><li><span class="svc-num">4</span><strong>Print prep</strong><span class="svc-steptext">Files prepared and checked before they reach the printer.</span></li></ol>
   </div>
-  <details class="svc-more"><summary><span class="svc-more-open">See what you receive</span><span class="svc-more-close">Show less</span></summary>
+  <details class="svc-more"><summary>What you receive</summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>
@@ -1300,7 +1299,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     <h3 class="svc-sub">How we get there</h3>
     <ol class="svc-steps"><li><span class="svc-num">1</span><strong>Understand</strong><span class="svc-steptext">Your users, your goals and what is not working today.</span></li><li><span class="svc-num">2</span><strong>Map</strong><span class="svc-steptext">Every step people take, and what stays and what goes.</span></li><li><span class="svc-num">3</span><strong>Design</strong><span class="svc-steptext">From wireframes to finished screens for every size.</span></li><li><span class="svc-num">4</span><strong>Hand over</strong><span class="svc-steptext">Organised files and clear specifications for your developer.</span></li></ol>
   </div>
-  <details class="svc-more"><summary><span class="svc-more-open">See what you receive</span><span class="svc-more-close">Show less</span></summary>
+  <details class="svc-more"><summary>What you receive</summary>
   <div class="svc-end">
     <div class="svc-files">
       <h3 class="svc-sub">What you receive</h3>

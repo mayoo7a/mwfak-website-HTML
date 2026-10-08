@@ -181,9 +181,9 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   cursor: zoom-out;
 }
 /* the picture is pinned at the same spot; only the text under it can grow downwards */
-.lightbox.open { display: grid; align-items: start; justify-items: center; padding-top: max(72px, calc((100vh - 58vh - 190px) / 2)); padding-top: max(72px, calc((100dvh - 58dvh - 190px) / 2)); overflow-y: auto; }
-.lb-fig { margin: 0; display: grid; justify-items: center; gap: 16px; max-width: min(900px, 86vw); cursor: default; }
-.lightbox img { display: block; max-width: 100%; max-height: 58vh; max-height: 58dvh; width: auto; height: auto; object-fit: contain; border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
+.lightbox.open { display: grid; align-items: start; justify-items: center; padding-top: max(56px, calc((100vh - 68vh - 190px) / 2 - 24px)); padding-top: max(56px, calc((100dvh - 68dvh - 190px) / 2 - 24px)); overflow-y: auto; }
+.lb-fig { margin: 0; display: grid; justify-items: center; gap: 28px; max-width: min(1080px, 92vw); cursor: default; }
+.lightbox img { display: block; max-width: 100%; max-height: 68vh; max-height: 68dvh; width: auto; height: auto; object-fit: contain; border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
 .lb-cap { display: grid; gap: 4px; justify-items: center; text-align: center; max-width: 80ch; color: var(--bg); }
 .lb-type { font-weight: 700; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .65; }
 .lb-name { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .01em; text-transform: uppercase; line-height: 1.1; }
@@ -193,7 +193,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .lb-prev { left: clamp(10px, 3vw, 40px); } .lb-next { right: clamp(10px, 3vw, 40px); }
 @media (hover: hover) { .lb-arrow:hover { background: var(--pop); } }
 .lb-arrow:focus-visible { outline: 3px solid #F9A323; outline-offset: 2px; }
-@media (max-width: 640px) { .lightbox.open { padding-top: 64px; } .lb-arrow { top: auto; bottom: 18px; transform: none; width: 42px; height: 42px; } .lb-prev { left: calc(50% - 56px); } .lb-next { right: calc(50% - 56px); } .lightbox img { max-height: 46vh; max-height: 46dvh; } .lb-fig { max-width: 90vw; padding-bottom: 56px; } }
+@media (max-width: 640px) { .lightbox.open { padding-top: 56px; } .lb-arrow { top: auto; bottom: 18px; transform: none; width: 42px; height: 42px; } .lb-prev { left: calc(50% - 56px); } .lb-next { right: calc(50% - 56px); } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; padding-bottom: 56px; } }
 .lightbox-close {
   position: fixed;
   z-index: 120;

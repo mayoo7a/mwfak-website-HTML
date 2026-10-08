@@ -1164,7 +1164,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
   </div>
   <div class="svc-how">
     <h3 class="svc-sub">How we get there</h3>
-    <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Brief</strong><span class="svc-steptext">The business, the audience and the feeling the logo should give.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest ones.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Refine</strong><span class="svc-steptext">The chosen idea, tested small and large, on light and on dark.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and every file you need.</span></div></li></ol>
+    <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Brief</strong><span class="svc-steptext">Your business, your audience and the feeling you want.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Refine</strong><span class="svc-steptext">Tested small and large, on light and on dark.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and file.</span></div></li></ol>
   </div>
   <div class="svc-end">
     <div class="svc-files">
@@ -1543,6 +1543,8 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .svc-tltext { min-width: 0; display: grid; gap: 6px; padding-top: 2px; }
 .svc-tltext strong { margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.1; color: var(--bg); }
 .svc-tltext .svc-steptext { max-width: 46ch; }
+.svc-tltext .svc-steptext { font-size: 14.25px; max-width: none; }
+@media (min-width: 701px) { .svc-tltext .svc-steptext { white-space: nowrap; } }
 </style>
 </body>
 </html>

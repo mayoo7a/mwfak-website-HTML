@@ -869,6 +869,44 @@ html, body { cursor: none; }
 @media (max-width: 1100px) { .work-pair { gap: 24px; } }
 @media (max-width: 800px) { .work-pair { grid-template-columns: 1fr; gap: 64px; margin-bottom: 64px; } }
 @media (max-width: 640px) { .work-pair { gap: 56px; } }
+
+/* ===== same top bar as the home page: menu links on wide screens, burger menu on smaller ones; back link sits under it on the left ===== */
+.header { z-index: 30; }
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; text-decoration: none; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
+.quote-btn:focus-visible { background: var(--pop); outline: none; transform: translateY(-2px); }
+@media (hover: hover) { .quote-btn:hover { background: var(--pop); transform: translateY(-2px); } }
+.header-nav { display: none; }
+.burger { position: relative; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; border: 0; background: transparent; cursor: pointer; padding: 0; transition: background .35s ease; }
+@media (hover: hover) { .burger:hover { background: rgba(14,28,65,.08); } }
+.burger span { position: absolute; left: 13px; right: 13px; height: 2px; background: var(--ink); transition: transform .35s ease, top .35s ease; }
+.burger span:nth-child(1) { top: 20px; }
+.burger span:nth-child(2) { top: 30px; }
+.burger.open span:nth-child(1) { top: 25px; transform: rotate(45deg); }
+.burger.open span:nth-child(2) { top: 25px; transform: rotate(-45deg); }
+.menu-panel { position: fixed; inset: 0; z-index: 25; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 0; pointer-events: none; transform: translateY(-20px); transition: opacity .4s ease, transform .5s ease; }
+.menu-panel.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.menu-panel a { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(40px, 11vw, 120px); line-height: .95; color: var(--bg); letter-spacing: .01em; text-transform: uppercase; text-decoration: none; padding: 4px 18px; transition: color .3s ease; }
+@media (hover: hover) { .menu-panel a:hover { color: #F9A323; } }
+@media (max-width: 640px) { .quote-btn { padding: 11px 14px; font-size: 10px; letter-spacing: .12em; } .header-actions { gap: 6px; } .burger { width: 44px; height: 44px; } .burger span { left: 11px; right: 11px; } .burger span:nth-child(1) { top: 16px; } .burger span:nth-child(2) { top: 26px; } .burger.open span:nth-child(1), .burger.open span:nth-child(2) { top: 21px; } }
+@media (max-width: 400px) { .quote-btn { display: none; } }
+@media (min-width: 1200px) {
+  .header-nav { display: flex; align-items: center; gap: clamp(22px, 2.6vw, 40px); margin-right: 14px; }
+  .header-nav a { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); text-decoration: none; white-space: nowrap; padding: 8px 0; position: relative; transition: color .25s ease; }
+  .header-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+  .header-nav a:focus-visible { color: var(--pop); outline: none; }
+  .header-nav a:focus-visible::after { transform: scaleX(1); }
+  @media (hover: hover) { .header-nav a:hover { color: var(--pop); } .header-nav a:hover::after { transform: scaleX(1); } }
+  .header-actions .burger { display: none; }
+}
+html { scroll-padding-top: 90px; }
+/* back link: right under the top bar, on the left, square-cornered (not an oval) */
+.page-back { padding: 22px 40px 0; }
+.back-link { display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; background: var(--bg); border: 2.5px solid var(--ink); border-radius: 0; box-shadow: 4px 4px 0 var(--ink); color: var(--ink); text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .16em; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease; }
+.back-link:focus-visible { background: var(--ink); color: var(--bg); outline: none; }
+@media (hover: hover) { .back-link:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); background: var(--ink); color: var(--bg); } }
+@media (max-width: 1100px) { .page-back { padding: 18px 28px 0; } }
+@media (max-width: 640px) { .page-back { padding: 16px 16px 0; } .back-link { padding: 9px 14px; font-size: 10px; box-shadow: 3px 3px 0 var(--ink); } }
 </style>
 </head>
 <body>
@@ -877,12 +915,30 @@ html, body { cursor: none; }
 </div>
 
 <header class="header">
-  <a href="index.html" class="brand" aria-label="Back home">
+  <a href="index.html" class="brand" aria-label="Marah Touqan home">
     <img src="assets/logo.png" alt="Marah Touqan logo" width="256" height="239" />
     <span class="brand-name">Marah Touqan</span>
   </a>
-  <a href="index.html" class="back-btn">← Back home</a>
+  <div class="header-actions">
+    <nav class="header-nav" aria-label="Primary">
+      <a href="my-work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="quote-btn" href="#contact">Get a quote</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span>
+    </button>
+  </div>
 </header>
+<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
+  <a href="my-work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="index.html#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+<div class="page-back"><a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back home</a></div>
 
 <section class="intro">
   <div class="intro-left">
@@ -1254,6 +1310,28 @@ html, body { cursor: none; }
       window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(TO) + '&su=' + encodeURIComponent(SUBJECT), '_blank', 'noopener');
     }, 900);
   });
+})();
+</script>
+
+<script>
+/* menu: the burger opens the full-screen menu on smaller screens */
+(function(){
+  const burger = document.getElementById('burger'), menu = document.getElementById('menuPanel');
+  if (!burger || !menu) return;
+  function setMenu(open, returnFocus) {
+    burger.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menu.toggleAttribute('inert', !open);
+    if (open) { const first = menu.querySelector('a'); if (first) first.focus({ preventScroll: true }); }
+    else if (returnFocus) burger.focus({ preventScroll: true });
+  }
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open'), false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false, false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { e.preventDefault(); setMenu(false, true); } });
+  addEventListener('resize', () => { if (innerWidth >= 1200 && menu.classList.contains('open')) setMenu(false, false); });
 })();
 </script>
 </body>

@@ -1594,7 +1594,7 @@ document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('clic
   .svc { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: 32px; align-items: start; }
   .svc > * { grid-column: 1 / -1; }
   .svc > .svc-how { grid-column: 1; grid-row: 2; }
-  .svc > .svc-scopebox { grid-column: 2; grid-row: 2; }
+  .svc > .svc-scopebox { grid-column: 2; grid-row: 2; justify-self: end; width: fit-content; }
   .svc-how, .svc-scopebox, .svc-scopebox + .svc-how { margin-top: 56px; }
   .svc .svc-steps { grid-template-columns: 1fr; }
   .svc-tltext .svc-steptext { white-space: normal; }

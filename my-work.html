@@ -183,10 +183,11 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .lightbox.open { display: grid; }
 .lb-fig { margin: 0; display: grid; justify-items: center; gap: 16px; max-width: min(900px, 86vw); cursor: default; }
 .lightbox img { display: block; max-width: 100%; max-height: 58vh; max-height: 58dvh; width: auto; height: auto; object-fit: contain; border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
-.lb-cap { display: grid; gap: 4px; justify-items: center; text-align: center; max-width: 62ch; color: var(--bg); }
+.lb-cap { display: grid; gap: 4px; justify-items: center; text-align: center; max-width: 80ch; color: var(--bg); }
 .lb-type { font-weight: 700; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .65; }
 .lb-name { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .01em; text-transform: uppercase; line-height: 1.1; }
 .lb-desc { margin-top: 6px; font-size: 15px; line-height: 1.6; opacity: .88; }
+.lb-desc span { display: block; }
 .lb-arrow { position: fixed; z-index: 120; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--bg); background: rgba(14, 28, 65, 0.85); color: var(--bg); display: grid; place-items: center; cursor: pointer; padding: 0; transition: background .25s ease, transform .2s ease; }
 .lb-prev { left: clamp(10px, 3vw, 40px); } .lb-next { right: clamp(10px, 3vw, 40px); }
 @media (hover: hover) { .lb-arrow:hover { background: var(--pop); } }
@@ -1262,21 +1263,21 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 
   // short, plain descriptions (based on what each board shows)
   const DESC = {
-    'baseera': 'An Arabic-inspired logo with English and bilingual versions, a colour palette, and light and dark versions.',
-    'zinger-lab': 'A bold stacked logo for a food brand, shown on signage and packaging, with its colours and typeface.',
-    '33-butchery': 'A bull-and-number logo with its colours, typeface, and versions for light, dark and red backgrounds.',
-    'canary-calls': 'A friendly canary mascot logo for a call business, with its colour palette and versions for every background.',
-    'compera-jewelry': 'A refined monogram logo for a jewellery brand, shown on gift boxes with soft peach tones.',
-    'hbcs': 'A clean, modern logo for an accounting company, with a symbol, colour palette and typography.',
-    'heavyweight-hoodies': 'A mountain-shaped logo for a hoodie brand, shown on a clothing label with warm brown and orange tones.',
-    'motammem': 'An Arabic calligraphy logo that forms a building, with colour options and clear-space guidance.',
-    'sol-root': 'A logo and packaging for a tahini brand, with Arabic and English lockups and a natural green palette.',
-    'battikhi-stays': 'A brand identity for family stays, with a logo, palette, typography, a website and printed guest materials.',
-    'the-welcome-table': 'A warm brand identity for a community table, with a logo, merchandise, stickers and social posts.',
-    'ummati': 'A brand identity and app design: logo, colours, typography, app icon, mobile screens and a website.',
-    'qanadeel': 'A presentation design with covers, a deck layout and content slides in Arabic.',
-    'mwafq': 'A website and app design for booking medical exams, in Arabic and English, with a clear booking flow.',
-    'ticketat': 'A website and booking flow for events, in Arabic, with colourful event pages and a clear checkout.'
+    'baseera': ['An Arabic-inspired logo with bilingual versions,', 'a colour palette, and light and dark versions.'],
+    'zinger-lab': ['A bold stacked logo for a food brand,', 'shown on signage and packaging, with its colours and typeface.'],
+    '33-butchery': ['A bull-and-number logo with its colours and typeface,', 'and versions for light, dark and red backgrounds.'],
+    'canary-calls': ['A friendly canary mascot logo for a call business,', 'with its colour palette and versions for every background.'],
+    'compera-jewelry': ['A refined monogram logo for a jewellery brand,', 'shown on gift boxes with soft peach tones.'],
+    'hbcs': ['A clean, modern logo for an accounting company,', 'with a symbol, colour palette and typography.'],
+    'heavyweight-hoodies': ['A mountain-shaped logo for a hoodie brand,', 'shown on a clothing label with warm brown and orange tones.'],
+    'motammem': ['An Arabic calligraphy logo that forms a building,', 'with colour options and clear-space guidance.'],
+    'sol-root': ['A logo and packaging for a tahini brand,', 'with Arabic and English lockups and a natural green palette.'],
+    'battikhi-stays': ['A brand identity for family stays, with a logo,', 'a colour palette, typography, a website and printed guest materials.'],
+    'the-welcome-table': ['A warm brand identity for a community table,', 'with a logo, merchandise, stickers and social posts.'],
+    'ummati': ['A brand identity and app design with a logo,', 'colours, typography, an app icon, mobile screens and a website.'],
+    'qanadeel': ['A presentation design for an association,', 'with covers, a deck layout and content slides in Arabic.'],
+    'mwafq': ['A website and app design for booking medical exams,', 'in Arabic and English, with a clear booking flow.'],
+    'ticketat': ['A website and booking flow for events, in Arabic,', 'with colourful event pages and a clear checkout.']
   };
   const stem = p => (p.dataset.src || '').split('/').pop().replace(/\.webp$/, '');
   // flip order = the order of the page, each project once
@@ -1292,7 +1293,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     const cap = p.closest('.project-item');
     tEl.textContent = cap && cap.querySelector('.project-type') ? cap.querySelector('.project-type').textContent : '';
     nEl.textContent = p.dataset.name;
-    dEl.textContent = DESC[stem(p)] || '';
+    const d = DESC[stem(p)] || []; dEl.innerHTML = ''; d.forEach(t => { const l = document.createElement('span'); l.textContent = t; dEl.appendChild(l); });
     lightbox.setAttribute('aria-label', p.dataset.name);
     // load the neighbours so flipping is instant
     [1, -1].forEach(d => { const n = list[(cur + d + list.length) % list.length]; if (n) new Image().src = n.dataset.src; });

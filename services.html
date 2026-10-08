@@ -1076,6 +1076,25 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 .menu-item:nth-child(2) { --c: #D23697; } .menu-item:nth-child(3) { --c: #1E7CDF; } .menu-item:nth-child(4) { --c: #FA5643; }
 @media (hover: hover) { .menu-item:hover { opacity: 1; border-bottom-color: color-mix(in srgb, var(--c) 55%, transparent); } }
 .menu-item[aria-current="true"] { opacity: 1; border-bottom-color: var(--c); }
+/* switcher options for review: open services.html?tabs=1 .. ?tabs=4 */
+html[data-tabs="1"] .menu-item { border: 0; padding: 12px 14px !important; background: var(--c) !important; color: #fff; font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(14px, 1.5vw, 22px); letter-spacing: .05em; text-align: center; opacity: .8; transform: rotate(-1.5deg) !important; transition: transform .2s, opacity .2s, box-shadow .2s; }
+html[data-tabs="1"] .menu-item:nth-child(even) { transform: rotate(1.5deg) !important; }
+html[data-tabs="1"] .menu-item[aria-current="true"] { opacity: 1; transform: rotate(0) scale(1.05) !important; box-shadow: 5px 5px 0 rgba(255,255,255,.9); border: 0; }
+html[data-tabs="2"] .menu-item { text-align: left; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2vw, 30px); letter-spacing: 0; text-transform: none; border: 0; counter-increment: tab; display: flex; align-items: center; gap: 12px; opacity: .5; }
+html[data-tabs="2"] .menu-item::before { display: block !important; content: counter(tab, decimal-leading-zero); position: static; width: auto; height: auto; margin: 0; background: none; opacity: 1; transform: none; animation: none; font: 700 12px/1 'Inter', sans-serif; letter-spacing: .18em; color: var(--c); }
+html[data-tabs="2"] .menu-item[aria-current="true"] { opacity: 1; border: 0; }
+html[data-tabs="2"] .menu-item[aria-current="true"]::after { content: ''; width: 12px; height: 12px; background: var(--c); }
+html[data-tabs="3"] .menu { gap: 0; }
+html[data-tabs="3"] .menu-item { border: 2px solid var(--c); border-right-width: 0; padding: 16px 8px !important; text-align: center; opacity: 1; color: #F7F7F7; transition: background .2s, color .2s; }
+html[data-tabs="3"] .menu-item:last-child { border-right-width: 2px; }
+html[data-tabs="3"] .menu-item[aria-current="true"] { background: var(--c) !important; border-color: var(--c); }
+@media (hover: hover) { html[data-tabs="3"] .menu-item:hover { background: color-mix(in srgb, var(--c) 30%, transparent) !important; } html[data-tabs="3"] .menu-item[aria-current="true"]:hover { background: var(--c) !important; } }
+html[data-tabs="4"] .menu-item { border: 0; display: flex; align-items: center; gap: 12px; text-align: left; font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(15px, 1.7vw, 26px); letter-spacing: .03em; opacity: .6; }
+html[data-tabs="4"] .menu-item::before { display: block !important; content: ''; position: static; flex: none; width: 16px; height: 16px; margin: 0; border: 3px solid var(--c); background: transparent; opacity: 1; transform: none; animation: none; }
+html[data-tabs="4"] .menu-item[aria-current="true"] { opacity: 1; border: 0; }
+html[data-tabs="4"] .menu-item[aria-current="true"]::before { background: var(--c); }
+.tabs-preview { position: fixed; left: 18px; bottom: 70px; z-index: 90; display: flex; gap: 6px; font: 700 12px/1 'Inter', sans-serif; }
+.tabs-preview a { padding: 9px 12px; background: #F7F7F7; color: #0E1C41; text-decoration: none; }
 
 /* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
 .svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }
@@ -1560,6 +1579,9 @@ document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('clic
   const f = b.closest('.svc-fade'); const o = f.classList.toggle('is-open'); b.setAttribute('aria-expanded', o);
   document.querySelectorAll('.svc-proj').forEach(() => {}); window.dispatchEvent(new Event('resize'));
 }));
+
+(function(){ const m=/[?&]tabs=([1-4])/.exec(location.search); if(m) document.documentElement.dataset.tabs=m[1];
+  const d=document.createElement('div'); d.className='tabs-preview'; d.innerHTML='<span style="padding:9px 4px;color:#fff">Tabs:</span><a href="?tabs=1">1</a><a href="?tabs=2">2</a><a href="?tabs=3">3</a><a href="?tabs=4">4</a><a href="?">current</a>'; document.body.appendChild(d); d.addEventListener('click',e=>{const a=e.target.closest('a'); if(!a) return; e.preventDefault(); const n=/tabs=(\d)/.exec(a.getAttribute('href')); if(n) document.documentElement.dataset.tabs=n[1]; else delete document.documentElement.dataset.tabs;}); })();
 </script>
 
 <!-- TEMPORARY: link to the layout options page; to be removed once one option is chosen -->

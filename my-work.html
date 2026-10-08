@@ -189,7 +189,7 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
 .lb-name { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .01em; text-transform: uppercase; line-height: 1.1; }
 .lb-desc { margin-top: 6px; font-size: 15px; line-height: 1.6; opacity: .88; }
 .lb-desc span { display: block; }
-.lb-progress, .lb-count { display: none; }
+.lb-progress { display: none; }
 .lb-stage { position: relative; width: fit-content; max-width: 100%; }
 .lb-arrow { position: absolute; z-index: 120; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--bg); background: rgba(14, 28, 65, 0.85); color: var(--bg); display: grid; place-items: center; cursor: pointer; padding: 0; transition: background .25s ease, transform .2s ease; }
 /* beside the picture, vertically in the middle of it; when the screen is too narrow they sit on the picture's edges, 8px from the screen edge */
@@ -203,9 +203,8 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   .lb-progress button { flex: 1; height: 4px; padding: 0; border: 0; border-radius: 2px; background: rgba(242, 235, 232, .28); cursor: pointer; position: relative; }
   .lb-progress button::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; bottom: -10px; }
   .lb-progress button.on { background: #F9A323; }
-  .lb-count { display: block; font-weight: 700; font-size: 12px; letter-spacing: .14em; color: #F9A323; margin-bottom: 2px; }
 }
-@media (max-width: 640px) { .lb-desc { text-wrap: wrap; } .lb-desc span { display: inline; } .lb-arrow { width: 30px; height: 58px; border: 0; border-radius: 8px; background: rgba(14, 28, 65, 0.62); color: #F7F7F7; } .lb-arrow svg { width: 20px; height: 20px; } .lb-prev { left: 5px; right: auto; } .lb-next { right: 5px; left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; } .lb-cap { min-height: 150px; } }
+@media (max-width: 640px) { .lb-desc { text-wrap: wrap; } .lb-desc span { display: inline; } .lb-arrow { width: 30px; height: 58px; border: 0; border-radius: 8px; background: rgba(14, 28, 65, 0.62); color: #F7F7F7; } .lb-arrow svg { width: 20px; height: 20px; } .lb-prev { left: 5px; right: auto; } .lb-next { right: 5px; left: auto; } .lightbox img { max-height: 52vh; max-height: 52dvh; } .lb-fig { max-width: 94vw; } .lb-cap { min-height: 132px; } }
 .lightbox-close {
   position: fixed;
   z-index: 120;
@@ -1264,7 +1263,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
       <button class="lb-arrow lb-next" aria-label="Next project"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       <img alt="" id="lightbox-img" />
     </div>
-    <figcaption class="lb-cap"><span class="lb-count" id="lb-count"></span><span class="lb-type" id="lb-type"></span><strong class="lb-name" id="lb-name"></strong><p class="lb-desc" id="lb-desc"></p></figcaption>
+    <figcaption class="lb-cap"><span class="lb-type" id="lb-type"></span><strong class="lb-name" id="lb-name"></strong><p class="lb-desc" id="lb-desc"></p></figcaption>
   </figure>
 </div>
 
@@ -1300,7 +1299,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
   const list = [];
   projects.forEach(p => { if (!list.some(q => q.dataset.src === p.dataset.src)) list.push(p); });
   let cur = -1;
-  const prog = document.getElementById('lb-progress'), cntEl = document.getElementById('lb-count');
+  const prog = document.getElementById('lb-progress');
   list.forEach((p, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Show ' + p.dataset.name); b.addEventListener('click', e => { e.stopPropagation(); show(i); }); prog.appendChild(b); });
 
   function show(i) {
@@ -1315,7 +1314,6 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
     lightbox.setAttribute('aria-label', p.dataset.name);
     layoutDesc();
     [...prog.children].forEach((b, k) => b.classList.toggle('on', k === cur));
-    cntEl.textContent = (cur + 1) + ' / ' + list.length;
     // load the neighbours so flipping is instant
     [1, -1].forEach(d => { const n = list[(cur + d + list.length) % list.length]; if (n) new Image().src = n.dataset.src; });
   }

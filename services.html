@@ -1077,6 +1077,7 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 @media (hover: hover) { .menu-item:hover { opacity: .85; } }
 .menu-item[aria-current="true"] { opacity: 1; }
 .menu-item[aria-current="true"]::before { background: var(--c); }
+@media (max-width: 900px) { .menu { grid-template-columns: repeat(2, max-content) !important; justify-content: center; column-gap: clamp(12px, 4vw, 28px) !important; row-gap: 4px !important; padding: 0 !important; } .menu-item { font-size: clamp(14px, 4.4vw, 22px) !important; gap: 8px; } }
 
 /* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
 .svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }

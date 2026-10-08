@@ -115,7 +115,6 @@ html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', san
   letter-spacing: -0.01em;
   color: var(--ink);
 }
-.work-group-title .wg-plus { color: var(--accent); }
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -861,6 +860,15 @@ html, body { cursor: none; }
 @media (max-width: 900px) { .footer-bottom { justify-content: flex-start; } .footer-bottom .footer-copy { margin-right: 0; } }
 /* "Currently" text: when it needs two lines it breaks after "part-time" */
 .footer-status .fs-line { display: inline-block; }
+
+/* two small services side by side when the screen has room for two images in a row */
+.work-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-bottom: 90px; }
+.work-pair .work-group { margin-bottom: 0; min-width: 0; }
+.work-pair .work-grid { grid-template-columns: 1fr; }
+@media (min-width: 1700px) { .work-pair { gap: 36px; } }
+@media (max-width: 1100px) { .work-pair { gap: 24px; } }
+@media (max-width: 800px) { .work-pair { grid-template-columns: 1fr; gap: 64px; margin-bottom: 64px; } }
+@media (max-width: 640px) { .work-pair { gap: 56px; } }
 </style>
 </head>
 <body>
@@ -1004,8 +1012,9 @@ html, body { cursor: none; }
     </div>
   </div>
 
+  <div class="work-pair">
   <div class="work-group" id="packaging" style="--accent:#1E7CDF">
-    <h2 class="work-group-title">Packaging &amp; Print <span class="wg-plus">+</span> Slides Design</h2>
+    <h2 class="work-group-title">Packaging &amp; Print</h2>
     <div class="work-grid">
     <div class="project-item">
       <div class="project" data-src="assets/portfolio/sol-root.webp" data-name="Sol Root">
@@ -1016,6 +1025,12 @@ html, body { cursor: none; }
         <span class="project-name">Sol Root</span>
       </div>
     </div>
+    </div>
+  </div>
+
+  <div class="work-group" id="slides-design" style="--accent:#0E1C41">
+    <h2 class="work-group-title">Slides Design</h2>
+    <div class="work-grid">
     <div class="project-item">
       <div class="project" data-src="assets/portfolio/qanadeel.webp" data-name="Qanadeel">
         <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel" width="1400" height="745" loading="lazy" decoding="async" />
@@ -1026,6 +1041,7 @@ html, body { cursor: none; }
       </div>
     </div>
     </div>
+  </div>
   </div>
 
   <div class="work-group" id="ui-ux" style="--accent:#FA5643">

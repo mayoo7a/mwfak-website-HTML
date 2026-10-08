@@ -901,14 +901,15 @@ html, body { cursor: none; }
 }
 html { scroll-padding-top: 90px; }
 /* back link: right under the top bar, on the left, just text with an arrow */
-.page-back { padding: 22px 40px 0; }
+.page-back { position: relative; height: 0; padding: 0; z-index: 5; }
+.page-back .back-link { position: absolute; top: 22px; left: 40px; }
 .back-link { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; color: var(--ink); text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .16em; text-transform: uppercase; transition: color .2s ease; }
 .back-link span { display: inline-block; font-size: 16px; transition: transform .2s ease; }
 .back-link:focus-visible { color: var(--pop); outline: none; }
 .back-link:focus-visible span { transform: translateX(-4px); }
 @media (hover: hover) { .back-link:hover { color: var(--pop); } .back-link:hover span { transform: translateX(-4px); } }
-@media (max-width: 1100px) { .page-back { padding: 18px 28px 0; } }
-@media (max-width: 640px) { .page-back { padding: 14px 16px 0; } .back-link { font-size: 10px; } .back-link span { font-size: 14px; } }
+@media (max-width: 1100px) { .page-back .back-link { top: 18px; left: 28px; } }
+@media (max-width: 640px) { .page-back .back-link { top: 14px; left: 16px; font-size: 10px; } .back-link span { font-size: 14px; } }
 </style>
 </head>
 <body>

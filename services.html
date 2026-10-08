@@ -1069,6 +1069,11 @@ body.menu-open .quote-btn, body.menu-open .hero.hero--reel .quote-btn, body.menu
 
 /* the four service buttons scroll away with the page (they no longer stay stuck under the top bar) */
 .menu { position: static !important; top: auto !important; }
+
+/* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
+.svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }
+@media (min-width: 901px) { .svc .svc-proj { grid-row: 1 / span 2 !important; } }   /* centred beside the title and description */
+.svc-head { position: static !important; top: auto !important; align-self: start; }
 </style>
 </head>
 <body>

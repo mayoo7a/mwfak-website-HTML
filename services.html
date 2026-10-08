@@ -1572,6 +1572,21 @@ document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('clic
   const f = b.closest('.svc-fade'); const o = f.classList.toggle('is-open'); b.setAttribute('aria-expanded', o);
   document.querySelectorAll('.svc-proj').forEach(() => {}); window.dispatchEvent(new Event('resize'));
 }));
+
+(function () {
+  const arts = [...document.querySelectorAll('.svc')];
+  function place() {
+    arts.forEach(art => {
+      const cta = art.querySelector('.svc-cta--proj'), price = art.querySelector('.svc-price'); if (!cta || !price) return;
+      cta.style.marginTop = '0px';
+      if (matchMedia('(max-width: 480px)').matches || !art.offsetParent) return;
+      const p = price.getBoundingClientRect(), c = cta.getBoundingClientRect();
+      cta.style.marginTop = Math.max(0, Math.round((p.top + p.height / 2) - (c.top + c.height / 2))) + 'px';
+    });
+  }
+  place(); addEventListener('resize', place); addEventListener('load', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+})();
 </script>
 
 <style>
@@ -1620,6 +1635,7 @@ html { scroll-padding-top: 0 !important; }
 @media (max-width: 480px) { .svc-price span { font-size: 16px; } }
 /* project caption sits above the image */
 .svc-proj > figcaption { order: -1; margin: 0 0 12px; }
+@media (min-width: 481px) { .svc-cta--proj { align-self: start; margin-top: 0; margin-bottom: 0; } }
 </style>
 </body>
 </html>

@@ -2309,7 +2309,7 @@ addEventListener('keydown', e => {
     const s = slides[i];
     if (cName) cName.textContent = s.dataset.type || '';
     if (cType) cType.textContent = s.dataset.name || '';
-    if (screenLink) { screenLink.href = 'my-work.html#' + (s.dataset.stem || ''); screenLink.setAttribute('aria-label', 'Open ' + (s.dataset.name || 'project') + ' in My Work'); }
+    if (screenLink) { screenLink.href = 'my-work.html'; screenLink.setAttribute('aria-label', 'See all my work'); }   // the screen opens the My Work page, from the top
   };
   const show = (n, dir = 1) => {
     const old = slides[i];

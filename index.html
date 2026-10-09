@@ -2124,7 +2124,7 @@ addEventListener('keydown', e => {
 
   function rnd(){ return (Math.random() + Math.random() + Math.random() - 1.5) / 1.5; }
   function seed(){
-    const n = gW < 700 ? 320 : 620;
+    const n = 620, k = Math.max(0.7, Math.min(1, R / 300));   // same number of dots as the wide screen; each dot shrinks with the galaxy
     parts = [];
     for (let i = 0; i < n; i++) {
       const f = Math.pow(Math.random(), 0.62);
@@ -2132,7 +2132,7 @@ addEventListener('keydown', e => {
       const ang = arm * (Math.PI * 2 / ARMS) + f * TURN + rnd() * (0.5 - f * 0.28);
       const rad = f + rnd() * 0.035;
       const hue = f < 0.25 ? '#F9A323' : f < 0.6 ? '#D23697' : '#1E7CDF';
-      parts.push({ f: Math.max(rad, 0.01), a: ang, c: Math.random() < 0.08 ? '#F2EBE8' : hue, s: (Math.random() * 2.6 + 2.6) * (gW < 700 ? 0.8 : 1), al: 1 });
+      parts.push({ f: Math.max(rad, 0.01), a: ang, c: Math.random() < 0.08 ? '#F2EBE8' : hue, s: (Math.random() * 2.6 + 2.6) * k, al: 1 });
     }
   }
   function layoutG(){

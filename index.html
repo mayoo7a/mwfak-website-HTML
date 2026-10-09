@@ -923,7 +923,7 @@ img { display: block; max-width: 100%; }
 .cn-gal { cursor: default; touch-action: pan-y; }
 .cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; display: flex; flex-direction: column; align-items: center; gap: 22px; }
 /* only the words change: quote, name letters and role fade in; the orange oval and the dots stay put */
-@keyframes cnIn { from { opacity: 0; transform: translateY(8px) rotate(-1deg); } }
+@keyframes cnIn { from { opacity: 0; } }
 @keyframes cnInText { from { color: transparent; } }
 .cn-quote.cn-swap, .cn-role.cn-swap { animation: cnIn .5s steps(4, end); }
 .cn-name.cn-swap { animation: cnInText .5s steps(4, end); }

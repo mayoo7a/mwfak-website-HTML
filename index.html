@@ -803,6 +803,7 @@ img { display: block; max-width: 100%; }
   top: 0;
   left: -1px;                 /* 2px wider than the screen so neighbouring images overlap and never show a gap */
   width: calc(100% + 2px);
+  max-width: none;            /* the site-wide img max-width would cap this back to 100% and leave a 1px dark edge */
   height: 100%;
   backface-visibility: hidden;
   background: var(--ink);

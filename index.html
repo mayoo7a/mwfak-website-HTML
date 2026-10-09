@@ -592,15 +592,7 @@ img { display: block; max-width: 100%; }
 }
 
 .mag-card h3 br { display: none; }
-.mag-card-body p {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--card-text, var(--ink));
-  margin: 0 0 14px;
-  text-align: center;
-  opacity: .88;
-}
+
 
 .mag-card-ribbon {
   position: absolute;
@@ -903,12 +895,7 @@ img { display: block; max-width: 100%; }
   margin: 0;
   padding: 0;
 }
-.testimonials-row {
-  display: block;
-  margin: 20px auto 0;
-  padding: 0 3vw;
-  max-width: 800px;
-}
+
 
 /* ============================================================
    REVIEWS GALAXY: starfield, floating UFOs, transmission box
@@ -945,12 +932,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } }
 @media (prefers-reduced-motion: reduce) { .cn-swap, .cn-swap::after { animation-duration: .6s !important; animation-iteration-count: 1 !important; } .cn-dot { transition-duration: .2s !important; } }
 
-@media (max-width: 900px) {
-  .testimonials-row {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
+
 
 @media (max-width: 1024px) {
   .testimonials { padding: 90px 5vw 100px; min-height: max(100vh, 640px); }
@@ -1270,8 +1252,7 @@ img { display: block; max-width: 100%; }
   padding-top: 26px;
   border-top: 1px solid rgba(14,28,65,0.15);
 }
-.footer-copy,
-.footer-credit {
+.footer-copy {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: var(--ink);
@@ -1456,11 +1437,11 @@ img { display: block; max-width: 100%; }
   .header-actions { gap: 8px; }
 }
 @media (max-width: 400px) { .quote-btn { padding: 10px 12px; font-size: 9px; letter-spacing: .1em; } }
-.mag-cta { text-align: center; margin-top: -40px; padding: 0 5vw 110px; }
+
 .panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
 .panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
 @media (hover: hover) { .panel-cta:hover { transform: translateY(-3px) scale(1.04); outline: none; } }
-@media (max-width: 600px) { .mag-cta { margin-top: 0; padding-bottom: 80px; } .panel-cta { padding: 16px 24px; font-size: 11px; } }
+@media (max-width: 600px) {  .panel-cta { padding: 16px 24px; font-size: 11px; } }
 .mag-card-desc { margin: 12px 0 0; max-width: 24ch; text-wrap: balance; font-family: 'Inter', sans-serif; font-size: clamp(12px, 1vw, 14px); line-height: 1.45; text-align: center; color: var(--card-text, var(--ink)); }
 @media (max-width: 1024px) { .mag-card-desc { margin-top: 8px; } }
 
@@ -2323,7 +2304,10 @@ addEventListener('keydown', e => {
     if (cType) cType.textContent = s.dataset.name || '';
     if (screenLink) { screenLink.href = 'my-work.html'; screenLink.setAttribute('aria-label', 'See all my work'); }   // the screen opens the My Work page, from the top
   };
+  let busy = false, pending = null;
   const show = (n, dir = 1) => {
+    // never start a slide while one is still moving (fast clicks or swipes): the latest request waits its turn, so the images always stay joined
+    if (busy) { pending = { n: n, dir: dir }; return; }
     const old = slides[i];
     i = (n + slides.length) % slides.length;
     const nw = slides[i];
@@ -2331,7 +2315,7 @@ addEventListener('keydown', e => {
     caption();
     if (old === nw) return;
     // slide only once the next image is loaded and decoded, so no empty strip ever shows between the two
-    const go = () => {
+    const run = () => {
       // park every other slide off-screen, start the new one just beside the screen (2px overlap), then slide both across
       slides.forEach(s => { if (s !== old && s !== nw) { s.style.transition = 'none'; s.style.transform = 'translateX(100%)'; } });
       nw.style.transition = 'none'; nw.style.transform = 'translateX(calc(' + (dir * 100) + '% - ' + (dir * 2) + 'px))';
@@ -2341,6 +2325,8 @@ addEventListener('keydown', e => {
       nw.style.transform = 'translateX(0)';
       old.classList.remove('is-active'); nw.classList.add('is-active');
     };
+    busy = true;
+    const go = () => { run(); setTimeout(() => { busy = false; if (pending) { const q = pending; pending = null; show(q.n, q.dir); } }, 650); };
     if (nw.complete && nw.naturalWidth) { go(); }
     else { let done = false; const once = () => { if (!done) { done = true; go(); } }; (nw.decode ? nw.decode() : Promise.reject()).then(once, once); setTimeout(once, 1500); }
   };

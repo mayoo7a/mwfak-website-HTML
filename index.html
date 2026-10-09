@@ -935,7 +935,7 @@ img { display: block; max-width: 100%; }
 .cn-dot:focus-visible { outline: 2px solid var(--bg); outline-offset: 3px; }
 
 @media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } }
-@media (prefers-reduced-motion: reduce) { .cn-text { animation: none; } .cn-dot { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cn-text { animation-duration: .5s !important; animation-iteration-count: 1 !important; } .cn-dot { transition-duration: .2s !important; } }
 
 @media (max-width: 900px) {
   .testimonials-row {
@@ -2092,7 +2092,7 @@ addEventListener('keydown', e => {
   const text = document.getElementById('cnText');
   const qEl = document.getElementById('cnQuote'), nEl = document.getElementById('cnName'), rEl = document.getElementById('cnRole');
   const dotsEl = document.getElementById('cnDots');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduce = false;   // the reviews keep their gentle animation on every device, including phones set to "reduce motion"
 
   const profiles = [
     // ----- Real reviews (showing inline green alien art on a gray background) -----

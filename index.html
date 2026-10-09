@@ -800,9 +800,12 @@ img { display: block; max-width: 100%; }
 }
 .screen-slide {
   position: absolute;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  left: -1px;                 /* 2px wider than the screen so neighbouring images overlap and never show a gap */
+  width: calc(100% + 2px);
   height: 100%;
+  backface-visibility: hidden;
+  background: var(--ink);
   object-fit: cover;
   transform: translateX(100%);
   transition: transform .6s ease;
@@ -2319,15 +2322,23 @@ addEventListener('keydown', e => {
     nw.loading = 'eager';
     caption();
     if (old === nw) return;
-    // park every other slide off-screen, start the new one just beside the screen, then slide both across
-    slides.forEach(s => { if (s !== old && s !== nw) { s.style.transition = 'none'; s.style.transform = 'translateX(100%)'; } });
-    nw.style.transition = 'none'; nw.style.transform = 'translateX(' + (dir * 100) + '%)';
-    void nw.offsetWidth;
-    old.style.transition = ''; nw.style.transition = '';
-    old.style.transform = 'translateX(' + (-dir * 100) + '%)';
-    nw.style.transform = 'translateX(0)';
-    old.classList.remove('is-active'); nw.classList.add('is-active');
+    // slide only once the next image is loaded and decoded, so no empty strip ever shows between the two
+    const go = () => {
+      // park every other slide off-screen, start the new one just beside the screen (2px overlap), then slide both across
+      slides.forEach(s => { if (s !== old && s !== nw) { s.style.transition = 'none'; s.style.transform = 'translateX(100%)'; } });
+      nw.style.transition = 'none'; nw.style.transform = 'translateX(calc(' + (dir * 100) + '% - ' + (dir * 2) + 'px))';
+      void nw.offsetWidth;
+      old.style.transition = ''; nw.style.transition = '';
+      old.style.transform = 'translateX(calc(' + (-dir * 100) + '% + ' + (dir * 2) + 'px))';
+      nw.style.transform = 'translateX(0)';
+      old.classList.remove('is-active'); nw.classList.add('is-active');
+    };
+    if (nw.complete && nw.naturalWidth) { go(); }
+    else { let done = false; const once = () => { if (!done) { done = true; go(); } }; (nw.decode ? nw.decode() : Promise.reject()).then(once, once); setTimeout(once, 1500); }
   };
+  // load every slide up front so later slides are ready by the time they are shown
+  const preload = () => slides.forEach(s => { s.loading = 'eager'; if (s.decode) s.decode().catch(() => {}); });
+  if (document.readyState === 'complete') setTimeout(preload, 300); else addEventListener('load', () => setTimeout(preload, 300));
   const start = () => { clearInterval(timer); if (!paused) timer = setInterval(() => show(i + 1), 2500); };
   const actions = {
     next:  () => { show(i + 1); start(); },

@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>/* a refresh always starts from the top of the same page */try{var __n=performance.getEntriesByType('navigation')[0];if(__n&&__n.type==='reload'){if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search);}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services · Marah Touqan</title>
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:   #F2EBE8;
+  --ink:  #0E1C41;
+  --pop:  #D23697;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+
+/* Header */
+.header {
+  position: sticky; top: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(242, 235, 232, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1.5px solid rgba(14, 28, 65, 0.08);}
+.brand {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--ink); text-decoration: none;
+}
+.brand img { height: 56px; width: 56px; object-fit: contain; }
+.brand-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+
+
+/* Page intro · Split personality: bold headline left, italic manifesto right */
+
+
+
+
+
+
+
+
+/* Gallery grid */
+
+
+.project {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ink);
+  cursor: pointer;
+}
+.project img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+@media (max-width: 800px) {
+  
+  
+  .header { padding: 16px 20px; }
+  .brand img { height: 46px; width: 46px; }
+  .brand-name { font-size: 20px; }
+  
+}
+
+/* Lightbox */
+
+
+
+
+
+
+/* Footer */
+
+
+/* Home page footer */
+.footer {
+  background: var(--bg);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top stripe marquee */
+
+
+@keyframes footerMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.footer-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 80px 5vw 40px;
+}
+
+/* Big sign-off row */
+
+
+
+
+
+
+
+/* Three-column block */
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+.footer-col-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: .5;
+  margin-bottom: 14px;
+}
+.footer-list {
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.footer-list li { margin: 4px 0; }
+.footer-list a {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: clamp(22px, 1.8vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color .35s ease;
+}
+@media (hover: hover) { .footer-list a:hover { color: var(--pop); } }
+
+
+
+
+
+.footer-status {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.4vw, 22px);
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+/* status-dot styles removed - no green dot, no animation */
+
+
+/* Bottom row */
+.footer-logo {
+  width: auto;
+  display: block;
+  margin-right: 6px;}
+.footer-bottom {
+  display: flex; justify-content: space-between;
+  padding-top: 26px;
+  border-top: 1px solid rgba(14,28,65,0.15);}
+.footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--ink);
+  opacity: .55;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+
+@media (max-width: 900px) {
+  
+  
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .footer-cols .footer-col:last-child { grid-column: span 2; justify-self: start; text-align: left; }
+}
+@media (max-width: 540px) {
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .footer-cols .footer-col:last-child { grid-column: span 2; justify-self: start; text-align: left; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* Contact section (from home page) */
+.contact {
+  background: #F2EBE8;
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;}
+
+.contact-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Tilted cream banner title (matching the work section style) */
+.contact-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+/* Contact title — cartoon speech bubble (30% smaller, nudged up) */
+.contact-title {
+  margin: -70px auto 30px;
+  display: inline-block;
+  position: relative;
+  padding: 25px 42px 30px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 46px;
+  box-shadow: 6px 6px 0 var(--ink);
+  border: 2px solid var(--ink);
+  transform: rotate(-2deg);
+}
+.contact-title::after {
+  /* speech bubble tail (lower-left) */
+  content: "";
+  position: absolute;
+  bottom: -26px;
+  left: 74px;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 30px 34px 0 0;
+  border-color: var(--ink) transparent transparent transparent;
+  filter: drop-shadow(0 2px 0 var(--ink));
+}
+.contact-title-banner {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  font-size: clamp(40px, 6.3vw, 100px);
+  color: var(--bg);
+  white-space: nowrap;
+}
+
+/* Contact lede — typewriter animation */
+
+
+
+
+
+/* Prevent the cursor from wrapping to a new line at end of paragraph */
+
+
+
+@keyframes ttBlink { 50% { opacity: 0; } }
+
+/* Contact cards grid */
+/* Contact layout: title/lede left, cards right (2x2) */
+.contact-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  width: 100%;
+  max-width: 1240px;
+  margin: -20px auto 0;
+}
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: repeat(2, 1fr);}
+}
+@media (max-width: 540px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* Contact card — testimonial-style: solid color box, dark blue border + shadow,
+   horizontal layout with icon on left, text on right */
+.contact-card {
+  --card-c: #D23697;
+  background: var(--card-c);
+  color: var(--bg);
+  text-decoration: none;
+  border: 2.5px solid var(--ink);
+  border-radius: 0;
+  box-shadow: 8px 8px 0 var(--ink);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
+  text-align: left;
+  position: relative;
+  overflow: visible;
+  min-height: 94px;
+  box-sizing: border-box;
+  padding: 18px 26px;
+  transform-origin: center;
+  scale: 1.1;
+  transition: transform .25s ease, scale .25s ease;
+}
+
+/* Slight rotation per card — matches testimonial cards */
+.contact-card:nth-child(1) { rotate: -1.5deg; }
+.contact-card:nth-child(2) { rotate: 1deg; }
+.contact-card:nth-child(3) { rotate: -0.6deg; }
+.contact-card:nth-child(4) { rotate: 1.2deg; }
+
+@media (hover: hover) { .contact-card:hover { scale: 1.14; } }
+
+/* Platform icon on the left */
+.contact-card::before {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  line-height: 1;
+  color: var(--bg);
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  transform-origin: center;}
+/* Text block on the right (label stacked on value) */
+.contact-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.contact-card[data-card="email"] { --card-c: #F9A323; }
+.contact-card[data-card="behance"] { --card-c: #D23697; }
+.contact-card[data-card="linkedin"] { --card-c: #1E7CDF; }
+.contact-card[data-card="phone"] { --card-c: #FA5643; }
+
+/* Icon hover animations removed */
+
+/* Email — flies up and away (like sending mail) */
+
+/* Behance — gentle wave / rock side-to-side */
+
+/* LinkedIn — slides in from the left like a notification */
+
+/* Phone — ringing shake */
+
+
+.contact-card-label {
+  display: block;
+  background: none;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg);
+  opacity: 0.75;
+}
+.contact-card-value {
+  display: block;
+  background: none;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--bg);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color .25s ease;
+}
+
+
+
+
+
+
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: repeat(2, 1fr); }
+  
+  .contact-header { margin-bottom: 60px; }
+}
+
+
+.contact { padding: 120px 5vw 110px; }
+@media (max-width: 1024px) { .contact { padding: 90px 5vw 80px; } }
+@media (max-width: 900px) {
+  .contact-card { scale: 1; }
+  .contact-card:nth-child(n) { rotate: 0deg; }
+  .contact-grid { gap: 18px; }
+}
+@media (max-width: 600px) { .contact { padding: 60px 16px 60px; } }
+
+/* ---- Responsive: all screens ---- */
+img { max-width: 100%; }
+
+/* Large desktops */
+
+
+/* Small laptops and large tablets */
+@media (max-width: 1100px) {
+  
+  
+  .header { padding: 18px 28px; }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footer-inner { padding: 60px 28px 30px; }
+  
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  .header { padding: 14px 16px; gap: 10px; }
+  .brand { gap: 10px; }
+  .brand img { height: 40px; width: 40px; }
+  .brand-name { font-size: 17px; }
+  
+  
+  
+  
+  
+  
+  .footer-inner { padding: 46px 16px 26px; }
+  .footer-bottom { gap: 14px; }
+  .footer-logo { height: 38px; }
+  
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .brand-name { font-size: 15px; }
+  
+  .footer-list a { font-size: 20px; }
+}
+
+/* Touch devices: no hover, so keep labels readable */
+
+/* Services page: console-style menu */
+.stage { background: var(--ink); color: var(--bg); padding: 70px 5vw 100px; }
+.stage-inner { max-width: 1250px; margin: 0 auto; }
+.stage-title { font-family: 'Anton', sans-serif; text-transform: uppercase; margin-bottom: 36px; text-align: center;}
+
+.menu-layout { display: grid; gap: 36px; }
+.menu { z-index: 20; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 20px 14px 40px; background: var(--ink); margin: 0 -5vw; padding-left: calc(5vw + 24px); padding-right: 5vw;}
+.menu-item { position: relative; cursor: pointer; text-decoration: none; transform-origin: center;}
+@media (hover: hover) { .menu-item:hover { opacity: 1; } }
+.menu-item[aria-current="true"] { opacity: 1;}
+.menu-item:focus-visible { outline: 3px solid var(--bg); outline-offset: 4px; }
+.menu-item::before { content: ""; position: absolute; left: -26px; top: 50%; width: 34px; height: 34px; margin-top: -17px; background: url(assets/cursor.svg) center/contain no-repeat; image-rendering: pixelated; opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .2s ease; }
+.menu-item[aria-current="true"]::before { opacity: 1; transform: translateX(0); animation: stageNudge .9s ease-in-out infinite; }
+@keyframes stageNudge { 50% { transform: translateX(6px); } }
+.svc-list-wrap { display: grid; gap: 0; min-width: 0; }
+.svc { padding: 80px 0 90px; border-top: 1px solid rgba(242,235,232,.16);}
+.svc-top { display: grid; align-items: start;}
+.svc:first-child { border-top: 0; padding-top: 30px; }
+.svc-head { display: flex; flex-direction: column; align-items: flex-start; min-width: 0;}
+.svc-head h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.7vw, 58px); line-height: 1; letter-spacing: -0.01em; color: var(--bg); white-space: nowrap; }
+.svc-head h2 br { display: none; }
+.svc-tag { font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(18px, 1.55vw, 22px); line-height: 1.3; opacity: .85; max-width: none; }
+.panel-cta { display: inline-block; margin-top: 6px; padding: 18px 34px; background: var(--box) center/100% 100% no-repeat; color: var(--txt); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
+@media (hover: hover) { .panel-cta:hover { transform: translateY(-3px) scale(1.04); } }
+
+
+.svc-body { min-width: 0;}
+.svc-body p { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: var(--bg); opacity: .86; margin-bottom: 18px; }
+
+.svc-sub { position: relative; display: block; margin: 34px 0 18px; padding-left: 24px; color: var(--bg);}
+.svc-sub::before { content: ""; position: absolute; left: 0; width: 12px; height: 12px; background: var(--c);}
+
+
+
+
+
+
+
+
+.svc-num { width: 46px; height: 46px; display: grid; place-items: center; background: var(--c); color: var(--txt); font-family: 'Anton', sans-serif; font-size: 22px; clip-path: polygon(6px 0, calc(100% - 6px) 0, calc(100% - 6px) 3px, calc(100% - 3px) 3px, calc(100% - 3px) 6px, 100% 6px, 100% calc(100% - 6px), calc(100% - 3px) calc(100% - 6px), calc(100% - 3px) calc(100% - 3px), calc(100% - 6px) calc(100% - 3px), calc(100% - 6px) 100%, 6px 100%, 6px calc(100% - 3px), 3px calc(100% - 3px), 3px calc(100% - 6px), 0 calc(100% - 6px), 0 6px, 3px 6px, 3px 3px, 6px 3px); position: relative; z-index: 1; }
+
+.svc-steptext { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--bg); opacity: .8; }
+.stage-hint { margin-top: 10px; padding-top: 28px; border-top: 1px solid rgba(242,235,232,.16); font-family: 'Inter', sans-serif; font-style: italic; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.4; opacity: .85; max-width: 60ch; }
+.svc-end { display: grid; align-items: start;}
+.svc-end .svc-sub { margin-top: 24px; }
+.svc-end > div > .svc-sub:first-child { margin-top: 20px; }
+.svc-check { list-style: none; padding: 0; display: grid; gap: 12px 26px;}
+.svc-check li { position: relative; color: var(--bg);}
+.svc-check li::before { content: ""; position: absolute; left: 0;}
+.svc-minor { margin: 22px 0 12px;}
+.svc-fmts { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.svc-fmts li { padding: 7px 11px; border: 2px solid var(--c); color: var(--bg); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .06em; line-height: 1; }
+.svc-filetext { margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; color: var(--bg); opacity: .8; max-width: 60ch; }
+
+
+
+
+
+.svc-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin: 0 0 16px; }
+.svc-price span { font-family: 'Inter', sans-serif; text-transform: uppercase;}
+.svc-price strong { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; color: var(--bg); }
+
+
+.svc-toolrow { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 16px 28px; }
+.svc-toolrow li { display: flex; align-items: center; gap: 12px; }
+.svc-toolrow img { width: 40px; height: 40px; padding: 5px; box-sizing: border-box; display: block; background: var(--bg); border-radius: 9px; }
+.svc-toolrow span { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; color: var(--bg); }
+@media (max-width: 900px) { .svc-end { grid-template-columns: 1fr; } .svc-check { grid-template-columns: 1fr; } }
+
+@media (max-width: 900px) {
+  .stage { padding: 50px 5vw 70px; }
+  .menu { position: static; margin: 0;}
+  .menu-item { letter-spacing: .03em; transform-origin: center;}
+  .menu-item::before { left: -14px; width: 26px; height: 26px; margin-top: -13px; }
+  .svc { padding: 52px 0 60px; scroll-margin-top: 90px; }
+  .svc-top { gap: 28px 0;}
+  .svc-head { position: static; }
+  
+  .svc-tag { max-width: none; }
+  .svc-body p { font-size: 16px; }
+  
+  
+  .svc-how { margin-top: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .menu-item::before, .stage-title::after { animation: none; }  .panel-cta { transition: none; } }
+
+/* single reading column: title, story, who, steps, receive, files, scope, tools, action */
+.svc > * { max-width: 900px; }
+
+.svc-head { gap: 10px;}
+.svc-body { max-width: none; }
+
+.svc-how { margin-top: 44px; }
+.svc-end { grid-template-columns: 1fr; gap: 0;}
+.svc-check { grid-template-columns: 1fr; }
+
+
+
+
+
+.svc-cta .panel-cta { margin-top: 0; }
+
+.svc-proj { margin: 40px 0 0; max-width: 900px; }
+.svc-proj img { display: block; width: 100%; height: auto; }
+.svc-proj figcaption { margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--bg); opacity: .8; }
+.svc-proj strong { font-weight: 700; }
+
+/* project image beside the text */
+.svc > .svc-top { max-width: none; }
+.svc-top { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 22px clamp(32px, 4vw, 64px); }
+.svc-top .svc-head, .svc-top .svc-body { grid-column: 1; }
+.svc-top .svc-proj { grid-column: 2; grid-row: 1 / span 2; margin: 0; align-self: start; position: sticky; top: 240px; }
+@media (max-width: 900px) { .svc-top .svc-proj { grid-column: 1; grid-row: auto; position: static; margin-top: 8px; } }
+
+/* image stays pinned beside the whole description */
+@media (min-width: 901px) {
+  .svc { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: clamp(32px, 4vw, 64px); align-items: start; }
+  .svc > * { max-width: none; grid-column: 1; }
+  .svc > .svc-top { display: contents; }
+  .svc-top .svc-head, .svc-top .svc-body { grid-column: 1; margin-bottom: 22px; }
+  .svc .svc-proj { grid-column: 2; margin: 0;}
+}
+.svc-tools .svc-minor { margin-top: 0; }
+
+@media (hover: none), (pointer: coarse) { .menu-item::before { display: none; } }
+
+/* ---- custom pixel cursor (same as the home page) ---- */
+html, body { cursor: none; }
+*, *::before, *::after { cursor: none !important; }
+.pixel-cursor { position: fixed; top: 0; left: 0; width: 36px; height: 36px; pointer-events: none; z-index: 99999; transform: translate(2px, 1px); transition: transform .25s ease; will-change: transform; }
+.pixel-cursor img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.cursor-active .pixel-cursor { transform: translate(2px, 1px) scale(1.4); }
+.trail-pixel { position: fixed; width: 6px; height: 6px; background: var(--bg); outline: 1px solid var(--ink); pointer-events: none; z-index: 99998; animation: trailFade .55s steps(5, end) forwards; }
+@keyframes trailFade { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(0); } }
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  *, *::before, *::after { cursor: auto !important; }
+  .pixel-cursor, .trail-pixel { display: none !important; }
+}
+/* items under "What you receive": same serif as the heading, bold; every bullet is a filled square */
+.svc-check li { opacity: 1; padding-left: 26px;}
+
+
+.svc-pricebox { margin-top: 22px; display: grid; gap: 18px; }
+.svc-pricerow em { display: block; margin-bottom: 6px; font-style: normal; color: var(--bg);}
+.svc-pricebox .svc-price { margin: 0; }
+
+.svc-check li::before { background: transparent; border: 2px solid var(--c); width: 12px; height: 12px; box-sizing: border-box; }
+/* fonts swapped: section titles are the serif, the items under "What you receive" are the grotesque */
+.svc-sub { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; letter-spacing: 0; text-transform: none; line-height: 1.1;}
+.svc-sub::before { margin-top: -6px;}
+.svc-check li { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; line-height: 1.45; }
+.svc-check li::before { top: 6px; margin-top: 0; }
+/* one type system for every title and everything under it:
+   titles and sub-titles = bold serif; the items and text under them = Inter; list markers = outlined squares */
+ .svc-minor { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; line-height: 1.15; }
+.svc-minor { color: var(--bg); }
+.svc-pricerow em { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(20px, 1.6vw, 24px); letter-spacing: 0; text-transform: none; opacity: 1; }
+
+
+.svc-steptext, .svc-filetext { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 15.5px; line-height: 1.55; opacity: .9; }
+
+.contact-card .contact-card-label { opacity: 1; }
+
+/* white text and icons on every colored contact box (colors darkened so white passes 4.5:1) */
+.contact-card, .contact-card::before, .contact-card .contact-card-label, .contact-card .contact-card-value { color: #F7F7F7; }
+
+@media (max-width: 900px) { .svc-head h2 { font-size: clamp(28px, 9vw, 48px); } }
+@media (max-width: 900px) { .svc-top { grid-template-columns: minmax(0, 1fr); } .svc-top .svc-head, .svc-top .svc-body, .svc-top .svc-proj { grid-column: 1; } }
+
+/* small screens: contact boxes two per row, clean and unrotated (same on every page) */
+@media (max-width: 600px) {
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 0; }
+  .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: row; align-items: center; justify-content: flex-start;}
+  @media (hover: hover) { .contact-grid .contact-card:hover { scale: 1; } }
+  .contact-card::before { flex: 0 0 auto; font-size: 22px;}
+  .contact-card-text { gap: 4px; }
+  .contact-card-label { letter-spacing: .18em;}
+  .contact-card-value { white-space: normal; overflow-wrap: anywhere; line-height: 1.15;}
+  .contact-card-text { min-width: 0; }
+}
+@media (max-width: 400px) {
+  .contact-card { padding: 12px 8px; gap: 6px; }
+  .contact-card::before { width: 24px; height: 24px; font-size: 19px; }
+  .contact-card-value { font-size: 11.5px; letter-spacing: -0.02em; }
+  .contact-card-label { font-size: 8px; }
+}
+@media (max-width: 340px) { .contact-card { padding: 12px 5px; gap: 4px; } .contact-card::before { font-size: 17px;} .contact-card-value { font-size: 9.5px; letter-spacing: -0.03em; } .contact-card-label { letter-spacing: .12em; } }
+
+/* contact icons: envelope, Behance, WhatsApp from Bootstrap Icons (MIT); LinkedIn "in" from Font Awesome Free (CC BY 4.0, fontawesome.com) */
+.contact-card::before { content: ""; background: #F7F7F7; background-image: none; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: 32px 32px; mask-size: 32px 32px; font-size: 0; }
+.contact-card[data-card="email"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M0%204a2%202%200%200%201%202-2h12a2%202%200%200%201%202%202v8a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2zm2-1a1%201%200%200%200-1%201v.217l7%204.2%207-4.2V4a1%201%200%200%200-1-1zm13%202.383-4.708%202.825L15%2011.105zm-.034%206.876-5.64-3.471L8%209.583l-1.326-.795-5.64%203.47A1%201%200%200%200%202%2013h12a1%201%200%200%200%20.966-.741M1%2011.105l4.708-2.897L1%205.383z'/%3E%20%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M0%204a2%202%200%200%201%202-2h12a2%202%200%200%201%202%202v8a2%202%200%200%201-2%202H2a2%202%200%200%201-2-2zm2-1a1%201%200%200%200-1%201v.217l7%204.2%207-4.2V4a1%201%200%200%200-1-1zm13%202.383-4.708%202.825L15%2011.105zm-.034%206.876-5.64-3.471L8%209.583l-1.326-.795-5.64%203.47A1%201%200%200%200%202%2013h12a1%201%200%200%200%20.966-.741M1%2011.105l4.708-2.897L1%205.383z'/%3E%20%3C/svg%3E"); }
+.contact-card[data-card="behance"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M4.654%203c.461%200%20.887.035%201.278.14.39.07.711.216.996.391s.497.426.641.747c.14.32.216.711.216%201.137%200%20.496-.106.922-.356%201.242-.215.32-.566.606-.997.817.606.176%201.067.496%201.348.922s.461.957.461%201.563c0%20.496-.105.922-.285%201.278a2.3%202.3%200%200%201-.782.887c-.32.215-.711.39-1.137.496a5.3%205.3%200%200%201-1.278.176L0%2012.803V3zm-.285%203.978c.39%200%20.71-.105.957-.285.246-.18.355-.497.355-.887%200-.216-.035-.426-.105-.567a1%201%200%200%200-.32-.355%201.8%201.8%200%200%200-.461-.176c-.176-.035-.356-.035-.567-.035H2.17v2.31c0-.005%202.2-.005%202.2-.005zm.105%204.193c.215%200%20.426-.035.606-.07.176-.035.356-.106.496-.216s.25-.215.356-.39c.07-.176.14-.391.14-.641%200-.496-.14-.852-.426-1.102-.285-.215-.676-.32-1.137-.32H2.17v2.734h2.305zm6.858-.035q.428.427%201.278.426c.39%200%20.746-.106%201.032-.286q.426-.32.53-.64h1.74c-.286.851-.712%201.457-1.278%201.848-.566.355-1.243.566-2.06.566a4.1%204.1%200%200%201-1.527-.285%202.8%202.8%200%200%201-1.137-.782%202.85%202.85%200%200%201-.712-1.172c-.175-.461-.25-.957-.25-1.528%200-.531.07-1.032.25-1.493.18-.46.426-.852.747-1.207.32-.32.711-.606%201.137-.782a4%204%200%200%201%201.493-.285c.606%200%201.137.105%201.598.355.46.25.817.532%201.102.958.285.39.496.851.641%201.348.07.496.105.996.07%201.563h-5.15c0%20.58.21%201.11.496%201.396m2.24-3.732c-.25-.25-.642-.391-1.103-.391-.32%200-.566.07-.781.176s-.356.25-.496.39a.96.96%200%200%200-.25.497c-.036.175-.07.32-.07.46h3.196c-.07-.526-.25-.882-.497-1.132zm-3.127-3.728h3.978v.957h-3.978z'/%3E%20%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M4.654%203c.461%200%20.887.035%201.278.14.39.07.711.216.996.391s.497.426.641.747c.14.32.216.711.216%201.137%200%20.496-.106.922-.356%201.242-.215.32-.566.606-.997.817.606.176%201.067.496%201.348.922s.461.957.461%201.563c0%20.496-.105.922-.285%201.278a2.3%202.3%200%200%201-.782.887c-.32.215-.711.39-1.137.496a5.3%205.3%200%200%201-1.278.176L0%2012.803V3zm-.285%203.978c.39%200%20.71-.105.957-.285.246-.18.355-.497.355-.887%200-.216-.035-.426-.105-.567a1%201%200%200%200-.32-.355%201.8%201.8%200%200%200-.461-.176c-.176-.035-.356-.035-.567-.035H2.17v2.31c0-.005%202.2-.005%202.2-.005zm.105%204.193c.215%200%20.426-.035.606-.07.176-.035.356-.106.496-.216s.25-.215.356-.39c.07-.176.14-.391.14-.641%200-.496-.14-.852-.426-1.102-.285-.215-.676-.32-1.137-.32H2.17v2.734h2.305zm6.858-.035q.428.427%201.278.426c.39%200%20.746-.106%201.032-.286q.426-.32.53-.64h1.74c-.286.851-.712%201.457-1.278%201.848-.566.355-1.243.566-2.06.566a4.1%204.1%200%200%201-1.527-.285%202.8%202.8%200%200%201-1.137-.782%202.85%202.85%200%200%201-.712-1.172c-.175-.461-.25-.957-.25-1.528%200-.531.07-1.032.25-1.493.18-.46.426-.852.747-1.207.32-.32.711-.606%201.137-.782a4%204%200%200%201%201.493-.285c.606%200%201.137.105%201.598.355.46.25.817.532%201.102.958.285.39.496.851.641%201.348.07.496.105.996.07%201.563h-5.15c0%20.58.21%201.11.496%201.396m2.24-3.732c-.25-.25-.642-.391-1.103-.391-.32%200-.566.07-.781.176s-.356.25-.496.39a.96.96%200%200%200-.25.497c-.036.175-.07.32-.07.46h3.196c-.07-.526-.25-.882-.497-1.132zm-3.127-3.728h3.978v.957h-3.978z'/%3E%20%3C/svg%3E"); }
+.contact-card[data-card="linkedin"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%20512'%3E%3Cpath%20fill='%23000'%20d='M100.3%20448l-92.9%200%200-299.1%2092.9%200%200%20299.1zM53.8%20108.1C24.1%20108.1%200%2083.5%200%2053.8%200%2039.5%205.7%2025.9%2015.8%2015.8s23.8-15.8%2038-15.8%2027.9%205.7%2038%2015.8%2015.8%2023.8%2015.8%2038c0%2029.7-24.1%2054.3-53.8%2054.3zM447.9%20448l-92.7%200%200-145.6c0-34.7-.7-79.2-48.3-79.2-48.3%200-55.7%2037.7-55.7%2076.7l0%20148.1-92.8%200%200-299.1%2089.1%200%200%2040.8%201.3%200c12.4-23.5%2042.7-48.3%2087.9-48.3%2094%200%20111.3%2061.9%20111.3%20142.3l0%20164.3-.1%200z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%20512'%3E%3Cpath%20fill='%23000'%20d='M100.3%20448l-92.9%200%200-299.1%2092.9%200%200%20299.1zM53.8%20108.1C24.1%20108.1%200%2083.5%200%2053.8%200%2039.5%205.7%2025.9%2015.8%2015.8s23.8-15.8%2038-15.8%2027.9%205.7%2038%2015.8%2015.8%2023.8%2015.8%2038c0%2029.7-24.1%2054.3-53.8%2054.3zM447.9%20448l-92.7%200%200-145.6c0-34.7-.7-79.2-48.3-79.2-48.3%200-55.7%2037.7-55.7%2076.7l0%20148.1-92.8%200%200-299.1%2089.1%200%200%2040.8%201.3%200c12.4-23.5%2042.7-48.3%2087.9-48.3%2094%200%20111.3%2061.9%20111.3%20142.3l0%20164.3-.1%200z'/%3E%3C/svg%3E"); }
+.contact-card[data-card="phone"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M13.601%202.326A7.85%207.85%200%200%200%207.994%200C3.627%200%20.068%203.558.064%207.926c0%201.399.366%202.76%201.057%203.965L0%2016l4.204-1.102a7.9%207.9%200%200%200%203.79.965h.004c4.368%200%207.926-3.558%207.93-7.93A7.9%207.9%200%200%200%2013.6%202.326zM7.994%2014.521a6.6%206.6%200%200%201-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56%206.56%200%200%201-1.007-3.505c0-3.626%202.957-6.584%206.591-6.584a6.56%206.56%200%200%201%204.66%201.931%206.56%206.56%200%200%201%201.928%204.66c-.004%203.639-2.961%206.592-6.592%206.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73%200%200%200-.529.247c-.182.198-.691.677-.691%201.654s.71%201.916.81%202.049c.098.133%201.394%202.132%203.383%202.992.47.205.84.326%201.129.418.475.152.904.129%201.246.08.38-.058%201.171-.48%201.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232'/%3E%20%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M13.601%202.326A7.85%207.85%200%200%200%207.994%200C3.627%200%20.068%203.558.064%207.926c0%201.399.366%202.76%201.057%203.965L0%2016l4.204-1.102a7.9%207.9%200%200%200%203.79.965h.004c4.368%200%207.926-3.558%207.93-7.93A7.9%207.9%200%200%200%2013.6%202.326zM7.994%2014.521a6.6%206.6%200%200%201-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56%206.56%200%200%201-1.007-3.505c0-3.626%202.957-6.584%206.591-6.584a6.56%206.56%200%200%201%204.66%201.931%206.56%206.56%200%200%201%201.928%204.66c-.004%203.639-2.961%206.592-6.592%206.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73%200%200%200-.529.247c-.182.198-.691.677-.691%201.654s.71%201.916.81%202.049c.098.133%201.394%202.132%203.383%202.992.47.205.84.326%201.129.418.475.152.904.129%201.246.08.38-.058%201.171-.48%201.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232'/%3E%20%3C/svg%3E"); }
+
+@media (max-width: 400px) { .contact-card::before { -webkit-mask-size: 19px 19px; mask-size: 19px 19px; } }
+
+
+/* contact boxes on small screens: same height (94px) and roomy inner spacing as the desktop boxes, two per row */
+@media (max-width: 600px) {
+  .contact-grid .contact-card { box-shadow: 6px 6px 0 var(--ink);}
+  
+  
+  
+}
+@media (max-width: 420px) {
+  
+  
+  .contact-card-label { font-size: 9px; }
+  
+}
+
+
+/* small screens: icon spacing closer to the laptop boxes (space left of the icon, and between icon and text) */
+
+@media (max-width: 420px) {
+  .contact-grid .contact-card { padding: 18px 6px 18px 16px; gap: 12px; }
+  .contact-card::before { width: 24px; height: 24px; -webkit-mask-size: 24px 24px; mask-size: 24px 24px; }
+  .contact-card-value { font-size: clamp(9px, calc(5.2vw - 8.3px), 13px); }
+}
+@media (max-width: 340px) {
+  .contact-grid .contact-card { padding: 18px 4px 18px 12px; gap: 8px; }
+  .contact-card::before { width: 20px; height: 20px; -webkit-mask-size: 20px 20px; mask-size: 20px 20px; }
+}
+
+/* small screens: the laptop box proportions, scaled with the screen (space left of icon, icon size, icon-to-text gap, box height) */
+@media (max-width: 600px) {
+  .contact-grid .contact-card { min-height: min(94px, calc(14vw + 10px)); padding: 10px 6px 10px calc(6.2vw - 1px); gap: calc(3.15vw - 0.5px); }
+  .contact-card::before { width: calc(5.4vw - 1px); height: calc(5.4vw - 1px); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+  .contact-card-label { font-size: clamp(8px, calc(1.6vw + 2px), 10px); }
+  .contact-card-value { font-size: clamp(9px, calc(3.5vw - 2.2px), 14px); }
+}
+
+/* footer bottom row: logo and copyright always on one line, on every screen */
+.footer-bottom { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 12px; }
+.footer-logo { height: clamp(30px, 8vw, 44px); flex: 0 0 auto; }
+.footer-bottom .footer-copy { white-space: nowrap; min-width: 0; font-size: clamp(10px, 3.1vw, 12px); }
+@media (max-width: 900px) { .footer-bottom { justify-content: flex-start; } .footer-bottom .footer-copy { margin-right: 0; } }
+/* "Currently" text: when it needs two lines it breaks after "part-time" */
+.footer-status .fs-line { display: inline-block; }
+
+/* ===== same top bar as the home page: menu links on wide screens, burger menu on smaller ones; back link sits under it on the left ===== */
+.header { z-index: 30; }
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.quote-btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; text-decoration: none; transition: background-color .25s ease, color .25s ease, transform .2s ease; }
+.quote-btn:focus-visible { background: var(--pop); outline: none; transform: translateY(-2px); }
+@media (hover: hover) { .quote-btn:hover { background: var(--pop); transform: translateY(-2px); } }
+.header-nav { display: none; }
+.burger { position: relative; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; border: 0; background: transparent; cursor: pointer; padding: 0; transition: background .35s ease; }
+@media (hover: hover) { .burger:hover { background: rgba(14,28,65,.08); } }
+.burger span { position: absolute; left: 13px; right: 13px; height: 2px; background: var(--ink); transition: transform .35s ease, top .35s ease; }
+.burger span:nth-child(1) { top: 20px; }
+.burger span:nth-child(2) { top: 30px; }
+.burger.open span:nth-child(1) { top: 25px; transform: rotate(45deg); }
+.burger.open span:nth-child(2) { top: 25px; transform: rotate(-45deg); }
+.menu-panel { position: fixed; inset: 0; z-index: 25; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 0; pointer-events: none; transform: translateY(-20px); transition: opacity .4s ease, transform .5s ease; }
+.menu-panel.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.menu-panel a { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(40px, 11vw, 120px); line-height: .95; color: var(--bg); letter-spacing: .01em; text-transform: uppercase; text-decoration: none; padding: 4px 18px; transition: color .3s ease; }
+@media (hover: hover) { .menu-panel a:hover { color: #F9A323; } }
+@media (max-width: 640px) { .quote-btn { padding: 11px 14px; font-size: 10px; letter-spacing: .12em; } .header-actions { gap: 6px; } .burger { width: 44px; height: 44px; } .burger span { left: 11px; right: 11px; } .burger span:nth-child(1) { top: 16px; } .burger span:nth-child(2) { top: 26px; } .burger.open span:nth-child(1), .burger.open span:nth-child(2) { top: 21px; } }
+@media (max-width: 400px) { .quote-btn { display: none; } }
+@media (min-width: 1200px) {
+  .header-nav { display: flex; align-items: center; gap: clamp(22px, 2.6vw, 40px); margin-right: 14px; }
+  .header-nav a { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .18em; text-transform: uppercase; color: var(--ink); text-decoration: none; white-space: nowrap; padding: 8px 0; position: relative; transition: color .25s ease; }
+  .header-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+  .header-nav a:focus-visible { color: var(--pop); outline: none; }
+  .header-nav a:focus-visible::after { transform: scaleX(1); }
+  @media (hover: hover) { .header-nav a:hover { color: var(--pop); } .header-nav a:hover::after { transform: scaleX(1); } }
+  .header-actions .burger { display: none; }
+}
+
+/* back link: right under the top bar, on the left, just text with an arrow */
+.page-back { position: relative; height: 0; padding: 0; z-index: 5; }
+.page-back .back-link { position: absolute; top: 22px; left: 40px; }
+.back-link { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; line-height: 1; letter-spacing: .16em; text-transform: uppercase; transition: color .2s ease;}
+.back-link span { display: inline-block; font-size: 16px; transition: transform .2s ease; }
+.back-link:focus-visible { outline: none;}
+.back-link:focus-visible span { transform: translateX(-4px); }
+@media (hover: hover) {  .back-link:hover span { transform: translateX(-4px); } }
+/* the services page is dark navy under the top bar, so the back link is white here */
+.back-link { color: #F7F7F7; }
+.back-link:focus-visible { color: #F9A323; }
+@media (hover: hover) { .back-link:hover { color: #F9A323; } }
+@media (max-width: 1100px) { .page-back .back-link { top: 18px; left: 28px; } }
+@media (max-width: 640px) { .page-back .back-link { top: 14px; left: 16px; font-size: 10px; } .back-link span { font-size: 14px; } }
+
+/* services page: the top bar is dark blue at the top and turns cream once you scroll */
+
+.header:not(.header--stuck) { background: var(--ink); border-bottom-color: transparent; backdrop-filter: none; }
+.header:not(.header--stuck) .brand-name { color: var(--bg); }
+.header:not(.header--stuck) .brand img { filter: brightness(0) invert(1); }
+.header:not(.header--stuck) .burger span { background: var(--bg); }
+.header:not(.header--stuck) .quote-btn { background: var(--bg); color: var(--ink); }
+@media (hover: hover) { .header:not(.header--stuck) .quote-btn:hover { background: var(--pop); color: var(--bg); } }
+@media (min-width: 1200px) {
+  .header:not(.header--stuck) .header-nav a { color: var(--bg); }
+  .header:not(.header--stuck) .header-nav a:focus-visible { color: #F9A323; }
+  @media (hover: hover) { .header:not(.header--stuck) .header-nav a:hover { color: #F9A323; } }
+}
+
+/* once scrolled: the top bar gets a little smaller and about 10% more see-through */
+.header { transition: padding .25s ease, background-color .25s ease; }
+.header.header--stuck { padding-top: 12px; padding-bottom: 12px; background: rgba(242,235,232,.82); }
+.header.header--stuck .brand img { height: 46px; width: 46px; }
+.header.header--stuck .brand-name { font-size: 24px; }
+.header.header--stuck .burger { width: 46px; height: 46px; }
+@media (max-width: 1100px) { .header.header--stuck { padding-top: 10px; padding-bottom: 10px; } .header.header--stuck .brand img { height: 40px; width: 40px; } .header.header--stuck .brand-name { font-size: 19px; } }
+@media (max-width: 640px) { .header.header--stuck { padding-top: 8px; padding-bottom: 8px; } .header.header--stuck .brand img { height: 34px; width: 34px; } .header.header--stuck .brand-name { font-size: 15px; } .header.header--stuck .burger { width: 40px; height: 40px; } }
+
+/* open menu: the bar turns see-through over the dark menu and the X (and logo) are white all the time */
+body.menu-open .header, body.menu-open .header.header--stuck { background: transparent !important; box-shadow: none !important; border-bottom-color: transparent !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+body.menu-open .burger span, body.menu-open .header .burger span { background: #F7F7F7 !important; }
+body.menu-open .brand-name { color: #F7F7F7 !important; }
+body.menu-open .brand img { filter: brightness(0) invert(1) !important; }
+body.menu-open .quote-btn { background: #F7F7F7 !important; color: #0E1C41 !important; }
+
+/* the page titles on Work and Services share one size: in between what each had before */
+ .stage-title { font-size: clamp(32px, calc(3vw + 24px), 70px) !important; letter-spacing: .03em !important; line-height: 1.14; font-weight: 400 !important; }
+
+/* the four service buttons scroll away with the page (they no longer stay stuck under the top bar) */
+.menu { position: static !important; top: auto !important; }
+/* service switcher: rounded colour cards, title only (same look as the home page service cards) */
+.menu-item::before { display: none !important; }
+.menu-item { --c: #F9A323; display: flex; align-items: center; justify-content: center; min-height: 76px; padding: 18px 12px !important; border: 0; border-radius: 24px; background: var(--c) !important; color: #F7F7F7; text-align: center; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: clamp(18px, 2vw, 30px); letter-spacing: -.01em; text-transform: none; white-space: nowrap; opacity: 1; transform: none !important; box-shadow: 0 14px 30px -14px rgba(0,0,0,.6); transition: background .25s, transform .25s cubic-bezier(.2,.85,.2,1); }
+.menu-item:nth-child(2) { --c: #D23697; } .menu-item:nth-child(3) { --c: #1E7CDF; } .menu-item:nth-child(4) { --c: #FA5643; }
+@media (hover: hover) { .menu-item:hover { transform: translateY(-2px) !important; } }
+.menu-item[aria-current="true"] { background: var(--c) !important; transform: translateY(-4px) !important; }
+@media (max-width: 900px) { .menu { grid-template-columns: repeat(4, 1fr) !important; column-gap: 12px !important; row-gap: 12px !important; padding: 0 !important; } .menu-item { font-size: clamp(14px, 2.4vw, 20px) !important; min-height: 64px; padding: 14px 8px !important; white-space: normal; line-height: 1.05; } }
+@media (max-width: 600px) { .menu { grid-template-columns: 1fr 1fr !important; } .menu-item { font-size: clamp(17px, 5vw, 22px) !important; } }
+
+/* the project image no longer stays stuck: it scrolls with the text and sits in the middle of it */
+.svc-top .svc-proj, .svc .svc-proj { position: static !important; top: auto !important; align-self: center; }
+/* wide screens: the image (with its caption and price) stays pinned in the middle of the screen on the right while you read; the middle is measured on the whole block, text underneath included */
+@media (min-width: 901px) { .svc .svc-proj { position: sticky !important; top: var(--proj-top, 150px) !important; align-self: start !important; grid-row: 1 / span 6 !important; } }
+.svc-head { position: static !important; top: auto !important; align-self: start; }
+
+/* one short paragraph per service */
+.svc-body p.svc-desc { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.6; opacity: .95; max-width: 52ch; margin-bottom: 0; }
+
+/* Scope now sits above 'How we get there' */
+
+
+.svc-scopebox + .svc-how { margin-top: 36px; }
+
+/* "Files you receive" and "Made with" side by side, each with its own square title */
+.svc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px clamp(28px, 4vw, 64px); align-items: start;}
+.svc-pair > div { min-width: 0; }
+
+@media (max-width: 700px) { .svc-pair { grid-template-columns: 1fr; gap: 0; } }
+
+/* every block in a service is separated by the same space (56px, the gap that was between Scope and How we get there) */
+.svc-scopebox { margin-top: 56px; }
+.svc-scopebox .svc-sub { margin-top: 0; }
+.svc-scopebox + .svc-how, .svc-how { margin-top: 56px; }
+.svc-how .svc-sub { margin-top: 0; }
+.svc-end { margin-top: 56px; }
+.svc-end .svc-files .svc-sub:first-child, .svc-end > div > .svc-sub:first-child { margin-top: 0; }
+.svc-pair { margin-top: 56px; }
+.svc-pair .svc-sub { margin-top: 0; }
+.svc-cta { margin-top: 56px; }
+
+/* faded preview of "What you receive" with a See more button (4 styles, for review) */
+.svc-fade { margin-top: 56px; position: relative; }
+.svc-fade-body { max-height: 118px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 25%, transparent); mask-image: linear-gradient(#000 25%, transparent); transition: max-height .45s ease; }
+.svc-fade.is-open .svc-fade-body { max-height: 1400px; -webkit-mask-image: none; mask-image: none; }
+.svc-fade-body .svc-end { margin-top: 0; }
+.svc-fade-btn { display: flex; margin: 8px auto 0; cursor: pointer; border: 0; background: none; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;}
+.svc-fade-btn .less, .svc-fade.is-open .svc-fade-btn .more { display: none; }
+.svc-fade.is-open .svc-fade-btn .less { display: inline; }
+.svc-fade-btn:focus-visible { outline: 2px solid var(--c); outline-offset: 4px; }
+.svc-fade-btn { align-items: center; gap: 10px; padding: 10px 6px; font-size: 14px; color: var(--c); }
+.svc-fade-btn::after { content: ''; width: 9px; height: 9px; border: solid var(--c); border-width: 0 3px 3px 0; transform: rotate(45deg) translateY(-2px); transition: transform .2s; }
+.svc-fade.is-open .svc-fade-btn::after { transform: rotate(-135deg) translateY(-2px); }
+.svc-proj { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; }
+.svc-proj > img, .svc-proj > figcaption { grid-column: 1 / -1; }
+.svc-proj > .svc-pricebox { grid-column: 1; }
+.svc-cta--proj { grid-column: 2; margin-top: 0; margin-bottom: -10.5px; align-self: end; }
+@media (max-width: 480px) { .svc-proj { grid-template-columns: minmax(0, 1fr); } .svc-cta--proj { grid-column: 1; margin-top: 16px; margin-bottom: 0; justify-self: start; } }
+@media (max-width: 700px) { .svc-pair > div + div { margin-top: 56px; } }
+@media (min-width: 901px) { .svc-top .svc-body { margin-bottom: 0 !important; } }
+.svc-body > p:last-child { margin-bottom: 0; }
+
+/* "How we get there" as a vertical timeline (chosen for Logo Design) */
+.svc-timeline { position: relative; list-style: none; max-width: 640px; }
+.svc-timeline::before { content: ""; position: absolute; left: 22px; top: 22px; bottom: 22px; border-left: 3px dashed color-mix(in srgb, var(--c) 60%, transparent); }
+.svc-timeline li { position: relative; display: flex; gap: 22px; padding-bottom: 30px; }
+.svc-timeline li:last-child { padding-bottom: 0; }
+.svc-timeline .svc-num { flex: none; position: relative; z-index: 1; }
+.svc-tltext { min-width: 0; display: grid; gap: 6px; padding-top: 2px; }
+.svc-tltext strong { margin: 0; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 22px; line-height: 1.1; color: var(--bg); }
+
+.svc-tltext .svc-steptext { font-size: 14.25px; max-width: none; }
+@media (min-width: 701px) { .svc-tltext .svc-steptext { white-space: nowrap; } }
+
+/* no line under the top bar */
+.header, .header.header--stuck, .header:not(.header--stuck) { border-bottom: 0 !important; box-shadow: none !important; }
+
+/* Scope: icons without circles, capitals like the buttons */
+.svc-scope2 { list-style: none; display: grid; gap: 20px; max-width: 520px; }
+.svc-scope2 li { display: flex; align-items: center; gap: 18px; }
+.svc-scope2 svg { width: 44px; height: 44px; flex: none; color: var(--c); }
+.svc-scope2 .n { display: block; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 24px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.15; color: var(--bg); }
+.svc-scope2 .n em { font-style: normal; color: var(--c); }
+.svc-scope2 .d { display: block; margin-top: 2px; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.4; opacity: .8; }
+.svc-minor + .svc-scope2 { margin-bottom: 8px; }
+@media (max-width: 480px) { .svc-scope2 .n { font-size: 21px; } .svc-scope2 svg { width: 40px; height: 40px; } }
+/* tablet (iPad): "How we get there" on the left, Scope on the right, aligned at the top */
+@media (min-width: 600px) and (max-width: 900px) {
+  .svc { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: 32px; align-items: start; }
+  .svc > * { grid-column: 1 / -1; }
+  .svc > .svc-how { grid-column: 1; grid-row: 2; }
+  .svc > .svc-scopebox { grid-column: 2; grid-row: 2; justify-self: end; width: fit-content; }
+  .svc-how, .svc-scopebox, .svc-scopebox + .svc-how { margin-top: 56px; }
+  
+  .svc-tltext .svc-steptext { white-space: normal; }
+}
+/* section titles: 5% bigger, a little more room above the text under them */
+.svc-sub { font-size: clamp(23.1px, 1.995vw, 28.35px); margin-bottom: 26px; }
+.svc-sub::before { top: .55em; }
+/* anchors land with the section's top line right under the header */
+.svc { scroll-margin-top: var(--hdr, 72px) !important; }
+html { scroll-padding-top: 0 !important; }
+/* "Starting from": same colour as the price, a little smaller and thinner */
+.svc-price span { color: var(--bg); font-size: 20px; font-weight: 400; letter-spacing: .06em; }
+@media (max-width: 480px) { .svc-price span { font-size: 16px; } }
+/* project caption sits above the image */
+.svc-proj > figcaption { order: -1; margin: 0 0 12px; }
+@media (min-width: 481px) { .svc-cta--proj { align-self: start; margin-top: 0; margin-bottom: 0; } }
+
+/* back-to-top button (same as the home page): appears after scrolling, colour follows the background under it */
+.back-to-top { position: fixed; right: 24px; bottom: 24px; width: 52px; height: 52px; border-radius: 50%; border: 2.5px solid #F2EBE8; background: transparent; color: #F2EBE8; display: grid; place-items: center; cursor: pointer; z-index: 50; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .3s ease, transform .3s ease; padding: 0; }
+.back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.back-to-top.is-on-light { border-color: #0E1C41; color: #0E1C41; }
+@media (hover: hover) { .back-to-top:hover { transform: translateY(-3px); } }
+.back-to-top svg { width: 22px; height: 22px; }
+/* same line above the footer columns as on the home page, 40px above the labels */
+.footer-cols { border-top: 1.5px solid rgba(14,28,65,0.18); padding-top: 40px; }
+</style>
+</head>
+<body>
+<div class="pixel-cursor" id="pixelCursor" aria-hidden="true">
+  <img src="assets/cursor.svg" alt="" width="36" height="36" />
+</div>
+
+<header class="header">
+  <a href="index.html" class="brand" aria-label="Marah Touqan home">
+    <img src="assets/logo.png" alt="Marah Touqan logo" width="256" height="239" />
+    <span class="brand-name">Marah Touqan</span>
+  </a>
+  <div class="header-actions">
+    <nav class="header-nav" aria-label="Primary">
+      <a href="my-work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="quote-btn" href="https://wa.me/962797763533" target="_blank" rel="noopener">Get a quote</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
+  <a href="my-work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="index.html#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+<div class="page-back"><a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back home</a></div>
+
+<section class="stage">
+  <div class="stage-inner">
+    <h1 class="stage-title">My Services</h1>
+    <div class="menu-layout">
+      <nav class="menu" aria-label="Services">
+<a class="menu-item" href="#logo-design" data-slug="logo-design" aria-current="false" style="--box:url(assets/box-orange.svg);--txt:#F7F7F7"><span class="menu-label">Logo Design</span></a>
+<a class="menu-item" href="#brand-identity" data-slug="brand-identity" aria-current="false" style="--box:url(assets/box-magenta.svg);--txt:#F7F7F7"><span class="menu-label">Brand Identity</span></a>
+<a class="menu-item" href="#packaging-print" data-slug="packaging-print" aria-current="false" style="--box:url(assets/box-blue.svg);--txt:#F7F7F7"><span class="menu-label">Packaging & Print</span></a>
+<a class="menu-item" href="#ui-ux-design" data-slug="ui-ux-design" aria-current="false" style="--box:url(assets/box-red.svg);--txt:#F7F7F7"><span class="menu-label">UI/UX Design</span></a>
+      </nav>
+      <div class="svc-list-wrap">
+<article class="svc" id="logo-design" style="--box:url(assets/box-orange.svg);--txt:#F7F7F7;--c:#F9A323">
+  <div class="svc-top">
+  <header class="svc-head">
+    <h2>Logo<br> Design</h2>
+    <p class="svc-tag">One mark to carry your whole brand.</p>
+  </header>
+  <div class="svc-body">
+    <p class="svc-desc">I design your logo so it looks sharp everywhere: on social media, signs, stamps and packaging. You get it in Arabic, English or both, plus every file you need to use it.</p>
+  </div>
+  <figure class="svc-proj"><img src="assets/portfolio/baseera.webp" alt="Baseera project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Baseera</strong>, Logo design</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$450</strong></p></div></div><div class="svc-cta svc-cta--proj"><a class="panel-cta" href="https://wa.me/962797763533" target="_blank" rel="noopener">Start a project</a></div></figure>
+  </div>
+    <div class="svc-scopebox">
+      <h3 class="svc-sub">Scope</h3>
+      <ul class="svc-scope2"><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 6C13 6 6 14 6 23c0 7 6 11 12 10 2-.3 3 .6 2.6 2.2-.5 2.2.5 4.8 3.4 4.8C35 40 42 33 42 23 42 13 34 6 24 6z"/><circle cx="16" cy="22" r="2.6" fill="currentColor" stroke="none"/><circle cx="24" cy="15" r="2.6" fill="currentColor" stroke="none"/><circle cx="33" cy="21" r="2.6" fill="currentColor" stroke="none"/></svg><div><span class="n"><em>2</em> concepts</span><span class="d">Two ideas to choose from</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8.5 34.5C12 20 18 16.5 24 16.5S36 20 39.5 34.5"/><rect x="4.5" y="34.5" width="8" height="8"/><rect x="20" y="8.5" width="8" height="8"/><rect x="35.5" y="34.5" width="8" height="8"/></svg><div><span class="n"><em>2</em> revisions</span><span class="d">Two rounds of changes</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="9" width="36" height="32" rx="3"/><path d="M6 19h36M15 5v8M33 5v8M15 27h6M27 27h6M15 34h6"/></svg><div><span class="n"><em>1</em> week</span><span class="d">From brief to final files</span></div></li></ul>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Brief</strong><span class="svc-steptext">Your business, your audience and the feeling you want.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Sketch</strong><span class="svc-steptext">Several directions, and I show you the strongest.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Refine</strong><span class="svc-steptext">Tested small and large, on light and on dark.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Deliver</strong><span class="svc-steptext">The final logo in every version and file.</span></div></li></ol>
+  </div>
+  <div class="svc-fade svc-fade--a"><div class="svc-fade-body" id="fade-a">
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">What you receive</h3>
+      <ul class="svc-check"><li>2 logo concepts built around one agreed direction</li><li>Final logo refined through 2 revision rounds</li><li>Primary and secondary versions</li><li>Black and white and transparent versions</li><li>One page usage sheet with clear space and minimum size</li></ul>
+    </div>
+    <div class="svc-pair">
+      <div class="svc-filesbox">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-fmts"><li>AI</li><li>EPS</li><li>SVG</li><li>PDF</li><li>PNG</li><li>JPG</li></ul>
+      <p class="svc-filetext">For web and print.</p>
+      </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Made with</h3>
+      <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li></ul>
+    </div>
+    </div>
+  </div>
+  </div><button type="button" class="svc-fade-btn" aria-expanded="false"><span class="more">See more</span><span class="less">See less</span></button></div>
+</article>
+<article class="svc" id="brand-identity" style="--box:url(assets/box-magenta.svg);--txt:#F7F7F7;--c:#D23697">
+  <div class="svc-top">
+  <header class="svc-head">
+    <h2>Brand<br> Identity</h2>
+    <p class="svc-tag">A full visual system your customers recognise everywhere.</p>
+  </header>
+  <div class="svc-body">
+    <p class="svc-desc">Your logo, colours, fonts and style rules, built as one system. You get a guide so your team and your printers keep everything looking consistent, from social posts to signs and packaging.</p>
+  </div>
+  <figure class="svc-proj"><img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>The Welcome Table</strong>, Brand identity</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$1,200</strong></p></div></div><div class="svc-cta svc-cta--proj"><a class="panel-cta" href="https://wa.me/962797763533" target="_blank" rel="noopener">Start a project</a></div></figure>
+  </div>
+    <div class="svc-scopebox">
+      <h3 class="svc-sub">Scope</h3>
+      <ul class="svc-scope2"><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 6C13 6 6 14 6 23c0 7 6 11 12 10 2-.3 3 .6 2.6 2.2-.5 2.2.5 4.8 3.4 4.8C35 40 42 33 42 23 42 13 34 6 24 6z"/><circle cx="16" cy="22" r="2.6" fill="currentColor" stroke="none"/><circle cx="24" cy="15" r="2.6" fill="currentColor" stroke="none"/><circle cx="33" cy="21" r="2.6" fill="currentColor" stroke="none"/></svg><div><span class="n"><em>2</em> concepts</span><span class="d">Two ideas to choose from</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8.5 34.5C12 20 18 16.5 24 16.5S36 20 39.5 34.5"/><rect x="4.5" y="34.5" width="8" height="8"/><rect x="20" y="8.5" width="8" height="8"/><rect x="35.5" y="34.5" width="8" height="8"/></svg><div><span class="n"><em>2</em> revisions</span><span class="d">Two rounds of changes</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="9" width="36" height="32" rx="3"/><path d="M6 19h36M15 5v8M33 5v8M15 27h6M27 27h6M15 34h6"/></svg><div><span class="n"><em>3 to 4</em> weeks</span><span class="d">From brief to final files</span></div></li></ul>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>We talk</strong><span class="svc-steptext">Your business, your audience, your goals, and what you love and hate.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>I propose</strong><span class="svc-steptext">A clear visual direction, and we choose the way forward together.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>I build</strong><span class="svc-steptext">The full system, tested on real examples.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>You launch</strong><span class="svc-steptext">Files and guidelines, ready to use from day one.</span></div></li></ol>
+  </div>
+  <div class="svc-fade svc-fade--b"><div class="svc-fade-body" id="fade-b">
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">What you receive</h3>
+      <ul class="svc-check"><li>Mood board and approved visual direction</li><li>Primary logo, secondary logo and submark</li><li>Lockups for horizontal, stacked and icon only use</li><li>Black, white and single colour versions</li><li>Colour palette with print and screen values</li><li>Typography system with hierarchy rules</li><li>Supporting graphic elements such as patterns, icons or texture</li><li>Brand guidelines covering usage, spacing and what not to do</li><li>Application mockups showing the identity in real use</li></ul>
+    </div>
+    <div class="svc-pair">
+      <div class="svc-filesbox">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-fmts"><li>AI</li><li>EPS</li><li>SVG</li><li>PDF</li><li>PNG</li><li>JPG</li></ul>
+      <p class="svc-filetext">Organised in named folders, plus the guidelines as a PDF.</p>
+      </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Made with</h3>
+      <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li><li><img src="assets/tools/photoshop.svg" alt="Adobe Photoshop" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Photoshop</span></li><li><img src="assets/tools/figma.svg" alt="Figma" width="30" height="30" loading="lazy" decoding="async"><span>Figma</span></li></ul>
+    </div>
+    </div>
+  </div>
+  </div><button type="button" class="svc-fade-btn" aria-expanded="false"><span class="more">See more</span><span class="less">See less</span></button></div>
+</article>
+<article class="svc" id="packaging-print" style="--box:url(assets/box-blue.svg);--txt:#F7F7F7;--c:#1E7CDF">
+  <div class="svc-top">
+  <header class="svc-head">
+    <h2>Packaging<br> &amp; Print</h2>
+    <p class="svc-tag">A product that wins in its first two seconds.</p>
+  </header>
+  <div class="svc-body">
+    <p class="svc-desc">Packaging, labels and printed pieces like menus and brochures, designed to get noticed and ready for the printer. You get print-ready files that match what you approved on screen.</p>
+  </div>
+  <figure class="svc-proj"><img src="assets/portfolio/sol-root.webp" alt="Sol Root project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Sol Root</strong>, Logo and packaging</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$350</strong></p></div></div><div class="svc-cta svc-cta--proj"><a class="panel-cta" href="https://wa.me/962797763533" target="_blank" rel="noopener">Start a project</a></div></figure>
+  </div>
+    <div class="svc-scopebox">
+      <h3 class="svc-sub">Scope</h3>
+      <ul class="svc-scope2"><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M24 6C13 6 6 14 6 23c0 7 6 11 12 10 2-.3 3 .6 2.6 2.2-.5 2.2.5 4.8 3.4 4.8C35 40 42 33 42 23 42 13 34 6 24 6z"/><circle cx="16" cy="22" r="2.6" fill="currentColor" stroke="none"/><circle cx="24" cy="15" r="2.6" fill="currentColor" stroke="none"/><circle cx="33" cy="21" r="2.6" fill="currentColor" stroke="none"/></svg><div><span class="n"><em>2</em> concepts</span><span class="d">Two ideas to choose from</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8.5 34.5C12 20 18 16.5 24 16.5S36 20 39.5 34.5"/><rect x="4.5" y="34.5" width="8" height="8"/><rect x="20" y="8.5" width="8" height="8"/><rect x="35.5" y="34.5" width="8" height="8"/></svg><div><span class="n"><em>2</em> revisions</span><span class="d">Two rounds of changes</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="9" width="36" height="32" rx="3"/><path d="M6 19h36M15 5v8M33 5v8M15 27h6M27 27h6M15 34h6"/></svg><div><span class="n"><em>2 to 3</em> weeks</span><span class="d">From brief to final files</span></div></li></ul>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Brief</strong><span class="svc-steptext">The product, the audience and where it will be sold.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Concepts</strong><span class="svc-steptext">A few packaging directions, and we pick one to develop.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Design</strong><span class="svc-steptext">The finished design, shown on realistic mockups.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Print prep</strong><span class="svc-steptext">Files prepared and checked before they reach the printer.</span></div></li></ol>
+  </div>
+  <div class="svc-fade svc-fade--c"><div class="svc-fade-body" id="fade-c">
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">What you receive</h3>
+      <h4 class="svc-minor">Print and stationery</h4><ul class="svc-check"><li>Business card, letterhead and envelope</li><li>Invoice or quotation template</li><li>Folder, label or sticker as needed</li><li>Email signature</li><li>Print ready artwork set up for your printer's specs</li></ul><h4 class="svc-minor">Packaging design</h4>
+      <ul class="svc-check"><li>Structural check against your dieline and print specs</li><li>Front, back and side panel artwork</li><li>Packaging design for up to 3 products</li><li>Barcode, legal copy and nutrition panel placement</li><li>Print ready artwork with bleed, crop marks and CMYK or Pantone separation</li><li>3D mockups and product visuals for your store and social media</li><li>A short handover note for your printer</li></ul>
+    </div>
+    <div class="svc-pair">
+      <div class="svc-filesbox">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-fmts"><li>PDF</li><li>AI</li><li>PSD</li><li>JPG</li><li>PNG</li></ul>
+      <p class="svc-filetext">Print ready PDF, packaged AI or PSD working files, and JPG or PNG mockups. For stationery you also get editable source files, and an editable version of the letterhead your team can update.</p>
+      </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Made with</h3>
+      <ul class="svc-toolrow"><li><img src="assets/tools/illustrator.svg" alt="Adobe Illustrator" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Illustrator</span></li><li><img src="assets/tools/photoshop.svg" alt="Adobe Photoshop" width="30" height="30" loading="lazy" decoding="async"><span>Adobe Photoshop</span></li></ul>
+    </div>
+    </div>
+  </div>
+  </div><button type="button" class="svc-fade-btn" aria-expanded="false"><span class="more">See more</span><span class="less">See less</span></button></div>
+</article>
+<article class="svc" id="ui-ux-design" style="--box:url(assets/box-red.svg);--txt:#F7F7F7;--c:#FA5643">
+  <div class="svc-top">
+  <header class="svc-head">
+    <h2>UI/UX<br> Design</h2>
+    <p class="svc-tag">Flows people finish instead of abandoning.</p>
+  </header>
+  <div class="svc-body">
+    <p class="svc-desc">Website and app screens designed so people find what they need and finish what they came to do. You get clean designs for phone, tablet and desktop, in Arabic or English, ready for a developer to build.</p>
+  </div>
+  <figure class="svc-proj"><img src="assets/portfolio/ticketat.webp" alt="Ticketat project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>Ticketat</strong>, Website and booking flow</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>Starting from</span><strong>$1,200</strong></p></div></div><div class="svc-cta svc-cta--proj"><a class="panel-cta" href="https://wa.me/962797763533" target="_blank" rel="noopener">Start a project</a></div></figure>
+  </div>
+    <div class="svc-scopebox">
+      <h3 class="svc-sub">Scope</h3>
+      <ul class="svc-scope2"><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="4" y="8" width="30" height="22" rx="2"/><path d="M14 38h10M19 30v8"/><rect x="34" y="16" width="10" height="22" rx="2" fill="#0E1C41"/><path d="M37 34h4"/></svg><div><span class="n">Screens <em>as agreed</em></span><span class="d">Agreed before we start</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M8.5 34.5C12 20 18 16.5 24 16.5S36 20 39.5 34.5"/><rect x="4.5" y="34.5" width="8" height="8"/><rect x="20" y="8.5" width="8" height="8"/><rect x="35.5" y="34.5" width="8" height="8"/></svg><div><span class="n"><em>2</em> revisions</span><span class="d">Two rounds of changes</span></div></li><li><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="9" width="36" height="32" rx="3"/><path d="M6 19h36M15 5v8M33 5v8M15 27h6M27 27h6M15 34h6"/></svg><div><span class="n"><em>3 to 4</em> weeks</span><span class="d">From brief to final files</span></div></li></ul>
+  </div>
+  <div class="svc-how">
+    <h3 class="svc-sub">How we get there</h3>
+    <ol class="svc-timeline"><li><span class="svc-num">1</span><div class="svc-tltext"><strong>Understand</strong><span class="svc-steptext">Your users, your goals and what is not working today.</span></div></li><li><span class="svc-num">2</span><div class="svc-tltext"><strong>Map</strong><span class="svc-steptext">Every step people take, and what stays and what goes.</span></div></li><li><span class="svc-num">3</span><div class="svc-tltext"><strong>Design</strong><span class="svc-steptext">From wireframes to finished screens for every size.</span></div></li><li><span class="svc-num">4</span><div class="svc-tltext"><strong>Hand over</strong><span class="svc-steptext">Organised files and clear specifications for your developer.</span></div></li></ol>
+  </div>
+  <div class="svc-fade svc-fade--d"><div class="svc-fade-body" id="fade-d">
+  <div class="svc-end">
+    <div class="svc-files">
+      <h3 class="svc-sub">What you receive</h3>
+      <ul class="svc-check"><li>User flow for the core journey</li><li>Wireframes for the agreed screens</li><li>Final UI for desktop, tablet and mobile breakpoints</li><li>Design system with components, colour and type styles</li><li>Interactive prototype for testing and stakeholder review</li><li>Developer handover file with spacing, states and exported assets</li></ul>
+    </div>
+    <div class="svc-pair">
+      <div class="svc-filesbox">
+      <h3 class="svc-sub">Files you receive</h3>
+      <ul class="svc-fmts"><li>FIG</li><li>SVG</li><li>PNG</li></ul>
+      <p class="svc-filetext">The Figma file with edit access, a shareable prototype link and exported assets in SVG and PNG.</p>
+      </div>
+    <div class="svc-tools">
+      <h3 class="svc-sub">Made with</h3>
+      <ul class="svc-toolrow"><li><img src="assets/tools/figma.svg" alt="Figma" width="30" height="30" loading="lazy" decoding="async"><span>Figma</span></li></ul>
+    </div>
+    </div>
+  </div>
+  </div><button type="button" class="svc-fade-btn" aria-expanded="false"><span class="more">See more</span><span class="less">See less</span></button></div>
+</article>
+</div>
+      </div>
+    <p class="stage-hint">Every price above is a starting point. The final number depends on the size of the project, so tell me what you need using the contact details below.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-layout">
+
+      <div class="contact-header">
+        <h2 class="contact-title">
+          <span class="contact-title-banner">Yalla, let's talk</span>
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <a class="contact-card" href="mailto:marah.touqan@gmail.com" data-card="email">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value">say hi via email</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener" data-card="behance">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Behance</span>
+            <span class="contact-card-value">@marahtouqan</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener" data-card="linkedin">
+          <span class="contact-card-text">
+            <span class="contact-card-label">LinkedIn</span>
+            <span class="contact-card-value">marah touqan</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://wa.me/962797763533" target="_blank" rel="noopener" data-card="phone" aria-label="Message Marah on WhatsApp, +962 79 776 3533">
+          <span class="contact-card-text">
+            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-value">+962 79 776 3533</span>
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-cols">
+
+      <div class="footer-col">
+        <span class="footer-col-label">Sitemap</span>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Elsewhere</span>
+        <ul class="footer-list">
+          <li><a href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/designermarahtouqan/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:marah.touqan@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Currently</span>
+        <p class="footer-status">
+          <span class="fs-line">Open for freelance, part-time</span> <span class="fs-line">and full-time remote work.</span>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo-link" aria-label="Back to home"><img src="assets/logo.png" alt="Marah Touqan logo" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
+      <p class="footer-copy">© <span class="footer-year">2026</span> Marah Touqan. All mine.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+(function(){
+  const links = [...document.querySelectorAll('.menu-item')];
+  const panels = links.map(l => document.getElementById(l.dataset.slug));
+  function mark(slug){
+    links.forEach(l => l.setAttribute('aria-current', l.dataset.slug === slug ? 'true' : 'false'));
+  }
+  mark(links[0].dataset.slug);
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) mark(e.target.id); });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    panels.forEach(p => p && io.observe(p));
+  }
+  links.forEach(l => l.addEventListener('click', () => mark(l.dataset.slug)));
+  /* a click brings the section's top line right under the header */
+  const hdr = document.querySelector('.header');
+  const setH = () => document.documentElement.style.setProperty('--hdr', (hdr ? Math.round(hdr.getBoundingClientRect().height) : 72) + 'px');
+  setH(); addEventListener('resize', setH);
+  links.forEach(l => l.addEventListener('click', e => {
+    const a = document.getElementById(l.dataset.slug); if (!a) return;
+    e.preventDefault(); history.replaceState(null, '', '#' + l.dataset.slug);
+    const go = () => scrollTo({ top: a.getBoundingClientRect().top + scrollY - (hdr ? hdr.getBoundingClientRect().height : 72), behavior: 'smooth' });
+    go(); setTimeout(go, 700); setTimeout(go, 1500);
+  }));
+})();
+</script>
+<script>
+/* Custom pixel cursor + pixel trail (same as the home page; off on touch devices) */
+(function () {
+  var cur = document.getElementById('pixelCursor');
+  if (!cur || matchMedia('(hover: none), (pointer: coarse)').matches) return;
+  var last = 0;
+  cur.style.left = '-100px'; cur.style.top = '-100px';
+  addEventListener('pointermove', function (e) {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top = e.clientY + 'px';
+    var now = performance.now();
+    if (now - last >= 35) {
+      last = now;
+      var t = document.createElement('div');
+      t.className = 'trail-pixel';
+      t.style.left = (e.clientX + 18 + ((Math.random() * 10) | 0)) + 'px';
+      t.style.top = (e.clientY + 22 + ((Math.random() * 10) | 0)) + 'px';
+      document.body.appendChild(t);
+      setTimeout(function () { t.remove(); }, 600);
+    }
+  }, { passive: true });
+  document.querySelectorAll('[data-hover], a, button').forEach(function (el) {
+    el.addEventListener('mouseenter', function () { document.body.classList.add('cursor-active'); });
+    el.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-active'); });
+  });
+})();
+</script>
+<script>
+/* Email card: opens the visitor's mail app (mailto). If nothing opens (no mail app set up, or the browser blocks it),
+   a Gmail compose window opens instead, addressed to the same email. */
+(function () {
+  var a = document.querySelector('.contact-card[data-card="email"]');
+  if (!a) return;
+  var TO = 'marah.touqan@gmail.com', SUBJECT = 'Project enquiry';
+  a.setAttribute('href', 'mailto:' + TO + '?subject=' + encodeURIComponent(SUBJECT));
+  a.addEventListener('click', function () {
+    var left = false;
+    function gone() { left = true; }
+    addEventListener('blur', gone, { once: true });
+    document.addEventListener('visibilitychange', gone, { once: true });
+    setTimeout(function () {
+      removeEventListener('blur', gone);
+      if (left) return;   // a mail app took over
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(TO) + '&su=' + encodeURIComponent(SUBJECT), '_blank', 'noopener');
+    }, 900);
+  });
+})();
+</script>
+
+<script>
+/* menu: the burger opens the full-screen menu on smaller screens */
+(function(){
+  const burger = document.getElementById('burger'), menu = document.getElementById('menuPanel');
+  if (!burger || !menu) return;
+  function setMenu(open, returnFocus) {
+    burger.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menu.toggleAttribute('inert', !open);
+    if (open) { const first = menu.querySelector('a'); if (first) first.focus({ preventScroll: true }); }
+    else if (returnFocus) burger.focus({ preventScroll: true });
+  }
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open'), false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false, false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { e.preventDefault(); setMenu(false, true); } });
+  addEventListener('resize', () => { if (innerWidth >= 1200 && menu.classList.contains('open')) setMenu(false, false); });
+})();
+</script>
+
+<script>
+/* top bar: dark blue at the top, cream after a little scrolling */
+(function(){
+  const h = document.querySelector('.header'); if (!h) return;
+  const on = () => h.classList.toggle('header--stuck', (window.scrollY || document.documentElement.scrollTop) > 40);
+  addEventListener('scroll', on, { passive: true }); on();
+})();
+</script>
+
+<script>
+/* opening Work or Services from the menu always lands at the top of that page */
+(function(){
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const top = () => { if (!location.hash) window.scrollTo(0, 0); };
+  top();
+  addEventListener('load', top);
+  addEventListener('pageshow', top);
+  document.querySelectorAll('.header-nav a, .menu-panel a, .brand').forEach(a => {
+    const u = new URL(a.href, location.href);
+    if (u.pathname === location.pathname && !u.hash) a.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  });
+})();
+</script>
+
+<script>
+/* keep each project block (image + caption + price) vertically centred on the screen while it is pinned */
+(function(){
+  const figs = document.querySelectorAll('.svc-proj');
+  if (!figs.length) return;
+  const set = () => {
+    const barH = (document.querySelector('.header') || { offsetHeight: 80 }).offsetHeight;
+    figs.forEach(f => {
+      const h = f.getBoundingClientRect().height;
+      f.style.setProperty('--proj-top', Math.max(barH + 16, Math.round((innerHeight - h) / 2)) + 'px');
+    });
+  };
+  set();
+  addEventListener('resize', set);
+  addEventListener('load', set);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(set);
+  figs.forEach(f => f.querySelectorAll('img').forEach(i => { if (!i.complete) i.addEventListener('load', set); }));
+})();
+
+document.querySelectorAll('.svc-fade-btn').forEach(b => b.addEventListener('click', () => {
+  const f = b.closest('.svc-fade'); const o = f.classList.toggle('is-open'); b.setAttribute('aria-expanded', o);
+  document.querySelectorAll('.svc-proj').forEach(() => {}); window.dispatchEvent(new Event('resize'));
+}));
+
+(function () {
+  const arts = [...document.querySelectorAll('.svc')];
+  function place() {
+    arts.forEach(art => {
+      const cta = art.querySelector('.svc-cta--proj'), price = art.querySelector('.svc-price'); if (!cta || !price) return;
+      cta.style.marginTop = '';
+      if (matchMedia('(max-width: 480px)').matches || !art.offsetParent) return;
+      cta.style.marginTop = '0px';
+      const p = price.getBoundingClientRect(), c = cta.getBoundingClientRect();
+      cta.style.marginTop = Math.max(0, Math.round((p.top + p.height / 2) - (c.top + c.height / 2))) + 'px';
+    });
+  }
+  place(); addEventListener('resize', place); addEventListener('load', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+})();
+
+/* back-to-top button */
+(function () {
+  var btn = document.createElement('button');
+  btn.className = 'back-to-top'; btn.setAttribute('aria-label', 'Back to top');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19 V5 M5 12 L12 5 L19 12"/></svg>';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  function bgUnder() {
+    var x = innerWidth - 50, y = innerHeight - 50, els = document.elementsFromPoint(x, y);
+    for (var i = 0; i < els.length; i++) {
+      if (els[i] === btn) continue;
+      var c = getComputedStyle(els[i]).backgroundColor.match(/[\d.]+/g);
+      if (c && (c.length < 4 || parseFloat(c[3]) > 0.5)) return c.map(Number);
+    }
+    return [14, 28, 65];
+  }
+  function toggle() {
+    btn.classList.toggle('is-visible', scrollY > 200);
+    var c = bgUnder(); var lum = (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) / 255;
+    btn.classList.toggle('is-on-light', lum > 0.6);
+  }
+  toggle(); addEventListener('scroll', toggle, { passive: true }); addEventListener('resize', toggle);
+})();
+</script>
+
+</body>
+</html>

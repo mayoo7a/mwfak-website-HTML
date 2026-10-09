@@ -53,6 +53,7 @@ html { scroll-behavior: smooth; overflow-x: hidden; scroll-snap-type: y proximit
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .intro-headline, .intro-body, .sticker { opacity: 1 !important; }
+  .screen-slide { transition-duration: .6s !important; }   /* the Switch screen keeps sliding its images */
 }
 body { margin: 0; overflow-x: hidden; }
 
@@ -804,7 +805,6 @@ img { display: block; max-width: 100%; }
   transition: transform .6s ease;
 }
 .screen-slide.is-active { transform: none; }
-@media (prefers-reduced-motion: reduce) { .screen-slide { transition: none; } }
 
 /* Clickable Joy-Con buttons (positions are % of the 470x197 console canvas) */
 .joy-btn {

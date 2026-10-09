@@ -834,7 +834,6 @@ img { display: block; max-width: 100%; }
    TESTIMONIALS SECTION
    ========================================================= */
 .testimonials {
-  background: var(--ink);
   color: var(--bg);
   padding: 115px 5vw 115px;
   position: relative;
@@ -843,8 +842,7 @@ img { display: block; max-width: 100%; }
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
+  justify-content: center;}
 .testimonials-inner {
   width: 100%;
   max-width: 1500px;
@@ -1065,12 +1063,10 @@ img { display: block; max-width: 100%; }
   justify-content: center;
   width: 48px;
   height: 48px;
-  font-size: 32px;
   line-height: 1;
   color: var(--bg);
   transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
-  transform-origin: center;
-}
+  transform-origin: center;}
 /* Text block on the right (label stacked on value) */
 .contact-card-text {
   display: flex;
@@ -1144,7 +1140,7 @@ img { display: block; max-width: 100%; }
   .contact-header { margin-bottom: 60px; }
 }
 @media (max-width: 600px) {
-  .contact-grid { grid-template-columns: 1fr; }
+  
   .contact { padding: 100px 5vw 70px; }
 }
 
@@ -1239,19 +1235,14 @@ img { display: block; max-width: 100%; }
 
 /* Bottom row */
 .footer-logo {
-  height: 44px;
   width: auto;
   display: block;
-  margin-right: 6px;
-}
+  margin-right: 6px;}
 .footer-bottom .footer-copy { margin-right: 76px; }
 .footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: flex; justify-content: space-between;
   padding-top: 26px;
-  border-top: 1px solid rgba(14,28,65,0.15);
-}
+  border-top: 1px solid rgba(14,28,65,0.15);}
 .footer-copy {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
@@ -1438,7 +1429,7 @@ img { display: block; max-width: 100%; }
 }
 @media (max-width: 400px) { .quote-btn { padding: 10px 12px; font-size: 9px; letter-spacing: .1em; } }
 
-.panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease; }
+.panel-cta { display: inline-block; padding: 20px 38px; background: url(assets/box-orange.svg) center/100% 100% no-repeat; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease;}
 .panel-cta:focus-visible { transform: translateY(-3px) scale(1.04); outline: none; }
 @media (hover: hover) { .panel-cta:hover { transform: translateY(-3px) scale(1.04); outline: none; } }
 @media (max-width: 600px) {  .panel-cta { padding: 16px 24px; font-size: 11px; } }
@@ -1454,12 +1445,12 @@ img { display: block; max-width: 100%; }
 /* small screens: contact boxes two per row, clean and unrotated (same on every page) */
 @media (max-width: 600px) {
   .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: -20px; }
-  .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: row; align-items: center; justify-content: flex-start; gap: 8px; min-height: 0; padding: 14px 10px; box-shadow: 5px 5px 0 var(--ink); }
+  .contact-grid .contact-card { scale: 1; rotate: 0deg; flex-direction: row; align-items: center; justify-content: flex-start;}
   @media (hover: hover) { .contact-grid .contact-card:hover { scale: 1; } }
-  .contact-card::before { flex: 0 0 auto; width: 28px; height: 28px; font-size: 22px; }
+  .contact-card::before { flex: 0 0 auto; font-size: 22px;}
   .contact-card-text { gap: 4px; }
-  .contact-card-label { font-size: 9px; letter-spacing: .18em; }
-  .contact-card-value { font-size: 13px; white-space: normal; overflow-wrap: anywhere; line-height: 1.15; }
+  .contact-card-label { letter-spacing: .18em;}
+  .contact-card-value { white-space: normal; overflow-wrap: anywhere; line-height: 1.15;}
   .contact-card-text { min-width: 0; }
 }
 @media (max-width: 400px) {
@@ -1468,7 +1459,7 @@ img { display: block; max-width: 100%; }
   .contact-card-value { font-size: 11.5px; letter-spacing: -0.02em; }
   .contact-card-label { font-size: 8px; }
 }
-@media (max-width: 340px) { .contact-card { padding: 12px 5px; gap: 4px; } .contact-card::before { width: 22px; height: 22px; font-size: 17px; } .contact-card-value { font-size: 9.5px; letter-spacing: -0.03em; } .contact-card-label { letter-spacing: .12em; } }
+@media (max-width: 340px) { .contact-card { padding: 12px 5px; gap: 4px; } .contact-card::before { font-size: 17px;} .contact-card-value { font-size: 9.5px; letter-spacing: -0.03em; } .contact-card-label { letter-spacing: .12em; } }
 
 /* contact icons: envelope, Behance, WhatsApp from Bootstrap Icons (MIT); LinkedIn "in" from Font Awesome Free (CC BY 4.0, fontawesome.com) */
 .contact-card::before { content: ""; background: #F7F7F7; background-image: none; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: 32px 32px; mask-size: 32px 32px; font-size: 0; }
@@ -1476,33 +1467,27 @@ img { display: block; max-width: 100%; }
 .contact-card[data-card="behance"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M4.654%203c.461%200%20.887.035%201.278.14.39.07.711.216.996.391s.497.426.641.747c.14.32.216.711.216%201.137%200%20.496-.106.922-.356%201.242-.215.32-.566.606-.997.817.606.176%201.067.496%201.348.922s.461.957.461%201.563c0%20.496-.105.922-.285%201.278a2.3%202.3%200%200%201-.782.887c-.32.215-.711.39-1.137.496a5.3%205.3%200%200%201-1.278.176L0%2012.803V3zm-.285%203.978c.39%200%20.71-.105.957-.285.246-.18.355-.497.355-.887%200-.216-.035-.426-.105-.567a1%201%200%200%200-.32-.355%201.8%201.8%200%200%200-.461-.176c-.176-.035-.356-.035-.567-.035H2.17v2.31c0-.005%202.2-.005%202.2-.005zm.105%204.193c.215%200%20.426-.035.606-.07.176-.035.356-.106.496-.216s.25-.215.356-.39c.07-.176.14-.391.14-.641%200-.496-.14-.852-.426-1.102-.285-.215-.676-.32-1.137-.32H2.17v2.734h2.305zm6.858-.035q.428.427%201.278.426c.39%200%20.746-.106%201.032-.286q.426-.32.53-.64h1.74c-.286.851-.712%201.457-1.278%201.848-.566.355-1.243.566-2.06.566a4.1%204.1%200%200%201-1.527-.285%202.8%202.8%200%200%201-1.137-.782%202.85%202.85%200%200%201-.712-1.172c-.175-.461-.25-.957-.25-1.528%200-.531.07-1.032.25-1.493.18-.46.426-.852.747-1.207.32-.32.711-.606%201.137-.782a4%204%200%200%201%201.493-.285c.606%200%201.137.105%201.598.355.46.25.817.532%201.102.958.285.39.496.851.641%201.348.07.496.105.996.07%201.563h-5.15c0%20.58.21%201.11.496%201.396m2.24-3.732c-.25-.25-.642-.391-1.103-.391-.32%200-.566.07-.781.176s-.356.25-.496.39a.96.96%200%200%200-.25.497c-.036.175-.07.32-.07.46h3.196c-.07-.526-.25-.882-.497-1.132zm-3.127-3.728h3.978v.957h-3.978z'/%3E%20%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M4.654%203c.461%200%20.887.035%201.278.14.39.07.711.216.996.391s.497.426.641.747c.14.32.216.711.216%201.137%200%20.496-.106.922-.356%201.242-.215.32-.566.606-.997.817.606.176%201.067.496%201.348.922s.461.957.461%201.563c0%20.496-.105.922-.285%201.278a2.3%202.3%200%200%201-.782.887c-.32.215-.711.39-1.137.496a5.3%205.3%200%200%201-1.278.176L0%2012.803V3zm-.285%203.978c.39%200%20.71-.105.957-.285.246-.18.355-.497.355-.887%200-.216-.035-.426-.105-.567a1%201%200%200%200-.32-.355%201.8%201.8%200%200%200-.461-.176c-.176-.035-.356-.035-.567-.035H2.17v2.31c0-.005%202.2-.005%202.2-.005zm.105%204.193c.215%200%20.426-.035.606-.07.176-.035.356-.106.496-.216s.25-.215.356-.39c.07-.176.14-.391.14-.641%200-.496-.14-.852-.426-1.102-.285-.215-.676-.32-1.137-.32H2.17v2.734h2.305zm6.858-.035q.428.427%201.278.426c.39%200%20.746-.106%201.032-.286q.426-.32.53-.64h1.74c-.286.851-.712%201.457-1.278%201.848-.566.355-1.243.566-2.06.566a4.1%204.1%200%200%201-1.527-.285%202.8%202.8%200%200%201-1.137-.782%202.85%202.85%200%200%201-.712-1.172c-.175-.461-.25-.957-.25-1.528%200-.531.07-1.032.25-1.493.18-.46.426-.852.747-1.207.32-.32.711-.606%201.137-.782a4%204%200%200%201%201.493-.285c.606%200%201.137.105%201.598.355.46.25.817.532%201.102.958.285.39.496.851.641%201.348.07.496.105.996.07%201.563h-5.15c0%20.58.21%201.11.496%201.396m2.24-3.732c-.25-.25-.642-.391-1.103-.391-.32%200-.566.07-.781.176s-.356.25-.496.39a.96.96%200%200%200-.25.497c-.036.175-.07.32-.07.46h3.196c-.07-.526-.25-.882-.497-1.132zm-3.127-3.728h3.978v.957h-3.978z'/%3E%20%3C/svg%3E"); }
 .contact-card[data-card="linkedin"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%20512'%3E%3Cpath%20fill='%23000'%20d='M100.3%20448l-92.9%200%200-299.1%2092.9%200%200%20299.1zM53.8%20108.1C24.1%20108.1%200%2083.5%200%2053.8%200%2039.5%205.7%2025.9%2015.8%2015.8s23.8-15.8%2038-15.8%2027.9%205.7%2038%2015.8%2015.8%2023.8%2015.8%2038c0%2029.7-24.1%2054.3-53.8%2054.3zM447.9%20448l-92.7%200%200-145.6c0-34.7-.7-79.2-48.3-79.2-48.3%200-55.7%2037.7-55.7%2076.7l0%20148.1-92.8%200%200-299.1%2089.1%200%200%2040.8%201.3%200c12.4-23.5%2042.7-48.3%2087.9-48.3%2094%200%20111.3%2061.9%20111.3%20142.3l0%20164.3-.1%200z'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%20512'%3E%3Cpath%20fill='%23000'%20d='M100.3%20448l-92.9%200%200-299.1%2092.9%200%200%20299.1zM53.8%20108.1C24.1%20108.1%200%2083.5%200%2053.8%200%2039.5%205.7%2025.9%2015.8%2015.8s23.8-15.8%2038-15.8%2027.9%205.7%2038%2015.8%2015.8%2023.8%2015.8%2038c0%2029.7-24.1%2054.3-53.8%2054.3zM447.9%20448l-92.7%200%200-145.6c0-34.7-.7-79.2-48.3-79.2-48.3%200-55.7%2037.7-55.7%2076.7l0%20148.1-92.8%200%200-299.1%2089.1%200%200%2040.8%201.3%200c12.4-23.5%2042.7-48.3%2087.9-48.3%2094%200%20111.3%2061.9%20111.3%20142.3l0%20164.3-.1%200z'/%3E%3C/svg%3E"); }
 .contact-card[data-card="phone"]::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M13.601%202.326A7.85%207.85%200%200%200%207.994%200C3.627%200%20.068%203.558.064%207.926c0%201.399.366%202.76%201.057%203.965L0%2016l4.204-1.102a7.9%207.9%200%200%200%203.79.965h.004c4.368%200%207.926-3.558%207.93-7.93A7.9%207.9%200%200%200%2013.6%202.326zM7.994%2014.521a6.6%206.6%200%200%201-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56%206.56%200%200%201-1.007-3.505c0-3.626%202.957-6.584%206.591-6.584a6.56%206.56%200%200%201%204.66%201.931%206.56%206.56%200%200%201%201.928%204.66c-.004%203.639-2.961%206.592-6.592%206.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73%200%200%200-.529.247c-.182.198-.691.677-.691%201.654s.71%201.916.81%202.049c.098.133%201.394%202.132%203.383%202.992.47.205.84.326%201.129.418.475.152.904.129%201.246.08.38-.058%201.171-.48%201.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232'/%3E%20%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23000'%20viewBox='0%200%2016%2016'%3E%20%3Cpath%20d='M13.601%202.326A7.85%207.85%200%200%200%207.994%200C3.627%200%20.068%203.558.064%207.926c0%201.399.366%202.76%201.057%203.965L0%2016l4.204-1.102a7.9%207.9%200%200%200%203.79.965h.004c4.368%200%207.926-3.558%207.93-7.93A7.9%207.9%200%200%200%2013.6%202.326zM7.994%2014.521a6.6%206.6%200%200%201-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56%206.56%200%200%201-1.007-3.505c0-3.626%202.957-6.584%206.591-6.584a6.56%206.56%200%200%201%204.66%201.931%206.56%206.56%200%200%201%201.928%204.66c-.004%203.639-2.961%206.592-6.592%206.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73%200%200%200-.529.247c-.182.198-.691.677-.691%201.654s.71%201.916.81%202.049c.098.133%201.394%202.132%203.383%202.992.47.205.84.326%201.129.418.475.152.904.129%201.246.08.38-.058%201.171-.48%201.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232'/%3E%20%3C/svg%3E"); }
-@media (max-width: 600px) { .contact-card::before { -webkit-mask-size: 22px 22px; mask-size: 22px 22px; } }
+
 @media (max-width: 400px) { .contact-card::before { -webkit-mask-size: 19px 19px; mask-size: 19px 19px; } }
-@media (max-width: 340px) { .contact-card::before { -webkit-mask-size: 17px 17px; mask-size: 17px 17px; } }
+
 
 /* contact boxes on small screens: same height (94px) and roomy inner spacing as the desktop boxes, two per row */
 @media (max-width: 600px) {
-  .contact-grid .contact-card { min-height: 94px; padding: 18px 12px; gap: 10px; box-shadow: 6px 6px 0 var(--ink); }
-  .contact-card::before { width: 30px; height: 30px; -webkit-mask-size: 26px 26px; mask-size: 26px 26px; }
-  .contact-card-label { font-size: 10px; }
-  .contact-card-value { font-size: clamp(12px, calc(5.3vw - 9.5px), 14px); }
+  .contact-grid .contact-card { box-shadow: 6px 6px 0 var(--ink);}
+  
+  
+  
 }
 @media (max-width: 420px) {
-  .contact-grid .contact-card { padding: 18px 8px; gap: 8px; }
-  .contact-card::before { width: 26px; height: 26px; -webkit-mask-size: 22px 22px; mask-size: 22px 22px; }
+  
+  
   .contact-card-label { font-size: 9px; }
-  .contact-card-value { font-size: clamp(9.5px, calc(5.3vw - 7.8px), 13px); }
-}
-@media (max-width: 340px) {
-  .contact-grid .contact-card { padding: 18px 6px; gap: 6px; }
-  .contact-card::before { width: 22px; height: 22px; -webkit-mask-size: 18px 18px; mask-size: 18px 18px; }
+  
 }
 
+
 /* small screens: icon spacing closer to the laptop boxes (space left of the icon, and between icon and text) */
-@media (max-width: 600px) {
-  .contact-grid .contact-card { padding: 18px 8px 18px 20px; gap: 16px; }
-  .contact-card::before { width: 26px; height: 26px; -webkit-mask-size: 26px 26px; mask-size: 26px 26px; }
-}
+
 @media (max-width: 420px) {
   .contact-grid .contact-card { padding: 18px 6px 18px 16px; gap: 12px; }
   .contact-card::before { width: 24px; height: 24px; -webkit-mask-size: 24px 24px; mask-size: 24px 24px; }

@@ -923,10 +923,13 @@ img { display: block; max-width: 100%; }
 .cn-gal { cursor: default; touch-action: pan-y; }
 .cn-text { text-align: center; max-width: 760px; margin: 6px auto 0; display: flex; flex-direction: column; align-items: center; gap: 22px; }
 /* only the words change: quote, name letters and role fade in; the orange oval and the dots stay put */
-@keyframes cnIn { from { opacity: 0; } }
-@keyframes cnInText { from { color: transparent; } }
-.cn-quote.cn-swap, .cn-role.cn-swap { animation: cnIn .5s steps(4, end); }
-.cn-name.cn-swap { animation: cnInText .5s steps(4, end); }
+@keyframes cnWipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes cnWipeCover { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+.cn-quote.cn-swap, .cn-role.cn-swap { animation: cnWipe .6s steps(12, end) both; }
+/* the name sits on the orange oval, which never moves: a block of the same orange slides off to the right and reveals the new name */
+.cn-name { position: relative; }
+.cn-name::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: #F9A323; transform: scaleX(0); transform-origin: right center; pointer-events: none; }
+.cn-name.cn-swap::after { animation: cnWipeCover .6s steps(12, end) both; }
 /* cartoon speech bubble for the review, tail pointing up at the galaxy */
 .cn-card { position: relative; width: 100%; box-sizing: border-box; padding: 0 12px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 14px; }
 .cn-quote { font-family: 'DM Serif Display', serif; font-style: normal; font-size: clamp(20px, 2.4vw, 32px); line-height: 1.2; color: var(--bg); display: flex; align-items: center; justify-content: center; margin: 0; }
@@ -939,7 +942,7 @@ img { display: block; max-width: 100%; }
 .cn-dot:focus-visible { outline: 2px solid var(--bg); outline-offset: 3px; }
 
 @media (max-width: 700px) { .cn-svg { transform: translateY(-20px); height: 320px; width: 100vw; margin-left: calc(50% - 50vw); max-width: none; } }
-@media (prefers-reduced-motion: reduce) { .cn-swap { animation-duration: .5s !important; animation-iteration-count: 1 !important; } .cn-dot { transition-duration: .2s !important; } }
+@media (prefers-reduced-motion: reduce) { .cn-swap, .cn-swap::after { animation-duration: .6s !important; animation-iteration-count: 1 !important; } .cn-dot { transition-duration: .2s !important; } }
 
 @media (max-width: 900px) {
   .testimonials-row {

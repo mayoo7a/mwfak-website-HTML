@@ -1,0 +1,47 @@
+{
+  "site": {
+    "baseUrl": "https://marahtouqan.com",
+    "name": "Marah Touqan",
+    "ogImage": "assets/og-preview.png",
+    "ogImageAlt": "Marah Touqan, brand identity, logo, packaging and UI/UX designer, with the four service cards: Logo Design, Brand Identity, Packaging and Print, UI/UX Design",
+    "whatsAppNumber": "962792847268",
+    "phoneDisplay": "+962 7 9284 7268",
+    "email": "marah.touqan@gmail.com",
+    "behance": "https://www.behance.net/marahtouqan",
+    "linkedIn": "https://www.linkedin.com/in/marahtouqan/",
+    "instagram": "https://www.instagram.com/designermarahtouqan/",
+    "cvPath": "assets/Marah-Touqan-CV.pdf",
+    "jobTitle": "Brand Identity and UI/UX Designer",
+    "shortBio": "Freelance brand identity, logo, packaging and UI/UX designer with 13+ years of experience, working in Arabic and English.",
+    "knowsAbout": [
+      "Brand identity design",
+      "Logo design",
+      "Packaging design",
+      "UI/UX design",
+      "Arabic typography"
+    ],
+    "serviceTypes": [
+      "Logo design",
+      "Brand identity design",
+      "Packaging design",
+      "UI/UX design"
+    ]
+  },
+  "pages": {
+    "home": {
+      "title": "Marah Touqan | Brand Identity, Logo & UI/UX Designer in Jordan",
+      "description": "Freelance brand identity, logo, packaging and UI/UX designer in Jordan with 13+ years of experience. Arabic and English brands, websites and mobile apps for clients worldwide.",
+      "path": "/"
+    },
+    "services": {
+      "title": "Logo, Brand Identity, Packaging & UI/UX Design Services | Marah Touqan",
+      "description": "Four design services from freelance designer Marah Touqan: logo design from $450, brand identity from $1,200, packaging design from $350 and UI/UX design from $1,200. Arabic and English.",
+      "path": "/services.html"
+    },
+    "my-work": {
+      "title": "Portfolio: Logo, Brand Identity, Packaging & UI/UX Projects | Marah Touqan",
+      "description": "Selected logo, brand identity, packaging and UI/UX projects by freelance designer Marah Touqan, with the company, the work and the result for each project.",
+      "path": "/my-work.html"
+    }
+  }
+}

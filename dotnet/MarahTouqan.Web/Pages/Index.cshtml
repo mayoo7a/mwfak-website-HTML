@@ -1,0 +1,389 @@
+@page "/"
+@model MarahTouqan.Web.Pages.IndexModel
+@{
+    ViewData["Slug"] = "home";
+    ViewData["Scripts"] = new[] { "home-footer-year.js", "home.js", "home-hero-reel.js", "home-email-card.js" };
+}
+<!-- Custom pixel cursor - uses the uploaded cursor.svg file -->
+<div class="pixel-cursor" id="pixelCursor" aria-hidden="true">
+  <img src="assets/cursor.svg" alt="" width="36" height="36" />
+</div>
+
+<!-- Cat photo that follows the cursor while hovering "cat cuddles" -->
+<div class="cat-follower" id="catFollower" aria-hidden="true"></div>
+
+<!-- Off-canvas menu -->
+<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
+  <a href="my-work.html" data-hover>Work</a>
+  <a href="services.html" data-hover>Services</a>
+  <a href="#about" data-hover>About</a>
+  <a href="#contact" data-hover>Contact</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero hero--reel">
+  <!-- Header on top -->
+  <header class="header">
+    <a href="#" class="brand" data-hover aria-label="Marah Touqan home">
+      <img src="assets/logo.png" alt="Marah Touqan logo" width="256" height="239" />
+      <span class="brand-name">Marah Touqan</span>
+    </a>
+
+    <div class="header-actions">
+      <nav class="header-nav" aria-label="Primary">
+        <a href="my-work.html" data-hover>Work</a>
+        <a href="services.html" data-hover>Services</a>
+        <a href="#about" data-hover>About</a>
+        <a href="#contact" data-hover>Contact</a>
+      </nav>
+      <a class="quote-btn" href="https://wa.me/962792847268" target="_blank" rel="noopener" data-hover>Get a quote</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero showreel: full width, plays once when the site opens. Click the video to pause or play; a replay button appears at the end -->
+  <div class="hero-reel-full" id="heroReelWrap">
+    <i class="hero-reel-side hero-reel-side--l" aria-hidden="true"></i>
+    <i class="hero-reel-side hero-reel-side--r" aria-hidden="true"></i>
+    <video class="hero-reel-video" id="heroReel"
+           data-src="assets/hero.mp4" data-src-small="assets/hero-mobile.mp4"
+           poster="assets/hero-poster.webp"
+           autoplay muted playsinline preload="metadata"
+           disablepictureinpicture disableremoteplayback
+           tabindex="0" aria-label="Marah Touqan showreel 2026. Press to pause or play"></video>
+    <div class="hero-reel-ctl">
+      <button class="hero-reel-btn" id="heroReelBtn" type="button" data-hover aria-label="Replay the showreel">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+        <span class="hero-reel-btn-label">Replay</span>
+      </button>
+    </div>
+  </div>
+  <h1 class="sr-only">Marah Touqan, Brand Identity and UI/UX Designer. 13+ years of designing worth showing.</h1>
+
+</section>
+
+<!-- ============================================================
+     INTRO / ABOUT SECTION - centered manifesto with floating stickers
+     (inspired by idyllic's "FOR THE TRAILBLAZERS" centered layout)
+     ============================================================ -->
+<section class="intro" id="about">
+
+  <!-- DESIGN-themed floating stickers (positioned away from the text) -->
+
+  <!-- Top-left: paint palette with color dots -->
+  <div class="sticker palette-sticker" data-service="Brand Identity">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 25 C 50 25, 18 65, 18 110 C 18 145, 48 168, 80 162 C 90 160, 92 152, 88 145 C 80 132, 92 116, 108 120 C 122 124, 130 134, 148 134 C 172 134, 184 115, 184 92 C 184 55, 148 25, 100 25 Z"
+            fill="#F2EBE8" stroke="#0E1C41" stroke-width="6" stroke-linejoin="round"/>
+      <circle cx="62" cy="82" r="11" fill="#FA5643" stroke="#0E1C41" stroke-width="3"/>
+      <circle cx="98" cy="62" r="11" fill="#F9A323" stroke="#0E1C41" stroke-width="3"/>
+      <circle cx="138" cy="78" r="11" fill="#D23697" stroke="#0E1C41" stroke-width="3"/>
+      <circle cx="148" cy="108" r="11" fill="#1E7CDF" stroke="#0E1C41" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <!-- Top-right: pen tool / bezier curve with anchor points -->
+  <div class="sticker pen-sticker" data-service="Logo Design">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M25 160 C 65 50, 135 50, 175 160" fill="none" stroke="#0E1C41" stroke-width="6" stroke-linecap="round"/>
+      <line x1="32" y1="155" x2="100" y2="58" stroke="#0E1C41" stroke-width="2" stroke-dasharray="5,5"/>
+      <line x1="168" y1="155" x2="100" y2="58" stroke="#0E1C41" stroke-width="2" stroke-dasharray="5,5"/>
+      <rect x="20" y="150" width="18" height="18" fill="#F9A323" stroke="#0E1C41" stroke-width="3"/>
+      <rect x="91" y="50" width="18" height="18" fill="#D23697" stroke="#0E1C41" stroke-width="3"/>
+      <rect x="162" y="150" width="18" height="18" fill="#1E7CDF" stroke="#0E1C41" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <!-- Stacked layers icon (Photoshop/Figma vibe) -->
+  <div class="sticker layers-sticker" data-service="UI/UX Design">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20"  y="70" width="130" height="90" rx="6" fill="#1E7CDF" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
+      <rect x="40"  y="45" width="130" height="90" rx="6" fill="#F9A323" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
+      <rect x="60"  y="20" width="130" height="90" rx="6" fill="#FA5643" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Bottom-right: ruler with tick marks -->
+  <div class="sticker ruler-sticker" data-service="Packaging & Print">
+    <svg viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="24" width="204" height="48" fill="#F9A323" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
+      <line x1="28"  y1="24" x2="28"  y2="50" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="48"  y1="24" x2="48"  y2="40" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="68"  y1="24" x2="68"  y2="40" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="88"  y1="24" x2="88"  y2="40" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="108" y1="24" x2="108" y2="50" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="128" y1="24" x2="128" y2="40" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="148" y1="24" x2="148" y2="40" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="168" y1="24" x2="168" y2="40" stroke="#0E1C41" stroke-width="3"/>
+      <line x1="188" y1="24" x2="188" y2="50" stroke="#0E1C41" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="intro-container">
+
+    <h2 class="intro-headline">
+      I'm <span class="name">Marah Touqan</span><br>
+      a designer running on<br>
+      <span class="pixel">cat cuddles</span> &amp; <span class="underline">curiosity</span>
+    </h2>
+
+    <div class="intro-body">
+      <p>You're here because something needs designing. Maybe it's a logo that's been side-eyed in 12 meetings. Maybe it's an app your users keep getting lost in. Maybe it's packaging that looks fine, but fine doesn't sell.</p>
+      <p>I've spent <strong>13+ years</strong> untangling exactly these problems. The trick is, I listen before I open Illustrator. Your vision is the brief. My job is to translate it into something sharper, simpler, and impossible to scroll past, in <strong>Arabic, English, or both</strong>.</p>
+      <p class="intro-cv"><a href="assets/Marah-Touqan-CV.pdf" target="_blank" rel="noopener">Download my CV <span aria-hidden="true">↗</span></a></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     MAGNIFICENT SECTION - full-bleed numbered service list
+     ============================================================ -->
+<section class="magnificent" id="services">
+
+  <div class="mag-header">
+
+    <div class="mag-title-block">
+      <div class="mag-word-wrap">
+        <span class="mag-title-pre">Sponsor my quest for a</span>
+        <h2 class="mag-word-anton">Dragon</h2>
+      </div>
+      <img src="assets/dragon.gif" alt="" class="mag-dragon-gif" aria-hidden="true" width="500" height="226" loading="lazy" decoding="async" />
+      <div class="dragon-tooltip" aria-hidden="true">Other designers want a house. I want a <strong>dragon</strong>. Currently in the egg-shopping phase. Don't laugh, the plan's going great.</div>
+    </div>
+
+  </div>
+
+  <!-- Stacked, tilted service cards -->
+  <div class="mag-cards">
+
+    <a class="mag-card" data-card="01" href="services.html#logo-design">
+      <h3>Logo<br> Design</h3>
+      <p class="mag-card-desc">One mark that holds up tiny and huge.</p>
+      <div class="mag-card-ribbon">Learn more</div>
+    </a>
+
+    <a class="mag-card" data-card="02" href="services.html#brand-identity">
+      <h3>Brand<br> Identity</h3>
+      <p class="mag-card-desc">A full visual system, recognised everywhere.</p>
+      <div class="mag-card-ribbon">Learn more</div>
+    </a>
+
+    <a class="mag-card" data-card="03" href="services.html#packaging-print">
+      <h3>Packaging<br> &amp; Print</h3>
+      <p class="mag-card-desc">Packaging that wins in its first two seconds.</p>
+      <div class="mag-card-ribbon">Learn more</div>
+    </a>
+
+    <a class="mag-card" data-card="04" href="services.html#ui-ux-design">
+      <h3>UI/UX<br> Design</h3>
+      <p class="mag-card-desc">Flows people finish instead of abandoning.</p>
+      <div class="mag-card-ribbon">Learn more</div>
+    </a>
+
+  </div>
+
+
+</section>
+
+<!-- ============================================================
+     SELECTED WORK SECTION
+     ============================================================ -->
+<section class="work" id="work">
+
+  <h2 class="work-title">
+    <span class="work-title-main">My Work</span>
+  </h2>
+
+  <div class="work-hero">
+    <div class="switch-frame">
+      <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
+      <a class="switch-screen" href="my-work.html" aria-label="See all my work">
+        <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" data-name="Battikhi Stays" data-type="Brand and website" data-stem="battikhi-stays" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
+        <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table brand" data-name="The Welcome Table" data-type="Brand identity" data-stem="the-welcome-table" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/ummati.webp" alt="Ummati brand and app" data-name="Ummati" data-type="Brand and UI/UX web/app" data-stem="ummati" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/sol-root.webp" alt="Sol Root logo and packaging" data-name="Sol Root" data-type="Logo and packaging" data-stem="sol-root" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/mwafq.webp" alt="Mwafq website UI" data-name="Mwafq" data-type="UI/UX web/app" data-stem="mwafq" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/ticketat.webp" alt="Ticketat website UI" data-name="Ticketat" data-type="UI/UX web" data-stem="ticketat" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel presentation design" data-name="Qanadeel" data-type="Presentation design" data-stem="qanadeel" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" data-name="Baseera" data-type="Logo design" data-stem="baseera" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab logo" data-name="Zinger Lab" data-type="Logo design" data-stem="zinger-lab" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery logo and identity" data-name="33 Butchery" data-type="Logo design" data-stem="33-butchery" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls logo and identity" data-name="Canary Calls" data-type="Logo design" data-stem="canary-calls" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry logo and identity" data-name="Compera Jewelry" data-type="Logo design" data-stem="compera-jewelry" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/hbcs.webp" alt="HBCS logo" data-name="HBCS" data-type="Logo design" data-stem="hbcs" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies logo and identity" data-name="Heavyweight Hoodies" data-type="Logo design" data-stem="heavyweight-hoodies" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        <img src="assets/portfolio/motammem.webp" alt="Motammem logo and identity" data-name="Motammem" data-type="Logo design" data-stem="motammem" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+      </a>
+      <button type="button" class="joy-btn" data-joy="work" style="left:95.70%;top:25.13%" aria-label="Open this project (A)"></button>
+      <button type="button" class="joy-btn" data-joy="prev" style="left:92.49%;top:32.23%" aria-label="Previous project (B)"></button>
+      <button type="button" class="joy-btn" data-joy="pause" style="left:89.30%;top:25.13%" aria-label="Pause or resume slideshow (Y)"></button>
+      <button type="button" class="joy-btn" data-joy="next" style="left:92.49%;top:18.02%" aria-label="Next project (X)"></button>
+      <button type="button" class="joy-btn" data-joy="prev" style="left:4.06%;top:52.18%" aria-label="Previous project"></button>
+      <button type="button" class="joy-btn" data-joy="next" style="left:10.47%;top:52.69%" aria-label="Next project"></button>
+      <button type="button" class="joy-btn" data-joy="work" style="left:90.40%;top:71.27%" aria-label="See all my work"></button>
+    </div>
+  </div>
+
+  <div class="work-caption" aria-live="polite">
+    <div class="wc-text"><span class="wc-name" id="wcName">Brand and website</span><span class="wc-type" id="wcType">Battikhi Stays</span></div>
+  </div>
+  <div class="work-cta"><a class="panel-cta panel-cta--pink" href="my-work.html">See all my work</a></div>
+
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS SECTION
+     ============================================================ -->
+<section class="testimonials" id="testimonials">
+  <canvas class="gx-canvas" id="gxCanvas" aria-hidden="true"></canvas>
+
+  <div class="testimonials-inner">
+
+    <h2 class="testimonials-title">
+      <span class="testimonials-title-banner">
+        <span class="zg zg-1">Reviews</span>
+        <span class="zg zg-2">from</span>
+        <span class="zg zg-3">across</span>
+        <span class="zg zg-4">the</span>
+        <span class="zg zg-5">galaxy</span>
+      </span>
+    </h2>
+
+    <div class="cn" id="cn">
+      <canvas class="cn-svg cn-gal" id="cnGal" role="img" aria-label="A spiral galaxy. The bright stars are client reviews; select one to read it."></canvas>
+      <div class="cn-text" id="cnText" aria-live="polite">
+        <div class="cn-card">
+          <p class="cn-quote" id="cnQuote"></p>
+          <p class="cn-name" id="cnName"></p>
+          <p class="cn-role" id="cnRole"></p>
+        </div>
+        <div class="cn-dots" id="cnDots"></div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+<section class="contact" id="contact">
+
+  <div class="contact-inner">
+
+    <div class="contact-layout">
+
+      <div class="contact-header">
+        <h2 class="contact-title">
+          <span class="contact-title-banner">Yalla, let's talk</span>
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <a class="contact-card" href="mailto:marah.touqan@@gmail.com" data-card="email">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value">say hi via email</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener" data-card="behance">
+          <span class="contact-card-text">
+            <span class="contact-card-label">Behance</span>
+            <span class="contact-card-value">@@marahtouqan</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener" data-card="linkedin">
+          <span class="contact-card-text">
+            <span class="contact-card-label">LinkedIn</span>
+            <span class="contact-card-value">marah touqan</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://wa.me/962792847268" target="_blank" rel="noopener" data-card="phone" aria-label="Message Marah on WhatsApp, +962 7 9284 7268">
+          <span class="contact-card-text">
+            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-value">+962 7 9284 7268</span>
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="contact-footer">
+      <p class="contact-signoff">
+        <span class="ps-line"><em>P.S. </em>My blind cat reviews every project before delivery.</span> <span class="ps-line">So far, zero complaints.</span>
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <!-- Big closing line, like a sign-off -->
+    <div class="footer-signoff">
+      <span class="footer-bye">That's all, folks</span>
+      <img src="assets/footer-bye.webp" alt="" class="footer-bye-img" aria-hidden="true" width="460" height="310" loading="lazy" decoding="async" />
+    </div>
+
+    <!-- Columns: nav + social + meta -->
+    <div class="footer-cols">
+
+      <div class="footer-col">
+        <span class="footer-col-label">Sitemap</span>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Elsewhere</span>
+        <ul class="footer-list">
+          <li><a href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/designermarahtouqan/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:marah.touqan@@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+          <li><a href="assets/Marah-Touqan-CV.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Currently</span>
+        <p class="footer-status">
+          <span class="fs-line">Open for freelance, part-time</span> <span class="fs-line">and full-time remote work.</span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom row -->
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo-link" aria-label="Back to home"><img src="assets/logo.png" alt="Marah Touqan logo" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
+      <p class="footer-copy">© <span class="footer-year">2026</span> Marah Touqan. All mine.</p>
+    </div>
+
+  </div>
+
+  
+
+</footer>

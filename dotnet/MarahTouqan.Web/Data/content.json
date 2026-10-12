@@ -795,14 +795,24 @@
     ],
     "reviews": [
       {
+        "name": "Qahtan A.",
+        "role": "Oman · Arabic Flyer · Freelancer.com",
+        "text": "Great designer. We will work with her again."
+      },
+      {
         "name": "Leo Gomez",
         "role": "Editorial · Freelancer.com",
         "text": "Excellent attention to detail, and complete mastery of Adobe Illustrator. Shukkran!"
       },
       {
-        "name": "Qahtan A.",
-        "role": "Oman · Arabic Flyer · Freelancer.com",
-        "text": "Great designer. We will work with her again."
+        "name": "Hala",
+        "role": "Canada · Logo · Freelancer.com",
+        "text": "Super excellent designer. She did unlimited modifications for me without complaint and provided me with everything I asked for in a heartbeat. HIGHLY RECOMMEND. Thank you once again."
+      },
+      {
+        "name": "Abdullah A.",
+        "role": "Annual report · Mostaql",
+        "text": "The designer is patient, and working with her was a pleasure."
       },
       {
         "name": "Peter G.",
@@ -810,29 +820,19 @@
         "text": "Will work with this designer again."
       },
       {
-        "name": "Sarah M.",
-        "role": "Branding · Freelancer.com",
-        "text": "Outstanding work and quick turnaround."
+        "name": "Abdulmajeed A.",
+        "role": "Logo · Mostaql",
+        "text": "Excellent, great to work with and very fast service."
       },
       {
-        "name": "Ahmed K.",
-        "role": "Logo · Freelancer.com",
-        "text": "Highly recommended for brand identity work."
+        "name": "Andres",
+        "role": "United States · Logo contest · Freelancer.com",
+        "text": "Very creative, motivated and hardworking. Submitted a few nice designs and improved significantly based on feedback."
       },
       {
-        "name": "Lisa R.",
-        "role": "Packaging · Freelancer.com",
-        "text": "Will hire again for sure."
-      },
-      {
-        "name": "Omar S.",
-        "role": "Identity · Freelancer.com",
-        "text": "Exceeded expectations."
-      },
-      {
-        "name": "Tara N.",
-        "role": "Editorial · Freelancer.com",
-        "text": "Great communication and great work."
+        "name": "Tom",
+        "role": "Australia · Business cards · Freelancer.com",
+        "text": "Very patient with me on the revisions and edits to some simple business cards. I recommend her highly."
       }
     ],
     "heroVideo": "assets/hero.mp4",

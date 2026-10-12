@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# AI search bots are welcome so the site can be found and cited in AI answers.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Add this line once the real domain is known:
+# Sitemap: https://YOUR-DOMAIN/sitemap.xml

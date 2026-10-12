@@ -6,24 +6,6 @@
   const prevBtn = lightbox.querySelector('.lb-prev'), nextBtn = lightbox.querySelector('.lb-next');
   const tEl = document.getElementById('lb-type'), nEl = document.getElementById('lb-name'), dEl = document.getElementById('lb-desc');
 
-  // what each company does, in two short lines
-  const DESC = {
-    'baseera': ['A therapy service that uses art', 'as a way to help people express themselves and heal.'],
-    'zinger-lab': ['A burger restaurant', 'serving burgers, sandwiches and fries.'],
-    '33-butchery': ['A butcher shop', 'selling quality cuts of meat to its customers.'],
-    'canary-calls': ['A call center that', 'handles customer calls for businesses.'],
-    'compera-jewelry': ['A jewellery brand', 'selling elegant pieces, packaged as gifts.'],
-    'hbcs': ['An accounting company', 'providing accounting services for businesses.'],
-    'heavyweight-hoodies': ['A clothing brand', 'making heavyweight, warm hoodies.'],
-    'motammem': ['A construction company', 'handling building and contracting work.'],
-    'sol-root': ['A food brand', 'selling tahini in jars.'],
-    'battikhi-stays': ['A hospitality brand in Jordan', 'offering comfortable stays for families.'],
-    'the-welcome-table': ['A community brand built around', 'hospitality and sharing coffee together.'],
-    'ummati': ['An app that helps people', 'build lasting Sunnah habits, one step at a time.'],
-    'qanadeel': ['An association for', 'child development and childhood programmes.'],
-    'mwafq': ['A platform for people to', 'find and book official medical exams.'],
-    'ticketat': ['An events platform', 'for discovering events and booking tickets online.']
-  };
   const stem = p => (p.dataset.src || '').split('/').pop().replace(/\.webp$/, '');
   // flip order = the order of the page, each project once
   const list = [];
@@ -40,7 +22,7 @@
     const cap = p.closest('.project-item');
     tEl.textContent = cap && cap.querySelector('.project-type') ? cap.querySelector('.project-type').textContent : '';
     nEl.textContent = p.dataset.name;
-    const d = DESC[stem(p)] || []; dEl.innerHTML = ''; d.forEach((t, k) => { if (k) dEl.appendChild(document.createTextNode(' ')); const l = document.createElement('span'); l.textContent = t; dEl.appendChild(l); });
+    const d = [p.dataset.desc1, p.dataset.desc2].filter(Boolean); dEl.innerHTML = ''; d.forEach((t, k) => { if (k) dEl.appendChild(document.createTextNode(' ')); const l = document.createElement('span'); l.textContent = t; dEl.appendChild(l); });
     lightbox.setAttribute('aria-label', p.dataset.name);
     layoutDesc();
     [...prog.children].forEach((b, k) => b.classList.toggle('on', k === cur));

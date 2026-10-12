@@ -447,5 +447,222 @@
       "moreText": "See more",
       "lessText": "See less"
     }
-  ]
+  ],
+  "work": {
+    "title1": "My work,",
+    "title2": "my archive",
+    "groups": [
+      {
+        "slug": "logo-design",
+        "accent": "#F9A323",
+        "title": "Logo Design",
+        "items": [
+          {
+            "project": "baseera",
+            "type": "Logo design"
+          },
+          {
+            "project": "zinger-lab",
+            "type": "Logo design"
+          },
+          {
+            "project": "33-butchery",
+            "type": "Logo design"
+          },
+          {
+            "project": "canary-calls",
+            "type": "Logo design"
+          },
+          {
+            "project": "compera-jewelry",
+            "type": "Logo design"
+          },
+          {
+            "project": "hbcs",
+            "type": "Logo design"
+          },
+          {
+            "project": "heavyweight-hoodies",
+            "type": "Logo design"
+          },
+          {
+            "project": "motammem",
+            "type": "Logo design"
+          }
+        ],
+        "pairWithNext": false
+      },
+      {
+        "slug": "brand-identity",
+        "accent": "#D23697",
+        "title": "Brand Identity",
+        "items": [
+          {
+            "project": "battikhi-stays",
+            "type": "Brand and website"
+          },
+          {
+            "project": "the-welcome-table",
+            "type": "Brand identity"
+          },
+          {
+            "project": "ummati",
+            "type": "Brand and UI/UX web/app"
+          }
+        ],
+        "pairWithNext": false
+      },
+      {
+        "slug": "packaging",
+        "accent": "#1E7CDF",
+        "title": "Packaging & Print",
+        "items": [
+          {
+            "project": "sol-root",
+            "type": "Logo and packaging"
+          }
+        ],
+        "pairWithNext": true
+      },
+      {
+        "slug": "slides-design",
+        "accent": "#711DB0",
+        "title": "Slides Design",
+        "items": [
+          {
+            "project": "qanadeel",
+            "type": "Presentation design"
+          }
+        ],
+        "pairWithNext": false
+      },
+      {
+        "slug": "ui-ux",
+        "accent": "#FA5643",
+        "title": "UI/UX Design",
+        "items": [
+          {
+            "project": "mwafq",
+            "type": "UI/UX web/app"
+          },
+          {
+            "project": "ticketat",
+            "type": "UI/UX web"
+          },
+          {
+            "project": "ummati",
+            "type": "Brand and UI/UX web/app"
+          }
+        ],
+        "pairWithNext": false
+      }
+    ],
+    "projects": [
+      {
+        "slug": "baseera",
+        "name": "Baseera",
+        "image": "assets/portfolio/baseera.webp",
+        "description1": "A therapy service that uses art",
+        "description2": "as a way to help people express themselves and heal."
+      },
+      {
+        "slug": "zinger-lab",
+        "name": "Zinger Lab",
+        "image": "assets/portfolio/zinger-lab.webp",
+        "description1": "A burger restaurant",
+        "description2": "serving burgers, sandwiches and fries."
+      },
+      {
+        "slug": "33-butchery",
+        "name": "33 Butchery",
+        "image": "assets/portfolio/33-butchery.webp",
+        "description1": "A butcher shop",
+        "description2": "selling quality cuts of meat to its customers."
+      },
+      {
+        "slug": "canary-calls",
+        "name": "Canary Calls",
+        "image": "assets/portfolio/canary-calls.webp",
+        "description1": "A call center that",
+        "description2": "handles customer calls for businesses."
+      },
+      {
+        "slug": "compera-jewelry",
+        "name": "Compera Jewelry",
+        "image": "assets/portfolio/compera-jewelry.webp",
+        "description1": "A jewellery brand",
+        "description2": "selling elegant pieces, packaged as gifts."
+      },
+      {
+        "slug": "hbcs",
+        "name": "HBCS",
+        "image": "assets/portfolio/hbcs.webp",
+        "description1": "An accounting company",
+        "description2": "providing accounting services for businesses."
+      },
+      {
+        "slug": "heavyweight-hoodies",
+        "name": "Heavyweight Hoodies",
+        "image": "assets/portfolio/heavyweight-hoodies.webp",
+        "description1": "A clothing brand",
+        "description2": "making heavyweight, warm hoodies."
+      },
+      {
+        "slug": "motammem",
+        "name": "Motammem",
+        "image": "assets/portfolio/motammem.webp",
+        "description1": "A construction company",
+        "description2": "handling building and contracting work."
+      },
+      {
+        "slug": "battikhi-stays",
+        "name": "Battikhi Stays",
+        "image": "assets/portfolio/battikhi-stays.webp",
+        "description1": "A hospitality brand in Jordan",
+        "description2": "offering comfortable stays for families."
+      },
+      {
+        "slug": "the-welcome-table",
+        "name": "The Welcome Table",
+        "image": "assets/portfolio/the-welcome-table.webp",
+        "description1": "A community brand built around",
+        "description2": "hospitality and sharing coffee together."
+      },
+      {
+        "slug": "ummati",
+        "name": "Ummati",
+        "image": "assets/portfolio/ummati.webp",
+        "description1": "An app that helps people",
+        "description2": "build lasting Sunnah habits, one step at a time."
+      },
+      {
+        "slug": "sol-root",
+        "name": "Sol Root",
+        "image": "assets/portfolio/sol-root.webp",
+        "description1": "A food brand",
+        "description2": "selling tahini in jars."
+      },
+      {
+        "slug": "qanadeel",
+        "name": "Qanadeel",
+        "image": "assets/portfolio/qanadeel.webp",
+        "description1": "An association for",
+        "description2": "child development and childhood programmes."
+      },
+      {
+        "slug": "mwafq",
+        "name": "Mwafq",
+        "image": "assets/portfolio/mwafq.webp",
+        "description1": "A platform for people to",
+        "description2": "find and book official medical exams."
+      },
+      {
+        "slug": "ticketat",
+        "name": "Ticketat",
+        "image": "assets/portfolio/ticketat.webp",
+        "description1": "An events platform",
+        "description2": "for discovering events and booking tickets online."
+      }
+    ]
+  }
 }

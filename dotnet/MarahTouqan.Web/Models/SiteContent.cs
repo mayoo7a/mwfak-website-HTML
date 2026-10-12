@@ -7,6 +7,7 @@ public class SiteContent
     public Dictionary<string, PageMeta> Pages { get; set; } = new();
     public ServicesPage ServicesPage { get; set; } = new();
     public List<Service> Services { get; set; } = new();
+    public WorkPage Work { get; set; } = new();
 }
 
 public class SiteSettings

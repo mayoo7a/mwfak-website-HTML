@@ -1,5 +1,6 @@
 @page "/"
 @model MarahTouqan.Web.Pages.IndexModel
+@inject MarahTouqan.Web.Services.ContentService Content
 @{
     ViewData["Slug"] = "home";
     ViewData["Scripts"] = new[] { "home-footer-year.js", "home.js", "home-hero-reel.js", "home-email-card.js" };
@@ -36,7 +37,7 @@
         <a href="#about" data-hover>About</a>
         <a href="#contact" data-hover>Contact</a>
       </nav>
-      <a class="quote-btn" href="https://wa.me/962792847268" target="_blank" rel="noopener" data-hover>Get a quote</a>
+      <a class="quote-btn" href="@Content.Site.WhatsAppUrl" target="_blank" rel="noopener" data-hover>Get a quote</a>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
         <span></span><span></span>
       </button>
@@ -273,117 +274,9 @@
 <!-- ============================================================
      CONTACT SECTION
      ============================================================ -->
-<section class="contact" id="contact">
-
-  <div class="contact-inner">
-
-    <div class="contact-layout">
-
-      <div class="contact-header">
-        <h2 class="contact-title">
-          <span class="contact-title-banner">Yalla, let's talk</span>
-        </h2>
-      </div>
-
-      <div class="contact-grid">
-
-        <a class="contact-card" href="mailto:marah.touqan@@gmail.com" data-card="email">
-          <span class="contact-card-text">
-            <span class="contact-card-label">Email</span>
-            <span class="contact-card-value">say hi via email</span>
-          </span>
-        </a>
-
-        <a class="contact-card" href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener" data-card="behance">
-          <span class="contact-card-text">
-            <span class="contact-card-label">Behance</span>
-            <span class="contact-card-value">@@marahtouqan</span>
-          </span>
-        </a>
-
-        <a class="contact-card" href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener" data-card="linkedin">
-          <span class="contact-card-text">
-            <span class="contact-card-label">LinkedIn</span>
-            <span class="contact-card-value">marah touqan</span>
-          </span>
-        </a>
-
-        <a class="contact-card" href="https://wa.me/962792847268" target="_blank" rel="noopener" data-card="phone" aria-label="Message Marah on WhatsApp, +962 7 9284 7268">
-          <span class="contact-card-text">
-            <span class="contact-card-label">WhatsApp</span>
-            <span class="contact-card-value">+962 7 9284 7268</span>
-          </span>
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="contact-footer">
-      <p class="contact-signoff">
-        <span class="ps-line"><em>P.S. </em>My blind cat reviews every project before delivery.</span> <span class="ps-line">So far, zero complaints.</span>
-      </p>
-    </div>
-
-  </div>
-
-</section>
+<partial name="_Contact" model="true" />
 
 <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer class="footer">
-
-  <div class="footer-inner">
-
-    <!-- Big closing line, like a sign-off -->
-    <div class="footer-signoff">
-      <span class="footer-bye">That's all, folks</span>
-      <img src="assets/footer-bye.webp" alt="" class="footer-bye-img" aria-hidden="true" width="460" height="310" loading="lazy" decoding="async" />
-    </div>
-
-    <!-- Columns: nav + social + meta -->
-    <div class="footer-cols">
-
-      <div class="footer-col">
-        <span class="footer-col-label">Sitemap</span>
-        <ul class="footer-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <span class="footer-col-label">Elsewhere</span>
-        <ul class="footer-list">
-          <li><a href="https://www.behance.net/marahtouqan" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://www.linkedin.com/in/marahtouqan/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://www.instagram.com/designermarahtouqan/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
-          <li><a href="mailto:marah.touqan@@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
-          <li><a href="assets/Marah-Touqan-CV.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <span class="footer-col-label">Currently</span>
-        <p class="footer-status">
-          <span class="fs-line">Open for freelance, part-time</span> <span class="fs-line">and full-time remote work.</span>
-        </p>
-      </div>
-
-    </div>
-
-    <!-- Bottom row -->
-    <div class="footer-bottom">
-      <a href="index.html" class="footer-logo-link" aria-label="Back to home"><img src="assets/logo.png" alt="Marah Touqan logo" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
-      <p class="footer-copy">© <span class="footer-year">2026</span> Marah Touqan. All mine.</p>
-    </div>
-
-  </div>
-
-  
-
-</footer>
+<partial name="_Footer" model="true" />

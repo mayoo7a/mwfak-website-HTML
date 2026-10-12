@@ -1,0 +1,9 @@
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@{ var Site = Content.Site; }
+<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
+  <a href="my-work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="index.html#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>

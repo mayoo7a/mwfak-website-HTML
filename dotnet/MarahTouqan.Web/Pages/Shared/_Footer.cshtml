@@ -1,0 +1,55 @@
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@model bool
+@{ var Site = Content.Site; }
+<footer class="footer">
+  <div class="footer-inner">
+
+@if (Model)
+{
+    <!-- Big closing line, like a sign-off -->
+    <div class="footer-signoff">
+      <span class="footer-bye">That's all, folks</span>
+      <img src="assets/footer-bye.webp" alt="" class="footer-bye-img" aria-hidden="true" width="460" height="310" loading="lazy" decoding="async" />
+    </div>
+}
+    <div class="footer-cols">
+
+      <div class="footer-col">
+        <span class="footer-col-label">Sitemap</span>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="@(Model ? "" : "index.html")#about">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="@(Model ? "" : "index.html")#work">Work</a></li>
+          <li><a href="@(Model ? "" : "index.html")#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Elsewhere</span>
+        <ul class="footer-list">
+          <li><a href="@Site.Behance" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></li>
+          <li><a href="@Site.LinkedIn" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="@Site.Instagram" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:@Site.Email">Email <span aria-hidden="true">↗</span></a></li>
+          <li><a href="@Site.CvPath" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">Currently</span>
+        <p class="footer-status">
+          <span class="fs-line">@Site.AvailabilityLine1</span> <span class="fs-line">@Site.AvailabilityLine2</span>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo-link" aria-label="Back to home"><img src="assets/logo.png" alt="Marah Touqan logo" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
+      <p class="footer-copy">© <span class="footer-year">2026</span> Marah Touqan. @Site.FooterTagline</p>
+    </div>
+
+  </div>
+</footer>

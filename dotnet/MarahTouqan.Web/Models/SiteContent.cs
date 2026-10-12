@@ -5,6 +5,8 @@ public class SiteContent
 {
     public SiteSettings Site { get; set; } = new();
     public Dictionary<string, PageMeta> Pages { get; set; } = new();
+    public ServicesPage ServicesPage { get; set; } = new();
+    public List<Service> Services { get; set; } = new();
 }
 
 public class SiteSettings
@@ -24,6 +26,16 @@ public class SiteSettings
     public string ShortBio { get; set; } = "";
     public string[] KnowsAbout { get; set; } = Array.Empty<string>();
     public string[] ServiceTypes { get; set; } = Array.Empty<string>();
+
+    public string BehanceHandle { get; set; } = "";
+    public string LinkedInName { get; set; } = "";
+    public string EmailCardText { get; set; } = "";
+    public string ContactTitle { get; set; } = "";
+    public string PostScript1 { get; set; } = "";
+    public string PostScript2 { get; set; } = "";
+    public string AvailabilityLine1 { get; set; } = "";
+    public string AvailabilityLine2 { get; set; } = "";
+    public string FooterTagline { get; set; } = "";
 
     public string WhatsAppUrl => "https://wa.me/" + WhatsAppNumber;
 }

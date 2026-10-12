@@ -1,0 +1,21 @@
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@{ var Site = Content.Site; }
+<header class="header">
+  <a href="index.html" class="brand" aria-label="Marah Touqan home">
+    <img src="assets/logo.png" alt="Marah Touqan logo" width="256" height="239" />
+    <span class="brand-name">Marah Touqan</span>
+  </a>
+  <div class="header-actions">
+    <nav class="header-nav" aria-label="Primary">
+      <a href="my-work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="quote-btn" href="@Site.WhatsAppUrl" target="_blank" rel="noopener">Get a quote</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>

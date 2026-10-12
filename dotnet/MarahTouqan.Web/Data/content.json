@@ -25,7 +25,16 @@
       "Brand identity design",
       "Packaging design",
       "UI/UX design"
-    ]
+    ],
+    "behanceHandle": "@marahtouqan",
+    "linkedInName": "marah touqan",
+    "emailCardText": "say hi via email",
+    "contactTitle": "Yalla, let's talk",
+    "postScript1": "My blind cat reviews every project before delivery.",
+    "postScript2": "So far, zero complaints.",
+    "availabilityLine1": "Open for freelance, part-time",
+    "availabilityLine2": "and full-time remote work.",
+    "footerTagline": "All mine."
   },
   "pages": {
     "home": {
@@ -43,5 +52,400 @@
       "description": "Selected logo, brand identity, packaging and UI/UX projects by freelance designer Marah Touqan, with the company, the work and the result for each project.",
       "path": "/my-work.html"
     }
-  }
+  },
+  "servicesPage": {
+    "title": "My Services",
+    "hint": "Every price above is a starting point. The final number depends on the size of the project, so tell me what you need using the contact details below."
+  },
+  "services": [
+    {
+      "slug": "logo-design",
+      "boxImage": "box-orange.svg",
+      "color": "#F9A323",
+      "heading1": "Logo",
+      "heading2": "Design",
+      "menuLabel": "Logo Design",
+      "tagline": "One mark to carry your whole brand.",
+      "description": "I design your logo so it looks sharp everywhere: on social media, signs, stamps and packaging. You get it in Arabic, English or both, plus every file you need to use it.",
+      "projectImage": "assets/portfolio/baseera.webp",
+      "projectName": "Baseera",
+      "projectType": "Logo design",
+      "price": "$450",
+      "priceLabel": "Starting from",
+      "ctaText": "Start a project",
+      "scope": [
+        {
+          "icon": "palette",
+          "before": "",
+          "highlight": "2",
+          "after": " concepts",
+          "text": "Two ideas to choose from"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "1",
+          "after": " week",
+          "text": "From brief to final files"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Brief",
+          "text": "Your business, your audience and the feeling you want."
+        },
+        {
+          "title": "Sketch",
+          "text": "Several directions, and I show you the strongest."
+        },
+        {
+          "title": "Refine",
+          "text": "Tested small and large, on light and on dark."
+        },
+        {
+          "title": "Deliver",
+          "text": "The final logo in every version and file."
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "scopeTitle": "Scope",
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "",
+          "items": [
+            "2 logo concepts built around one agreed direction",
+            "Final logo refined through 2 revision rounds",
+            "Primary and secondary versions",
+            "Black and white and transparent versions",
+            "One page usage sheet with clear space and minimum size"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "AI",
+        "EPS",
+        "SVG",
+        "PDF",
+        "PNG",
+        "JPG"
+      ],
+      "filesNote": "For web and print.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "illustrator.svg",
+          "name": "Adobe Illustrator"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    },
+    {
+      "slug": "brand-identity",
+      "boxImage": "box-magenta.svg",
+      "color": "#D23697",
+      "heading1": "Brand",
+      "heading2": "Identity",
+      "menuLabel": "Brand Identity",
+      "tagline": "A full visual system your customers recognise everywhere.",
+      "description": "Your logo, colours, fonts and style rules, built as one system. You get a guide so your team and your printers keep everything looking consistent, from social posts to signs and packaging.",
+      "projectImage": "assets/portfolio/the-welcome-table.webp",
+      "projectName": "The Welcome Table",
+      "projectType": "Brand identity",
+      "price": "$1,200",
+      "priceLabel": "Starting from",
+      "ctaText": "Start a project",
+      "scope": [
+        {
+          "icon": "palette",
+          "before": "",
+          "highlight": "2",
+          "after": " concepts",
+          "text": "Two ideas to choose from"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "3 to 4",
+          "after": " weeks",
+          "text": "From brief to final files"
+        }
+      ],
+      "steps": [
+        {
+          "title": "We talk",
+          "text": "Your business, your audience, your goals, and what you love and hate."
+        },
+        {
+          "title": "I propose",
+          "text": "A clear visual direction, and we choose the way forward together."
+        },
+        {
+          "title": "I build",
+          "text": "The full system, tested on real examples."
+        },
+        {
+          "title": "You launch",
+          "text": "Files and guidelines, ready to use from day one."
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "scopeTitle": "Scope",
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "",
+          "items": [
+            "Mood board and approved visual direction",
+            "Primary logo, secondary logo and submark",
+            "Lockups for horizontal, stacked and icon only use",
+            "Black, white and single colour versions",
+            "Colour palette with print and screen values",
+            "Typography system with hierarchy rules",
+            "Supporting graphic elements such as patterns, icons or texture",
+            "Brand guidelines covering usage, spacing and what not to do",
+            "Application mockups showing the identity in real use"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "AI",
+        "EPS",
+        "SVG",
+        "PDF",
+        "PNG",
+        "JPG"
+      ],
+      "filesNote": "Organised in named folders, plus the guidelines as a PDF.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "illustrator.svg",
+          "name": "Adobe Illustrator"
+        },
+        {
+          "icon": "photoshop.svg",
+          "name": "Adobe Photoshop"
+        },
+        {
+          "icon": "figma.svg",
+          "name": "Figma"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    },
+    {
+      "slug": "packaging-print",
+      "boxImage": "box-blue.svg",
+      "color": "#1E7CDF",
+      "heading1": "Packaging",
+      "heading2": "& Print",
+      "menuLabel": "Packaging & Print",
+      "tagline": "A product that wins in its first two seconds.",
+      "description": "Packaging, labels and printed pieces like menus and brochures, designed to get noticed and ready for the printer. You get print-ready files that match what you approved on screen.",
+      "projectImage": "assets/portfolio/sol-root.webp",
+      "projectName": "Sol Root",
+      "projectType": "Logo and packaging",
+      "price": "$350",
+      "priceLabel": "Starting from",
+      "ctaText": "Start a project",
+      "scope": [
+        {
+          "icon": "palette",
+          "before": "",
+          "highlight": "2",
+          "after": " concepts",
+          "text": "Two ideas to choose from"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "2 to 3",
+          "after": " weeks",
+          "text": "From brief to final files"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Brief",
+          "text": "The product, the audience and where it will be sold."
+        },
+        {
+          "title": "Concepts",
+          "text": "A few packaging directions, and we pick one to develop."
+        },
+        {
+          "title": "Design",
+          "text": "The finished design, shown on realistic mockups."
+        },
+        {
+          "title": "Print prep",
+          "text": "Files prepared and checked before they reach the printer."
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "scopeTitle": "Scope",
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "Print and stationery",
+          "items": [
+            "Business card, letterhead and envelope",
+            "Invoice or quotation template",
+            "Folder, label or sticker as needed",
+            "Email signature",
+            "Print ready artwork set up for your printer's specs"
+          ]
+        },
+        {
+          "heading": "Packaging design",
+          "items": [
+            "Structural check against your dieline and print specs",
+            "Front, back and side panel artwork",
+            "Packaging design for up to 3 products",
+            "Barcode, legal copy and nutrition panel placement",
+            "Print ready artwork with bleed, crop marks and CMYK or Pantone separation",
+            "3D mockups and product visuals for your store and social media",
+            "A short handover note for your printer"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "PDF",
+        "AI",
+        "PSD",
+        "JPG",
+        "PNG"
+      ],
+      "filesNote": "Print ready PDF, packaged AI or PSD working files, and JPG or PNG mockups. For stationery you also get editable source files, and an editable version of the letterhead your team can update.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "illustrator.svg",
+          "name": "Adobe Illustrator"
+        },
+        {
+          "icon": "photoshop.svg",
+          "name": "Adobe Photoshop"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    },
+    {
+      "slug": "ui-ux-design",
+      "boxImage": "box-red.svg",
+      "color": "#FA5643",
+      "heading1": "UI/UX",
+      "heading2": "Design",
+      "menuLabel": "UI/UX Design",
+      "tagline": "Flows people finish instead of abandoning.",
+      "description": "Website and app screens designed so people find what they need and finish what they came to do. You get clean designs for phone, tablet and desktop, in Arabic or English, ready for a developer to build.",
+      "projectImage": "assets/portfolio/ticketat.webp",
+      "projectName": "Ticketat",
+      "projectType": "Website and booking flow",
+      "price": "$1,200",
+      "priceLabel": "Starting from",
+      "ctaText": "Start a project",
+      "scope": [
+        {
+          "icon": "screens",
+          "before": "Screens ",
+          "highlight": "as agreed",
+          "after": "",
+          "text": "Agreed before we start"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "3 to 4",
+          "after": " weeks",
+          "text": "From brief to final files"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Understand",
+          "text": "Your users, your goals and what is not working today."
+        },
+        {
+          "title": "Map",
+          "text": "Every step people take, and what stays and what goes."
+        },
+        {
+          "title": "Design",
+          "text": "From wireframes to finished screens for every size."
+        },
+        {
+          "title": "Hand over",
+          "text": "Organised files and clear specifications for your developer."
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "scopeTitle": "Scope",
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "",
+          "items": [
+            "User flow for the core journey",
+            "Wireframes for the agreed screens",
+            "Final UI for desktop, tablet and mobile breakpoints",
+            "Design system with components, colour and type styles",
+            "Interactive prototype for testing and stakeholder review",
+            "Developer handover file with spacing, states and exported assets"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "FIG",
+        "SVG",
+        "PNG"
+      ],
+      "filesNote": "The Figma file with edit access, a shareable prototype link and exported assets in SVG and PNG.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "figma.svg",
+          "name": "Figma"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    }
+  ]
 }

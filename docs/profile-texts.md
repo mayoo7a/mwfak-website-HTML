@@ -40,7 +40,7 @@ I work in Arabic and English, including Arabic logotypes and bilingual brands. I
 Based in Jordan, working with clients worldwide.
 
 See my work and prices: [your website]
-Start a project on WhatsApp: +962 79 776 3533
+Start a project on WhatsApp: +962 7 9284 7268
 
 **About (Arabic)**
 أصمم علامات تجارية يتعرّف عليها الناس ويتذكرونها.
@@ -58,7 +58,7 @@ Start a project on WhatsApp: +962 79 776 3533
 من الأردن، وأعمل مع عملاء حول العالم.
 
 أعمالي والأسعار: [رابط موقعك]
-ابدؤوا مشروعكم على واتساب: ‎+962 79 776 3533
+ابدؤوا مشروعكم على واتساب: ‎+962 7 9284 7268
 
 **LinkedIn "Services" section (add each one)**
 Logo Design · Brand Identity Design · Packaging Design · UI/UX Design · Graphic Design · Arabic Typography
@@ -109,7 +109,7 @@ Brand identity, logo, packaging and UI/UX designer with 13+ years of experience.
 
 My work: logos that hold up tiny and huge, full brand identities (colours, fonts, style rules), packaging that is ready for the printer, and clean UI/UX for websites and apps.
 
-Available for freelance projects. Message me on WhatsApp: +962 79 776 3533, or see more at [your website].
+Available for freelance projects. Message me on WhatsApp: +962 7 9284 7268, or see more at [your website].
 
 **Location:** Amman, Jordan (or your city). **Creative fields:** Branding, Graphic Design, UI/UX, Packaging. **Links:** your website, LinkedIn, Instagram.
 

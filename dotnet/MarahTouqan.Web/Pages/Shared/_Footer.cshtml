@@ -1,0 +1,54 @@
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@model bool
+@using MarahTouqan.Web.Models
+@{ var Site = Content.Site; var ui = Content.Current.Ui; }
+<footer class="footer">
+  <div class="footer-inner">
+
+@if (Model)
+{
+    <!-- Big closing line, like a sign-off -->
+    <div class="footer-signoff">
+      <span class="footer-bye">@ui.FooterBye</span>
+      <img src="assets/footer-bye.webp" alt="" class="footer-bye-img" aria-hidden="true" width="460" height="310" loading="lazy" decoding="async" />
+    </div>
+}
+    <div class="footer-cols">
+
+      <div class="footer-col">
+        <span class="footer-col-label">@ui.FooterSitemapLabel</span>
+        <ul class="footer-list">
+@foreach (var l in ui.FooterSitemapLinks)
+{
+          <li><a href="@LinkResolver.Resolve(l.Link, Site, Model)">@l.Label</a></li>
+}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">@ui.FooterElsewhereLabel</span>
+        <ul class="footer-list">
+@foreach (var l in ui.FooterElsewhereLinks)
+{
+          <li><a href="@LinkResolver.Resolve(l.Link, Site, Model)"@(LinkResolver.Opens(l.Link) ? Html.Raw(" target=\"_blank\" rel=\"noopener\"") : null)>@l.Label@(LinkResolver.Arrow(l.Link) ? Html.Raw(" <span aria-hidden=\"true\">↗</span>") : null)</a></li>
+}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-label">@ui.FooterCurrentlyLabel</span>
+        <p class="footer-status">
+          <span class="fs-line">@Site.AvailabilityLine1</span> <span class="fs-line">@Site.AvailabilityLine2</span>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <a href="index.html" class="footer-logo-link" aria-label="@ui.BrandAria"><img src="@ui.LogoImage" alt="@ui.LogoAlt" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
+      <p class="footer-copy">© <span class="footer-year">2026</span> @Site.Name. @Site.FooterTagline</p>
+    </div>
+
+  </div>
+</footer>

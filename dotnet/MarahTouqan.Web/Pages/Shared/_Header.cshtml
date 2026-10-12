@@ -1,0 +1,23 @@
+@using MarahTouqan.Web.Models
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@model bool
+@{ var Site = Content.Site; var ui = Content.Current.Ui; }
+<header class="header">
+  <a href="@(Model ? "#" : "index.html")" class="brand" data-hover aria-label="@ui.BrandAria">
+    <img src="@ui.LogoImage" alt="@ui.LogoAlt" width="256" height="239" />
+    <span class="brand-name">@ui.BrandName</span>
+  </a>
+  <div class="header-actions">
+    <nav class="header-nav" aria-label="Primary">
+@foreach (var l in ui.MenuLinks)
+{
+      <a href="@LinkResolver.Resolve(l.Link, Site, Model)" data-hover>@l.Label</a>
+}
+    </nav>
+    <a class="quote-btn" href="@Site.WhatsAppUrl" target="_blank" rel="noopener" data-hover>@ui.QuoteText</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
+      <span></span><span></span>
+    </button>
+  </div>
+</header>

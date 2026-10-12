@@ -1,0 +1,10 @@
+@using MarahTouqan.Web.Models
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@model bool
+<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
+@foreach (var l in Content.Current.Ui.MenuLinks)
+{
+  <a href="@LinkResolver.Resolve(l.Link, Content.Site, Model)" data-hover>@l.Label</a>
+}
+</nav>

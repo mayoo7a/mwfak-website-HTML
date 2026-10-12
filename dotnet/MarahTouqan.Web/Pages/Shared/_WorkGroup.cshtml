@@ -1,0 +1,24 @@
+@using MarahTouqan.Web.Models
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@model WorkGroup
+@{ var work = Content.Current.Work; }
+  <div class="work-group" id="@Model.Slug" style="--accent:@Model.Accent">
+    <h2 class="work-group-title">@Model.Title</h2>
+    <div class="work-grid">
+@foreach (var item in Model.Items)
+{
+    var project = work.Find(item.Project);
+    if (project is null) { continue; }
+    <div class="project-item">
+      <div class="project" data-src="@project.Image" data-name="@project.Name" data-desc1="@project.Description1" data-desc2="@project.Description2">
+        <img src="@project.Image" alt="@project.Name: @item.Type.ToLowerInvariant() project by @Content.Site.Name" width="1400" height="745" loading="lazy" decoding="async" />
+      </div>
+      <div class="project-cap">
+        <span class="project-type">@item.Type</span>
+        <span class="project-name">@project.Name</span>
+      </div>
+    </div>
+}
+    </div>
+  </div>

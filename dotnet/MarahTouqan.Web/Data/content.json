@@ -1,0 +1,938 @@
+{
+  "site": {
+    "baseUrl": "https://marahtouqan.com",
+    "name": "Marah Touqan",
+    "ogImage": "assets/og-preview.png",
+    "ogImageAlt": "Marah Touqan, brand identity, logo, packaging and UI/UX designer, with the four service cards: Logo Design, Brand Identity, Packaging and Print, UI/UX Design",
+    "whatsAppNumber": "962792847268",
+    "phoneDisplay": "+962 7 9284 7268",
+    "email": "marah.touqan@gmail.com",
+    "behance": "https://www.behance.net/marahtouqan",
+    "linkedIn": "https://www.linkedin.com/in/marahtouqan/",
+    "instagram": "https://www.instagram.com/designermarahtouqan/",
+    "cvPath": "assets/Marah-Touqan-CV.pdf",
+    "jobTitle": "Brand Identity and UI/UX Designer",
+    "shortBio": "Freelance brand identity, logo, packaging and UI/UX designer with 13+ years of experience, working in Arabic and English.",
+    "knowsAbout": [
+      "Brand identity design",
+      "Logo design",
+      "Packaging design",
+      "UI/UX design",
+      "Arabic typography"
+    ],
+    "serviceTypes": [
+      "Logo design",
+      "Brand identity design",
+      "Packaging design",
+      "UI/UX design"
+    ],
+    "behanceHandle": "@marahtouqan",
+    "linkedInName": "marah touqan",
+    "emailCardText": "say hi via email",
+    "contactTitle": "Yalla, let's talk",
+    "postScript1": "My blind cat reviews every project before delivery.",
+    "postScript2": "So far, zero complaints.",
+    "availabilityLine1": "Open for freelance, part-time",
+    "availabilityLine2": "and full-time remote work.",
+    "footerTagline": "All mine."
+  },
+  "pages": {
+    "home": {
+      "title": "Marah Touqan | Brand Identity, Logo & UI/UX Designer in Jordan",
+      "description": "Freelance brand identity, logo, packaging and UI/UX designer in Jordan with 13+ years of experience. Arabic and English brands, websites and mobile apps for clients worldwide.",
+      "path": "/"
+    },
+    "services": {
+      "title": "Logo, Brand Identity, Packaging & UI/UX Design Services | Marah Touqan",
+      "description": "Four design services from freelance designer Marah Touqan: logo design from $450, brand identity from $1,200, packaging design from $350 and UI/UX design from $1,200. Arabic and English.",
+      "path": "/services.html"
+    },
+    "my-work": {
+      "title": "Portfolio: Logo, Brand Identity, Packaging & UI/UX Projects | Marah Touqan",
+      "description": "Selected logo, brand identity, packaging and UI/UX projects by freelance designer Marah Touqan, with the company, the work and the result for each project.",
+      "path": "/my-work.html"
+    }
+  },
+  "servicesPage": {
+    "title": "My Services",
+    "hint": "Every price above is a starting point. The final number depends on the size of the project, so tell me what you need using the contact details below."
+  },
+  "services": [
+    {
+      "slug": "logo-design",
+      "menuLabel": "Logo Design",
+      "heading1": "Logo",
+      "heading2": "Design",
+      "tagline": "One mark to carry your whole brand.",
+      "description": "I design your logo so it looks sharp everywhere: on social media, signs, stamps and packaging. You get it in Arabic, English or both, plus every file you need to use it.",
+      "color": "#F9A323",
+      "boxImage": "box-orange.svg",
+      "projectImage": "assets/portfolio/baseera.webp",
+      "projectName": "Baseera",
+      "projectType": "Logo design",
+      "priceLabel": "Starting from",
+      "price": "$450",
+      "ctaText": "Start a project",
+      "scopeTitle": "Scope",
+      "scope": [
+        {
+          "icon": "palette",
+          "before": "",
+          "highlight": "2",
+          "after": " concepts",
+          "text": "Two ideas to choose from"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "1",
+          "after": " week",
+          "text": "From brief to final files"
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "steps": [
+        {
+          "title": "Brief",
+          "text": "Your business, your audience and the feeling you want."
+        },
+        {
+          "title": "Sketch",
+          "text": "Several directions, and I show you the strongest."
+        },
+        {
+          "title": "Refine",
+          "text": "Tested small and large, on light and on dark."
+        },
+        {
+          "title": "Deliver",
+          "text": "The final logo in every version and file."
+        }
+      ],
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "",
+          "items": [
+            "2 logo concepts built around one agreed direction",
+            "Final logo refined through 2 revision rounds",
+            "Primary and secondary versions",
+            "Black and white and transparent versions",
+            "One page usage sheet with clear space and minimum size"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "AI",
+        "EPS",
+        "SVG",
+        "PDF",
+        "PNG",
+        "JPG"
+      ],
+      "filesNote": "For web and print.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "illustrator.svg",
+          "name": "Adobe Illustrator"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    },
+    {
+      "slug": "brand-identity",
+      "menuLabel": "Brand Identity",
+      "heading1": "Brand",
+      "heading2": "Identity",
+      "tagline": "A full visual system your customers recognise everywhere.",
+      "description": "Your logo, colours, fonts and style rules, built as one system. You get a guide so your team and your printers keep everything looking consistent, from social posts to signs and packaging.",
+      "color": "#D23697",
+      "boxImage": "box-magenta.svg",
+      "projectImage": "assets/portfolio/the-welcome-table.webp",
+      "projectName": "The Welcome Table",
+      "projectType": "Brand identity",
+      "priceLabel": "Starting from",
+      "price": "$1,200",
+      "ctaText": "Start a project",
+      "scopeTitle": "Scope",
+      "scope": [
+        {
+          "icon": "palette",
+          "before": "",
+          "highlight": "2",
+          "after": " concepts",
+          "text": "Two ideas to choose from"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "3 to 4",
+          "after": " weeks",
+          "text": "From brief to final files"
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "steps": [
+        {
+          "title": "We talk",
+          "text": "Your business, your audience, your goals, and what you love and hate."
+        },
+        {
+          "title": "I propose",
+          "text": "A clear visual direction, and we choose the way forward together."
+        },
+        {
+          "title": "I build",
+          "text": "The full system, tested on real examples."
+        },
+        {
+          "title": "You launch",
+          "text": "Files and guidelines, ready to use from day one."
+        }
+      ],
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "",
+          "items": [
+            "Mood board and approved visual direction",
+            "Primary logo, secondary logo and submark",
+            "Lockups for horizontal, stacked and icon only use",
+            "Black, white and single colour versions",
+            "Colour palette with print and screen values",
+            "Typography system with hierarchy rules",
+            "Supporting graphic elements such as patterns, icons or texture",
+            "Brand guidelines covering usage, spacing and what not to do",
+            "Application mockups showing the identity in real use"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "AI",
+        "EPS",
+        "SVG",
+        "PDF",
+        "PNG",
+        "JPG"
+      ],
+      "filesNote": "Organised in named folders, plus the guidelines as a PDF.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "illustrator.svg",
+          "name": "Adobe Illustrator"
+        },
+        {
+          "icon": "photoshop.svg",
+          "name": "Adobe Photoshop"
+        },
+        {
+          "icon": "figma.svg",
+          "name": "Figma"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    },
+    {
+      "slug": "packaging-print",
+      "menuLabel": "Packaging & Print",
+      "heading1": "Packaging",
+      "heading2": "& Print",
+      "tagline": "A product that wins in its first two seconds.",
+      "description": "Packaging, labels and printed pieces like menus and brochures, designed to get noticed and ready for the printer. You get print-ready files that match what you approved on screen.",
+      "color": "#1E7CDF",
+      "boxImage": "box-blue.svg",
+      "projectImage": "assets/portfolio/sol-root.webp",
+      "projectName": "Sol Root",
+      "projectType": "Logo and packaging",
+      "priceLabel": "Starting from",
+      "price": "$350",
+      "ctaText": "Start a project",
+      "scopeTitle": "Scope",
+      "scope": [
+        {
+          "icon": "palette",
+          "before": "",
+          "highlight": "2",
+          "after": " concepts",
+          "text": "Two ideas to choose from"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "2 to 3",
+          "after": " weeks",
+          "text": "From brief to final files"
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "steps": [
+        {
+          "title": "Brief",
+          "text": "The product, the audience and where it will be sold."
+        },
+        {
+          "title": "Concepts",
+          "text": "A few packaging directions, and we pick one to develop."
+        },
+        {
+          "title": "Design",
+          "text": "The finished design, shown on realistic mockups."
+        },
+        {
+          "title": "Print prep",
+          "text": "Files prepared and checked before they reach the printer."
+        }
+      ],
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "Print and stationery",
+          "items": [
+            "Business card, letterhead and envelope",
+            "Invoice or quotation template",
+            "Folder, label or sticker as needed",
+            "Email signature",
+            "Print ready artwork set up for your printer's specs"
+          ]
+        },
+        {
+          "heading": "Packaging design",
+          "items": [
+            "Structural check against your dieline and print specs",
+            "Front, back and side panel artwork",
+            "Packaging design for up to 3 products",
+            "Barcode, legal copy and nutrition panel placement",
+            "Print ready artwork with bleed, crop marks and CMYK or Pantone separation",
+            "3D mockups and product visuals for your store and social media",
+            "A short handover note for your printer"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "PDF",
+        "AI",
+        "PSD",
+        "JPG",
+        "PNG"
+      ],
+      "filesNote": "Print ready PDF, packaged AI or PSD working files, and JPG or PNG mockups. For stationery you also get editable source files, and an editable version of the letterhead your team can update.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "illustrator.svg",
+          "name": "Adobe Illustrator"
+        },
+        {
+          "icon": "photoshop.svg",
+          "name": "Adobe Photoshop"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    },
+    {
+      "slug": "ui-ux-design",
+      "menuLabel": "UI/UX Design",
+      "heading1": "UI/UX",
+      "heading2": "Design",
+      "tagline": "Flows people finish instead of abandoning.",
+      "description": "Website and app screens designed so people find what they need and finish what they came to do. You get clean designs for phone, tablet and desktop, in Arabic or English, ready for a developer to build.",
+      "color": "#FA5643",
+      "boxImage": "box-red.svg",
+      "projectImage": "assets/portfolio/ticketat.webp",
+      "projectName": "Ticketat",
+      "projectType": "Website and booking flow",
+      "priceLabel": "Starting from",
+      "price": "$1,200",
+      "ctaText": "Start a project",
+      "scopeTitle": "Scope",
+      "scope": [
+        {
+          "icon": "screens",
+          "before": "Screens ",
+          "highlight": "as agreed",
+          "after": "",
+          "text": "Agreed before we start"
+        },
+        {
+          "icon": "curve",
+          "before": "",
+          "highlight": "2",
+          "after": " revisions",
+          "text": "Two rounds of changes"
+        },
+        {
+          "icon": "calendar",
+          "before": "",
+          "highlight": "3 to 4",
+          "after": " weeks",
+          "text": "From brief to final files"
+        }
+      ],
+      "stepsTitle": "How we get there",
+      "steps": [
+        {
+          "title": "Understand",
+          "text": "Your users, your goals and what is not working today."
+        },
+        {
+          "title": "Map",
+          "text": "Every step people take, and what stays and what goes."
+        },
+        {
+          "title": "Design",
+          "text": "From wireframes to finished screens for every size."
+        },
+        {
+          "title": "Hand over",
+          "text": "Organised files and clear specifications for your developer."
+        }
+      ],
+      "receiveTitle": "What you receive",
+      "receive": [
+        {
+          "heading": "",
+          "items": [
+            "User flow for the core journey",
+            "Wireframes for the agreed screens",
+            "Final UI for desktop, tablet and mobile breakpoints",
+            "Design system with components, colour and type styles",
+            "Interactive prototype for testing and stakeholder review",
+            "Developer handover file with spacing, states and exported assets"
+          ]
+        }
+      ],
+      "filesTitle": "Files you receive",
+      "formats": [
+        "FIG",
+        "SVG",
+        "PNG"
+      ],
+      "filesNote": "The Figma file with edit access, a shareable prototype link and exported assets in SVG and PNG.",
+      "toolsTitle": "Made with",
+      "tools": [
+        {
+          "icon": "figma.svg",
+          "name": "Figma"
+        }
+      ],
+      "moreText": "See more",
+      "lessText": "See less"
+    }
+  ],
+  "work": {
+    "title1": "My work,",
+    "title2": "my archive",
+    "groups": [
+      {
+        "slug": "logo-design",
+        "title": "Logo Design",
+        "accent": "#F9A323",
+        "pairWithNext": false,
+        "items": [
+          {
+            "project": "baseera",
+            "type": "Logo design"
+          },
+          {
+            "project": "zinger-lab",
+            "type": "Logo design"
+          },
+          {
+            "project": "33-butchery",
+            "type": "Logo design"
+          },
+          {
+            "project": "canary-calls",
+            "type": "Logo design"
+          },
+          {
+            "project": "compera-jewelry",
+            "type": "Logo design"
+          },
+          {
+            "project": "hbcs",
+            "type": "Logo design"
+          },
+          {
+            "project": "heavyweight-hoodies",
+            "type": "Logo design"
+          },
+          {
+            "project": "motammem",
+            "type": "Logo design"
+          }
+        ]
+      },
+      {
+        "slug": "brand-identity",
+        "title": "Brand Identity",
+        "accent": "#D23697",
+        "pairWithNext": false,
+        "items": [
+          {
+            "project": "battikhi-stays",
+            "type": "Brand and website"
+          },
+          {
+            "project": "the-welcome-table",
+            "type": "Brand identity"
+          },
+          {
+            "project": "ummati",
+            "type": "Brand and UI/UX web/app"
+          }
+        ]
+      },
+      {
+        "slug": "packaging",
+        "title": "Packaging & Print",
+        "accent": "#1E7CDF",
+        "pairWithNext": true,
+        "items": [
+          {
+            "project": "sol-root",
+            "type": "Logo and packaging"
+          }
+        ]
+      },
+      {
+        "slug": "slides-design",
+        "title": "Slides Design",
+        "accent": "#711DB0",
+        "pairWithNext": false,
+        "items": [
+          {
+            "project": "qanadeel",
+            "type": "Presentation design"
+          }
+        ]
+      },
+      {
+        "slug": "ui-ux",
+        "title": "UI/UX Design",
+        "accent": "#FA5643",
+        "pairWithNext": false,
+        "items": [
+          {
+            "project": "mwafq",
+            "type": "UI/UX web/app"
+          },
+          {
+            "project": "ticketat",
+            "type": "UI/UX web"
+          },
+          {
+            "project": "ummati",
+            "type": "Brand and UI/UX web/app"
+          }
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "slug": "baseera",
+        "name": "Baseera",
+        "image": "assets/portfolio/baseera.webp",
+        "description1": "A therapy service that uses art",
+        "description2": "as a way to help people express themselves and heal."
+      },
+      {
+        "slug": "zinger-lab",
+        "name": "Zinger Lab",
+        "image": "assets/portfolio/zinger-lab.webp",
+        "description1": "A burger restaurant",
+        "description2": "serving burgers, sandwiches and fries."
+      },
+      {
+        "slug": "33-butchery",
+        "name": "33 Butchery",
+        "image": "assets/portfolio/33-butchery.webp",
+        "description1": "A butcher shop",
+        "description2": "selling quality cuts of meat to its customers."
+      },
+      {
+        "slug": "canary-calls",
+        "name": "Canary Calls",
+        "image": "assets/portfolio/canary-calls.webp",
+        "description1": "A call center that",
+        "description2": "handles customer calls for businesses."
+      },
+      {
+        "slug": "compera-jewelry",
+        "name": "Compera Jewelry",
+        "image": "assets/portfolio/compera-jewelry.webp",
+        "description1": "A jewellery brand",
+        "description2": "selling elegant pieces, packaged as gifts."
+      },
+      {
+        "slug": "hbcs",
+        "name": "HBCS",
+        "image": "assets/portfolio/hbcs.webp",
+        "description1": "An accounting company",
+        "description2": "providing accounting services for businesses."
+      },
+      {
+        "slug": "heavyweight-hoodies",
+        "name": "Heavyweight Hoodies",
+        "image": "assets/portfolio/heavyweight-hoodies.webp",
+        "description1": "A clothing brand",
+        "description2": "making heavyweight, warm hoodies."
+      },
+      {
+        "slug": "motammem",
+        "name": "Motammem",
+        "image": "assets/portfolio/motammem.webp",
+        "description1": "A construction company",
+        "description2": "handling building and contracting work."
+      },
+      {
+        "slug": "battikhi-stays",
+        "name": "Battikhi Stays",
+        "image": "assets/portfolio/battikhi-stays.webp",
+        "description1": "A hospitality brand in Jordan",
+        "description2": "offering comfortable stays for families."
+      },
+      {
+        "slug": "the-welcome-table",
+        "name": "The Welcome Table",
+        "image": "assets/portfolio/the-welcome-table.webp",
+        "description1": "A community brand built around",
+        "description2": "hospitality and sharing coffee together."
+      },
+      {
+        "slug": "ummati",
+        "name": "Ummati",
+        "image": "assets/portfolio/ummati.webp",
+        "description1": "An app that helps people",
+        "description2": "build lasting Sunnah habits, one step at a time."
+      },
+      {
+        "slug": "sol-root",
+        "name": "Sol Root",
+        "image": "assets/portfolio/sol-root.webp",
+        "description1": "A food brand",
+        "description2": "selling tahini in jars."
+      },
+      {
+        "slug": "qanadeel",
+        "name": "Qanadeel",
+        "image": "assets/portfolio/qanadeel.webp",
+        "description1": "An association for",
+        "description2": "child development and childhood programmes."
+      },
+      {
+        "slug": "mwafq",
+        "name": "Mwafq",
+        "image": "assets/portfolio/mwafq.webp",
+        "description1": "A platform for people to",
+        "description2": "find and book official medical exams."
+      },
+      {
+        "slug": "ticketat",
+        "name": "Ticketat",
+        "image": "assets/portfolio/ticketat.webp",
+        "description1": "An events platform",
+        "description2": "for discovering events and booking tickets online."
+      }
+    ]
+  },
+  "home": {
+    "heroTitle": "Marah Touqan, Brand Identity and UI/UX Designer. 13+ years of designing worth showing.",
+    "heroAriaLabel": "Marah Touqan showreel 2026. Press to pause or play",
+    "heroVideo": "assets/hero.mp4",
+    "heroVideoSmall": "assets/hero-mobile.mp4",
+    "heroPoster": "assets/hero-poster.webp",
+    "introPrefix": "I'm",
+    "replayLabel": "Replay",
+    "stickerLabels": [
+      "Brand Identity",
+      "Logo Design",
+      "UI/UX Design",
+      "Packaging & Print"
+    ],
+    "introLine2": "a designer running on",
+    "introPixel": "cat cuddles",
+    "introUnderline": "curiosity",
+    "introParagraphs": [
+      "You're here because something needs designing. Maybe it's a logo that's been side-eyed in 12 meetings. Maybe it's an app your users keep getting lost in. Maybe it's packaging that looks fine, but fine doesn't sell.",
+      "I've spent <strong>13+ years</strong> untangling exactly these problems. The trick is, I listen before I open Illustrator. Your vision is the brief. My job is to translate it into something sharper, simpler, and impossible to scroll past, in <strong>Arabic, English, or both</strong>."
+    ],
+    "cvLinkText": "Download my CV",
+    "dragonPre": "Sponsor my quest for a",
+    "dragonWord": "Dragon",
+    "dragonTooltip": "Other designers want a house. I want a <strong>dragon</strong>. Currently in the egg-shopping phase. Don't laugh, the plan's going great.",
+    "cards": [
+      {
+        "service": "logo-design",
+        "heading1": "Logo",
+        "heading2": "Design",
+        "text": "One mark that holds up tiny and huge.",
+        "ribbon": "Learn more"
+      },
+      {
+        "service": "brand-identity",
+        "heading1": "Brand",
+        "heading2": "Identity",
+        "text": "A full visual system, recognised everywhere.",
+        "ribbon": "Learn more"
+      },
+      {
+        "service": "packaging-print",
+        "heading1": "Packaging",
+        "heading2": "& Print",
+        "text": "Packaging that wins in its first two seconds.",
+        "ribbon": "Learn more"
+      },
+      {
+        "service": "ui-ux-design",
+        "heading1": "UI/UX",
+        "heading2": "Design",
+        "text": "Flows people finish instead of abandoning.",
+        "ribbon": "Learn more"
+      }
+    ],
+    "workTitle": "My Work",
+    "workCta": "See all my work",
+    "slides": [
+      {
+        "project": "battikhi-stays",
+        "type": "Brand and website",
+        "alt": "Battikhi Stays brand and website"
+      },
+      {
+        "project": "the-welcome-table",
+        "type": "Brand identity",
+        "alt": "The Welcome Table brand"
+      },
+      {
+        "project": "ummati",
+        "type": "Brand and UI/UX web/app",
+        "alt": "Ummati brand and app"
+      },
+      {
+        "project": "sol-root",
+        "type": "Logo and packaging",
+        "alt": "Sol Root logo and packaging"
+      },
+      {
+        "project": "mwafq",
+        "type": "UI/UX web/app",
+        "alt": "Mwafq website UI"
+      },
+      {
+        "project": "ticketat",
+        "type": "UI/UX web",
+        "alt": "Ticketat website UI"
+      },
+      {
+        "project": "qanadeel",
+        "type": "Presentation design",
+        "alt": "Qanadeel presentation design"
+      },
+      {
+        "project": "baseera",
+        "type": "Logo design",
+        "alt": "Baseera brand identity"
+      },
+      {
+        "project": "zinger-lab",
+        "type": "Logo design",
+        "alt": "Zinger Lab logo"
+      },
+      {
+        "project": "33-butchery",
+        "type": "Logo design",
+        "alt": "33 Butchery logo and identity"
+      },
+      {
+        "project": "canary-calls",
+        "type": "Logo design",
+        "alt": "Canary Calls logo and identity"
+      },
+      {
+        "project": "compera-jewelry",
+        "type": "Logo design",
+        "alt": "Compera Jewelry logo and identity"
+      },
+      {
+        "project": "hbcs",
+        "type": "Logo design",
+        "alt": "HBCS logo"
+      },
+      {
+        "project": "heavyweight-hoodies",
+        "type": "Logo design",
+        "alt": "Heavyweight Hoodies logo and identity"
+      },
+      {
+        "project": "motammem",
+        "type": "Logo design",
+        "alt": "Motammem logo and identity"
+      }
+    ],
+    "reviewsTitle": [
+      "Reviews",
+      "from",
+      "across",
+      "the",
+      "galaxy"
+    ],
+    "reviews": [
+      {
+        "name": "Qahtan A.",
+        "role": "Oman · Arabic Flyer · Freelancer.com",
+        "text": "Great designer. We will work with her again."
+      },
+      {
+        "name": "Leo Gomez",
+        "role": "Editorial · Freelancer.com",
+        "text": "Excellent attention to detail, and complete mastery of Adobe Illustrator. Shukkran!"
+      },
+      {
+        "name": "Hala",
+        "role": "Canada · Logo · Freelancer.com",
+        "text": "Super excellent designer. She did unlimited modifications for me without complaint and provided me with everything I asked for in a heartbeat. HIGHLY RECOMMEND. Thank you once again."
+      },
+      {
+        "name": "Abdullah A.",
+        "role": "Annual report · Mostaql",
+        "text": "المصممة صبورة وكان تعاملها راقي"
+      },
+      {
+        "name": "Peter G.",
+        "role": "Australia · Logo · Freelancer.com",
+        "text": "Will work with this designer again."
+      },
+      {
+        "name": "Abdulmajeed A.",
+        "role": "Logo · Mostaql",
+        "text": "ممتاز جداً التعامل وسرعة الخدمة"
+      },
+      {
+        "name": "Andres",
+        "role": "United States · Logo contest · Freelancer.com",
+        "text": "Very creative, motivated and hardworking. Submitted a few nice designs and improved significantly based on feedback."
+      },
+      {
+        "name": "Tom",
+        "role": "Australia · Business cards · Freelancer.com",
+        "text": "Very patient with me on the revisions and edits to some simple business cards. I recommend her highly."
+      }
+    ]
+  },
+  "ui": {
+    "logoImage": "assets/logo.png",
+    "logoAlt": "Marah Touqan logo",
+    "brandName": "Marah Touqan",
+    "brandAria": "Marah Touqan home",
+    "menuLinks": [
+      {
+        "label": "Work",
+        "link": "my-work.html"
+      },
+      {
+        "label": "Services",
+        "link": "services.html"
+      },
+      {
+        "label": "About",
+        "link": "index.html#about"
+      },
+      {
+        "label": "Contact",
+        "link": "#contact"
+      }
+    ],
+    "quoteText": "Get a quote",
+    "backHomeText": "Back home",
+    "selectedProjectLabel": "Selected project:",
+    "emailLabel": "Email",
+    "behanceLabel": "Behance",
+    "linkedInLabel": "LinkedIn",
+    "whatsAppLabel": "WhatsApp",
+    "psPrefix": "P.S. ",
+    "footerBye": "That's all, folks",
+    "footerSitemapLabel": "Sitemap",
+    "footerElsewhereLabel": "Elsewhere",
+    "footerCurrentlyLabel": "Currently",
+    "footerSitemapLinks": [
+      {
+        "label": "Home",
+        "link": "index.html"
+      },
+      {
+        "label": "About",
+        "link": "index.html#about"
+      },
+      {
+        "label": "Services",
+        "link": "services.html"
+      },
+      {
+        "label": "Work",
+        "link": "index.html#work"
+      },
+      {
+        "label": "Contact",
+        "link": "index.html#contact"
+      }
+    ],
+    "footerElsewhereLinks": [
+      {
+        "label": "Behance",
+        "link": "{behance}"
+      },
+      {
+        "label": "LinkedIn",
+        "link": "{linkedin}"
+      },
+      {
+        "label": "Instagram",
+        "link": "{instagram}"
+      },
+      {
+        "label": "Email",
+        "link": "{email}"
+      },
+      {
+        "label": "CV",
+        "link": "{cv}"
+      }
+    ]
+  },
+  "fonts": {
+    "heading": "Anton",
+    "body": "Inter",
+    "accent": "DM Serif Display",
+    "arabic": "Cairo"
+  }
+}

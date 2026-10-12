@@ -1,0 +1,38 @@
+@using System.Text.Encodings.Web
+@using System.Text.Json
+@using MarahTouqan.Web.Services
+@inject ContentService Content
+@{
+    // the "who is this" block for Google and AI search, built from the site settings so it never goes out of date
+    var site = Content.Site;
+    var baseUrl = site.BaseUrl.TrimEnd('/') + "/";
+    var sameAs = new[] { site.Behance, site.LinkedIn, site.Instagram }.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+    var data = new Dictionary<string, object>
+    {
+        ["@context"] = "https://schema.org",
+        ["@graph"] = new object[]
+        {
+            new Dictionary<string, object>
+            {
+                ["@type"] = "Person", ["@id"] = "#marah", ["name"] = site.Name, ["jobTitle"] = site.JobTitle,
+                ["description"] = site.ShortBio, ["knowsLanguage"] = new[] { "ar", "en" }, ["knowsAbout"] = site.KnowsAbout,
+                ["sameAs"] = sameAs, ["url"] = baseUrl
+            },
+            new Dictionary<string, object>
+            {
+                ["@type"] = "ProfessionalService", ["name"] = site.Name + ", freelance designer",
+                ["founder"] = new Dictionary<string, object> { ["@id"] = "#marah" }, ["serviceType"] = site.ServiceTypes,
+                ["areaServed"] = "Worldwide", ["availableLanguage"] = new[] { "Arabic", "English" },
+                ["sameAs"] = sameAs, ["url"] = baseUrl
+            },
+            new Dictionary<string, object>
+            {
+                ["@type"] = "WebSite", ["name"] = site.Name, ["url"] = baseUrl, ["inLanguage"] = "en"
+            }
+        }
+    };
+    var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping });
+}
+<script type="application/ld+json">
+@Html.Raw(json)
+</script>

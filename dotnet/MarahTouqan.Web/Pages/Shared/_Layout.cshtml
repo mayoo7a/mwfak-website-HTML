@@ -1,5 +1,6 @@
 @using System.Text.Encodings.Web
 @using System.Text.Json
+@using MarahTouqan.Web.Models
 @using MarahTouqan.Web.Services
 @inject ContentService Content
 @{
@@ -10,6 +11,12 @@
     var pageUrl = site.BaseUrl.TrimEnd('/') + meta.Path;
     var ogImage = site.BaseUrl.TrimEnd('/') + "/" + site.OgImage.TrimStart('/');
     var scripts = (string[])ViewData["Scripts"]!;
+    var fonts = Content.Current.Fonts;
+    var fHead = FontCatalog.Find(fonts.Heading, "Anton");
+    var fBody = FontCatalog.Find(fonts.Body, "Inter");
+    var fAccent = FontCatalog.Find(fonts.Accent, "DM Serif Display");
+    var fArabic = FontCatalog.Find(fonts.Arabic, "Cairo");
+    string Stack(FontInfo f) => $"'{f.Name}','{fArabic.Name}',{f.Generic}";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +53,11 @@ try { if ('scrollRestoration' in history && !location.hash) history.scrollRestor
 }
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@600&family=DM+Serif+Display&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap">
+@foreach (var f in new[] { fHead, fBody, fAccent, fArabic }.DistinctBy(x => x.Name))
+{
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=@Html.Raw(f.Query)&display=swap">
+}
+<style>:root{--font-heading:@Html.Raw(Stack(fHead));--font-body:@Html.Raw(Stack(fBody));--font-accent:@Html.Raw(Stack(fAccent));}</style>
 <link rel="stylesheet" href="~/css/@(slug).css" asp-append-version="true" />
 </head>
 <body>

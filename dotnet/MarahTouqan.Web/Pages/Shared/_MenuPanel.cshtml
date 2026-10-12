@@ -1,9 +1,10 @@
+@using MarahTouqan.Web.Models
 @using MarahTouqan.Web.Services
 @inject ContentService Content
-@{ var Site = Content.Site; }
+@model bool
 <nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
-  <a href="my-work.html">Work</a>
-  <a href="services.html">Services</a>
-  <a href="index.html#about">About</a>
-  <a href="#contact">Contact</a>
+@foreach (var l in Content.Current.Ui.MenuLinks)
+{
+  <a href="@LinkResolver.Resolve(l.Link, Content.Site, Model)" data-hover>@l.Label</a>
+}
 </nav>

@@ -1,7 +1,7 @@
 @using MarahTouqan.Web.Services
 @inject ContentService Content
 @model bool
-@{ var Site = Content.Site; }
+@{ var Site = Content.Site; var ui = Content.Current.Ui; }
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-layout">
@@ -16,28 +16,28 @@
 
         <a class="contact-card" href="mailto:@Site.Email" data-card="email">
           <span class="contact-card-text">
-            <span class="contact-card-label">Email</span>
+            <span class="contact-card-label">@ui.EmailLabel</span>
             <span class="contact-card-value">@Site.EmailCardText</span>
           </span>
         </a>
 
         <a class="contact-card" href="@Site.Behance" target="_blank" rel="noopener" data-card="behance">
           <span class="contact-card-text">
-            <span class="contact-card-label">Behance</span>
+            <span class="contact-card-label">@ui.BehanceLabel</span>
             <span class="contact-card-value">@Site.BehanceHandle</span>
           </span>
         </a>
 
         <a class="contact-card" href="@Site.LinkedIn" target="_blank" rel="noopener" data-card="linkedin">
           <span class="contact-card-text">
-            <span class="contact-card-label">LinkedIn</span>
+            <span class="contact-card-label">@ui.LinkedInLabel</span>
             <span class="contact-card-value">@Site.LinkedInName</span>
           </span>
         </a>
 
-        <a class="contact-card" href="@Site.WhatsAppUrl" target="_blank" rel="noopener" data-card="phone" aria-label="Message Marah on WhatsApp, @Site.PhoneDisplay">
+        <a class="contact-card" href="@Site.WhatsAppUrl" target="_blank" rel="noopener" data-card="phone" aria-label="@ui.WhatsAppLabel, @Site.PhoneDisplay">
           <span class="contact-card-text">
-            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-label">@ui.WhatsAppLabel</span>
             <span class="contact-card-value">@Site.PhoneDisplay</span>
           </span>
         </a>
@@ -49,7 +49,7 @@
 {
     <div class="contact-footer">
       <p class="contact-signoff">
-        <span class="ps-line"><em>P.S. </em>@Site.PostScript1</span> <span class="ps-line">@Site.PostScript2</span>
+        <span class="ps-line"><em>@ui.PsPrefix</em>@Site.PostScript1</span> <span class="ps-line">@Site.PostScript2</span>
       </p>
     </div>
 }

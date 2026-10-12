@@ -20,7 +20,7 @@ The password is saved as a salted hash in `Data/admin.json`, which is not commit
 
 ## Using the admin
 
-Tabs: Contact & links, Google texts, Home page, Services & prices, My work.
+Tabs: Contact & links, Google texts, Home page, Services & prices, Logo, menu & footer (logo, text beside the logo, menu links, quote button, footer, contact card labels), Fonts (headings, body, quotes, Arabic), My work.
 
 - Change the text, press **Save** (or Ctrl+S). The website updates straight away.
 - **Choose / upload** next to any picture, video or PDF lets you pick an existing file or upload a new one.

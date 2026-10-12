@@ -30,6 +30,8 @@ public class IndexModel : PageModel
     public ContentResult OnGetBackup(string name) =>
         _content.BackupJson(name) is { } json ? Json(json) : throw new FileNotFoundException();
 
+    public IActionResult OnGetFonts() => new JsonResult(MarahTouqan.Web.Models.FontCatalog.All.Select(f => new { name = f.Name, group = f.Group, query = f.Query, generic = f.Generic }));
+
     public IActionResult OnGetAssets() => new JsonResult(_assets.List());
 
     public async Task<IActionResult> OnPostUploadAsync(IFormFile file, string folder)

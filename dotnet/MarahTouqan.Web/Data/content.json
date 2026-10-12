@@ -671,6 +671,14 @@
     "heroVideo": "assets/hero.mp4",
     "heroVideoSmall": "assets/hero-mobile.mp4",
     "heroPoster": "assets/hero-poster.webp",
+    "introPrefix": "I'm",
+    "replayLabel": "Replay",
+    "stickerLabels": [
+      "Brand Identity",
+      "Logo Design",
+      "UI/UX Design",
+      "Packaging & Print"
+    ],
     "introLine2": "a designer running on",
     "introPixel": "cat cuddles",
     "introUnderline": "curiosity",
@@ -840,5 +848,91 @@
         "text": "Very patient with me on the revisions and edits to some simple business cards. I recommend her highly."
       }
     ]
+  },
+  "ui": {
+    "logoImage": "assets/logo.png",
+    "logoAlt": "Marah Touqan logo",
+    "brandName": "Marah Touqan",
+    "brandAria": "Marah Touqan home",
+    "menuLinks": [
+      {
+        "label": "Work",
+        "link": "my-work.html"
+      },
+      {
+        "label": "Services",
+        "link": "services.html"
+      },
+      {
+        "label": "About",
+        "link": "index.html#about"
+      },
+      {
+        "label": "Contact",
+        "link": "#contact"
+      }
+    ],
+    "quoteText": "Get a quote",
+    "backHomeText": "Back home",
+    "selectedProjectLabel": "Selected project:",
+    "emailLabel": "Email",
+    "behanceLabel": "Behance",
+    "linkedInLabel": "LinkedIn",
+    "whatsAppLabel": "WhatsApp",
+    "psPrefix": "P.S. ",
+    "footerBye": "That's all, folks",
+    "footerSitemapLabel": "Sitemap",
+    "footerElsewhereLabel": "Elsewhere",
+    "footerCurrentlyLabel": "Currently",
+    "footerSitemapLinks": [
+      {
+        "label": "Home",
+        "link": "index.html"
+      },
+      {
+        "label": "About",
+        "link": "index.html#about"
+      },
+      {
+        "label": "Services",
+        "link": "services.html"
+      },
+      {
+        "label": "Work",
+        "link": "index.html#work"
+      },
+      {
+        "label": "Contact",
+        "link": "index.html#contact"
+      }
+    ],
+    "footerElsewhereLinks": [
+      {
+        "label": "Behance",
+        "link": "{behance}"
+      },
+      {
+        "label": "LinkedIn",
+        "link": "{linkedin}"
+      },
+      {
+        "label": "Instagram",
+        "link": "{instagram}"
+      },
+      {
+        "label": "Email",
+        "link": "{email}"
+      },
+      {
+        "label": "CV",
+        "link": "{cv}"
+      }
+    ]
+  },
+  "fonts": {
+    "heading": "Anton",
+    "body": "Inter",
+    "accent": "DM Serif Display",
+    "arabic": "Cairo"
   }
 }

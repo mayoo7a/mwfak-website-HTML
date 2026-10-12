@@ -10,9 +10,9 @@
   <img src="assets/cursor.svg" alt="" width="36" height="36" />
 </div>
 
-<partial name="_Header" />
-<partial name="_MenuPanel" />
-<div class="page-back"><a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back home</a></div>
+<partial name="_Header" model="false" />
+<partial name="_MenuPanel" model="false" />
+<div class="page-back"><a class="back-link" href="index.html"><span aria-hidden="true">←</span> @Content.Current.Ui.BackHomeText</a></div>
 
 <section class="stage">
   <div class="stage-inner">
@@ -36,7 +36,7 @@
   <div class="svc-body">
     <p class="svc-desc">@svc.Description</p>
   </div>
-  <figure class="svc-proj"><img src="@svc.ProjectImage" alt="@svc.ProjectName project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>Selected project: <strong>@svc.ProjectName</strong>, @svc.ProjectType</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>@svc.PriceLabel</span><strong>@svc.Price</strong></p></div></div><div class="svc-cta svc-cta--proj"><a class="panel-cta" href="@Content.Site.WhatsAppUrl" target="_blank" rel="noopener">@svc.CtaText</a></div></figure>
+  <figure class="svc-proj"><img src="@svc.ProjectImage" alt="@svc.ProjectName project board" width="1400" height="745" loading="lazy" decoding="async"><figcaption>@Content.Current.Ui.SelectedProjectLabel <strong>@svc.ProjectName</strong>, @svc.ProjectType</figcaption><div class="svc-pricebox"><div class="svc-pricerow"><p class="svc-price"><span>@svc.PriceLabel</span><strong>@svc.Price</strong></p></div></div><div class="svc-cta svc-cta--proj"><a class="panel-cta" href="@Content.Site.WhatsAppUrl" target="_blank" rel="noopener">@svc.CtaText</a></div></figure>
   </div>
     <div class="svc-scopebox">
       <h3 class="svc-sub">@svc.ScopeTitle</h3>

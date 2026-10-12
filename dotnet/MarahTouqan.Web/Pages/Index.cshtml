@@ -15,36 +15,11 @@
 <!-- Cat photo that follows the cursor while hovering "cat cuddles" -->
 <div class="cat-follower" id="catFollower" aria-hidden="true"></div>
 
-<!-- Off-canvas menu -->
-<nav class="menu-panel" id="menuPanel" aria-label="Main menu" aria-hidden="true" inert>
-  <a href="my-work.html" data-hover>Work</a>
-  <a href="services.html" data-hover>Services</a>
-  <a href="#about" data-hover>About</a>
-  <a href="#contact" data-hover>Contact</a>
-</nav>
+<partial name="_MenuPanel" model="true" />
 
 <!-- Hero -->
 <section class="hero hero--reel">
-  <!-- Header on top -->
-  <header class="header">
-    <a href="#" class="brand" data-hover aria-label="Marah Touqan home">
-      <img src="assets/logo.png" alt="Marah Touqan logo" width="256" height="239" />
-      <span class="brand-name">Marah Touqan</span>
-    </a>
-
-    <div class="header-actions">
-      <nav class="header-nav" aria-label="Primary">
-        <a href="my-work.html" data-hover>Work</a>
-        <a href="services.html" data-hover>Services</a>
-        <a href="#about" data-hover>About</a>
-        <a href="#contact" data-hover>Contact</a>
-      </nav>
-      <a class="quote-btn" href="@Content.Site.WhatsAppUrl" target="_blank" rel="noopener" data-hover>Get a quote</a>
-      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel" data-hover>
-        <span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <partial name="_Header" model="true" />
 
   <!-- Hero showreel: full width, plays once when the site opens. Click the video to pause or play; a replay button appears at the end -->
   <div class="hero-reel-full" id="heroReelWrap">
@@ -59,7 +34,7 @@
     <div class="hero-reel-ctl">
       <button class="hero-reel-btn" id="heroReelBtn" type="button" data-hover aria-label="Replay the showreel">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-        <span class="hero-reel-btn-label">Replay</span>
+        <span class="hero-reel-btn-label">@H.ReplayLabel</span>
       </button>
     </div>
   </div>
@@ -76,7 +51,7 @@
   <!-- DESIGN-themed floating stickers (positioned away from the text) -->
 
   <!-- Top-left: paint palette with color dots -->
-  <div class="sticker palette-sticker" data-service="Brand Identity">
+  <div class="sticker palette-sticker" data-service="@H.StickerLabels[0]">
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M100 25 C 50 25, 18 65, 18 110 C 18 145, 48 168, 80 162 C 90 160, 92 152, 88 145 C 80 132, 92 116, 108 120 C 122 124, 130 134, 148 134 C 172 134, 184 115, 184 92 C 184 55, 148 25, 100 25 Z"
             fill="#F2EBE8" stroke="#0E1C41" stroke-width="6" stroke-linejoin="round"/>
@@ -88,7 +63,7 @@
   </div>
 
   <!-- Top-right: pen tool / bezier curve with anchor points -->
-  <div class="sticker pen-sticker" data-service="Logo Design">
+  <div class="sticker pen-sticker" data-service="@H.StickerLabels[1]">
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M25 160 C 65 50, 135 50, 175 160" fill="none" stroke="#0E1C41" stroke-width="6" stroke-linecap="round"/>
       <line x1="32" y1="155" x2="100" y2="58" stroke="#0E1C41" stroke-width="2" stroke-dasharray="5,5"/>
@@ -100,7 +75,7 @@
   </div>
 
   <!-- Stacked layers icon (Photoshop/Figma vibe) -->
-  <div class="sticker layers-sticker" data-service="UI/UX Design">
+  <div class="sticker layers-sticker" data-service="@H.StickerLabels[2]">
     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <rect x="20"  y="70" width="130" height="90" rx="6" fill="#1E7CDF" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
       <rect x="40"  y="45" width="130" height="90" rx="6" fill="#F9A323" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
@@ -109,7 +84,7 @@
   </div>
 
   <!-- Bottom-right: ruler with tick marks -->
-  <div class="sticker ruler-sticker" data-service="Packaging & Print">
+  <div class="sticker ruler-sticker" data-service="@H.StickerLabels[3]">
     <svg viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
       <rect x="8" y="24" width="204" height="48" fill="#F9A323" stroke="#0E1C41" stroke-width="5" stroke-linejoin="round"/>
       <line x1="28"  y1="24" x2="28"  y2="50" stroke="#0E1C41" stroke-width="3"/>
@@ -127,7 +102,7 @@
   <div class="intro-container">
 
     <h2 class="intro-headline">
-      I'm <span class="name">@Content.Site.Name</span><br>
+      @H.IntroPrefix <span class="name">@Content.Site.Name</span><br>
       @H.IntroLine2<br>
       <span class="pixel">@H.IntroPixel</span> &amp; <span class="underline">@H.IntroUnderline</span>
     </h2>

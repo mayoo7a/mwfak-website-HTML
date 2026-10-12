@@ -63,6 +63,13 @@
     heading: 'Group heading', items: 'Items', filesTitle: 'Files: title', formats: 'File formats', filesNote: 'Files note', toolsTitle: 'Tools: title',
     tools: 'Tools', moreText: '"See more" text', lessText: '"See less" text', title1: 'Big title, line 1', title2: 'Big title, line 2',
     groups: 'Groups on the page', projects: 'All projects', accent: 'Color', pairWithNext: 'Show next to the group after it',
+    logoImage: 'Logo picture', logoAlt: 'Logo description (for screen readers)', brandName: 'Text beside the logo', brandAria: 'Logo link description (for screen readers)',
+    menuLinks: 'Menu links (top bar and burger menu)', label: 'Text', link: 'Link', quoteText: 'Quote button text', backHomeText: '"Back home" text',
+    selectedProjectLabel: 'Text before the example project name', emailLabel: 'Contact card 1 label', behanceLabel: 'Contact card 2 label',
+    linkedInLabel: 'Contact card 3 label', whatsAppLabel: 'Contact card 4 label', psPrefix: 'Text before the P.S. lines', footerBye: 'Big closing line',
+    footerSitemapLabel: 'Column 1 title', footerElsewhereLabel: 'Column 2 title', footerCurrentlyLabel: 'Column 3 title',
+    footerSitemapLinks: 'Column 1 links', footerElsewhereLinks: 'Column 2 links', introPrefix: 'Headline, first word', replayLabel: 'Replay button text',
+    stickerLabels: 'Sticker tooltips (palette, pen, layers, ruler)',
     description1: 'Description, line 1', description2: 'Description, line 2', image: 'Picture', hint: 'Note under the services'
   };
   const LONG = new Set(['description', 'shortBio', 'text', 'dragonTooltip', 'hint', 'filesNote', 'ogImageAlt', 'heroTitle', 'introParagraphs']);
@@ -72,8 +79,9 @@
   const ICONS = [['palette', 'Palette'], ['curve', 'Curve'], ['calendar', 'Calendar'], ['screens', 'Screens']];
   const FILES = {   // key -> [kind, folder]
     ogImage: ['image', ''], image: ['image', 'portfolio'], projectImage: ['image', 'portfolio'], heroPoster: ['image', ''],
-    heroVideo: ['video', ''], heroVideoSmall: ['video', ''], cvPath: ['pdf', '']
+    heroVideo: ['video', ''], heroVideoSmall: ['video', ''], cvPath: ['pdf', ''], logoImage: ['image', '']
   };
+  const LINK_HELP = 'A page (my-work.html), a section (index.html#about), a web address, or a shortcut: {behance} {linkedin} {instagram} {email} {whatsapp} {cv}';
   const serviceOpts = () => data.services.map(s => [s.slug, s.menuLabel || s.slug]);
   const projectOpts = () => data.work.projects.map(p => [p.slug, p.name || p.slug]);
   const selectFor = (path, key) => {
@@ -86,7 +94,7 @@
   };
   const titleOf = (o, i) => {
     if (typeof o !== 'object') return String(o);
-    const t = [o.name, o.title, o.menuLabel, o.heading1 && (o.heading1 + ' ' + (o.heading2 || '')), o.text, o.heading, o.project, o.service, o.slug].find(x => x && String(x).trim());
+    const t = [o.name, o.title, o.label, o.menuLabel, o.heading1 && (o.heading1 + ' ' + (o.heading2 || '')), o.text, o.heading, o.project, o.service, o.slug].find(x => x && String(x).trim());
     return `${i + 1}. ${t ? String(t).slice(0, 70) : 'New item'}`;
   };
 
@@ -212,7 +220,7 @@
         wrap.append(field(label, selectInput(obj, key, selectFor(p, key))));
       } else {
         const [el, counter] = textInput(obj, key, p);
-        wrap.append(field(label, [el, counter], HTML_OK.has(key) ? 'You can use <strong>bold</strong> tags.' : null));
+        wrap.append(field(label, [el, counter], key === 'link' ? LINK_HELP : HTML_OK.has(key) ? 'You can use <strong>bold</strong> tags.' : null));
       }
     }
     return wrap;
@@ -246,8 +254,41 @@
     ['pages', 'Google texts', 'The title and description Google shows for each page.', () => [objectForm(data.pages, 'pages')]],
     ['home', 'Home page', 'Hero video, intro, the 4 cards, slideshow and reviews.', () => [objectForm(data.home, 'home')]],
     ['services', 'Services & prices', 'Prices, what is included, steps, files and tools for each service.', () => [h('h2', {}, 'Page heading and note'), objectForm(data.servicesPage, 'servicesPage'), h('h2', {}, 'The services'), listOfObjects(data.services, 'services', 'services', serviceRemoved)]],
+    ['menu', 'Logo, menu & footer', 'The logo and the text beside it, the menu links, the quote button, the footer and the contact card labels.', () => [objectForm(data.ui, 'ui')]],
+    ['fonts', 'Fonts', 'Choose the fonts used across the whole website.', () => [fontsPanel()]],
     ['work', 'My work', 'Projects, their pictures and descriptions, and how they are grouped.', () => [objectForm(data.work, 'work')]],
   ];
+  let fontCatalog = [];
+  const loadedFonts = new Set();
+  const loadFont = f => {
+    if (!f || loadedFonts.has(f.name)) return; loadedFonts.add(f.name);
+    document.head.append(h('link', { rel: 'stylesheet', href: `https://fonts.googleapis.com/css2?family=${f.query}&display=swap` }));
+  };
+  function fontsPanel() {
+    const ROLES = [
+      ['heading', 'Headings', 'Big titles such as "My Services" and the section names.', 'Logo design · Brand identity'],
+      ['body', 'Body text', 'Paragraphs, menus, buttons and small labels.', 'Brand identity, logo, packaging and UI/UX design.'],
+      ['accent', 'Quotes and accents', 'Review quotes and a few highlighted words.', '"Excellent attention to detail."'],
+      ['arabic', 'Arabic letters', 'Used wherever Arabic text appears, in every part of the site.', 'تصميم الشعارات والهوية البصرية']];
+    const box = h('div', { class: 'form' });
+    ROLES.forEach(([key, title, help, sample]) => {
+      const sel = h('select', { class: 'inp' });
+      ['Display (headings)', 'Clean sans', 'Serif', 'Arabic'].forEach(g => {
+        const og = h('optgroup', { label: g });
+        fontCatalog.filter(f => f.group === g).forEach(f => og.append(h('option', { value: f.name }, f.name)));
+        sel.append(og);
+      });
+      sel.value = data.fonts[key];
+      const info = f => fontCatalog.find(x => x.name === f);
+      const prev = h('p', { class: 'fontprev', dir: 'auto' }, sample);
+      const draw = () => { const f = info(sel.value); loadFont(f); prev.style.fontFamily = `'${sel.value}', ${f ? f.generic : 'sans-serif'}`; };
+      sel.addEventListener('change', () => { data.fonts[key] = sel.value; draw(); refreshState(); });
+      draw();
+      box.append(h('div', { class: 'sub' }, h('h3', {}, title), h('p', { class: 'muted' }, help), sel, prev));
+    });
+    box.append(h('p', { class: 'muted' }, 'Fonts load from Google Fonts. After saving, open the site and check each page.'));
+    return box;
+  }
   const drawTabs = () => {
     const nav = $('tabs'); nav.replaceChildren();
     TABS.forEach(([id, label]) => nav.append(h('button', { class: 'tab' + (id === active ? ' on' : ''), type: 'button', onclick: () => { active = id; localStorage.setItem('adminTab', id); rerender(); } }, label)));
@@ -303,7 +344,7 @@
     if (!r.ok) { toast('Not saved:\n• ' + r.errors.join('\n• '), true); return false; }
     savedJson = JSON.stringify(data); refreshState(); toast('Saved. The website is updated.'); return true;
   }
-  const load = async () => { data = await (await fetch('/admin?handler=Content')).json(); savedJson = JSON.stringify(data); };
+  const load = async () => { data = await (await fetch('/admin?handler=Content')).json(); savedJson = JSON.stringify(data); if (!fontCatalog.length) fontCatalog = await (await fetch('/admin?handler=Fonts')).json(); };
   async function restore(name) {
     if (isDirty() && !confirm('You have unsaved changes. They will be lost. Continue?')) return;
     data = await (await fetch('/admin?handler=Backup&name=' + encodeURIComponent(name))).json();

@@ -78,3 +78,4 @@ textarea.inp{resize:vertical;min-height:4.2rem}
 @media (max-width:640px){.top{padding:.6rem}.panel{padding:1rem .7rem 6rem}.filerow{flex-direction:column;align-items:stretch}}
 .cards>.btn,.strlist>.btn{justify-self:start}
 @media (max-width:640px){.tabs{flex-wrap:nowrap;overflow-x:auto;flex-basis:100%;order:3;padding-bottom:.2rem}.tab{white-space:nowrap}}
+.fontprev{font-size:1.7rem;margin:.6rem 0 0;line-height:1.2}

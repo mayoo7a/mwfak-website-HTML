@@ -1,7 +1,8 @@
 @using MarahTouqan.Web.Services
 @inject ContentService Content
 @model bool
-@{ var Site = Content.Site; }
+@using MarahTouqan.Web.Models
+@{ var Site = Content.Site; var ui = Content.Current.Ui; }
 <footer class="footer">
   <div class="footer-inner">
 
@@ -9,36 +10,34 @@
 {
     <!-- Big closing line, like a sign-off -->
     <div class="footer-signoff">
-      <span class="footer-bye">That's all, folks</span>
+      <span class="footer-bye">@ui.FooterBye</span>
       <img src="assets/footer-bye.webp" alt="" class="footer-bye-img" aria-hidden="true" width="460" height="310" loading="lazy" decoding="async" />
     </div>
 }
     <div class="footer-cols">
 
       <div class="footer-col">
-        <span class="footer-col-label">Sitemap</span>
+        <span class="footer-col-label">@ui.FooterSitemapLabel</span>
         <ul class="footer-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="@(Model ? "" : "index.html")#about">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="@(Model ? "" : "index.html")#work">Work</a></li>
-          <li><a href="@(Model ? "" : "index.html")#contact">Contact</a></li>
+@foreach (var l in ui.FooterSitemapLinks)
+{
+          <li><a href="@LinkResolver.Resolve(l.Link, Site, Model)">@l.Label</a></li>
+}
         </ul>
       </div>
 
       <div class="footer-col">
-        <span class="footer-col-label">Elsewhere</span>
+        <span class="footer-col-label">@ui.FooterElsewhereLabel</span>
         <ul class="footer-list">
-          <li><a href="@Site.Behance" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></li>
-          <li><a href="@Site.LinkedIn" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
-          <li><a href="@Site.Instagram" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a></li>
-          <li><a href="mailto:@Site.Email">Email <span aria-hidden="true">↗</span></a></li>
-          <li><a href="@Site.CvPath" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a></li>
+@foreach (var l in ui.FooterElsewhereLinks)
+{
+          <li><a href="@LinkResolver.Resolve(l.Link, Site, Model)"@(LinkResolver.Opens(l.Link) ? Html.Raw(" target=\"_blank\" rel=\"noopener\"") : null)>@l.Label@(LinkResolver.Arrow(l.Link) ? Html.Raw(" <span aria-hidden=\"true\">↗</span>") : null)</a></li>
+}
         </ul>
       </div>
 
       <div class="footer-col">
-        <span class="footer-col-label">Currently</span>
+        <span class="footer-col-label">@ui.FooterCurrentlyLabel</span>
         <p class="footer-status">
           <span class="fs-line">@Site.AvailabilityLine1</span> <span class="fs-line">@Site.AvailabilityLine2</span>
         </p>
@@ -47,8 +46,8 @@
     </div>
 
     <div class="footer-bottom">
-      <a href="index.html" class="footer-logo-link" aria-label="Back to home"><img src="assets/logo.png" alt="Marah Touqan logo" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
-      <p class="footer-copy">© <span class="footer-year">2026</span> Marah Touqan. @Site.FooterTagline</p>
+      <a href="index.html" class="footer-logo-link" aria-label="@ui.BrandAria"><img src="@ui.LogoImage" alt="@ui.LogoAlt" class="footer-logo" width="256" height="239" loading="lazy" decoding="async" /></a>
+      <p class="footer-copy">© <span class="footer-year">2026</span> @Site.Name. @Site.FooterTagline</p>
     </div>
 
   </div>

@@ -7,6 +7,10 @@ public class HomePage
     public string HeroVideo { get; set; } = "";
     public string HeroVideoSmall { get; set; } = "";
     public string HeroPoster { get; set; } = "";
+    public string IntroPrefix { get; set; } = "";
+    public string ReplayLabel { get; set; } = "";
+    /// <summary>Tooltips of the four floating stickers: palette, pen, layers, ruler.</summary>
+    public List<string> StickerLabels { get; set; } = new();
     public string IntroLine2 { get; set; } = "";
     public string IntroPixel { get; set; } = "";
     public string IntroUnderline { get; set; } = "";

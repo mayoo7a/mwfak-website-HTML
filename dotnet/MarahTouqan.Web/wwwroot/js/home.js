@@ -71,18 +71,7 @@ addEventListener('keydown', e => {
   const dotsEl = document.getElementById('cnDots');
   const reduce = false;   // the reviews keep their gentle animation on every device, including phones set to "reduce motion"
 
-  const profiles = [
-    // ----- Real reviews (showing inline green alien art on a gray background) -----
-    { name: 'Leo Gomez', role: 'Editorial · Freelancer.com',          cStars: 5, img: '', review: 'Excellent attention to detail, and complete mastery of Adobe Illustrator. Shukkran!' },
-    { name: 'Qahtan A.', role: 'Oman · Arabic Flyer · Freelancer.com', cStars: 5, img: '', review: 'Great designer. We will work with her again.' },
-    { name: 'Peter G.',  role: 'Australia · Logo · Freelancer.com',    cStars: 5, img: '', review: 'Will work with this designer again.' },
-    // ----- Placeholders — replace with real reviews -----
-    { name: 'Sarah M.',  role: 'Branding · Freelancer.com',            cStars: 5, img: '', review: 'Outstanding work and quick turnaround.' },
-    { name: 'Ahmed K.',  role: 'Logo · Freelancer.com',                cStars: 5, img: '', review: 'Highly recommended for brand identity work.' },
-    { name: 'Lisa R.',   role: 'Packaging · Freelancer.com',           cStars: 5, img: '', review: 'Will hire again for sure.' },
-    { name: 'Omar S.',   role: 'Identity · Freelancer.com',            cStars: 5, img: '', review: 'Exceeded expectations.' },
-    { name: 'Tara N.',   role: 'Editorial · Freelancer.com',           cStars: 5, img: '', review: 'Great communication and great work.' },
-  ];
+  const profiles = (window.siteReviews || []).map(r => ({ name: r.name, role: r.role, cStars: 5, img: '', review: r.review }));
 
   const tint = ['#F9A323','#D23697','#1E7CDF','#FA5643','#F9A323','#D23697','#1E7CDF','#FA5643'];
   const CR = '#F7F7F7';

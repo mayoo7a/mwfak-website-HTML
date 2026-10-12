@@ -664,5 +664,181 @@
         "description2": "for discovering events and booking tickets online."
       }
     ]
+  },
+  "home": {
+    "introLine2": "a designer running on",
+    "introPixel": "cat cuddles",
+    "introUnderline": "curiosity",
+    "introParagraphs": [
+      "You're here because something needs designing. Maybe it's a logo that's been side-eyed in 12 meetings. Maybe it's an app your users keep getting lost in. Maybe it's packaging that looks fine, but fine doesn't sell.",
+      "I've spent <strong>13+ years</strong> untangling exactly these problems. The trick is, I listen before I open Illustrator. Your vision is the brief. My job is to translate it into something sharper, simpler, and impossible to scroll past, in <strong>Arabic, English, or both</strong>."
+    ],
+    "cvLinkText": "Download my CV",
+    "dragonPre": "Sponsor my quest for a",
+    "dragonWord": "Dragon",
+    "dragonTooltip": "Other designers want a house. I want a <strong>dragon</strong>. Currently in the egg-shopping phase. Don't laugh, the plan's going great.",
+    "cards": [
+      {
+        "service": "logo-design",
+        "heading1": "Logo",
+        "heading2": "Design",
+        "text": "One mark that holds up tiny and huge.",
+        "ribbon": "Learn more"
+      },
+      {
+        "service": "brand-identity",
+        "heading1": "Brand",
+        "heading2": "Identity",
+        "text": "A full visual system, recognised everywhere.",
+        "ribbon": "Learn more"
+      },
+      {
+        "service": "packaging-print",
+        "heading1": "Packaging",
+        "heading2": "& Print",
+        "text": "Packaging that wins in its first two seconds.",
+        "ribbon": "Learn more"
+      },
+      {
+        "service": "ui-ux-design",
+        "heading1": "UI/UX",
+        "heading2": "Design",
+        "text": "Flows people finish instead of abandoning.",
+        "ribbon": "Learn more"
+      }
+    ],
+    "workTitle": "My Work",
+    "workCta": "See all my work",
+    "slides": [
+      {
+        "project": "battikhi-stays",
+        "type": "Brand and website",
+        "alt": "Battikhi Stays brand and website"
+      },
+      {
+        "project": "the-welcome-table",
+        "type": "Brand identity",
+        "alt": "The Welcome Table brand"
+      },
+      {
+        "project": "ummati",
+        "type": "Brand and UI/UX web/app",
+        "alt": "Ummati brand and app"
+      },
+      {
+        "project": "sol-root",
+        "type": "Logo and packaging",
+        "alt": "Sol Root logo and packaging"
+      },
+      {
+        "project": "mwafq",
+        "type": "UI/UX web/app",
+        "alt": "Mwafq website UI"
+      },
+      {
+        "project": "ticketat",
+        "type": "UI/UX web",
+        "alt": "Ticketat website UI"
+      },
+      {
+        "project": "qanadeel",
+        "type": "Presentation design",
+        "alt": "Qanadeel presentation design"
+      },
+      {
+        "project": "baseera",
+        "type": "Logo design",
+        "alt": "Baseera brand identity"
+      },
+      {
+        "project": "zinger-lab",
+        "type": "Logo design",
+        "alt": "Zinger Lab logo"
+      },
+      {
+        "project": "33-butchery",
+        "type": "Logo design",
+        "alt": "33 Butchery logo and identity"
+      },
+      {
+        "project": "canary-calls",
+        "type": "Logo design",
+        "alt": "Canary Calls logo and identity"
+      },
+      {
+        "project": "compera-jewelry",
+        "type": "Logo design",
+        "alt": "Compera Jewelry logo and identity"
+      },
+      {
+        "project": "hbcs",
+        "type": "Logo design",
+        "alt": "HBCS logo"
+      },
+      {
+        "project": "heavyweight-hoodies",
+        "type": "Logo design",
+        "alt": "Heavyweight Hoodies logo and identity"
+      },
+      {
+        "project": "motammem",
+        "type": "Logo design",
+        "alt": "Motammem logo and identity"
+      }
+    ],
+    "reviewsTitle": [
+      "Reviews",
+      "from",
+      "across",
+      "the",
+      "galaxy"
+    ],
+    "reviews": [
+      {
+        "name": "Leo Gomez",
+        "role": "Editorial · Freelancer.com",
+        "text": "Excellent attention to detail, and complete mastery of Adobe Illustrator. Shukkran!"
+      },
+      {
+        "name": "Qahtan A.",
+        "role": "Oman · Arabic Flyer · Freelancer.com",
+        "text": "Great designer. We will work with her again."
+      },
+      {
+        "name": "Peter G.",
+        "role": "Australia · Logo · Freelancer.com",
+        "text": "Will work with this designer again."
+      },
+      {
+        "name": "Sarah M.",
+        "role": "Branding · Freelancer.com",
+        "text": "Outstanding work and quick turnaround."
+      },
+      {
+        "name": "Ahmed K.",
+        "role": "Logo · Freelancer.com",
+        "text": "Highly recommended for brand identity work."
+      },
+      {
+        "name": "Lisa R.",
+        "role": "Packaging · Freelancer.com",
+        "text": "Will hire again for sure."
+      },
+      {
+        "name": "Omar S.",
+        "role": "Identity · Freelancer.com",
+        "text": "Exceeded expectations."
+      },
+      {
+        "name": "Tara N.",
+        "role": "Editorial · Freelancer.com",
+        "text": "Great communication and great work."
+      }
+    ],
+    "heroVideo": "assets/hero.mp4",
+    "heroVideoSmall": "assets/hero-mobile.mp4",
+    "heroPoster": "assets/hero-poster.webp",
+    "heroTitle": "Marah Touqan, Brand Identity and UI/UX Designer. 13+ years of designing worth showing.",
+    "heroAriaLabel": "Marah Touqan showreel 2026. Press to pause or play"
   }
 }

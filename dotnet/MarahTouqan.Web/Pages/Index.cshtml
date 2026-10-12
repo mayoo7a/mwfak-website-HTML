@@ -1,7 +1,9 @@
 @page "/"
 @model MarahTouqan.Web.Pages.IndexModel
 @inject MarahTouqan.Web.Services.ContentService Content
+@using System.Text.Json
 @{
+    var H = Content.Current.Home;
     ViewData["Slug"] = "home";
     ViewData["Scripts"] = new[] { "home-footer-year.js", "home.js", "home-hero-reel.js", "home-email-card.js" };
 }
@@ -49,11 +51,11 @@
     <i class="hero-reel-side hero-reel-side--l" aria-hidden="true"></i>
     <i class="hero-reel-side hero-reel-side--r" aria-hidden="true"></i>
     <video class="hero-reel-video" id="heroReel"
-           data-src="assets/hero.mp4" data-src-small="assets/hero-mobile.mp4"
-           poster="assets/hero-poster.webp"
+           data-src="@H.HeroVideo" data-src-small="@H.HeroVideoSmall"
+           poster="@H.HeroPoster"
            autoplay muted playsinline preload="metadata"
            disablepictureinpicture disableremoteplayback
-           tabindex="0" aria-label="Marah Touqan showreel 2026. Press to pause or play"></video>
+           tabindex="0" aria-label="@H.HeroAriaLabel"></video>
     <div class="hero-reel-ctl">
       <button class="hero-reel-btn" id="heroReelBtn" type="button" data-hover aria-label="Replay the showreel">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
@@ -61,7 +63,7 @@
       </button>
     </div>
   </div>
-  <h1 class="sr-only">Marah Touqan, Brand Identity and UI/UX Designer. 13+ years of designing worth showing.</h1>
+  <h1 class="sr-only">@H.HeroTitle</h1>
 
 </section>
 
@@ -125,15 +127,15 @@
   <div class="intro-container">
 
     <h2 class="intro-headline">
-      I'm <span class="name">Marah Touqan</span><br>
-      a designer running on<br>
-      <span class="pixel">cat cuddles</span> &amp; <span class="underline">curiosity</span>
+      I'm <span class="name">@Content.Site.Name</span><br>
+      @H.IntroLine2<br>
+      <span class="pixel">@H.IntroPixel</span> &amp; <span class="underline">@H.IntroUnderline</span>
     </h2>
 
     <div class="intro-body">
-      <p>You're here because something needs designing. Maybe it's a logo that's been side-eyed in 12 meetings. Maybe it's an app your users keep getting lost in. Maybe it's packaging that looks fine, but fine doesn't sell.</p>
-      <p>I've spent <strong>13+ years</strong> untangling exactly these problems. The trick is, I listen before I open Illustrator. Your vision is the brief. My job is to translate it into something sharper, simpler, and impossible to scroll past, in <strong>Arabic, English, or both</strong>.</p>
-      <p class="intro-cv"><a href="assets/Marah-Touqan-CV.pdf" target="_blank" rel="noopener">Download my CV <span aria-hidden="true">↗</span></a></p>
+      @foreach (var para in H.IntroParagraphs) {<p>@Html.Raw(para)</p>}
+      <p class="intro-cv"><a href="@Content.Site.CvPath" target="_blank" rel="noopener">@H.CvLinkText <span aria-hidden="true">↗</span></a></p>
+    </div>
     </div>
 
   </div>
@@ -148,11 +150,11 @@
 
     <div class="mag-title-block">
       <div class="mag-word-wrap">
-        <span class="mag-title-pre">Sponsor my quest for a</span>
-        <h2 class="mag-word-anton">Dragon</h2>
+        <span class="mag-title-pre">@H.DragonPre</span>
+        <h2 class="mag-word-anton">@H.DragonWord</h2>
       </div>
       <img src="assets/dragon.gif" alt="" class="mag-dragon-gif" aria-hidden="true" width="500" height="226" loading="lazy" decoding="async" />
-      <div class="dragon-tooltip" aria-hidden="true">Other designers want a house. I want a <strong>dragon</strong>. Currently in the egg-shopping phase. Don't laugh, the plan's going great.</div>
+      <div class="dragon-tooltip" aria-hidden="true">@Html.Raw(H.DragonTooltip)</div>
     </div>
 
   </div>
@@ -160,29 +162,14 @@
   <!-- Stacked, tilted service cards -->
   <div class="mag-cards">
 
-    <a class="mag-card" data-card="01" href="services.html#logo-design">
-      <h3>Logo<br> Design</h3>
-      <p class="mag-card-desc">One mark that holds up tiny and huge.</p>
-      <div class="mag-card-ribbon">Learn more</div>
-    </a>
-
-    <a class="mag-card" data-card="02" href="services.html#brand-identity">
-      <h3>Brand<br> Identity</h3>
-      <p class="mag-card-desc">A full visual system, recognised everywhere.</p>
-      <div class="mag-card-ribbon">Learn more</div>
-    </a>
-
-    <a class="mag-card" data-card="03" href="services.html#packaging-print">
-      <h3>Packaging<br> &amp; Print</h3>
-      <p class="mag-card-desc">Packaging that wins in its first two seconds.</p>
-      <div class="mag-card-ribbon">Learn more</div>
-    </a>
-
-    <a class="mag-card" data-card="04" href="services.html#ui-ux-design">
-      <h3>UI/UX<br> Design</h3>
-      <p class="mag-card-desc">Flows people finish instead of abandoning.</p>
-      <div class="mag-card-ribbon">Learn more</div>
-    </a>
+    @for (var ci = 0; ci < H.Cards.Count; ci++) {
+      var cd = H.Cards[ci];
+      <a class="mag-card" data-card="@((ci+1).ToString("00"))" href="services.html#@cd.Service">
+        <h3>@cd.Heading1<br> @cd.Heading2</h3>
+        <p class="mag-card-desc">@cd.Text</p>
+        <div class="mag-card-ribbon">@cd.Ribbon</div>
+      </a>
+    }
 
   </div>
 
@@ -195,28 +182,17 @@
 <section class="work" id="work">
 
   <h2 class="work-title">
-    <span class="work-title-main">My Work</span>
+    <span class="work-title-main">@H.WorkTitle</span>
   </h2>
 
   <div class="work-hero">
     <div class="switch-frame">
       <img src="assets/work-frame.svg" alt="" class="work-hero-img" width="3054" height="718" />
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
-        <img src="assets/portfolio/battikhi-stays.webp" alt="Battikhi Stays brand and website" data-name="Battikhi Stays" data-type="Brand and website" data-stem="battikhi-stays" class="screen-slide is-active" width="1400" height="745" loading="eager" fetchpriority="high" decoding="async" />
-        <img src="assets/portfolio/the-welcome-table.webp" alt="The Welcome Table brand" data-name="The Welcome Table" data-type="Brand identity" data-stem="the-welcome-table" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/ummati.webp" alt="Ummati brand and app" data-name="Ummati" data-type="Brand and UI/UX web/app" data-stem="ummati" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/sol-root.webp" alt="Sol Root logo and packaging" data-name="Sol Root" data-type="Logo and packaging" data-stem="sol-root" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/mwafq.webp" alt="Mwafq website UI" data-name="Mwafq" data-type="UI/UX web/app" data-stem="mwafq" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/ticketat.webp" alt="Ticketat website UI" data-name="Ticketat" data-type="UI/UX web" data-stem="ticketat" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/qanadeel.webp" alt="Qanadeel presentation design" data-name="Qanadeel" data-type="Presentation design" data-stem="qanadeel" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/baseera.webp" alt="Baseera brand identity" data-name="Baseera" data-type="Logo design" data-stem="baseera" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/zinger-lab.webp" alt="Zinger Lab logo" data-name="Zinger Lab" data-type="Logo design" data-stem="zinger-lab" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/33-butchery.webp" alt="33 Butchery logo and identity" data-name="33 Butchery" data-type="Logo design" data-stem="33-butchery" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/canary-calls.webp" alt="Canary Calls logo and identity" data-name="Canary Calls" data-type="Logo design" data-stem="canary-calls" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/compera-jewelry.webp" alt="Compera Jewelry logo and identity" data-name="Compera Jewelry" data-type="Logo design" data-stem="compera-jewelry" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/hbcs.webp" alt="HBCS logo" data-name="HBCS" data-type="Logo design" data-stem="hbcs" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/heavyweight-hoodies.webp" alt="Heavyweight Hoodies logo and identity" data-name="Heavyweight Hoodies" data-type="Logo design" data-stem="heavyweight-hoodies" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
-        <img src="assets/portfolio/motammem.webp" alt="Motammem logo and identity" data-name="Motammem" data-type="Logo design" data-stem="motammem" class="screen-slide" width="1400" height="745" loading="lazy" decoding="async" />
+        @for (var si = 0; si < H.Slides.Count; si++) {
+          var sl = H.Slides[si]; var pr = Content.Current.Work.Find(sl.Project);
+          <img src="assets/portfolio/@(sl.Project).webp" alt="@sl.Alt" data-name="@pr?.Name" data-type="@sl.Type" data-stem="@sl.Project" class="screen-slide@(si == 0 ? " is-active" : "")" width="1400" height="745" loading="@(si == 0 ? "eager" : "lazy")" @(si == 0 ? Html.Raw("fetchpriority=\"high\" ") : null)decoding="async" />
+        }
       </a>
       <button type="button" class="joy-btn" data-joy="work" style="left:95.70%;top:25.13%" aria-label="Open this project (A)"></button>
       <button type="button" class="joy-btn" data-joy="prev" style="left:92.49%;top:32.23%" aria-label="Previous project (B)"></button>
@@ -231,7 +207,7 @@
   <div class="work-caption" aria-live="polite">
     <div class="wc-text"><span class="wc-name" id="wcName">Brand and website</span><span class="wc-type" id="wcType">Battikhi Stays</span></div>
   </div>
-  <div class="work-cta"><a class="panel-cta panel-cta--pink" href="my-work.html">See all my work</a></div>
+  <div class="work-cta"><a class="panel-cta panel-cta--pink" href="my-work.html">@H.WorkCta</a></div>
 
 </section>
 
@@ -245,11 +221,7 @@
 
     <h2 class="testimonials-title">
       <span class="testimonials-title-banner">
-        <span class="zg zg-1">Reviews</span>
-        <span class="zg zg-2">from</span>
-        <span class="zg zg-3">across</span>
-        <span class="zg zg-4">the</span>
-        <span class="zg zg-5">galaxy</span>
+        @for (var zi = 0; zi < H.ReviewsTitle.Count; zi++) {<span class="zg zg-@(zi+1)">@H.ReviewsTitle[zi]</span>@Html.Raw("\n        ")}
       </span>
     </h2>
 
@@ -280,3 +252,7 @@
      FOOTER
      ============================================================ -->
 <partial name="_Footer" model="true" />
+
+@section Scripts {
+<script>window.siteReviews = @Html.Raw(JsonSerializer.Serialize(H.Reviews.Select(r => new { name = r.Name, role = r.Role, review = r.Text }), new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }).Replace("<", "\\u003c"));</script>
+}

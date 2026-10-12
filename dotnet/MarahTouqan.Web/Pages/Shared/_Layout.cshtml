@@ -51,6 +51,7 @@ try { if ('scrollRestoration' in history && !location.hash) history.scrollRestor
 </head>
 <body>
 @RenderBody()
+@RenderSection("Scripts", required: false)
 @foreach (var script in scripts)
 {
 <script src="~/js/@script" asp-append-version="true"></script>

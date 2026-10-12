@@ -4,10 +4,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages(options =>
 {
+    options.Conventions.AuthorizeFolder("/Admin");
+    options.Conventions.AllowAnonymousToPage("/Admin/Login");
+    options.Conventions.AllowAnonymousToPage("/Admin/Setup");
     // the old address of the home page keeps working
     options.Conventions.AddPageRoute("/Index", "index.html");
 });
 builder.Services.AddSingleton<ContentService>();
+builder.Services.AddSingleton<AdminAuth>();
+builder.Services.AddSingleton<AssetStore>();
+builder.Services.AddAuthentication(Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(o =>
+    {
+        o.LoginPath = "/admin/login";
+        o.Cookie.Name = "mt_admin";
+        o.Cookie.HttpOnly = true;
+        o.Cookie.SameSite = SameSiteMode.Strict;
+        o.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+        o.ExpireTimeSpan = TimeSpan.FromHours(8);
+        o.SlidingExpiration = true;
+    });
+builder.Services.AddAuthorization();
+builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(o => o.MultipartBodyLengthLimit = 250_000_000);
+builder.WebHost.ConfigureKestrel(o => o.Limits.MaxRequestBodySize = 250_000_000);
 
 var app = builder.Build();
 
@@ -29,6 +48,8 @@ if (Directory.Exists(sharedAssets) && !Directory.Exists(Path.Combine(app.Environ
     });
 }
 app.UseStaticFiles();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();

@@ -11,7 +11,8 @@
     <!-- the images, videos and CV are shared with the current static site, so the repo keeps only one copy (the assets folder at the repo root) -->
     <None Include="..\..\assets\**" Link="wwwroot\assets\%(RecursiveDir)%(Filename)%(Extension)" CopyToPublishDirectory="PreserveNewest" />
     <!-- the editable content file is copied next to the app when it is published -->
-    <Content Update="Data\**" CopyToPublishDirectory="PreserveNewest" />
+    <Content Remove="Data\admin.json;Data\backups\**" />
+    <Content Update="Data\content.json" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

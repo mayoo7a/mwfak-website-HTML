@@ -60,19 +60,20 @@
   "services": [
     {
       "slug": "logo-design",
-      "boxImage": "box-orange.svg",
-      "color": "#F9A323",
+      "menuLabel": "Logo Design",
       "heading1": "Logo",
       "heading2": "Design",
-      "menuLabel": "Logo Design",
       "tagline": "One mark to carry your whole brand.",
       "description": "I design your logo so it looks sharp everywhere: on social media, signs, stamps and packaging. You get it in Arabic, English or both, plus every file you need to use it.",
+      "color": "#F9A323",
+      "boxImage": "box-orange.svg",
       "projectImage": "assets/portfolio/baseera.webp",
       "projectName": "Baseera",
       "projectType": "Logo design",
-      "price": "$450",
       "priceLabel": "Starting from",
+      "price": "$450",
       "ctaText": "Start a project",
+      "scopeTitle": "Scope",
       "scope": [
         {
           "icon": "palette",
@@ -96,6 +97,7 @@
           "text": "From brief to final files"
         }
       ],
+      "stepsTitle": "How we get there",
       "steps": [
         {
           "title": "Brief",
@@ -114,8 +116,6 @@
           "text": "The final logo in every version and file."
         }
       ],
-      "stepsTitle": "How we get there",
-      "scopeTitle": "Scope",
       "receiveTitle": "What you receive",
       "receive": [
         {
@@ -151,19 +151,20 @@
     },
     {
       "slug": "brand-identity",
-      "boxImage": "box-magenta.svg",
-      "color": "#D23697",
+      "menuLabel": "Brand Identity",
       "heading1": "Brand",
       "heading2": "Identity",
-      "menuLabel": "Brand Identity",
       "tagline": "A full visual system your customers recognise everywhere.",
       "description": "Your logo, colours, fonts and style rules, built as one system. You get a guide so your team and your printers keep everything looking consistent, from social posts to signs and packaging.",
+      "color": "#D23697",
+      "boxImage": "box-magenta.svg",
       "projectImage": "assets/portfolio/the-welcome-table.webp",
       "projectName": "The Welcome Table",
       "projectType": "Brand identity",
-      "price": "$1,200",
       "priceLabel": "Starting from",
+      "price": "$1,200",
       "ctaText": "Start a project",
+      "scopeTitle": "Scope",
       "scope": [
         {
           "icon": "palette",
@@ -187,6 +188,7 @@
           "text": "From brief to final files"
         }
       ],
+      "stepsTitle": "How we get there",
       "steps": [
         {
           "title": "We talk",
@@ -205,8 +207,6 @@
           "text": "Files and guidelines, ready to use from day one."
         }
       ],
-      "stepsTitle": "How we get there",
-      "scopeTitle": "Scope",
       "receiveTitle": "What you receive",
       "receive": [
         {
@@ -254,19 +254,20 @@
     },
     {
       "slug": "packaging-print",
-      "boxImage": "box-blue.svg",
-      "color": "#1E7CDF",
+      "menuLabel": "Packaging & Print",
       "heading1": "Packaging",
       "heading2": "& Print",
-      "menuLabel": "Packaging & Print",
       "tagline": "A product that wins in its first two seconds.",
       "description": "Packaging, labels and printed pieces like menus and brochures, designed to get noticed and ready for the printer. You get print-ready files that match what you approved on screen.",
+      "color": "#1E7CDF",
+      "boxImage": "box-blue.svg",
       "projectImage": "assets/portfolio/sol-root.webp",
       "projectName": "Sol Root",
       "projectType": "Logo and packaging",
-      "price": "$350",
       "priceLabel": "Starting from",
+      "price": "$350",
       "ctaText": "Start a project",
+      "scopeTitle": "Scope",
       "scope": [
         {
           "icon": "palette",
@@ -290,6 +291,7 @@
           "text": "From brief to final files"
         }
       ],
+      "stepsTitle": "How we get there",
       "steps": [
         {
           "title": "Brief",
@@ -308,8 +310,6 @@
           "text": "Files prepared and checked before they reach the printer."
         }
       ],
-      "stepsTitle": "How we get there",
-      "scopeTitle": "Scope",
       "receiveTitle": "What you receive",
       "receive": [
         {
@@ -360,19 +360,20 @@
     },
     {
       "slug": "ui-ux-design",
-      "boxImage": "box-red.svg",
-      "color": "#FA5643",
+      "menuLabel": "UI/UX Design",
       "heading1": "UI/UX",
       "heading2": "Design",
-      "menuLabel": "UI/UX Design",
       "tagline": "Flows people finish instead of abandoning.",
       "description": "Website and app screens designed so people find what they need and finish what they came to do. You get clean designs for phone, tablet and desktop, in Arabic or English, ready for a developer to build.",
+      "color": "#FA5643",
+      "boxImage": "box-red.svg",
       "projectImage": "assets/portfolio/ticketat.webp",
       "projectName": "Ticketat",
       "projectType": "Website and booking flow",
-      "price": "$1,200",
       "priceLabel": "Starting from",
+      "price": "$1,200",
       "ctaText": "Start a project",
+      "scopeTitle": "Scope",
       "scope": [
         {
           "icon": "screens",
@@ -396,6 +397,7 @@
           "text": "From brief to final files"
         }
       ],
+      "stepsTitle": "How we get there",
       "steps": [
         {
           "title": "Understand",
@@ -414,8 +416,6 @@
           "text": "Organised files and clear specifications for your developer."
         }
       ],
-      "stepsTitle": "How we get there",
-      "scopeTitle": "Scope",
       "receiveTitle": "What you receive",
       "receive": [
         {
@@ -454,8 +454,9 @@
     "groups": [
       {
         "slug": "logo-design",
-        "accent": "#F9A323",
         "title": "Logo Design",
+        "accent": "#F9A323",
+        "pairWithNext": false,
         "items": [
           {
             "project": "baseera",
@@ -489,13 +490,13 @@
             "project": "motammem",
             "type": "Logo design"
           }
-        ],
-        "pairWithNext": false
+        ]
       },
       {
         "slug": "brand-identity",
-        "accent": "#D23697",
         "title": "Brand Identity",
+        "accent": "#D23697",
+        "pairWithNext": false,
         "items": [
           {
             "project": "battikhi-stays",
@@ -509,37 +510,37 @@
             "project": "ummati",
             "type": "Brand and UI/UX web/app"
           }
-        ],
-        "pairWithNext": false
+        ]
       },
       {
         "slug": "packaging",
-        "accent": "#1E7CDF",
         "title": "Packaging & Print",
+        "accent": "#1E7CDF",
+        "pairWithNext": true,
         "items": [
           {
             "project": "sol-root",
             "type": "Logo and packaging"
           }
-        ],
-        "pairWithNext": true
+        ]
       },
       {
         "slug": "slides-design",
-        "accent": "#711DB0",
         "title": "Slides Design",
+        "accent": "#711DB0",
+        "pairWithNext": false,
         "items": [
           {
             "project": "qanadeel",
             "type": "Presentation design"
           }
-        ],
-        "pairWithNext": false
+        ]
       },
       {
         "slug": "ui-ux",
-        "accent": "#FA5643",
         "title": "UI/UX Design",
+        "accent": "#FA5643",
+        "pairWithNext": false,
         "items": [
           {
             "project": "mwafq",
@@ -553,8 +554,7 @@
             "project": "ummati",
             "type": "Brand and UI/UX web/app"
           }
-        ],
-        "pairWithNext": false
+        ]
       }
     ],
     "projects": [
@@ -666,6 +666,11 @@
     ]
   },
   "home": {
+    "heroTitle": "Marah Touqan, Brand Identity and UI/UX Designer. 13+ years of designing worth showing.",
+    "heroAriaLabel": "Marah Touqan showreel 2026. Press to pause or play",
+    "heroVideo": "assets/hero.mp4",
+    "heroVideoSmall": "assets/hero-mobile.mp4",
+    "heroPoster": "assets/hero-poster.webp",
     "introLine2": "a designer running on",
     "introPixel": "cat cuddles",
     "introUnderline": "curiosity",
@@ -834,11 +839,6 @@
         "role": "Australia · Business cards · Freelancer.com",
         "text": "Very patient with me on the revisions and edits to some simple business cards. I recommend her highly."
       }
-    ],
-    "heroVideo": "assets/hero.mp4",
-    "heroVideoSmall": "assets/hero-mobile.mp4",
-    "heroPoster": "assets/hero-poster.webp",
-    "heroTitle": "Marah Touqan, Brand Identity and UI/UX Designer. 13+ years of designing worth showing.",
-    "heroAriaLabel": "Marah Touqan showreel 2026. Press to pause or play"
+    ]
   }
 }

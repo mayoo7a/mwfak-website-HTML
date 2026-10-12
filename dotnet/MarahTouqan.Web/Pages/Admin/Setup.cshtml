@@ -1,0 +1,17 @@
+@page "/admin/setup"
+@model MarahTouqan.Web.Pages.Admin.SetupModel
+@{ ViewData["Title"] = "Create password"; Layout = "_AdminLayout"; }
+<main class="gate">
+  <form method="post" class="gate-card">
+    <h1>Create your password</h1>
+    <p class="muted">First time only. Use at least 10 characters.</p>
+    <label>Password
+      <input type="password" name="Password" autocomplete="new-password" minlength="10" required autofocus />
+    </label>
+    <label>Repeat password
+      <input type="password" name="Repeat" autocomplete="new-password" minlength="10" required />
+    </label>
+    @if (Model.Error != null) { <p class="err">@Model.Error</p> }
+    <button class="btn btn-pink" type="submit">Save password</button>
+  </form>
+</main>

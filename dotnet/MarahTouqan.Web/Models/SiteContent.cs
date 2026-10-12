@@ -39,6 +39,7 @@ public class SiteSettings
     public string AvailabilityLine2 { get; set; } = "";
     public string FooterTagline { get; set; } = "";
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public string WhatsAppUrl => "https://wa.me/" + WhatsAppNumber;
 }
 

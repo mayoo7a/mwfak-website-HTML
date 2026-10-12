@@ -1,0 +1,14 @@
+@page "/admin/login"
+@model MarahTouqan.Web.Pages.Admin.LoginModel
+@{ ViewData["Title"] = "Log in"; Layout = "_AdminLayout"; }
+<main class="gate">
+  <form method="post" class="gate-card">
+    <h1>Admin</h1>
+    <p class="muted">Marah Touqan website</p>
+    <label>Password
+      <input type="password" name="Password" autocomplete="current-password" autofocus required />
+    </label>
+    @if (Model.Error != null) { <p class="err">@Model.Error</p> }
+    <button class="btn btn-pink" type="submit">Log in</button>
+  </form>
+</main>

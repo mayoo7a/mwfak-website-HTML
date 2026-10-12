@@ -191,7 +191,7 @@
       <a class="switch-screen" href="my-work.html" aria-label="See all my work">
         @for (var si = 0; si < H.Slides.Count; si++) {
           var sl = H.Slides[si]; var pr = Content.Current.Work.Find(sl.Project);
-          <img src="assets/portfolio/@(sl.Project).webp" alt="@sl.Alt" data-name="@pr?.Name" data-type="@sl.Type" data-stem="@sl.Project" class="screen-slide@(si == 0 ? " is-active" : "")" width="1400" height="745" loading="@(si == 0 ? "eager" : "lazy")" @(si == 0 ? Html.Raw("fetchpriority=\"high\" ") : null)decoding="async" />
+          <img src="@pr?.Image" alt="@sl.Alt" data-name="@pr?.Name" data-type="@sl.Type" data-stem="@sl.Project" class="screen-slide@(si == 0 ? " is-active" : "")" width="1400" height="745" loading="@(si == 0 ? "eager" : "lazy")" @(si == 0 ? Html.Raw("fetchpriority=\"high\" ") : null)decoding="async" />
         }
       </a>
       <button type="button" class="joy-btn" data-joy="work" style="left:95.70%;top:25.13%" aria-label="Open this project (A)"></button>

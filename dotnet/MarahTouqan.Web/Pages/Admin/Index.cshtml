@@ -1,0 +1,42 @@
+@page "/admin"
+@model MarahTouqan.Web.Pages.Admin.IndexModel
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+@{
+    ViewData["Title"] = "Edit website";
+    Layout = "_AdminLayout";
+    var token = Antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+<div id="app" data-token="@token">
+  <header class="top">
+    <div class="brand"><strong>Admin</strong><span>Marah Touqan website</span></div>
+    <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+    <div class="actions">
+      <span class="state" id="state" role="status"></span>
+      <a class="btn btn-ghost" href="/" target="_blank" rel="noopener">View site ↗</a>
+      <button class="btn btn-ghost" id="undoBtn" type="button">Undo last save</button>
+      <button class="btn btn-pink" id="saveBtn" type="button">Save</button>
+      <form method="post" asp-page-handler="Logout" class="inline"><button class="btn btn-ghost" type="submit">Log out</button></form>
+    </div>
+  </header>
+  <main id="panel" class="panel"><p class="muted">Loading…</p></main>
+</div>
+<div id="picker" class="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <strong id="pickerTitle">Choose a file</strong>
+      <label class="btn btn-blue">Upload new<input type="file" id="pickerUpload" hidden /></label>
+      <button class="btn btn-ghost" id="pickerClose" type="button">Close</button>
+    </div>
+    <div class="grid" id="pickerGrid"></div>
+  </div>
+</div>
+<div id="history" class="modal" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><strong>Earlier versions</strong><button class="btn btn-ghost" id="historyClose" type="button">Close</button></div>
+    <p class="muted">Every save keeps the version before it. Pick one to bring it back. Your current version is kept too, so you can always go forward again.</p>
+    <ul class="hist" id="historyList"></ul>
+  </div>
+</div>
+<div id="toast" class="toast" hidden></div>
+@section Scripts { <script src="~/admin/admin.js" asp-append-version="true"></script> }

@@ -14,5 +14,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Add this line once the real domain is known:
-# Sitemap: https://YOUR-DOMAIN/sitemap.xml
+Sitemap: https://marahtouqan.com/sitemap.xml
